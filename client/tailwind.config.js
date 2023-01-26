@@ -87,7 +87,7 @@ module.exports = {
 			additional: 'Inter, sans-serif',
 		},
 		// spacing?
-		// typography?
+		// typography? fontsize?
 	},
 	plugins: [],
 }
