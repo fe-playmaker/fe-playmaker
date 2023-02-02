@@ -11,9 +11,7 @@ module.exports = {
       largeDesktop: '1600px',
     },
     colors: {
-      transparent: {
-        transparent: 'transparent',
-      },
+      transparent: 'transparent',
       primary: '#F2183D',
       primaryAlpha: {
         50: '#F00E0E',
@@ -99,38 +97,19 @@ module.exports = {
       additional: 'Inter, sans-serif',
     },
     fontSize: {
-      heading: {
-        extraLarge: '2.5rem',
-        large: '2rem',
-        medium: '1.5rem',
-        small: '1.25rem',
-        smaller: '1.125rem',
-        extraSmall: '1rem',
-        micro: '0.875rem',
-      },
-      subHeader: {
-        extraLarge: '1.125rem',
-        large: '1rem',
-        medium: '0.875rem',
-        small: '0.75rem',
-      },
-      body: {
-        large: '1rem',
-        medium: '0.875rem',
-        small: '0.75rem',
-        extraSmall: '0.625rem',
-      },
-      label: {
-        extraLarge: '1.125rem',
-        large: '1rem',
-        medium: '0.875rem',
-        small: '0.75rem',
-      },
-      caption: {
-        large: '0.875rem',
-        medium: '0.75rem',
-        small: '0.625rem',
-      },
+      'heading-2xl': '2.5rem',
+      'heading-xl': '2rem',
+      'heading-md': '1.5rem',
+      'heading-s': '1.25rem',
+      'heading-xs': '1.125rem',
+      'heading-2xs': '1rem',
+      'heading-3xs': '0.875rem',
+      'subHeading-2xl': '1.125rem',
+      'label-2xl': '1.125rem',
+      xl: '1rem',
+      md: '0.875rem',
+      s: '0.75rem',
+      xs: '0.625rem',
     },
     spacing: {
       1: '0.125rem',
