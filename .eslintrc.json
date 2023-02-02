@@ -32,7 +32,6 @@
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "prettier/prettier": "error",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
@@ -42,7 +41,13 @@
     "react/no-unstable-nested-components": "off",
     "react/jsx-no-bind": "off",
     "@typescript-eslint/no-use-before-define": "off",
-    "radix": "off"
+    "radix": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   },
   "overrides": [
     {
