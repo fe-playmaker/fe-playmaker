@@ -1,5 +1,5 @@
 {
-	"display": "Client",
+  "display": "Client",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -18,15 +18,14 @@
     "baseUrl": "./app",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/public/*": ["public/*"],
+      "@/public/*": ["public/*"]
     },
-		"plugins": [
-			{
-				"name": "next"
-			}
-		]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-	"exclude": ["node_modules"],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }
-
