@@ -1,7 +1,13 @@
+import { Button } from '../components/common/Button/Button'
+import { Avatar } from '../components/common/user/Avatar'
+import { PlayMakerScore } from '../components/common/user/Score/PlayMakerScore'
+
 const Home = () => (
-  <main>
-    <h1>playmaker</h1>
-  </main>
+  <div>
+    <Button intent="primary">Primary</Button>
+    <Avatar />
+    <PlayMakerScore scoreValue={49} />
+  </div>
 )
 
 export default Home
