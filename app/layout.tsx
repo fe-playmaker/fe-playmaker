@@ -1,20 +1,27 @@
 import '../styles/globals.css'
-import { Poppins } from '@next/font/google'
 
+import { Inter, Poppins } from '@next/font/google'
 import type { ReactNode } from 'react'
 
 const poppins = Poppins({
-	weight: '400',
-	subsets: ['latin'],
+  weight: ['500', '700'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
 })
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
-	return (
-		<html lang='pl'>
-			<head />
-			<body className={poppins.className}>{children}</body>
-		</html>
-	)
-}
+const inter = Inter({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const RootLayout = ({ children }: { children: ReactNode }) => (
+  <html lang="pl">
+    <head />
+    <body className={`${poppins.variable} ${inter.variable} font-poppins`}>
+      {children}
+    </body>
+  </html>
+)
 
 export default RootLayout

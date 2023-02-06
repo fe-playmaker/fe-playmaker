@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -93,8 +95,8 @@ module.exports = {
       validate: '0px 4px 16px 0px rgba(240, 14, 14, 0.16)',
     },
     fontFamily: {
-      base: 'Poppins, sans-serif',
-      additional: 'Inter, sans-serif',
+      inter: ['var(--font-inter)', ...fontFamily.sans],
+      poppins: ['var(--font-poppins)', ...fontFamily.sans],
     },
     fontSize: {
       'heading-xl': '2.5rem',
