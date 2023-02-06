@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -93,30 +95,30 @@ module.exports = {
       validate: '0px 4px 16px 0px rgba(240, 14, 14, 0.16)',
     },
     fontFamily: {
-      base: 'Poppins, sans-serif',
-      additional: 'Inter, sans-serif',
+      inter: ['var(--font-inter)', ...fontFamily.sans],
+      poppins: ['var(--font-poppins)', ...fontFamily.sans],
     },
     fontSize: {
-      'heading-2xl': '2.5rem',
-      'heading-xl': '2rem',
+      'heading-xl': '2.5rem',
+      'heading-lg': '2rem',
       'heading-md': '1.5rem',
       'heading-sm': '1.25rem',
       'heading-smaller': '1.125rem',
       'heading-xs': '1rem',
       'heading-micro': '0.875rem',
-      'subHeading-2xl': '1.125rem',
-      'subHeading-xl': '1rem',
+      'subHeading-xl': '1.125rem',
+      'subHeading-lg': '1rem',
       'subHeading-md': '0.875rem',
       'subHeading-sm': '0.75rem',
-      'body-xl': '1rem',
+      'body-lg': '1rem',
       'body-md': '0.875rem',
       'body-sm': '0.75rem',
       'body-xs': '0.625rem',
-      'label-2xl': '1.125rem',
-      'label-xl': '1rem',
+      'label-xl': '1.125rem',
+      'label-lg': '1rem',
       'label-md': '0.875rem',
       'label-sm': '0.75rem',
-      'caption-xl': '0.875rem',
+      'caption-lg': '0.875rem',
       'caption-md': '0.75rem',
       'caption-sm': '0.625rem',
     },
@@ -134,5 +136,7 @@ module.exports = {
       11: '6rem',
     },
   },
-  plugins: [],
+  plugins: [
+    require('@headlessui/tailwindcss')({ prefix: 'ui' })
+  ],
 }
