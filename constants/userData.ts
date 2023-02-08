@@ -1,7 +1,8 @@
 export const USER_DATA = {
   name: 'Cezary',
   surname: 'Demianiuk',
-  image: 'https://ipla.pluscdn.pl/dituel/cp/15/15xeaz1hgt2j6b1ofx24iqnm78m4bv8h.jpg',
+  image:
+    'https://ipla.pluscdn.pl/dituel/cp/15/15xeaz1hgt2j6b1ofx24iqnm78m4bv8h.jpg',
   league: 3,
   score: 63,
   userHasPremium: true,
