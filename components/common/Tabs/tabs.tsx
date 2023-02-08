@@ -7,7 +7,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 const tabsCva = cva(
   [
-    'relative text-darkAlpha-40 font-medium outline-none',
+    'relative text-darkAlpha-40 font-medium outline-none whitespace-nowrap',
     'hover:bg-darkAlpha-5 transition-colors',
     'ui-selected:font-bold ui-selected:text-dark',
     "ui-selected:after:absolute after:content-[''] after:h-[2px] after:bg-primaryShade-50 after:w-full after:bottom-[0] after:left-[0] after:shadow-[0_-1px_6px_rgba(242,24,61,0.24)]",
@@ -30,7 +30,7 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 
 const Tabs = ({ size, tabs, children }: TabsProps) => (
   <Tab.Group>
-    <Tab.List>
+    <Tab.List className="flex overflow-x-auto">
       {tabs.map(name => (
         <Tab className={tabsCva({ size })} key={name}>
           {name}
