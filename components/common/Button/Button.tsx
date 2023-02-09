@@ -2,7 +2,13 @@ import { cva, VariantProps } from 'class-variance-authority'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 const buttonCva = cva(
-  ['border', 'rounded-full', 'border-transparent', 'transition-all'],
+  [
+    'border',
+    'rounded-full',
+    'border-transparent',
+    'transition-all',
+    'flex items-center gap-2',
+  ],
   {
     variants: {
       intent: {
@@ -29,8 +35,8 @@ interface Props
   icon?: ReactNode
 }
 
-export const Button = ({ text, intent, size, ...props }: Props) => (
+export const Button = ({ text, icon, intent, size, ...props }: Props) => (
   <button className={buttonCva({ intent, size })} type="button" {...props}>
-    {text}
+    {icon} {text}
   </button>
 )
