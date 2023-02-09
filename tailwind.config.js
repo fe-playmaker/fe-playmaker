@@ -136,7 +136,5 @@ module.exports = {
       11: '6rem',
     },
   },
-  plugins: [
-    require('@headlessui/tailwindcss')({ prefix: 'ui' })
-  ],
+  plugins: [require('@headlessui/tailwindcss')({ prefix: 'ui' })],
 }
