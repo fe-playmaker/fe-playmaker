@@ -1,4 +1,5 @@
 import { USER_DATA } from 'constants/userData'
+import SendIcon from 'img/icons/Send.svg'
 import React from 'react'
 
 import { Avatar } from '@/components/common/Avatar/Avatar'
@@ -30,9 +31,10 @@ const PlayerTestPage = () => (
         <p key={tab}>{tab}</p>
       ))}
     </Tabs>
-    <Button disabled intent="secondary" text="Siema" size="medium" />
+    <Button intent="primary" text="Send" size="medium" icon={<SendIcon />} />
     <Avatar
       size="small"
+      intent="premium"
       image={USER_DATA.image}
       alt={`${USER_DATA.name} ${USER_DATA.surname}`}
     />
