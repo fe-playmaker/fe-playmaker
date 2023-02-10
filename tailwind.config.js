@@ -123,6 +123,7 @@ module.exports = {
       'caption-sm': '0.625rem',
     },
     spacing: {
+      0: '0',
       1: '0.125rem',
       2: '0.25rem',
       3: '0.5rem',
