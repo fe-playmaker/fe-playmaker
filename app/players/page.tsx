@@ -9,20 +9,7 @@ import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import Tabs from '@/components/common/Tabs/tabs'
 
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
-const chips = [
-  {
-    title: 'Tylko z udziałem zawodnika',
-    isSelected: true,
-  },
-  {
-    title: 'Wszystkie',
-    isSelected: false,
-  },
-  {
-    title: 'Tylko wideo',
-    isSelected: false,
-  },
-]
+const chips = ['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']
 
 const PlayerTestPage = () => (
   <main>
@@ -31,14 +18,27 @@ const PlayerTestPage = () => (
         <p key={tab}>{tab}</p>
       ))}
     </Tabs>
-    <Button intent="primary" text="Send" size="medium" icon={<SendIcon />} />
-    <Avatar
-      size="small"
-      intent="premium"
-      image={USER_DATA.image}
-      alt={`${USER_DATA.name} ${USER_DATA.surname}`}
+    <Button
+      buttonType="primary"
+      text="Send"
+      buttonSize="small"
+      iconSize="small"
+      iconType="primary"
+      icon={<SendIcon />}
     />
-    <PlayMakerScore intent="trendUp" scoreValue={USER_DATA.score} />
+    <div>
+      <Avatar
+        size="large"
+        type="border"
+        image={USER_DATA.image}
+        alt={`${USER_DATA.name} ${USER_DATA.surname}`}
+      />
+    </div>
+    <PlayMakerScore
+      trendScoreType="trendDown"
+      scoreType="default"
+      scoreValue={USER_DATA.score}
+    />
     <Chips chips={chips} />
   </main>
 )
