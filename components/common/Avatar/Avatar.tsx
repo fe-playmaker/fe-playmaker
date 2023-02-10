@@ -4,17 +4,19 @@ import Image from 'next/image'
 const avatarCva = cva(
   [
     'relative flex items-center justify-center',
-    'overflow-hidden rounded-full border-[0.188rem] p-2',
+    'overflow-hidden rounded-full p-2',
   ],
   {
     variants: {
-      intent: {
-        default: 'border-none',
-        premium: 'border-secondary',
+      type: {
+        default: 'bg-none',
+        border: 'bg-white',
+        premium:
+          'bg-gradient-to-r from-premiumGradient-1 via-premiumGradient-2 to-premiumGradient-3',
       },
       size: {
-        large: ['w-[7.5rem] h-[7.5rem]'],
-        small: ['w-[6rem] h-[6rem]'],
+        large: ['w-11 h-11'],
+        small: ['w-10 h-10'],
       },
     },
   },
@@ -25,14 +27,14 @@ interface AvatarProps extends VariantProps<typeof avatarCva> {
   alt: string
 }
 
-export const Avatar = ({ image, alt, size, intent }: AvatarProps) => (
-  <div className={avatarCva({ size, intent })}>
+export const Avatar = ({ image, alt, size, type }: AvatarProps) => (
+  <div className={avatarCva({ size, type })}>
     <Image
       src={image}
       alt={alt}
       width={400}
       height={400}
-      className="h-[98%] w-[98%] rounded-[50%] object-cover"
+      className="h-full w-full rounded-[50%] object-cover"
     />
   </div>
 )
