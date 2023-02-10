@@ -1,25 +1,33 @@
+'use client'
+
+import SelectedIcon from 'img/icons/Check.svg'
+import { useState } from 'react'
+
 import { Chip } from './Chip'
 
-interface ChipProps {
-  title: string
-  isSelected: boolean
-}
-
 interface ChipsProps {
-  readonly chips: ChipProps[]
+  chips: string[]
 }
 
-export const Chips = ({ chips }: ChipsProps) => (
-  <div className="flex items-center gap-4">
-    {chips.map(chip => (
-      <Chip
-        key={chip.title}
-        query={chip.title}
-        size="small"
-        intent={chip.isSelected ? 'selected' : 'unselected'}
-      >
-        {chip.title}
-      </Chip>
-    ))}
-  </div>
-)
+export const Chips = ({ chips }: ChipsProps) => {
+  const [selectedChips, setSelectedChips] = useState<string[]>([])
+
+  const selectChipHandler = (chip: string, isSelected: boolean) => {
+    if (isSelected) setSelectedChips([...selectedChips, chip])
+    else setSelectedChips(selectedChips.filter(c => c !== chip))
+  }
+
+  return (
+    <div className="flex w-full items-center gap-4 overflow-x-auto p-4">
+      {chips.map(c => (
+        <Chip
+          key={c}
+          title={c}
+          iconSize="small"
+          selectChipHandler={selectChipHandler}
+          icon={<SelectedIcon />}
+        />
+      ))}
+    </div>
+  )
+}
