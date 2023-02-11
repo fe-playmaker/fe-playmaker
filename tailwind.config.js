@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -123,6 +124,7 @@ module.exports = {
       'caption-sm': '0.625rem',
     },
     spacing: {
+      0: '0',
       1: '0.125rem',
       2: '0.25rem',
       3: '0.5rem',
@@ -137,6 +139,22 @@ module.exports = {
     },
   },
   plugins: [
-    require('@headlessui/tailwindcss')({ prefix: 'ui' })
+    require('@headlessui/tailwindcss')({ prefix: 'ui' }),
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.icon-16': {
+          '@apply w-5 h-5':{}
+        },
+        '.icon-20':{
+          "@apply w-6 h-6":{}
+        },
+        '.icon-24':{
+          '@apply w-7 h-7':{}
+        },
+        '.icon-32':{
+          '@apply w-8 h-8':{}
+        },
+      });
+   })
   ],
 }
