@@ -1,28 +1,16 @@
 'use client'
 
-import { cva, VariantProps } from 'class-variance-authority'
+import clsx from 'clsx'
 import type { ChangeEvent, InputHTMLAttributes, ReactElement } from 'react'
 import { cloneElement, useState } from 'react'
 
-const iconCva = cva('group-disabled:fill-darkAlpha-20 fill-dark', {
-  variants: {
-    iconSize: {
-      large: 'w-7 h-7',
-      small: 'w-5 h-5',
-    },
-  },
-})
-
-interface ChipsProps
-  extends InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof iconCva> {
+interface ChipsProps extends InputHTMLAttributes<HTMLInputElement> {
   title: string
   icon?: ReactElement
   selectChipHandler: (chip: string, isSelected: boolean) => void
 }
 
 export const Chip = ({
-  iconSize,
   icon,
   title,
   selectChipHandler,
@@ -36,7 +24,7 @@ export const Chip = ({
   }
 
   return (
-    <div>
+    <button type="button">
       <input
         className="peer hidden"
         type="checkbox"
@@ -47,16 +35,19 @@ export const Chip = ({
       />
       <label
         htmlFor={title}
-        className="flex cursor-pointer items-center justify-center gap-3 whitespace-nowrap rounded-full px-7 py-3 text-label-sm text-darkAlpha-40 shadow-default outline-2 outline-transparent transition-colors hover:bg-darkAlpha-5 peer-checked:text-dark peer-checked:outline peer-checked:outline-dark peer-invalid:shadow-validate peer-invalid:outline-primaryShade-50"
+        className={clsx(
+          'flex cursor-pointer items-center justify-center gap-3 whitespace-nowrap rounded-full py-3 text-label-md font-medium text-darkAlpha-40 shadow-default outline-2 outline-transparent transition-colors hover:bg-darkAlpha-5 peer-checked:text-dark peer-checked:outline peer-checked:outline-dark peer-invalid:shadow-validate peer-invalid:outline-primaryShade-50',
+          checked ? 'pr-7 pl-5' : 'px-7',
+        )}
       >
         {checked &&
           !!icon &&
           cloneElement(icon, {
-            className: iconCva({ iconSize }),
+            className: 'w-6 h-6 group-disabled:fill-darkAlpha-20 fill-dark',
           })}
 
         {title}
       </label>
-    </div>
+    </button>
   )
 }

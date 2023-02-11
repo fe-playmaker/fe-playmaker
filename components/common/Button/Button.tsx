@@ -7,7 +7,7 @@ const buttonCva = cva(
     'rounded-full group',
     'transition-all',
     'flex items-center gap-2',
-    'tracking-wide font-bold',
+    'tracking-wider font-bold',
   ],
   {
     variants: {
@@ -23,10 +23,10 @@ const buttonCva = cva(
         ],
       },
       buttonSize: {
-        large: 'text-label-lg px-9 py-5',
-        medium: 'text-label-md px-8 py-4',
-        small: 'text-label-sm px-6 py-3',
-        extraSmall: 'text-label-xs px-4 py-3',
+        extraLarge: 'text-label-xl px-9 py-5',
+        large: 'text-label-lg px-8 py-4',
+        medium: 'text-label-md px-6 py-3',
+        small: 'text-label-sm px-4 py-3',
       },
     },
   },

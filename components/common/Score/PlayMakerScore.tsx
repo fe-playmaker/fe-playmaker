@@ -9,20 +9,18 @@ const scoreCva = cva(
   {
     variants: {
       scoreType: {
-        default: ['w-[3.5rem] h-[3rem] text-heading-sm'],
-        hidden: ['w-[5rem] h-[3rem] text-heading-md'],
+        default: ['w-[3rem] h-[2.5rem] text-heading-sm'],
+        hidden: ['w-[5rem] h-[2.5rem] text-heading-md'],
       },
+    },
+    defaultVariants: {
+      scoreType: 'default',
     },
   },
 )
 
 const trendCva = cva(
-  [
-    'text-white',
-    'py-0 px-3',
-    'w-[2.5rem] h-[2.5rem]',
-    'flex items-center justify-center',
-  ],
+  ['text-white', 'py-0 px-3', 'w-8 h-8', 'flex items-center justify-center'],
   {
     variants: {
       trendScoreType: {
@@ -66,7 +64,7 @@ export const PlayMakerScore = ({
         </div>
       )}
     </div>
-    <p className="text-center text-caption-md text-darkAlpha-40">
+    <p className="text-center text-caption-sm text-darkAlpha-40">
       Playmaker <br /> score
     </p>
   </div>
