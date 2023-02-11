@@ -11,8 +11,6 @@ import WhistleIcon from '@/icons/Whistle.svg'
 
 import { IMatchResult } from './types'
 
-const iconSize = 'w-5 h-5'
-
 interface IProps
   extends Pick<IMatchResult, 'date' | 'noParticipation' | 'playerStats'> {}
 
@@ -32,29 +30,29 @@ const MatchResultStats = ({ playerStats, date, noParticipation }: IProps) => (
         <div className="flex flex-col gap-3">
           {playerStats.clearAccount && (
             <div className="flex items-center gap-2 self-end text-body-sm font-medium text-darkAlpha-40">
-              <ShieldIcon className={iconSize} />
+              <ShieldIcon className="icon-16" />
               Czyste konto
             </div>
           )}
           <div className="flex gap-4">
             {playerStats.goals && (
               <div className="flex gap-[0.313rem] text-body-sm font-bold text-darkAlpha-40">
-                <BallIcon className={iconSize} />x{playerStats.goals}
+                <BallIcon className="icon-16" />x{playerStats.goals}
               </div>
             )}
             <div className="flex gap-[0.313rem] text-body-sm font-bold text-darkAlpha-40">
-              <WhistleIcon className={iconSize} />
+              <WhistleIcon className="icon-16" />
               {playerStats.minutes}&apos;
             </div>
             {(playerStats.redCards || playerStats.yellowCards) && (
               <div className="flex">
                 {playerStats.yellowCards && (
-                  <YellowCardIcon className={iconSize} />
+                  <YellowCardIcon className="icon-16" />
                 )}
                 {playerStats.redCards && (
                   <RedCardIcon
                     className={clsx(
-                      iconSize,
+                      'icon-16',
                       playerStats.yellowCards && '-ml-3',
                     )}
                   />
@@ -69,9 +67,9 @@ const MatchResultStats = ({ playerStats, date, noParticipation }: IProps) => (
               )}
             >
               {playerStats.score.trend === 'up' ? (
-                <TrendUpIcon className={iconSize} />
+                <TrendUpIcon className="icon-16" />
               ) : (
-                <TrendDownIcon className={iconSize} />
+                <TrendDownIcon className="icon-16" />
               )}
               {playerStats.score.value}
             </div>
