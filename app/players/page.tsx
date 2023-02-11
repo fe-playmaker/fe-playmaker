@@ -26,19 +26,13 @@ const PlayerTestPage = () => (
       iconType="primary"
       icon={<SendIcon />}
     />
-    <div>
-      <Avatar
-        size="large"
-        type="border"
-        image={USER_DATA.image}
-        alt={`${USER_DATA.name} ${USER_DATA.surname}`}
-      />
-    </div>
-    <PlayMakerScore
-      trendScoreType="trendDown"
-      scoreType="default"
-      scoreValue={USER_DATA.score}
+
+    <Avatar
+      type="premiumProfile"
+      alt={`${USER_DATA.name} ${USER_DATA.surname}`}
     />
+
+    <PlayMakerScore trendScoreType="trendUp" scoreValue={USER_DATA.score} />
     <Chips chips={chips} />
   </main>
 )
