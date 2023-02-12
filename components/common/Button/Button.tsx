@@ -6,7 +6,7 @@ const buttonCva = cva(
   [
     'rounded-full group',
     'transition-all',
-    'flex items-center gap-2',
+    'flex items-center',
     'tracking-wider font-bold',
   ],
   {
@@ -23,10 +23,10 @@ const buttonCva = cva(
         ],
       },
       size: {
-        large: 'text-label-xl px-9 py-5',
-        medium: 'text-label-lg px-8 py-4',
-        small: 'text-label-md px-6 py-3',
-        extraSmall: 'text-label-md px-4 py-3',
+        large: 'text-label-xl px-9 py-5 gap-3',
+        medium: 'text-label-lg px-8 py-4 gap-3',
+        small: 'text-label-md px-6 py-3 gap-2',
+        extraSmall: 'text-label-md px-4 py-3 gap-2',
       },
     },
   },

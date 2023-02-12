@@ -8,13 +8,13 @@ const scoreCva = cva(
   ],
   {
     variants: {
-      scoreType: {
+      type: {
         default: ['w-[3rem] h-[2.5rem] text-heading-sm'],
         hidden: ['w-[5rem] h-[2.5rem] text-heading-md'],
       },
     },
     defaultVariants: {
-      scoreType: 'default',
+      type: 'default',
     },
   },
 )
@@ -23,9 +23,9 @@ const trendCva = cva(
   ['text-white', 'py-0 px-3', 'w-8 h-8', 'flex items-center justify-center'],
   {
     variants: {
-      trendScoreType: {
-        trendUp: ['bg-greenShade-10'],
-        trendDown: ['bg-orangeShade-10'],
+      trend: {
+        up: ['bg-greenShade-10'],
+        down: ['bg-orangeShade-10'],
       },
     },
   },
@@ -35,27 +35,19 @@ type ScoreProps = VariantProps<typeof scoreCva>
 type TrendScoreProps = VariantProps<typeof trendCva>
 
 interface Props extends TrendScoreProps, ScoreProps {
-  scoreValue: number
+  score: number
 }
 
-export const PlayMakerScore = ({
-  trendScoreType,
-  scoreValue,
-  scoreType,
-}: Props) => (
+export const PlayMakerScore = ({ trend, score, type }: Props) => (
   <div className="flex flex-col items-center gap-2">
-    <div
-      className={`flex ${
-        trendScoreType === 'trendUp' ? 'items-start' : 'items-end'
-      }`}
-    >
-      <div className={scoreCva({ scoreType })}>
-        {scoreType !== 'hidden' ? <span>{scoreValue}</span> : <span>?</span>}
+    <div className={`flex ${trend === 'up' ? 'items-start' : 'items-end'}`}>
+      <div className={scoreCva({ type })}>
+        {type !== 'hidden' ? <span>{score}</span> : <span>?</span>}
       </div>
-      {scoreType !== 'hidden' && (
-        <div className={trendCva({ trendScoreType })}>
+      {type !== 'hidden' && (
+        <div className={trendCva({ trend })}>
           <p>
-            {trendScoreType === 'trendUp' ? (
+            {trend === 'up' ? (
               <TrendUpIcon className="h-6 w-6" />
             ) : (
               <TrendDownIcon className="h-6 w-6" />
@@ -64,8 +56,8 @@ export const PlayMakerScore = ({
         </div>
       )}
     </div>
-    <p className="text-center font-inter text-caption-sm text-darkAlpha-40">
-      Playmaker <br /> score
+    <p className="text-center font-inter text-caption-sm leading-3 tracking-wide text-darkAlpha-40">
+      PlayMaker <br /> Score
     </p>
   </div>
 )

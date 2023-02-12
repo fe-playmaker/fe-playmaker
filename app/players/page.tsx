@@ -26,7 +26,7 @@ const PlayerTestPage = () => (
         alt={`${USER_DATA.name} ${USER_DATA.surname}`}
       />
     </div>
-    <PlayMakerScore trendScoreType="trendUp" scoreValue={USER_DATA.score} />
+    <PlayMakerScore trend="up" score={USER_DATA.score} />
     <Chips chips={chips} />
   </main>
 )

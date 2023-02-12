@@ -37,8 +37,9 @@ export const Chip = ({
         htmlFor={title}
         className={clsx(
           'flex cursor-pointer items-center justify-center gap-3 whitespace-nowrap',
-          'rounded-full py-3 px-7 text-label-md font-medium text-dark/60',
-          'shadow-default outline-2 outline-transparent transition-colors hover:bg-darkAlpha-5',
+          'rounded-full py-3 px-7 text-label-md font-medium tracking-wide text-dark/50',
+          'shadow-default outline-2 outline-transparent transition-colors',
+          'hover:bg-darkAlpha-5 hover:text-dark',
           'peer-checked:pr-7 peer-checked:pl-5 peer-checked:text-dark peer-checked:outline peer-checked:outline-dark',
           'peer-invalid:shadow-validate peer-invalid:outline-primaryShade-50',
         )}
