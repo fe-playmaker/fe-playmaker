@@ -7,12 +7,14 @@ const poppins = Poppins({
   weight: ['500', '700'],
   subsets: ['latin'],
   variable: '--font-poppins',
+  display: 'swap',
 })
 
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 })
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
