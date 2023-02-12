@@ -19,10 +19,13 @@ const PlayerTestPage = () => (
       ))}
     </Tabs>
     <Button intent="primary" size="small" text="Label" icon={<SendIcon />} />
-    <Avatar
-      type="premiumProfile"
-      alt={`${USER_DATA.name} ${USER_DATA.surname}`}
-    />
+    <div className="flex w-full justify-center pb-4">
+      <Avatar
+        type="premium"
+        size="profile"
+        alt={`${USER_DATA.name} ${USER_DATA.surname}`}
+      />
+    </div>
     <PlayMakerScore trendScoreType="trendUp" scoreValue={USER_DATA.score} />
     <Chips chips={chips} />
   </main>
