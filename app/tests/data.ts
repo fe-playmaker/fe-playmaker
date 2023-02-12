@@ -1,4 +1,5 @@
 import { IMatchResult } from '@/components/common/Match-result/types'
+import { ISelectItem } from '@/components/common/Select/types'
 
 export const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
@@ -30,3 +31,9 @@ export const testMatchResultData: IMatchResult = {
   noParticipation: false,
   video: 'dsd',
 }
+
+export const testSelectItems: ISelectItem[] = [
+  { value: 'krak', name: 'Krakow' },
+  { value: 'pozn', name: 'Poznan' },
+  { value: 'szcz', name: 'Szczecin' },
+]
