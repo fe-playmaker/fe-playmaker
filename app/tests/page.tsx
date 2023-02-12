@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 
 import MatchResult from '@/components/common/Match-result/match-result'
@@ -22,7 +24,7 @@ const TestingPage = () => {
         <div className="px-5">
           <MatchResult data={testMatchResultData} />
         </div>
-        <div className="flex items-center justify-center gap-5">
+        <div className="mt-5 flex items-center justify-center gap-5">
           <StateSelect
             size="medium"
             name="Label"
