@@ -11,7 +11,7 @@ const buttonCva = cva(
   ],
   {
     variants: {
-      buttonType: {
+      intent: {
         primary: [
           'bg-dark text-white hover:bg-primary',
           'disabled:bg-light disabled:text-darkAlpha-20 disabled:hover:bg-light disabled:cursor-default',
@@ -22,7 +22,7 @@ const buttonCva = cva(
           'disabled:text-darkAlpha-20 disabled:hover:outline-1 disabled:outline-darkAlpha-5 disabled:cursor-default',
         ],
       },
-      buttonSize: {
+      size: {
         large: 'text-label-xl px-9 py-5',
         medium: 'text-label-lg px-8 py-4',
         small: 'text-label-md px-6 py-3',
@@ -34,45 +34,31 @@ const buttonCva = cva(
 
 const iconCva = cva('group-disabled:fill-darkAlpha-20', {
   variants: {
-    iconType: {
+    intent: {
       primary: 'fill-white',
       secondary: 'fill-dark',
     },
-    iconSize: {
+    size: {
       large: 'w-7 h-7',
+      medium: 'w-5 h-5',
       small: 'w-5 h-5',
+      extraSmall: 'w-4 h-4',
     },
   },
 })
 
-type ButtonProps = VariantProps<typeof buttonCva>
-type IconProps = VariantProps<typeof iconCva>
-
 interface Props
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    ButtonProps,
-    IconProps {
+    VariantProps<typeof buttonCva> {
   text?: string
   icon?: ReactElement
 }
 
-export const Button = ({
-  text,
-  icon,
-  buttonType,
-  buttonSize,
-  iconType,
-  iconSize,
-  ...props
-}: Props) => (
-  <button
-    className={buttonCva({ buttonSize, buttonType })}
-    type="button"
-    {...props}
-  >
+export const Button = ({ text, icon, intent, size, ...props }: Props) => (
+  <button className={buttonCva({ size, intent })} type="button" {...props}>
     {!!icon &&
       cloneElement(icon, {
-        className: iconCva({ iconSize, iconType }),
+        className: iconCva({ size, intent }),
       })}
     {text}
   </button>

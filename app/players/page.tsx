@@ -18,14 +18,7 @@ const PlayerTestPage = () => (
         <p key={tab}>{tab}</p>
       ))}
     </Tabs>
-    <Button
-      buttonType="primary"
-      text="Send"
-      buttonSize="small"
-      iconSize="small"
-      iconType="primary"
-      icon={<SendIcon />}
-    />
+    <Button intent="primary" size="small" text="Label" icon={<SendIcon />} />
     <Avatar
       type="premiumProfile"
       alt={`${USER_DATA.name} ${USER_DATA.surname}`}
