@@ -130,7 +130,7 @@ interface ControlledSelectProps
   extends VariantProps<typeof menuButtonCva>,
     Pick<IProps, 'name' | 'items'> {
   currentValue: string | undefined
-  setCurrentValue?: (item: string) => void
+  setCurrentValue: (item: string) => void
 }
 
 export const StateSelect = (props: ControlledSelectProps) => (
