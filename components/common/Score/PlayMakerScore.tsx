@@ -64,7 +64,7 @@ export const PlayMakerScore = ({
         </div>
       )}
     </div>
-    <p className="text-center text-caption-sm text-darkAlpha-40">
+    <p className="text-center font-inter text-caption-sm text-darkAlpha-40">
       Playmaker <br /> score
     </p>
   </div>

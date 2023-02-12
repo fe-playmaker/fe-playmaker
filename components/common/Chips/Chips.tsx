@@ -23,7 +23,6 @@ export const Chips = ({ chips }: ChipsProps) => {
         <Chip
           key={c}
           title={c}
-          iconSize="small"
           selectChipHandler={selectChipHandler}
           icon={<SelectedIcon />}
         />
