@@ -1,8 +1,13 @@
 'use client'
 
+import SendIcon from 'img/icons/Send.svg'
 import React, { useState } from 'react'
 
+import { Avatar } from '@/components/common/Avatar/Avatar'
+import { Button } from '@/components/common/Button/Button'
+import { Chips } from '@/components/common/Chips/Chips'
 import MatchResult from '@/components/common/Match-result/match-result'
+import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
@@ -40,6 +45,19 @@ const TestingPage = () => {
             inputName="testselect"
           />
         </div>
+        <Button
+          intent="primary"
+          size="small"
+          text="Label"
+          icon={<SendIcon />}
+        />
+        <div className="flex w-full justify-center pb-4">
+          <Avatar type="premium" size="profile" alt="Janusz Korwin" />
+        </div>
+        <PlayMakerScore trend="up" score={69} />
+        <Chips
+          chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
+        />
       </main>
     </>
   )

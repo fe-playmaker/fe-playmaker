@@ -21,6 +21,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 's3-alpha-sig.figma.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'ipla.pluscdn.pl',
+        port: '',
+        pathname: '/dituel/cp/15/**',
+      },
     ],
   },
 }

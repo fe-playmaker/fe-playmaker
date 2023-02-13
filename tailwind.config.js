@@ -87,6 +87,11 @@ module.exports = {
         10: '#ffffff3d',
         5: '#ffffff14',
       },
+      premiumGradient: {
+        1: 'rgba(255, 212, 161, 1)',
+        2: 'rgba(255, 214, 109, 1)',
+        3: 'rgba(255, 214, 0, 1)',
+      },
     },
     boxShadow: {
       default: '0px 1px 4px 0px rgba(20, 20, 20, 0.16)',

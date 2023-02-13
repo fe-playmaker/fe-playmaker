@@ -1,7 +1,7 @@
 const Home = () => (
-  <main>
-    <h1>playmaker</h1>
-  </main>
+  <div>
+    <h1>Homepage</h1>
+  </div>
 )
 
 export default Home
