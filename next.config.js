@@ -3,16 +3,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'ipla.pluscdn.pl',
-        port: '',
-        pathname: '/dituel/cp/15/**',
-      },
-    ],
-  },
   webpack: config => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -24,6 +14,20 @@ const nextConfig = {
         ...{ topLevelAwait: true },
       })
     return config
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's3-alpha-sig.figma.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ipla.pluscdn.pl',
+        port: '',
+        pathname: '/dituel/cp/15/**',
+      },
+    ],
   },
 }
 

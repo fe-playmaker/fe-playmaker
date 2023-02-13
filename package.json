@@ -14,12 +14,13 @@
     "@next/font": "13.1.5",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
+    "date-fns": "^2.29.3",
+    "framer-motion": "^9.0.2",
     "next": "13.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
