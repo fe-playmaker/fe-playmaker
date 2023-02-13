@@ -100,28 +100,91 @@ module.exports = {
       poppins: ['var(--font-poppins)', ...fontFamily.sans],
     },
     fontSize: {
-      'heading-xl': '2.5rem',
-      'heading-lg': '2rem',
-      'heading-md': '1.5rem',
-      'heading-sm': '1.25rem',
-      'heading-smaller': '1.125rem',
-      'heading-xs': '1rem',
-      'heading-micro': '0.875rem',
-      'subHeading-xl': '1.125rem',
-      'subHeading-lg': '1rem',
-      'subHeading-md': '0.875rem',
-      'subHeading-sm': '0.75rem',
-      'body-lg': '1rem',
-      'body-md': '0.875rem',
-      'body-sm': '0.75rem',
-      'body-xs': '0.625rem',
-      'label-xl': '1.125rem',
-      'label-lg': '1rem',
-      'label-md': '0.875rem',
-      'label-sm': '0.75rem',
-      'caption-lg': '0.875rem',
-      'caption-md': '0.75rem',
-      'caption-sm': '0.625rem',
+      'heading-xl': ['2.5rem', {
+        lineHeight: '120%',
+        letterSpacing: '-0.015em',
+      }],
+      'heading-lg': ['2rem', {
+        lineHeight: '120%',
+        letterSpacing: '-0.01em',
+      }],
+      'heading-md': ['1.5rem', {
+        lineHeight: '130%',
+        letterSpacing: '-0.01em',
+      }],
+      'heading-sm': ['1.25rem',{
+        lineHeight: '130%',
+        letterSpacing: '-0.005em',
+      }],
+      'heading-smaller': ['1.125rem', {
+        lineHeight: '130%',
+        letterSpacing: '-0.002em'
+      }],
+      'heading-xs': ['1rem', {
+        lineHeight: '140%',
+      }],
+      'heading-micro': ['0.875rem', {
+        lineHeight: '140%',
+        letterSpacing: '0.0063rem'
+      }],
+      'subHeading-xl': ['1.125rem', {
+        lineHeight: '140%',
+        letterSpacing: '-0.005em'
+      }],
+      'subHeading-lg': ['1rem', {
+        lineHeight: '140%',
+        letterSpacing: '-0.002em'
+      }],
+      'subHeading-md': ['0.875rem', {
+        lineHeight: '140%'
+      }],
+      'subHeading-sm': ['0.75rem', {
+        lineHeight: '140%'
+      }],
+      'body-lg': ['1rem', {
+        lineHeight: '150%',
+        letterSpacing: '0.0063rem'
+      }],
+      'body-md': ['0.875rem', {
+        lineHeight: '150%',
+        letterSpacing: '0.0063rem'
+      }],
+      'body-sm': ['0.75rem', {
+        lineHeight: '150%',
+        letterSpacing: '0.0063rem'
+      }],
+      'body-xs': ['0.625rem', {
+        lineHeight: '150%',
+        letterSpacing: '0.0063rem'
+      }],
+      'label-xl': ['1.125rem', {
+        lineHeight: '140%',
+        letterSpacing: '0.025rem'
+      }],
+      'label-lg': ['1rem', {
+        lineHeight: '140%',
+        letterSpacing: '0.013rem'
+      }],
+      'label-md': ['0.875rem', {
+        lineHeight: '140%',
+        letterSpacing: '0.013rem'
+      }],
+      'label-sm': ['0.75rem', {
+        lineHeight: '140%',
+        letterSpacing: '0.0063rem'
+      }],
+      'caption-lg': ['0.875rem', {
+        lineHeight: '120%',
+        letterSpacing: '0.013rem'
+      }],
+      'caption-md': ['0.75rem', {
+        lineHeight: '120%',
+        letterSpacing: '0.013rem'
+      }],
+      'caption-sm': ['0.625rem', {
+        lineHeight: '120%',
+        letterSpacing: '0.0063rem'
+      }],
     },
     spacing: {
       0: '0',
