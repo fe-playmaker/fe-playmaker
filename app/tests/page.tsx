@@ -4,6 +4,7 @@ import SendIcon from 'img/icons/Send.svg'
 import React, { useState } from 'react'
 
 import { Avatar } from '@/components/common/Avatar/Avatar'
+import Banner from '@/components/common/Banner/banner'
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
 import MatchResult from '@/components/common/Match-result/match-result'
@@ -20,7 +21,7 @@ const TestingPage = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="h-screen bg-light">
         <Tabs tabs={tabs} size="medium">
           {tabs.map(tab => (
             <p key={tab}>{tab}</p>
@@ -58,6 +59,23 @@ const TestingPage = () => {
         <Chips
           chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
         />
+        <div className="px-5">
+          <Banner
+            btnText="Napisz"
+            btnIcon={<SendIcon />}
+            btnSize="extraSmall"
+            btnIntent="primary"
+            accentClass="before:bg-tertiary"
+          >
+            <span className="text-body-md font-bold">Szukam klubu</span>
+            <span className="text-body-sm font-medium text-darkAlpha-40">
+              Oczekiwania: zwrot za dojazdy...
+            </span>
+            <span className="text-body-sm font-medium text-darkAlpha-40 underline">
+              Więcej
+            </span>
+          </Banner>
+        </div>
       </main>
     </>
   )
