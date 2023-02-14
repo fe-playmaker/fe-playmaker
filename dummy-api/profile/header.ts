@@ -9,8 +9,13 @@ export interface IProfileHeaderData {
   lastName: string
   age: number
   position: string
+  alternatePosition: string
   competition: string
   ownProfile: boolean
+  height: number
+  weight: number
+  betterLeg: string
+  location: string
   // iso string
   lastActivity: string
   team: string
@@ -37,8 +42,13 @@ export const profileHeaderData: IProfileHeaderData = {
   team: 'Pogoń Siedlce',
   age: 30,
   position: 'Napastnik',
+  alternatePosition: 'Prawy pomocnik',
   competition: '3 liga',
   lastActivity: date.toISOString(),
+  betterLeg: 'Lewa',
+  height: 182,
+  weight: 78,
+  location: 'Siedlce (mazowieckie)',
   banner: {
     type: 'searchingForClub',
     expectations: ['zwrot za dojazdy', 'porsche'],
