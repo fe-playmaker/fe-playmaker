@@ -1,5 +1,4 @@
 import { cva, VariantProps } from 'class-variance-authority'
-import PlayerImage from 'img/images/Photo.png'
 import Image from 'next/image'
 
 const avatarCva = cva('relative z-10 rounded-full object-cover', {
@@ -55,12 +54,13 @@ const premiumBorderCva = cva(
 
 interface AvatarProps extends VariantProps<typeof avatarCva> {
   alt: string
+  src: string
 }
 
-export const Avatar = ({ alt, type, size }: AvatarProps) => (
+export const Avatar = ({ alt, type, size, src }: AvatarProps) => (
   <div className="relative flex items-center justify-center rounded-full">
     <Image
-      src={PlayerImage}
+      src={src}
       alt={alt}
       width={400}
       height={400}
