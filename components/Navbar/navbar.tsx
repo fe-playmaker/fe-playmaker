@@ -11,7 +11,7 @@ const Navbar = () => {
   const [searchValue, setSearchValue] = useState('')
 
   return (
-    <nav className="flex items-center justify-center gap-6 py-5 px-7">
+    <nav className="relative z-50 flex items-center justify-center gap-6 py-5 px-7">
       <ArrowLeftIcon width="20" height="20" />
       <div className="flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4">
         <div
