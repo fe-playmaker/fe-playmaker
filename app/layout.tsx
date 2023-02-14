@@ -1,7 +1,8 @@
 import '../styles/globals.css'
 
 import { Inter, Poppins } from '@next/font/google'
-import type { ReactNode } from 'react'
+
+import { ReactQueryWrapper } from './ReactQueryWrapper'
 
 const poppins = Poppins({
   weight: ['500', '700'],
@@ -17,11 +18,11 @@ const inter = Inter({
   display: 'swap',
 })
 
-const RootLayout = ({ children }: { children: ReactNode }) => (
+const RootLayout = ({ children }: { children: React.ReactElement }) => (
   <html lang="pl">
     <head />
     <body className={`${poppins.variable} ${inter.variable} font-poppins`}>
-      {children}
+      <ReactQueryWrapper>{children}</ReactQueryWrapper>
     </body>
   </html>
 )
