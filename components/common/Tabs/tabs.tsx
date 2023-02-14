@@ -30,7 +30,7 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 
 const Tabs = ({ size, tabs, children }: TabsProps) => (
   <Tab.Group>
-    <Tab.List className="flex overflow-x-auto">
+    <Tab.List className="flex overflow-x-auto bg-white">
       {tabs.map(name => (
         <Tab className={tabsCva({ size })} key={name}>
           {name}

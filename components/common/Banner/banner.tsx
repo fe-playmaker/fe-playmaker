@@ -35,7 +35,9 @@ const Banner = ({
         `relative before:absolute before:left-0 before:h-full before:w-[0.188rem] ${accentClass}`,
     )}
   >
-    <div className="flex flex-col  font-inter">{children}</div>
+    <div className="flex flex-1 flex-col overflow-hidden pr-4 font-inter">
+      {children}
+    </div>
     <div>
       {(btnText || btnIcon) && (
         <Button
