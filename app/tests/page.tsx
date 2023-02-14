@@ -53,7 +53,7 @@ const TestingPage = () => {
           icon={<SendIcon />}
         />
         <div className="flex w-full justify-center pb-4">
-          <Avatar type="premium" size="profile" alt="Janusz Korwin" />
+          <Avatar type="premium" size="profile" alt="Janusz Korwin" src="fd" />
         </div>
         <PlayMakerScore trend="up" score={69} />
         <Chips
