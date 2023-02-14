@@ -11,6 +11,7 @@ import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
+import { OverviewTab } from '@/components/Tabs/Overview/OverviewTab'
 
 import { tabs, testMatchResultData, testSelectItems } from './data'
 
@@ -20,7 +21,7 @@ const TestingPage = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="bg-light">
         <Tabs tabs={tabs} size="medium">
           {tabs.map(tab => (
             <p key={tab}>{tab}</p>
@@ -58,6 +59,7 @@ const TestingPage = () => {
         <Chips
           chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
         />
+        <OverviewTab />
       </main>
     </>
   )
