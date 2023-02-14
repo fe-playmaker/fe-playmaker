@@ -10,7 +10,7 @@ export const OverviewTab = () => (
       <Heading>W skrócie</Heading>
       <Slider />
     </SectionContainer>
-    <SectionContainer>
+    <SectionContainer className="pb-0">
       <Heading>Dane podstawowe</Heading>
       <BasePlayerData />
     </SectionContainer>
