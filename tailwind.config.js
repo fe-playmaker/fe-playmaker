@@ -222,6 +222,9 @@ module.exports = {
         '.icon-32':{
           '@apply w-8 h-8':{}
         },
+        '.premium-badge-bg': {
+          background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 16.37%, rgba(255, 255, 255, 0.48) 34.7%, rgba(255, 255, 255, 0) 51.62%, rgba(255, 255, 255, 0.24) 64.31%, rgba(255, 255, 255, 0) 70.42%), #FFD66D'
+        }
       });
    })
   ],
