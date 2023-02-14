@@ -29,7 +29,7 @@ const Banner = ({
 }: IProps) => (
   <div
     className={clsx(
-      'flex items-center justify-between px-6 py-5',
+      'flex items-center justify-between px-6 py-5 shadow-default',
       bgColor || 'bg-white',
       accentClass &&
         `relative before:absolute before:left-0 before:h-full before:w-[0.188rem] ${accentClass}`,
