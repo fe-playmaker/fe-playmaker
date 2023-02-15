@@ -68,9 +68,11 @@ const SeasonTable = ({
         </span>
         <span className="text-body-md text-darkAlpha-40">{row.goals}</span>
         <span className="text-body-md text-darkAlpha-40">{row.avgGoals}</span>
-        <span className="text-body-md text-darkAlpha-40">{row.avgMinutes}</span>
         <span className="text-body-md text-darkAlpha-40">
-          {row.totalMinutes}
+          {row.avgMinutes}’
+        </span>
+        <span className="text-body-md text-darkAlpha-40">
+          {row.totalMinutes}’
         </span>
       </Grid>
     ))}
@@ -79,8 +81,8 @@ const SeasonTable = ({
       <span>{total.matches}</span>
       <span>{total.goals}</span>
       <span>{total.avgGoals}</span>
-      <span>{total.avgMinutes}</span>
-      <span>{total.totalMinutes}</span>
+      <span>{total.avgMinutes}’</span>
+      <span>{total.totalMinutes}’</span>
     </Grid>
   </div>
 )
