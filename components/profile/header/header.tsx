@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 
-import SpinnerIcon from '@/icons/Spinner.svg'
+import Spinner from '@/components/common/Spinner/spinner'
 
 import HeaderContent from './header-content'
 import { useProfileHeader } from './hooks'
@@ -19,7 +19,7 @@ const ProfileHeader = () => {
             className="flex items-center justify-center py-10"
             exit={{ opacity: 0 }}
           >
-            <SpinnerIcon className="h-8 animate-spin" />
+            <Spinner size="large" />
           </motion.div>
         ) : (
           <motion.div
