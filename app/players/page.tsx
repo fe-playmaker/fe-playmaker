@@ -4,6 +4,7 @@ import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
 import ProfileCareer from '@/components/profile/career/career'
 import ProfileHeader from '@/components/profile/header/header'
+import ProfileMatches from '@/components/profile/matches/matches'
 
 export const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
@@ -15,7 +16,7 @@ const PlayerTestPage = () => (
     <Tabs tabs={tabs} size="medium">
       <span>Przegląd</span>
       <ProfileCareer />
-      <span>Mecze</span>
+      <ProfileMatches />
       <span>PlayMaker Score</span>
     </Tabs>
   </main>
