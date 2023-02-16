@@ -210,6 +210,9 @@ module.exports = {
     require('@headlessui/tailwindcss')({ prefix: 'ui' }),
     plugin(({ addUtilities }) => {
       addUtilities({
+        '.icon-12': {
+          '@apply w-4 h-4':{}
+        },
         '.icon-16': {
           '@apply w-5 h-5':{}
         },
