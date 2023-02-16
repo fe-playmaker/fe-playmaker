@@ -1,18 +1,18 @@
 import { Heading } from '@/components/common/Heading/Heading'
 import { SectionContainer } from '@/components/common/SectionContainer/SectionContainer'
 
-import { BasePlayerData } from './Sections/BasePlayerData/BasePlayerData'
-import { PlayerDataSlider } from './Sections/PlayerDataSlider/PlayerDataSlider'
+import { PlayerBaseData } from './baseDataSection'
+import { PlayerSlider } from './slider'
 
-export const OverviewTab = () => (
+export const ProfileOverview = () => (
   <div className="grid grid-cols-1 gap-4">
     <SectionContainer>
       <Heading>W skrócie</Heading>
-      <PlayerDataSlider />
+      <PlayerSlider />
     </SectionContainer>
     <SectionContainer className="pb-0">
       <Heading>Dane podstawowe</Heading>
-      <BasePlayerData />
+      <PlayerBaseData />
     </SectionContainer>
   </div>
 )

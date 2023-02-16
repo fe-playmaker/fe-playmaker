@@ -58,7 +58,7 @@ const singleDotCva = cva('h-3 w-3 rounded-[50%]', {
   },
 })
 
-export const BasePlayerData = () => {
+export const PlayerBaseData = () => {
   const { baseData, soccerFieldData } = GetBaseData()
 
   return (

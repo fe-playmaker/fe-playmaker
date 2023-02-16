@@ -1,18 +1,9 @@
-'use client'
-
-import './SliderDots.css'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import Image from 'next/image'
-import Slider from 'react-slick'
 
 import SecondLeagueIcon from '@/icons/SecondLeague.png'
 import StrippedShirtIcon from '@/icons/StrippedShirt.svg'
 import ThirdLeagueIcon from '@/icons/ThirdLeague.png'
 import TrednUpIcon from '@/icons/Trendup.svg'
-
-import { SliderItem } from './SliderItem'
 
 export const SliderItems = [
   {
@@ -48,13 +39,3 @@ export const sliderSettings = {
   speed: 500,
   arrows: false,
 }
-
-export const PlayerDataSlider = () => (
-  <div className="pb-6">
-    <Slider {...sliderSettings}>
-      {SliderItems.map(item => (
-        <SliderItem {...item} />
-      ))}
-    </Slider>
-  </div>
-)

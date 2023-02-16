@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar/navbar'
 import ProfileCareer from '@/components/profile/career/career'
 import ProfileHeader from '@/components/profile/header/header'
 
-export const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
+const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
 const PlayerTestPage = () => (
   <main className="min-h-screen bg-light">
