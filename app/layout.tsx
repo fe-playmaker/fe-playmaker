@@ -22,7 +22,11 @@ const RootLayout = ({ children }: { children: React.ReactElement }) => (
   <html lang="pl">
     <head />
     <body className={`${poppins.variable} ${inter.variable} font-poppins`}>
-      <ReactQueryWrapper>{children}</ReactQueryWrapper>
+      <ReactQueryWrapper>
+        <div className=" mx-auto w-full max-w-screen-mediumDesktop">
+          {children}
+        </div>
+      </ReactQueryWrapper>
     </body>
   </html>
 )

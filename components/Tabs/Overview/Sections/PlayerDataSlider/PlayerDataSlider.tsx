@@ -53,7 +53,7 @@ export const PlayerDataSlider = () => (
   <div className="pb-6">
     <Slider {...sliderSettings}>
       {SliderItems.map(item => (
-        <SliderItem title={item.title} key={item.title} icon={item.icon} />
+        <SliderItem {...item} />
       ))}
     </Slider>
   </div>

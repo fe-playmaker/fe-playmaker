@@ -7,7 +7,7 @@ import { useProfileHeader } from '@/components/profile/header/hooks'
 import HelperIcon from '@/icons/helperPosition.svg'
 import StrikerIcon from '@/icons/strikerPosition.svg'
 
-export const GetBaseData = () => {
+const GetBaseData = () => {
   const { data: profileHeaderData } = useProfileHeader('cezaryDemianiuk')
 
   const baseData = [
