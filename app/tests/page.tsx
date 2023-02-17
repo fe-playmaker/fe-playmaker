@@ -13,13 +13,12 @@ import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
 import { useProfileHeader } from '@/components/profile/header/hooks'
-import { OverviewTab } from '@/components/Tabs/Overview/OverviewTab'
 
 import { tabs, testMatchResultData, testSelectItems } from './data'
 
 const TestingPage = () => {
   const [currentSelectValue, setCurrentSelectValue] = useState<string>()
-  const { data: profileHeaderData } = useProfileHeader('cezaryDemianiuk')
+  const { data } = useProfileHeader('69')
 
   return (
     <>
@@ -79,14 +78,13 @@ const TestingPage = () => {
             type="premium"
             size="profile"
             alt="Janusz Korwin"
-            src={profileHeaderData?.avatarUrl ?? ''}
+            src={data?.avatarUrl ?? ''}
           />
         </div>
         <PlayMakerScore trend="up" score={69} />
         <Chips
           chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
         />
-        <OverviewTab />
       </main>
     </>
   )
