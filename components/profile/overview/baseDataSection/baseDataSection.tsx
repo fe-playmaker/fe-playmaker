@@ -1,12 +1,11 @@
 'use client'
 
 import { cva } from 'class-variance-authority'
+import { IProfileHeaderData } from 'dummy-api/profile/header'
 import SoccerField from 'img/illustrations/SoccerField.svg'
 
 import HelperIcon from '@/icons/helperPosition.svg'
 import StrikerIcon from '@/icons/strikerPosition.svg'
-
-import { GetBaseData } from '../helpers'
 
 const singleDotCva = cva('h-3 w-3 rounded-[50%]', {
   variants: {
@@ -17,8 +16,50 @@ const singleDotCva = cva('h-3 w-3 rounded-[50%]', {
   },
 })
 
-export const PlayerBaseData = () => {
-  const { baseData, soccerFieldData } = GetBaseData()
+export const PlayerBaseData = ({
+  age,
+  height,
+  weight,
+  location,
+  position,
+  alternatePosition,
+  betterLeg,
+}: Partial<IProfileHeaderData>) => {
+  const baseData = [
+    {
+      title: 'Wiek',
+      content: `${age} lat (1992)`,
+    },
+    {
+      title: 'Wzrost',
+      content: `${height} cm`,
+    },
+    {
+      title: 'Waga',
+      content: `${weight} kg`,
+    },
+    {
+      title: 'Lokalizacja',
+      content: location,
+    },
+  ]
+
+  const soccerFieldData = [
+    {
+      title: 'Poz. główna',
+      content: position,
+      isVisibleDot: true,
+    },
+    {
+      title: 'Poz. alternatywna',
+      content: alternatePosition,
+      isVisibleDot: true,
+    },
+    {
+      title: 'Lepsza noga',
+      content: betterLeg,
+    },
+  ]
 
   return (
     <div>

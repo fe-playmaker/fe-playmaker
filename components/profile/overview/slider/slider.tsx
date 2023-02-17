@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import type { ReactElement } from 'react'
 import Slider from 'react-slick'
 
-import { SliderItems, sliderSettings } from './helpers'
+import { SliderItems, sliderSettings } from '../helpers'
 
 interface SliderProps {
   title: string
