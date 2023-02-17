@@ -1,29 +1,22 @@
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { Button } from '@/components/common/Button/Button'
-import { Heading } from '@/components/common/Heading/Heading'
-import { SectionContainer } from '@/components/common/SectionContainer/SectionContainer'
+import { Heading } from '@/components/common/Heading'
+import { SectionContainer } from '@/components/common/SectionContainer'
 import Spinner from '@/components/common/Spinner/spinner'
 
-import { useProfileCareer } from '../career/hooks'
 import SeasonPanel from '../career/season-panel'
-import { useProfileHeader } from '../header/hooks'
-import { PlayerBaseData } from './baseDataSection/baseDataSection'
 import { ExperiencePanel } from './experience/experience-panel'
-import { useProfileExperience } from './experience/hooks'
+import { useProfileOverview } from './hooks'
+import { PlayerBaseData } from './playerBaseData/playerBaseData'
 import { PlayerSlider } from './slider/slider'
 
 export const ProfileOverview = () => {
-  const { data: carrerData, isLoading: carrerLoading } =
-    useProfileCareer('carrer')
-  const { data: experienceData, isLoading: experienceLoading } =
-    useProfileExperience('experience')
-  const { data: basePlayerData, isLoading: basePlayerDataLoading } =
-    useProfileHeader('69')
+  const { data, isLoading } = useProfileOverview('overview')
 
   return (
     <AnimatePresence mode="wait">
-      {carrerLoading || experienceLoading || basePlayerDataLoading ? (
+      {isLoading ? (
         <motion.div
           key="headerLoader"
           className="flex items-center justify-center py-10"
@@ -40,16 +33,18 @@ export const ProfileOverview = () => {
           <div className="grid grid-cols-1 gap-4">
             <SectionContainer className="mt-4">
               <Heading>W skrócie</Heading>
-              <PlayerSlider />
+
+              <PlayerSlider {...data?.sliderData} />
             </SectionContainer>
             <SectionContainer className="pb-0">
               <Heading>Dane podstawowe</Heading>
-              <PlayerBaseData {...basePlayerData} />
+              <PlayerBaseData {...data?.playerData} />
             </SectionContainer>
             <SectionContainer className="px-0 pt-0">
-              {carrerData?.slice(0, 1).map(season => (
-                <SeasonPanel {...season} />
+              {data?.carrer.map(carrer => (
+                <SeasonPanel key={carrer.season} {...carrer} />
               ))}
+
               <div className="flex w-full justify-center">
                 <Button
                   intent="secondary"
@@ -59,9 +54,7 @@ export const ProfileOverview = () => {
               </div>
             </SectionContainer>
             <SectionContainer className="px-0">
-              {experienceData?.map(experience => (
-                <ExperiencePanel {...experience} />
-              ))}
+              <ExperiencePanel {...data?.experience} />
             </SectionContainer>
           </div>
         </motion.div>
