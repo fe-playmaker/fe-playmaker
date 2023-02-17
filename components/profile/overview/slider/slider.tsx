@@ -4,19 +4,15 @@ import 'styles/sliderDots.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import type { ReactElement } from 'react'
+import { IProfileOverviewData } from 'dummy-api/profile/overview'
+import Image from 'next/image'
 import Slider from 'react-slick'
 
-import { SliderItems, sliderSettings } from '../helpers'
+import { sliderSettings } from '../helpers'
 
-interface SliderProps {
-  title: string
-  icon: ReactElement
-}
-
-export const SliderItem = ({ title, icon }: SliderProps) => (
+const SliderItem = ({ title, icon }: { title: string; icon: string }) => (
   <div className="flex w-[7rem] flex-col items-center gap-3 p-3 pb-5">
-    {icon}
+    <Image src={icon} alt="icon" width={32} height={32} />
 
     <p className="text-center font-inter text-body-sm font-medium text-darkAlpha-40">
       {title}
@@ -24,11 +20,13 @@ export const SliderItem = ({ title, icon }: SliderProps) => (
   </div>
 )
 
-export const PlayerSlider = () => (
+export const PlayerSlider = ({
+  data,
+}: Partial<IProfileOverviewData['sliderData']>) => (
   <div className="pb-6">
     <Slider {...sliderSettings}>
-      {SliderItems.map(item => (
-        <SliderItem {...item} />
+      {data?.map(item => (
+        <SliderItem key={item.title} {...item} />
       ))}
     </Slider>
   </div>
