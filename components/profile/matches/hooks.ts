@@ -5,5 +5,5 @@ import { profileMatchesData } from 'dummy-api/profile/matches'
 export const useProfileMatches = (id: string) =>
   useQuery({
     queryKey: ['profile-matches', id],
-    queryFn: returnAfterTime(profileMatchesData, 200),
+    queryFn: returnAfterTime(profileMatchesData, 700),
   })
