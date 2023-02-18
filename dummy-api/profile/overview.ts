@@ -6,7 +6,7 @@ import ThirdLeagueIcon from '@/icons/ThirdLeague.png'
 import { IProfileCareerData } from './career'
 
 export interface IProfileOverviewData {
-  sliderData: {
+  inShort: {
     data: {
       title: string
       icon: string
@@ -43,7 +43,7 @@ export interface IProfileOverviewData {
 }
 
 export const profileOverviewData: IProfileOverviewData = {
-  sliderData: {
+  inShort: {
     data: [
       {
         title: 'Dobra forma',
@@ -63,7 +63,6 @@ export const profileOverviewData: IProfileOverviewData = {
       },
     ],
   },
-
   experience: {
     data: [
       {
