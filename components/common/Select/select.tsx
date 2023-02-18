@@ -75,8 +75,7 @@ function Select({
             <span>
               {items.find(item => item.value === currentValue)?.name || name}
             </span>
-            <ChevronDownIcon className="h-5 w-5 fill-[inherit] ui-open:hidden" />
-            <ChevronUpIcon className="h-5 w-5 fill-[inherit] ui-not-open:hidden" />
+            <ChevronDownIcon className="h-5 w-5 fill-[inherit] ui-open:rotate-180" />
           </>
         ) : (
           ({ value, open }) => (
@@ -85,10 +84,7 @@ function Select({
                 {items.find(item => item.value === value)?.name || name}
               </span>
               <ChevronDownIcon
-                className={clsx('h-5 w-5 fill-[inherit]', open && 'hidden')}
-              />
-              <ChevronUpIcon
-                className={clsx('h-5 w-5 fill-[inherit]', !open && 'hidden')}
+                className={clsx('h-5 w-5 fill-[inherit]', open && 'rotate-180')}
               />
             </>
           )
