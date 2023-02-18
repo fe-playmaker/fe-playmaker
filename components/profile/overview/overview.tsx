@@ -34,7 +34,7 @@ export const ProfileOverview = () => {
             <SectionContainer className="mt-4">
               <Heading>W skrócie</Heading>
 
-              <PlayerSlider {...data?.sliderData} />
+              <PlayerSlider {...data?.inShort} />
             </SectionContainer>
             <SectionContainer className="pb-0">
               <Heading>Dane podstawowe</Heading>

@@ -10,7 +10,10 @@ import Slider from 'react-slick'
 
 import { sliderSettings } from '../helpers'
 
-const SliderItem = ({ title, icon }: { title: string; icon: string }) => (
+const SliderItem = ({
+  title,
+  icon,
+}: IProfileOverviewData['inShort']['data'][number]) => (
   <div className="flex w-[7rem] flex-col items-center gap-3 p-3 pb-5">
     <Image src={icon} alt="icon" width={32} height={32} />
 
@@ -22,7 +25,7 @@ const SliderItem = ({ title, icon }: { title: string; icon: string }) => (
 
 export const PlayerSlider = ({
   data,
-}: Partial<IProfileOverviewData['sliderData']>) => (
+}: Partial<IProfileOverviewData['inShort']>) => (
   <div className="pb-6">
     <Slider {...sliderSettings}>
       {data?.map(item => (
