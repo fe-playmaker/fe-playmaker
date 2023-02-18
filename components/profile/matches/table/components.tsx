@@ -13,9 +13,10 @@ export const Grid = ({
   className?: string
 }) => (
   <div
-    className={`grid min-w-max grid-cols-[repeat(3,2rem)_3rem_2rem_2rem_6rem] gap-x-4 pr-5 pl-4 ${
-      className || ''
-    }`}
+    className={cx(
+      'grid min-w-max grid-cols-[repeat(3,2rem)_3rem_2rem_2rem_6rem] gap-x-4 pr-5 pl-4',
+      className,
+    )}
   >
     {children}
   </div>
