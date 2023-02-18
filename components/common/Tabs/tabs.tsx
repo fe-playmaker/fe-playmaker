@@ -59,9 +59,11 @@ const Tabs = ({ size, tabs, children }: TabsProps) => (
         </Tab>
       ))}
     </Tab.List>
-    <Tab.Panels>
+    <Tab.Panels className="flex flex-1">
       {children.map((panel, id) => (
-        <Tab.Panel key={tabs[id]}>{panel}</Tab.Panel>
+        <Tab.Panel key={tabs[id]} className="max-w-full flex-1">
+          {panel}
+        </Tab.Panel>
       ))}
     </Tab.Panels>
   </Tab.Group>
