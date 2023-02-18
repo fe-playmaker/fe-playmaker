@@ -2,6 +2,7 @@
 
 import { Listbox, Transition } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
+import clsx from 'clsx'
 import { Fragment } from 'react'
 
 import ChevronDownIcon from '@/icons/ChevronDown.svg'
@@ -10,7 +11,7 @@ import ChevronUpIcon from '@/icons/ChevronUp.svg'
 import { ISelectItem } from './types'
 
 const menuButtonCva = cva(
-  'font-poppins font-medium ui-open:text-tertiary ui-open:fill-tertiary fill-darkAlpha-20 text-darkAlpha-40 flex gap-3 items-center transition-colors hover:fill-darkAlpha-40',
+  'font-poppins font-medium ui-open:text-tertiary ui-open:fill-tertiary fill-darkAlpha-20 text-darkAlpha-40 flex gap-3 items-center transition-colors hover:fill-darkAlpha-40 whitespace-nowrap',
   {
     variants: {
       type: {
@@ -78,13 +79,17 @@ function Select({
             <ChevronUpIcon className="h-5 w-5 fill-[inherit] ui-not-open:hidden" />
           </>
         ) : (
-          ({ value }) => (
+          ({ value, open }) => (
             <>
               <span>
                 {items.find(item => item.value === value)?.name || name}
               </span>
-              <ChevronDownIcon className="h-5 w-5 fill-[inherit] ui-open:hidden" />
-              <ChevronUpIcon className="h-5 w-5 fill-[inherit] ui-not-open:hidden" />
+              <ChevronDownIcon
+                className={clsx('h-5 w-5 fill-[inherit]', open && 'hidden')}
+              />
+              <ChevronUpIcon
+                className={clsx('h-5 w-5 fill-[inherit]', !open && 'hidden')}
+              />
             </>
           )
         )}
@@ -98,7 +103,7 @@ function Select({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Listbox.Options className="absolute mt-4 min-w-[12.5rem] bg-white py-4 shadow-default">
+        <Listbox.Options className="absolute z-50 mt-4 min-w-[12.5rem] bg-white py-4 shadow-default">
           {items.map(item => (
             <Listbox.Option
               key={item.name}
