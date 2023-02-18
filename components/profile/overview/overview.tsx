@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { Button } from '@/components/common/Button/Button'
-import { Heading } from '@/components/common/Heading'
-import { SectionContainer } from '@/components/common/SectionContainer'
 import Spinner from '@/components/common/Spinner/spinner'
+import { Heading } from '@/components/profile/common/Heading'
+import { SectionContainer } from '@/components/profile/common/SectionContainer'
 
 import SeasonPanel from '../career/season-panel'
 import { ExperiencePanel } from './experience/experience-panel'
@@ -16,7 +16,7 @@ export const ProfileOverview = () => {
 
   return (
     <AnimatePresence mode="wait">
-      {isLoading ? (
+      {isLoading || !data ? (
         <motion.div
           key="headerLoader"
           className="flex items-center justify-center py-10"

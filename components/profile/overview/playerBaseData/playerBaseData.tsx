@@ -24,7 +24,7 @@ export const PlayerBaseData = ({
   position,
   altPosition,
   betterLeg,
-}: Partial<IProfileOverviewData['playerData']>) => {
+}: IProfileOverviewData['playerData']) => {
   const baseData = [
     {
       title: 'Wiek',

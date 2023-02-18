@@ -23,9 +23,7 @@ const SliderItem = ({
   </div>
 )
 
-export const PlayerSlider = ({
-  data,
-}: Partial<IProfileOverviewData['inShort']>) => (
+export const PlayerSlider = ({ data }: IProfileOverviewData['inShort']) => (
   <div className="pb-6">
     <Slider {...sliderSettings}>
       {data?.map(item => (
