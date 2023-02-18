@@ -9,7 +9,7 @@ import ProfileMatches from '@/components/profile/matches/matches'
 export const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
 const PlayerTestPage = () => (
-  <main className="min-h-screen bg-light">
+  <main className="flex min-h-screen flex-col bg-light">
     <Navbar />
     <ProfileHeader />
     <GradientedBg />
