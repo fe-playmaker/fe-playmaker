@@ -4,11 +4,14 @@ import { Button } from '@/components/common/Button/Button'
 import Spinner from '@/components/common/Spinner/spinner'
 import { Heading } from '@/components/profile/common/Heading'
 import { SectionContainer } from '@/components/profile/common/SectionContainer'
+import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
 
 import SeasonPanel from '../career/season-panel'
 import { ExperiencePanel } from './experience/experience-panel'
+import { GameVideo } from './gameVideo/gameVideo'
 import { useProfileOverview } from './hooks'
 import { PlayerBaseData } from './playerBaseData/playerBaseData'
+import { PlayerScore } from './playMakerScore/playMakerScore'
 import { PlayerSlider } from './slider/slider'
 
 export const ProfileOverview = () => {
@@ -55,6 +58,17 @@ export const ProfileOverview = () => {
             </SectionContainer>
             <SectionContainer className="px-0">
               <ExperiencePanel {...data?.experience} />
+            </SectionContainer>
+
+            <SectionContainer>
+              <Heading className="flex items-center gap-2">
+                PlayMaker Score <ArrowRightIcon className="icon-16" />
+              </Heading>
+              <PlayerScore />
+            </SectionContainer>
+            <SectionContainer>
+              <Heading>Wideo z gry</Heading>
+              <GameVideo />
             </SectionContainer>
           </div>
         </motion.div>
