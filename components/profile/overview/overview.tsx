@@ -4,6 +4,7 @@ import { Button } from '@/components/common/Button/Button'
 import Spinner from '@/components/common/Spinner/spinner'
 import { Heading } from '@/components/profile/common/Heading'
 import { SectionContainer } from '@/components/profile/common/SectionContainer'
+import ArrowDownIcon from '@/icons/ArrowDown.svg'
 import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
 
 import SeasonPanel from '../career/season-panel'
@@ -13,6 +14,7 @@ import { useProfileOverview } from './hooks'
 import { PlayerBaseData } from './playerBaseData/playerBaseData'
 import { PlayerScore } from './playMakerScore/playMakerScore'
 import { PlayerSlider } from './slider/slider'
+import { Transfers } from './transfers/transfers'
 
 export const ProfileOverview = () => {
   const { data, isLoading } = useProfileOverview('overview')
@@ -69,6 +71,15 @@ export const ProfileOverview = () => {
             <SectionContainer>
               <Heading>Wideo z gry</Heading>
               <GameVideo />
+            </SectionContainer>
+            <SectionContainer>
+              <Heading>Transfery</Heading>
+              <Transfers {...data?.transfers} />
+              <div className="flex justify-center">
+                <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
+                  Pokaż kolejne <ArrowDownIcon className="icon-16" />
+                </p>
+              </div>
             </SectionContainer>
           </div>
         </motion.div>
