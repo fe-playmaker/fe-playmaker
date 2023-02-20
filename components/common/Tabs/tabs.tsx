@@ -2,6 +2,8 @@
 
 import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
+import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 // missing - disabled, disabled-selected
 
@@ -9,8 +11,6 @@ const tabsCva = cva(
   [
     'relative text-darkAlpha-40 font-medium outline-none whitespace-nowrap',
     'hover:bg-darkAlpha-5 transition-colors',
-    'ui-selected:font-bold ui-selected:text-dark',
-    "ui-selected:after:absolute after:content-[''] after:h-[2px] after:bg-primaryShade-50 after:w-full after:bottom-[0] after:left-[0] after:shadow-[0_-1px_6px_rgba(242,24,61,0.24)]",
   ],
   {
     variants: {
@@ -30,16 +30,40 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 
 const Tabs = ({ size, tabs, children }: TabsProps) => (
   <Tab.Group>
-    <Tab.List className="flex overflow-x-auto bg-white">
+    <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
       {tabs.map(name => (
         <Tab className={tabsCva({ size })} key={name}>
-          {name}
+          {({ selected }) => (
+            <>
+              {selected && (
+                <motion.div
+                  className="absolute bottom-0 left-0 h-[2px] w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)]"
+                  layoutId="tabs-selected-underline"
+                />
+              )}
+              <span
+                className={clsx('relative', selected && 'text-transparent')}
+              >
+                {name}
+                <span
+                  className={clsx(
+                    'absolute left-0 font-bold text-dark',
+                    !selected && 'text-transparent',
+                  )}
+                >
+                  {name}
+                </span>
+              </span>
+            </>
+          )}
         </Tab>
       ))}
     </Tab.List>
-    <Tab.Panels>
+    <Tab.Panels className="flex flex-1">
       {children.map((panel, id) => (
-        <Tab.Panel key={tabs[id]}>{panel}</Tab.Panel>
+        <Tab.Panel key={tabs[id]} className="max-w-full flex-1">
+          {panel}
+        </Tab.Panel>
       ))}
     </Tab.Panels>
   </Tab.Group>

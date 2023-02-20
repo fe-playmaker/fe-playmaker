@@ -5,5 +5,5 @@ import { profileHeaderData } from 'dummy-api/profile/header'
 export const useProfileHeader = (id: string) =>
   useQuery({
     queryKey: ['profile-header', id],
-    queryFn: returnAfterTime(profileHeaderData, 2000),
+    queryFn: returnAfterTime(profileHeaderData, 200),
   })
