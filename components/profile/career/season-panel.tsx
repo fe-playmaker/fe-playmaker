@@ -1,4 +1,4 @@
-import { IProfileCareerData } from 'dummy-api/profile/career'
+import { TProfileCareer } from 'types/profile'
 
 import HelpCircleIcon from '@/icons/HelpCircle.svg'
 import TrendDownIcon from '@/icons/TrendDown.svg'
@@ -6,7 +6,7 @@ import TrendUpIcon from '@/icons/Trendup.svg'
 
 import SeasonTable from './season-table'
 
-const SeasonPanel = ({ data, score, season, total }: IProfileCareerData) => (
+const SeasonPanel = ({ data, score, season, total }: TProfileCareer) => (
   <div className="bg-white py-8 font-inter font-bold text-dark">
     <div className="flex justify-between px-6 pb-4">
       <h4 className="font-poppins text-heading-xs">Sezon {season}</h4>

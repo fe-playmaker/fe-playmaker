@@ -1,8 +1,8 @@
 'use client'
 
-import { IProfileHeaderData } from 'dummy-api/profile/header'
 import TimeAgo from 'javascript-time-ago'
 import pl from 'javascript-time-ago/locale/pl'
+import { TProfileHeader } from 'types/profile'
 
 import { Avatar } from '@/components/common/Avatar/Avatar'
 import SearchingForClubBanner from '@/components/common/Banner/templates/searchingForClub'
@@ -23,7 +23,7 @@ const HeaderContent = ({
   premium,
   score,
   team,
-}: IProfileHeaderData) => (
+}: TProfileHeader) => (
   <>
     <div className="flex justify-between pb-5">
       <div className="-mt-9 flex flex-col items-start">

@@ -1,7 +1,7 @@
 import { cx } from 'class-variance-authority'
 import clsx from 'clsx'
-import { IProfileCareerData } from 'dummy-api/profile/career'
 import Image from 'next/image'
+import { TProfileCareer } from 'types/profile'
 
 import HelpCircleIcon from '@/icons/HelpCircle.svg'
 
@@ -11,7 +11,7 @@ const SeasonTable = ({
   data,
   total,
   season,
-}: Pick<IProfileCareerData, 'data' | 'total' | 'season'>) => (
+}: Pick<TProfileCareer, 'data' | 'total' | 'season'>) => (
   <div className=" flex flex-col overflow-x-auto font-medium">
     <Grid className="items-end border-b-2 border-darkAlpha-5 py-3 text-center text-body-xs text-darkAlpha-40">
       <span className="text-left">Drużyna</span>
