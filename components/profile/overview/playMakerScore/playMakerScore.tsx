@@ -6,7 +6,7 @@ import { ExtendedScore } from '@/components/common/Score/ExtendedPMScore'
 
 const chips = [
   'Ostatnie 5 meczów',
-  'Ostatnia rudna',
+  'Ostatnia runda',
   'Ostatni sezon',
   'Ostatnie 2 lata',
   'Ostatnie 3 lata',
