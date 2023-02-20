@@ -5,5 +5,5 @@ import { profileCareerData } from 'dummy-api/profile/career'
 export const useProfileCareer = (id: string) =>
   useQuery({
     queryKey: ['profile-career', id],
-    queryFn: returnAfterTime(profileCareerData, 200),
+    queryFn: returnAfterTime(profileCareerData, 700),
   })
