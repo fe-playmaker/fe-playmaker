@@ -26,6 +26,17 @@ export interface IProfileOverviewData {
       type: string
     }[]
   }
+  similarPlayers: {
+    data: {
+      name: string
+      image: string
+      score: number
+      premium: boolean
+      carrer: string
+      age: number
+      trend: 'up' | 'down'
+    }[]
+  }
   experience: {
     data: {
       competetion: string
@@ -117,6 +128,40 @@ export const profileOverviewData: IProfileOverviewData = {
       },
     ],
   },
+  similarPlayers: {
+    data: [
+      {
+        name: 'Sebastian Bergier',
+        image:
+          'https://s3-alpha-sig.figma.com/img/943e/ab5d/c673dd06d517cfde44396008f0a7c7bd?Expires=1678060800&Signature=nrLtrZvheuV6c~xPlBQpLudJh1mQVkDzrKTgEN-nk7jvou9NlvxJKyFb8444pCNqbqAL71u31j5EbvU~gRHs~pAI8W9nMZFcoNKjgLma19pYS9HdwXh5oGhr9QwRJ1vqvdwi1AoLbk047JUYCoKdOWgDTIcS7InJ6xxW4Ff~AH8h9s8bGiI4m7FY-dhGFoncz6F7ThvECr-B1Q5uG9RvrjMxUZniB4vxANZCGIPCW2nczuQooEzgMgj5UM6D9pSo04Gtyev7y2rCPLKf8y7cJmRQVhwEGT0jzcDx6VVFirzIcm4p44jykW8PfQS2XOMJr8kEXXhdP5ksUBAsmUfKlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        score: 71,
+        premium: false,
+        carrer: 'Napastnik w Śląsk Wrocław II (3 liga)',
+        age: 22,
+        trend: 'up',
+      },
+      {
+        name: 'Krzysztof Świątek',
+        image:
+          'https://s3-alpha-sig.figma.com/img/91ae/637a/81fd2f798585938127220e6fe8b7043f?Expires=1678060800&Signature=qp3BR7t4OLX7bqqpBvFg3L2obb9pORHboMxXMxHSM4YK2cYR-a7FjX39zxVriV6Ldr8n3up7diF-0g16kRYXKDdfdasgKeSGHLXUDqVqUAXyinS8FZuj17Rb7jVTYtjZWw0FQEZe-oUkbSjxVeGaN6cFa-3cA2rCO2fv~HHRo9qvCI0SuuvJJHGI~t5ALY5iv3bCAjZ0ur8GH1jtwV2FhU9uLnI2-dn~JWMRh7RYp9Bhs29aW08WwhFfDMdYfwYWkw5cnuQ51ehP9ijWkTp2n7a6cSpUceB0saeHOqjBeQEUJXZUmEiVFuZl4ONKTvNVxtRYJfpKbseAtvtxVn~kwQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        score: 63,
+        premium: true,
+        carrer: 'Ofensywny pomocnik w Hutnik Kraków (3 liga)',
+        age: 35,
+        trend: 'down',
+      },
+      {
+        name: 'Paweł Mróz',
+        image:
+          'https://s3-alpha-sig.figma.com/img/a4c1/ed43/999b08b377dfe43d111f3b48046f7b20?Expires=1678060800&Signature=KAH4hCRfz0PGvAMy4Jy8-kh0QeAVdsfgSz5SuDmwZYHK7D5roG-xG~G7jRDnvzFmOlcbFnBDKlNWj0q39Bnva4BSs9Q9cqgNgBKcBO1tmrZ~P0Af03OgXzvPwfqgJeWv2Ds6z6AgcYeRwOzOUeXUxZTU8SK9grgqcB5mLa6CfGeDp3eZ05JaxViA9n9EgHN3G~9PeJCxPFPtSWshNb3GVjm6edft2mtbgfyrN5SOED-WNXTavg3-wCC9qZjWuCyle-OCooWxznMw6uiZkWw1kedxOHvmpzxYZalnTpddIxdF3ZIuFNOCuFD7SsTRfZyplzt6zYDQClwfWMpbOVTrVQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        score: 45,
+        premium: false,
+        carrer: 'Środkowy napastnik w Siarka Tarnobrzeg (3 liga)',
+        age: 23,
+        trend: 'up',
+      },
+    ],
+  },
   experience: {
     data: [
       {
@@ -157,7 +202,6 @@ export const profileOverviewData: IProfileOverviewData = {
     location: 'Siedlce (mazowieckie)',
     age: 30,
   },
-  // i created an array because in the season panel component you use an array so i need the same types
   carrer: [
     {
       season: '21/22',

@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority'
 import Image from 'next/image'
 
-const avatarCva = cva('relative z-10 rounded-full object-cover', {
+const avatarCva = cva('relative z-10 rounded-[50%] object-cover', {
   variants: {
     type: {
       default: '',
@@ -32,7 +32,7 @@ const avatarCva = cva('relative z-10 rounded-full object-cover', {
 })
 
 const premiumBorderCva = cva(
-  'absolute rounded-full bg-gradient-to-br from-premiumGradient-1 via-premiumGradient-2 to-premiumGradient-3',
+  'absolute rounded-[50%] bg-gradient-to-br from-premiumGradient-1 via-premiumGradient-2 to-premiumGradient-3',
   {
     variants: {
       type: {
@@ -58,7 +58,7 @@ interface AvatarProps extends VariantProps<typeof avatarCva> {
 }
 
 export const Avatar = ({ alt, type, size, src }: AvatarProps) => (
-  <div className="relative flex items-center justify-center rounded-full">
+  <div className="relative flex items-center justify-center rounded-[50%]">
     <Image
       src={src}
       alt={alt}

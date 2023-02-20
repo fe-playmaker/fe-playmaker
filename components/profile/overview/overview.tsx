@@ -13,6 +13,7 @@ import { GameVideo } from './gameVideo/gameVideo'
 import { useProfileOverview } from './hooks'
 import { PlayerBaseData } from './playerBaseData/playerBaseData'
 import { PlayerScore } from './playMakerScore/playMakerScore'
+import { SimilarPlayers } from './similarPlayers/similarPlayers'
 import { PlayerSlider } from './slider/slider'
 import { Transfers } from './transfers/transfers'
 
@@ -80,6 +81,10 @@ export const ProfileOverview = () => {
                   Pokaż kolejne <ArrowDownIcon className="icon-16" />
                 </p>
               </div>
+            </SectionContainer>
+            <SectionContainer className="pb-11">
+              <Heading>Podobni zawodnicy</Heading>
+              <SimilarPlayers {...data?.similarPlayers} />
             </SectionContainer>
           </div>
         </motion.div>

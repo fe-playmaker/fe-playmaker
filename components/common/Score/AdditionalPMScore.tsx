@@ -22,7 +22,7 @@ const scoreCva = cva(
 )
 
 const trendCva = cva(
-  ['text-white', 'py-0 px-3', 'w-6 h-6', 'flex items-center justify-center'],
+  ['text-white py-0 px-3 w-6 h-6', 'flex items-center justify-center'],
   {
     variants: {
       trend: {
