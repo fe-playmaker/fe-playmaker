@@ -6,7 +6,7 @@ import RedCardIcon from '@/icons/CardRedHand.svg'
 import YellowCardIcon from '@/icons/CardYellowHand.svg'
 import ShieldIcon from '@/icons/ShieldPerfect.svg'
 import TrendDownIcon from '@/icons/TrendDown.svg'
-import TrendUpIcon from '@/icons/TrendUp.svg'
+import TrendUpIcon from '@/icons/Trendup.svg'
 import WhistleIcon from '@/icons/Whistle.svg'
 
 import { IMatchResult } from './types'
