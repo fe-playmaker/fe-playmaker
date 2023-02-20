@@ -14,7 +14,7 @@ const timeAgo = new TimeAgo('pl-PL')
 const HeaderContent = ({
   age,
   avatarUrl,
-  banner,
+  status,
   competition,
   firstName,
   lastActivity,
@@ -55,8 +55,10 @@ const HeaderContent = ({
     <span className="block border-t border-darkShade-1 py-5 font-inter text-body-xs text-darkAlpha-20">
       Ostatnia aktywność: {timeAgo.format(new Date(lastActivity))}
     </span>
-    {banner.type === 'searchingForClub' && (
-      <SearchingForClubBanner expectations={banner?.expectations || []} />
+    {status.searchingForClub && (
+      <SearchingForClubBanner
+        expectations={status.searchingForClub.expectations}
+      />
     )}
   </>
 )

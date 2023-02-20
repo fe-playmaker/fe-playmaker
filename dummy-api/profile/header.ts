@@ -20,7 +20,16 @@ export const profileHeaderData: TProfileHeader = {
   competition: '3 liga',
   lastActivity: date.toISOString(),
   status: {
-    type: 'searchingForClub',
-    expectations: ['zwrot za dojazdy', 'porsche'],
+    answerPercentage: 99,
+    searchingForClub: {
+      description:
+        'Jestem ambitny i gotowy do ciężkiej pracy. Wracam po kontuzji. Szukam klubu, który pozwoli mi się odbudować.',
+      localization: {
+        name: 'Warszawa (woj. mazowieckie) ',
+        range: 50,
+      },
+      additional: 'Wracam po kontuzji',
+      expectations: ['zwrot za dojazdy', 'porsche'],
+    },
   },
 }
