@@ -12,7 +12,7 @@ const scoreCva = cva(
     variants: {
       type: {
         default: ['w-8 h-7 text-heading-micro'],
-        hidden: ['w-[5rem] h-[2.5rem] text-heading-md'],
+        hidden: ['w-[3.5rem] h-8 text-heading-smaller'],
       },
     },
     defaultVariants: {
