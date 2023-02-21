@@ -1,16 +1,20 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 import { Button } from '@/components/common/Button/Button'
-import Spinner from '@/components/common/Spinner/spinner'
 import { Heading } from '@/components/profile/common/Heading'
 import { SectionContainer } from '@/components/profile/common/SectionContainer'
 import ArrowDownIcon from '@/icons/ArrowDown.svg'
 import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
+import TrendDownIcon from '@/icons/TrendDown.svg'
+import TrendUpIcon from '@/icons/Trendup.svg'
 
 import SeasonPanel from '../career/season-panel'
+import TabLoadingSpinner from '../common/tab-loader/spinner'
+import { TabContentWrapper } from '../common/tab-loader/tab-wrapper'
 import { ExperiencePanel } from './experience/experience-panel'
 import { GameVideo } from './gameVideo/gameVideo'
 import { useProfileOverview } from './hooks'
+import { LastMatchesPanel } from './lastMatches/last-matches-panel'
 import { PlayerBaseData } from './playerBaseData/playerBaseData'
 import { PlayerScore } from './playMakerScore/playMakerScore'
 import { SimilarPlayers } from './similarPlayers/similarPlayers'
@@ -23,19 +27,9 @@ export const ProfileOverview = () => {
   return (
     <AnimatePresence mode="wait">
       {isLoading || !data ? (
-        <motion.div
-          key="headerLoader"
-          className="flex items-center justify-center py-10"
-          exit={{ opacity: 0 }}
-        >
-          <Spinner size="large" />
-        </motion.div>
+        <TabLoadingSpinner key="overview-spinner" />
       ) : (
-        <motion.div
-          key="headerContent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+        <TabContentWrapper>
           <div className="grid grid-cols-1 gap-4">
             <SectionContainer className="mt-4">
               <Heading>W skrócie</Heading>
@@ -62,6 +56,43 @@ export const ProfileOverview = () => {
             <SectionContainer className="px-0">
               <ExperiencePanel {...data?.experience} />
             </SectionContainer>
+            <SectionContainer className="px-0">
+              <div className="flex items-center justify-between px-6">
+                <Heading className="flex items-center gap-2 pb-0">
+                  Ostatnie mecze <ArrowRightIcon className="icon-16" />
+                </Heading>
+                <div className="flex items-center gap-2">
+                  <p className="text-label-sm text-darkAlpha-40">
+                    Pogoń Siedlce (3 liga)
+                  </p>
+                  <ArrowRightIcon className="rotate-90 icon-16" />
+                </div>
+              </div>
+              <div className="mx-6 my-7 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
+                {data.lastMatches.playerIsStandOut ? (
+                  <TrendUpIcon className="icon-32" />
+                ) : (
+                  <TrendDownIcon className="icon-32" />
+                )}
+
+                <div className="font-inter text-body-sm">
+                  <h4 className="font-bold">PlayMaker Score</h4>
+                  <p className="font-medium text-darkAlpha-40">
+                    {data.playerData.name}{' '}
+                    {data.lastMatches.playerIsStandOut
+                      ? 'w ostatnich 5 meczach wyróżniał się'
+                      : 'w ostatnich 5 meczach miał kilka poślizgnięć.'}
+                  </p>
+                </div>
+              </div>
+
+              {data.lastMatches.data.map(season => (
+                <LastMatchesPanel {...season} key={season.season} />
+              ))}
+              <div className="flex justify-center">
+                <Button size="small" text="Zobacz więcej" intent="secondary" />
+              </div>
+            </SectionContainer>
 
             <SectionContainer>
               <Heading className="flex items-center gap-2">
@@ -82,12 +113,12 @@ export const ProfileOverview = () => {
                 </p>
               </div>
             </SectionContainer>
-            <SectionContainer className="pb-11">
+            <SectionContainer>
               <Heading>Podobni zawodnicy</Heading>
               <SimilarPlayers {...data?.similarPlayers} />
             </SectionContainer>
           </div>
-        </motion.div>
+        </TabContentWrapper>
       )}
     </AnimatePresence>
   )
