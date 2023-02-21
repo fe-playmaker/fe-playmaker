@@ -1,60 +1,6 @@
-// api returns array of object described below
-export interface IProfileMatchesSeason {
-  season: string
-  matches: {
-    homeTeam: {
-      logoUrl: string
-      name: string
-      score: number
-      mainTeam: boolean
-    }
-    awayTeam: {
-      logoUrl: string
-      name: string
-      score: number
-      mainTeam: boolean
-    }
-    wideo?: string
-    // iso string
-    date: string
-    competition: string
-    status: 'win' | 'loss' | 'draw'
-    minutes: number
-    goals?: number
-    clearAccounts?: number
-    score?: {
-      value: number
-      trend: 'up' | 'down'
-    }
-    yellowCards: number
-    redCards: number
-    additional?: string
-  }[]
-  total: {
-    minutes: number
-    goals?: number
-    clearAccounts?: number
-    score: {
-      value: number
-      trend: 'up' | 'down'
-    }
-    yellowCards: number
-    redCards: number
-  }
-  avgMatch: {
-    minutes: number
-    goals?: number
-    clearAccounts?: number
-    score: {
-      value: number
-      trend: 'up' | 'down'
-    }
-    yellowCards: number
-    redCards: number
-  }
-}
+import { TProfileMatches } from 'types/profile'
 
-export const profileMatchesData: IProfileMatchesSeason[] = [
+export const profileMatchesData: TProfileMatches[] = [
   {
     season: 'Wiosna 21/22',
     matches: [

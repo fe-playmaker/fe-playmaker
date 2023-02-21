@@ -1,32 +1,6 @@
-// api returns an array of objects described below
-export interface IProfileCareerData {
-  season: string
-  score: {
-    value: number
-    trend: 'up' | 'down'
-  }
-  data: {
-    team: string
-    teamLogoUrl: string
-    competition: string
-    season?: 'Wiosna' | 'Lato' | 'Jesień' | 'Zima'
-    mainTeam: boolean
-    matches: number
-    goals: number
-    avgGoals: number
-    avgMinutes: number
-    totalMinutes: number
-  }[]
-  total: {
-    matches: number
-    goals: number
-    avgGoals: number
-    avgMinutes: number
-    totalMinutes: number
-  }
-}
+import { TProfileCareer } from 'types/profile'
 
-export const profileCareerData: IProfileCareerData[] = [
+export const profileCareerData: TProfileCareer[] = [
   {
     season: '21/22',
     score: {

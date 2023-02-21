@@ -76,6 +76,6 @@
     ".next",
     "coverage",
     "dist",
-    "src/types/generated.d.ts"
+    "types/api-generated.d.ts"
   ]
 }
