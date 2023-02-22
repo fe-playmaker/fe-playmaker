@@ -12,30 +12,26 @@ export interface IProfileOverviewData {
     icon: string
   }[]
   transfers: {
-    data: {
-      id: number
-      from: {
-        logo: string
-        name: string
-      }
-      to: {
-        logo: string
-        name: string
-      }
-      type: string
-    }[]
-  }
-  similarPlayers: {
-    data: {
+    id: number
+    from: {
+      logo: string
       name: string
-      image: string
-      score: number
-      premium: boolean
-      carrer: string
-      age: number
-      trend: 'up' | 'down'
-    }[]
-  }
+    }
+    to: {
+      logo: string
+      name: string
+    }
+    type: string
+  }[]
+  similarPlayers: {
+    name: string
+    image: string
+    score: number
+    premium: boolean
+    carrer: string
+    age: number
+    trend: 'up' | 'down'
+  }[]
   experience: {
     data: {
       competetion: string
@@ -64,10 +60,11 @@ export interface IProfileOverviewData {
     age: number
     name: string
     clubLogo: string
+    video: string
   }
   carrer: IProfileCareerData[]
   lastMatches: {
-    playerIsStandOut: boolean
+    playerStandedOut: boolean
     data: IProfileMatchesSeason[]
   }
   regularity: {
@@ -100,80 +97,76 @@ export const profileOverviewData: IProfileOverviewData = {
     },
   ],
 
-  transfers: {
-    data: [
-      {
-        id: 1,
-        from: {
-          logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-          name: 'Orlęta Radzyń Podlaski',
-        },
-        to: {
-          logo: 'https://s3-alpha-sig.figma.com/img/4c8d/9dd7/1e6a9afb73bec293def71d05cac94106?Expires=1677456000&Signature=pBVkwJKi9H6aJMxNSczG7fzNhLgfwWRy3SOgxIP6OXxE4ZfCsNZ9XbEOTIshGwWhsANOhF668SUwMcBOFkwNn7m09DHX87rpwGabEgmJLYMZYLKHw6owA4E~WUfBQTbLvKRTuZhlBt~u~AxPFP2V~s2yCrPhsQepEcLoa3Ivy-fSocDw4ODCpLDcVc6PAgm~3XYBborsVeHZ0EM7mEuOBZUxAPhfeBlD67CKSKsKyux~5pVhCOmv4S4U2jt24OHPtP4LAxXxia8rjj2axs8fau6VWAvPgHO4qbfVHF~VDrc~wFLaKg87PQcZkaEcwaVOR-O3QGhSSCd0l21iJsg7Yg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-          name: 'Pogoń Siedlce',
-        },
-        type: 'Transfer (26.01.2022)',
+  transfers: [
+    {
+      id: 1,
+      from: {
+        logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        name: 'Orlęta Radzyń Podlaski',
       },
-      {
-        id: 2,
-        from: {
-          logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-          name: 'Orlęta Radzyń Podlaski',
-        },
-        to: {
-          logo: 'https://s3-alpha-sig.figma.com/img/1451/3ccf/e4d75e1e62c47e7f5e9dd6d1b2abff44?Expires=1677456000&Signature=EOURPZ~JRZC3fqDWzOM0wUMUevvSukFDQV4-l3nwnrammLuxKLZncHbhGFgyCMmPswj~UB13P9bCtEtVfKWx~WSpyJ5OvwN4Kamglzi2SVdoJULxQkZ3rYUw8WgeWyZNeEPbHbBY4kVjuTA8EvT7~KHKEuutoZ3mFx1RnG9dbCK-VaVomfcYTE0DXXrIS5afC96n60CxbH~hPNMzgjAStodj0-4G8HmZ7Cnfj1czFkQsUnf4C5Oh4HEAzRBDSroVd9HjdLe6p-mh1u73JK1nhLDb9JhGFSTvJlXZYZ50Yy0Ip0Oy4Fnmk6gUK5vy-WKWKJDcdQYG5Vl55JRGq7Nd3w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-          name: 'Olimpia Elbląg',
-        },
-        type: 'Wypożyczenie (20.09.2021)',
+      to: {
+        logo: 'https://s3-alpha-sig.figma.com/img/4c8d/9dd7/1e6a9afb73bec293def71d05cac94106?Expires=1677456000&Signature=pBVkwJKi9H6aJMxNSczG7fzNhLgfwWRy3SOgxIP6OXxE4ZfCsNZ9XbEOTIshGwWhsANOhF668SUwMcBOFkwNn7m09DHX87rpwGabEgmJLYMZYLKHw6owA4E~WUfBQTbLvKRTuZhlBt~u~AxPFP2V~s2yCrPhsQepEcLoa3Ivy-fSocDw4ODCpLDcVc6PAgm~3XYBborsVeHZ0EM7mEuOBZUxAPhfeBlD67CKSKsKyux~5pVhCOmv4S4U2jt24OHPtP4LAxXxia8rjj2axs8fau6VWAvPgHO4qbfVHF~VDrc~wFLaKg87PQcZkaEcwaVOR-O3QGhSSCd0l21iJsg7Yg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        name: 'Pogoń Siedlce',
       },
-      {
-        id: 3,
-        from: {
-          logo: 'https://s3-alpha-sig.figma.com/img/a436/6c36/f34b5fc4c91eed8430de9a23168769f0?Expires=1677456000&Signature=ooIT-uCOMU1Uhetn~7QYgFfJf33ia584j9DAkFWD0Vk1QTuVWHz8V~axwJqZ903g-KWKFoqhjm3SPgnwpZir9myHaqqxHH0X-ThYezK1FTuvC6OERCvwrQQkjDVRELOaSrZN~J~~r9LutJg4ftFjhEraGTaz11D-YRFwLA4s6DzQ53QjTop6SGyiGSkJLZATiLVa8yHCmB8WNNwsjef1xZPoMH-1CLtdXLNUdXPyqs4GaYZ4aS~izJe0PEaAppN~RDY5YTHJQ8gswFmpTsOBkUSc5HYPRayw~UZLZEPVifMfUJguT1yrbVNWUuPLzq~rx~NuK2r7neBIAGIIbmIqrA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-          name: 'Unia Tarnów',
-        },
-        to: {
-          logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-          name: 'Orlęta Radzyń Podlaski',
-        },
-        type: 'Transfer (14.06.2020)',
+      type: 'Transfer (26.01.2022)',
+    },
+    {
+      id: 2,
+      from: {
+        logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        name: 'Orlęta Radzyń Podlaski',
       },
-    ],
-  },
-  similarPlayers: {
-    data: [
-      {
-        name: 'Sebastian Bergier',
-        image:
-          'https://s3-alpha-sig.figma.com/img/943e/ab5d/c673dd06d517cfde44396008f0a7c7bd?Expires=1678060800&Signature=nrLtrZvheuV6c~xPlBQpLudJh1mQVkDzrKTgEN-nk7jvou9NlvxJKyFb8444pCNqbqAL71u31j5EbvU~gRHs~pAI8W9nMZFcoNKjgLma19pYS9HdwXh5oGhr9QwRJ1vqvdwi1AoLbk047JUYCoKdOWgDTIcS7InJ6xxW4Ff~AH8h9s8bGiI4m7FY-dhGFoncz6F7ThvECr-B1Q5uG9RvrjMxUZniB4vxANZCGIPCW2nczuQooEzgMgj5UM6D9pSo04Gtyev7y2rCPLKf8y7cJmRQVhwEGT0jzcDx6VVFirzIcm4p44jykW8PfQS2XOMJr8kEXXhdP5ksUBAsmUfKlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-        score: 71,
-        premium: false,
-        carrer: 'Napastnik w Śląsk Wrocław II (3 liga)',
-        age: 22,
-        trend: 'up',
+      to: {
+        logo: 'https://s3-alpha-sig.figma.com/img/1451/3ccf/e4d75e1e62c47e7f5e9dd6d1b2abff44?Expires=1677456000&Signature=EOURPZ~JRZC3fqDWzOM0wUMUevvSukFDQV4-l3nwnrammLuxKLZncHbhGFgyCMmPswj~UB13P9bCtEtVfKWx~WSpyJ5OvwN4Kamglzi2SVdoJULxQkZ3rYUw8WgeWyZNeEPbHbBY4kVjuTA8EvT7~KHKEuutoZ3mFx1RnG9dbCK-VaVomfcYTE0DXXrIS5afC96n60CxbH~hPNMzgjAStodj0-4G8HmZ7Cnfj1czFkQsUnf4C5Oh4HEAzRBDSroVd9HjdLe6p-mh1u73JK1nhLDb9JhGFSTvJlXZYZ50Yy0Ip0Oy4Fnmk6gUK5vy-WKWKJDcdQYG5Vl55JRGq7Nd3w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        name: 'Olimpia Elbląg',
       },
-      {
-        name: 'Krzysztof Świątek',
-        image:
-          'https://s3-alpha-sig.figma.com/img/91ae/637a/81fd2f798585938127220e6fe8b7043f?Expires=1678060800&Signature=qp3BR7t4OLX7bqqpBvFg3L2obb9pORHboMxXMxHSM4YK2cYR-a7FjX39zxVriV6Ldr8n3up7diF-0g16kRYXKDdfdasgKeSGHLXUDqVqUAXyinS8FZuj17Rb7jVTYtjZWw0FQEZe-oUkbSjxVeGaN6cFa-3cA2rCO2fv~HHRo9qvCI0SuuvJJHGI~t5ALY5iv3bCAjZ0ur8GH1jtwV2FhU9uLnI2-dn~JWMRh7RYp9Bhs29aW08WwhFfDMdYfwYWkw5cnuQ51ehP9ijWkTp2n7a6cSpUceB0saeHOqjBeQEUJXZUmEiVFuZl4ONKTvNVxtRYJfpKbseAtvtxVn~kwQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-        score: 63,
-        premium: true,
-        carrer: 'Ofensywny pomocnik w Hutnik Kraków (3 liga)',
-        age: 35,
-        trend: 'down',
+      type: 'Wypożyczenie (20.09.2021)',
+    },
+    {
+      id: 3,
+      from: {
+        logo: 'https://s3-alpha-sig.figma.com/img/a436/6c36/f34b5fc4c91eed8430de9a23168769f0?Expires=1677456000&Signature=ooIT-uCOMU1Uhetn~7QYgFfJf33ia584j9DAkFWD0Vk1QTuVWHz8V~axwJqZ903g-KWKFoqhjm3SPgnwpZir9myHaqqxHH0X-ThYezK1FTuvC6OERCvwrQQkjDVRELOaSrZN~J~~r9LutJg4ftFjhEraGTaz11D-YRFwLA4s6DzQ53QjTop6SGyiGSkJLZATiLVa8yHCmB8WNNwsjef1xZPoMH-1CLtdXLNUdXPyqs4GaYZ4aS~izJe0PEaAppN~RDY5YTHJQ8gswFmpTsOBkUSc5HYPRayw~UZLZEPVifMfUJguT1yrbVNWUuPLzq~rx~NuK2r7neBIAGIIbmIqrA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        name: 'Unia Tarnów',
       },
-      {
-        name: 'Paweł Mróz',
-        image:
-          'https://s3-alpha-sig.figma.com/img/a4c1/ed43/999b08b377dfe43d111f3b48046f7b20?Expires=1678060800&Signature=KAH4hCRfz0PGvAMy4Jy8-kh0QeAVdsfgSz5SuDmwZYHK7D5roG-xG~G7jRDnvzFmOlcbFnBDKlNWj0q39Bnva4BSs9Q9cqgNgBKcBO1tmrZ~P0Af03OgXzvPwfqgJeWv2Ds6z6AgcYeRwOzOUeXUxZTU8SK9grgqcB5mLa6CfGeDp3eZ05JaxViA9n9EgHN3G~9PeJCxPFPtSWshNb3GVjm6edft2mtbgfyrN5SOED-WNXTavg3-wCC9qZjWuCyle-OCooWxznMw6uiZkWw1kedxOHvmpzxYZalnTpddIxdF3ZIuFNOCuFD7SsTRfZyplzt6zYDQClwfWMpbOVTrVQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-        score: 45,
-        premium: false,
-        carrer: 'Środkowy napastnik w Siarka Tarnobrzeg (3 liga)',
-        age: 23,
-        trend: 'up',
+      to: {
+        logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+        name: 'Orlęta Radzyń Podlaski',
       },
-    ],
-  },
+      type: 'Transfer (14.06.2020)',
+    },
+  ],
+  similarPlayers: [
+    {
+      name: 'Sebastian Bergier',
+      image:
+        'https://s3-alpha-sig.figma.com/img/943e/ab5d/c673dd06d517cfde44396008f0a7c7bd?Expires=1678060800&Signature=nrLtrZvheuV6c~xPlBQpLudJh1mQVkDzrKTgEN-nk7jvou9NlvxJKyFb8444pCNqbqAL71u31j5EbvU~gRHs~pAI8W9nMZFcoNKjgLma19pYS9HdwXh5oGhr9QwRJ1vqvdwi1AoLbk047JUYCoKdOWgDTIcS7InJ6xxW4Ff~AH8h9s8bGiI4m7FY-dhGFoncz6F7ThvECr-B1Q5uG9RvrjMxUZniB4vxANZCGIPCW2nczuQooEzgMgj5UM6D9pSo04Gtyev7y2rCPLKf8y7cJmRQVhwEGT0jzcDx6VVFirzIcm4p44jykW8PfQS2XOMJr8kEXXhdP5ksUBAsmUfKlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+      score: 71,
+      premium: false,
+      carrer: 'Napastnik w Śląsk Wrocław II (3 liga)',
+      age: 22,
+      trend: 'up',
+    },
+    {
+      name: 'Krzysztof Świątek',
+      image:
+        'https://s3-alpha-sig.figma.com/img/91ae/637a/81fd2f798585938127220e6fe8b7043f?Expires=1678060800&Signature=qp3BR7t4OLX7bqqpBvFg3L2obb9pORHboMxXMxHSM4YK2cYR-a7FjX39zxVriV6Ldr8n3up7diF-0g16kRYXKDdfdasgKeSGHLXUDqVqUAXyinS8FZuj17Rb7jVTYtjZWw0FQEZe-oUkbSjxVeGaN6cFa-3cA2rCO2fv~HHRo9qvCI0SuuvJJHGI~t5ALY5iv3bCAjZ0ur8GH1jtwV2FhU9uLnI2-dn~JWMRh7RYp9Bhs29aW08WwhFfDMdYfwYWkw5cnuQ51ehP9ijWkTp2n7a6cSpUceB0saeHOqjBeQEUJXZUmEiVFuZl4ONKTvNVxtRYJfpKbseAtvtxVn~kwQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+      score: 63,
+      premium: true,
+      carrer: 'Ofensywny pomocnik w Hutnik Kraków (3 liga)',
+      age: 35,
+      trend: 'down',
+    },
+    {
+      name: 'Paweł Mróz',
+      image:
+        'https://s3-alpha-sig.figma.com/img/a4c1/ed43/999b08b377dfe43d111f3b48046f7b20?Expires=1678060800&Signature=KAH4hCRfz0PGvAMy4Jy8-kh0QeAVdsfgSz5SuDmwZYHK7D5roG-xG~G7jRDnvzFmOlcbFnBDKlNWj0q39Bnva4BSs9Q9cqgNgBKcBO1tmrZ~P0Af03OgXzvPwfqgJeWv2Ds6z6AgcYeRwOzOUeXUxZTU8SK9grgqcB5mLa6CfGeDp3eZ05JaxViA9n9EgHN3G~9PeJCxPFPtSWshNb3GVjm6edft2mtbgfyrN5SOED-WNXTavg3-wCC9qZjWuCyle-OCooWxznMw6uiZkWw1kedxOHvmpzxYZalnTpddIxdF3ZIuFNOCuFD7SsTRfZyplzt6zYDQClwfWMpbOVTrVQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+      score: 45,
+      premium: false,
+      carrer: 'Środkowy napastnik w Siarka Tarnobrzeg (3 liga)',
+      age: 23,
+      trend: 'up',
+    },
+  ],
   experience: {
     data: [
       {
@@ -216,6 +209,7 @@ export const profileOverviewData: IProfileOverviewData = {
     name: 'Cezary',
     clubLogo:
       'https://s3-alpha-sig.figma.com/img/4c8d/9dd7/1e6a9afb73bec293def71d05cac94106?Expires=1678060800&Signature=LHiNBk43F404EmqPecQ8cGdwNhPxKPu0w~foQl8bw-3DMtGuRYzk38X1Ecu6s6kIXjNo5wnaD4JAUUM5bGwsfaGv4UqyhwK4ilCQN-NDuk3Q9DeXfKEcF~bI2rGKaYgruPlUMRKC-P9q7s-jNyVOw-~TqmiGzSj502rq3sALQ1kXAov~js3u-635siw43NzhyMiSj1Vn0CdyHsm~ObQCGxGQsgdCOh4H~6RzTIEaUPpywI1MOt8CQkBhLV2uQ0zRLAkPHlEd8YflXC6gqnn7V6ihZTZng4ocbYr9sFGclObmspkddklkp8H6XIxzcSm~-298RTzQoaQQYEMj8IjlEg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+    video: '',
   },
   carrer: [
     {
@@ -275,7 +269,7 @@ export const profileOverviewData: IProfileOverviewData = {
     },
   ],
   lastMatches: {
-    playerIsStandOut: true,
+    playerStandedOut: true,
     data: [
       {
         season: 'Wiosna 21/22',
