@@ -57,7 +57,7 @@ export const ExtendedScore = ({ score, type, trend }: Props) => (
         </div>
         <div
           className={clsx(
-            'h-full max-h-8 border-l-2 border-dotted border-transparent opacity-50',
+            'h-full max-h-8 border-l-2 border-dotted border-transparent py-7 opacity-50',
             trend === 'up' ? 'border-greenShade-50' : 'border-orangeShade-50',
           )}
         />
