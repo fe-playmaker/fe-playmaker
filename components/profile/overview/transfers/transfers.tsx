@@ -3,9 +3,11 @@ import Image from 'next/image'
 
 import GreenArrow from '@/icons/GreenArrowToLeft.svg'
 
-export const Transfers = ({ data }: IProfileOverviewData['transfers']) => (
+export const Transfers = ({
+  transfers,
+}: Pick<IProfileOverviewData, 'transfers'>) => (
   <div>
-    {data.map(transfer => (
+    {transfers.map(transfer => (
       <div
         key={transfer.id}
         className="flex flex-col gap-2 border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent"
@@ -38,8 +40,8 @@ export const Transfers = ({ data }: IProfileOverviewData['transfers']) => (
             </div>
           </div>
         </div>
-        <p className="pl-[27px] text-body-xs text-darkAlpha-40">
-          {transfer.type}
+        <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40">
+          {transfer.type} ({transfer.date})
         </p>
       </div>
     ))}

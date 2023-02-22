@@ -22,6 +22,7 @@ export interface IProfileOverviewData {
       name: string
     }
     type: string
+    date: string
   }[]
   similarPlayers: {
     name: string
@@ -109,6 +110,7 @@ export const profileOverviewData: IProfileOverviewData = {
         name: 'Pogoń Siedlce',
       },
       type: 'Transfer (26.01.2022)',
+      date: '26.01.2022',
     },
     {
       id: 2,
@@ -120,7 +122,8 @@ export const profileOverviewData: IProfileOverviewData = {
         logo: 'https://s3-alpha-sig.figma.com/img/1451/3ccf/e4d75e1e62c47e7f5e9dd6d1b2abff44?Expires=1677456000&Signature=EOURPZ~JRZC3fqDWzOM0wUMUevvSukFDQV4-l3nwnrammLuxKLZncHbhGFgyCMmPswj~UB13P9bCtEtVfKWx~WSpyJ5OvwN4Kamglzi2SVdoJULxQkZ3rYUw8WgeWyZNeEPbHbBY4kVjuTA8EvT7~KHKEuutoZ3mFx1RnG9dbCK-VaVomfcYTE0DXXrIS5afC96n60CxbH~hPNMzgjAStodj0-4G8HmZ7Cnfj1czFkQsUnf4C5Oh4HEAzRBDSroVd9HjdLe6p-mh1u73JK1nhLDb9JhGFSTvJlXZYZ50Yy0Ip0Oy4Fnmk6gUK5vy-WKWKJDcdQYG5Vl55JRGq7Nd3w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
         name: 'Olimpia Elbląg',
       },
-      type: 'Wypożyczenie (20.09.2021)',
+      type: 'Wypożyczenie',
+      date: '20.09.2021',
     },
     {
       id: 3,
@@ -132,7 +135,8 @@ export const profileOverviewData: IProfileOverviewData = {
         logo: 'https://s3-alpha-sig.figma.com/img/63a1/b295/6a2d645ab1fca8ca5a0f14e35caa15a7?Expires=1677456000&Signature=fOKAC54REMNoii4nGOLK60zfig4Z302u0lhJ-XzX7RwLllqvW0znA4MAre~knNZqmSkYbjp0~E-3a3bc4LC5dmD6r0I3OGpBAx6PK9o4GnnafZjYemMHXYVQ7Snz4j-ndC5~ojjYQXQ6Xhr6SJCYybw0BsAfLKvjgT5LdRs2iOlGICfmVnRxT5-gfDGwKF2P9pGJaOganhGPI8LhpsRVDY~NNT0SMt0IoycQIMm3bimdDtc8wQ1GvdYG78QaAQtd3ElSI-OEXxDOyGlDNqu~d9Xl8pcun6l93Q3p6BkLCZM31vRGUqdOh0MjZ9gjOgkSHOufSqEHajgaDHyuZI2jtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
         name: 'Orlęta Radzyń Podlaski',
       },
-      type: 'Transfer (14.06.2020)',
+      type: 'Transfer',
+      date: '14.06.2020',
     },
   ],
   similarPlayers: [
