@@ -4,7 +4,6 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 
 // missing - disabled, disabled-selected
 
@@ -30,48 +29,36 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 }
 
 const Tabs = ({ size, tabs, children }: TabsProps) => {
-  const tabContainerRef = useRef<HTMLDivElement | null>(null)
-  const tabContainer = tabContainerRef.current
-
   const firstTab = tabs[0]
   const lastTab = tabs[tabs.length - 1]
 
-  const scrollHandler = (direction: string) => {
-    if (!tabContainer) return
-
-    const positionOfTabsContainer =
-      tabContainer.scrollWidth - tabContainer.clientWidth
-
-    if (direction === 'left') {
-      tabContainerRef.current?.scrollTo({
-        left: positionOfTabsContainer,
-        behavior: 'smooth',
-      })
-    } else {
-      tabContainerRef.current?.scrollTo({
-        left: -positionOfTabsContainer,
-        behavior: 'smooth',
-      })
-    }
-  }
-
   return (
     <Tab.Group>
-      <Tab.List
-        ref={tabContainerRef}
-        className="no-scrollbar flex overflow-x-auto bg-white"
-      >
+      <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
         {tabs.map(name => (
           <Tab
-            onClick={() => {
-              if (lastTab === name) scrollHandler('left')
-              if (firstTab === name) scrollHandler('right')
+            onClick={(e: any) => {
+              setTimeout(() => {
+                if (lastTab === name) {
+                  e.target.scrollIntoView({
+                    block: 'end',
+                    inline: 'nearest',
+                    behavior: 'smooth',
+                  })
+                } else if (firstTab === name) {
+                  e.target.scrollIntoView({
+                    block: 'start',
+                    inline: 'nearest',
+                    behavior: 'smooth',
+                  })
+                }
+              }, 100)
             }}
             className={tabsCva({ size })}
             key={name}
           >
             {({ selected }) => (
-              <>
+              <div className="pointer-events-none">
                 {selected && (
                   <motion.div
                     className="absolute bottom-0 left-0 h-[2px] w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)]"
@@ -91,7 +78,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
                     {name}
                   </span>
                 </span>
-              </>
+              </div>
             )}
           </Tab>
         ))}
