@@ -4,10 +4,10 @@ import { Avatar } from '@/components/common/Avatar/Avatar'
 import { AdditionalScore } from '@/components/common/Score/AdditionalPMScore'
 
 export const SimilarPlayers = ({
-  data,
-}: IProfileOverviewData['similarPlayers']) => (
+  similarPlayers,
+}: Pick<IProfileOverviewData, 'similarPlayers'>) => (
   <div>
-    {data.map(d => (
+    {similarPlayers.map(d => (
       <div className="flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent">
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center">

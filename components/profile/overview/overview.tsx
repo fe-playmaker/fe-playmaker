@@ -89,7 +89,7 @@ export const ProfileOverview = () => {
                 </div>
               </div>
               <div className="mx-6 my-7 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
-                {data.lastMatches.playerIsStandOut ? (
+                {data.lastMatches.playerStandedOut ? (
                   <TrendUpIcon className="icon-32" />
                 ) : (
                   <TrendDownIcon className="icon-32" />
@@ -99,7 +99,7 @@ export const ProfileOverview = () => {
                   <h4 className="font-bold">PlayMaker Score</h4>
                   <p className="font-medium text-darkAlpha-40">
                     {data.playerData.name}{' '}
-                    {data.lastMatches.playerIsStandOut
+                    {data.lastMatches.playerStandedOut
                       ? 'w ostatnich 5 meczach wyróżniał się'
                       : 'w ostatnich 5 meczach miał kilka poślizgnięć.'}
                   </p>
@@ -122,11 +122,11 @@ export const ProfileOverview = () => {
             </SectionContainer>
             <SectionContainer>
               <Heading>Wideo z gry</Heading>
-              <GameVideo />
+              <GameVideo {...data} />
             </SectionContainer>
             <SectionContainer>
               <Heading>Transfery</Heading>
-              <Transfers {...data?.transfers} />
+              <Transfers {...data} />
               <div className="flex justify-center">
                 <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
                   Pokaż kolejne <ArrowDownIcon className="icon-16" />
@@ -135,7 +135,7 @@ export const ProfileOverview = () => {
             </SectionContainer>
             <SectionContainer>
               <Heading>Podobni zawodnicy</Heading>
-              <SimilarPlayers {...data?.similarPlayers} />
+              <SimilarPlayers {...data} />
               <div className="flex justify-center">
                 <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
                   Pokaż kolejnych <ArrowDownIcon className="icon-16" />
