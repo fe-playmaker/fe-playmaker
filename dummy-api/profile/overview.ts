@@ -8,11 +8,9 @@ import { IProfileMatchesSeason } from './matches'
 
 export interface IProfileOverviewData {
   inShort: {
-    data: {
-      title: string
-      icon: string
-    }[]
-  }
+    title: string
+    icon: string
+  }[]
   transfers: {
     data: {
       id: number
@@ -65,35 +63,43 @@ export interface IProfileOverviewData {
     location: string
     age: number
     name: string
+    clubLogo: string
   }
   carrer: IProfileCareerData[]
   lastMatches: {
     playerIsStandOut: boolean
     data: IProfileMatchesSeason[]
   }
+  regularity: {
+    totalParticipationPercentage: number
+    ofMatches: number
+    firstEleven: number
+    fromBench: number
+    bench: number
+    outsideCadre: number
+  }
 }
 
 export const profileOverviewData: IProfileOverviewData = {
-  inShort: {
-    data: [
-      {
-        title: 'Dobra forma',
-        icon: PlayerUpIcon.src,
-      },
-      {
-        title: 'Kluczowy zawodnik w Pogoni Siedlce',
-        icon: PlayerTshirtIcon.src,
-      },
-      {
-        title: '1 sezon w 3 lidze',
-        icon: SecondLeagueIcon.src,
-      },
-      {
-        title: '2 sezon w 4 lidze',
-        icon: ThirdLeagueIcon.src,
-      },
-    ],
-  },
+  inShort: [
+    {
+      title: 'Dobra forma',
+      icon: PlayerUpIcon.src,
+    },
+    {
+      title: 'Kluczowy zawodnik w Pogoni Siedlce',
+      icon: PlayerTshirtIcon.src,
+    },
+    {
+      title: '1 sezon w 3 lidze',
+      icon: SecondLeagueIcon.src,
+    },
+    {
+      title: '2 sezon w 4 lidze',
+      icon: ThirdLeagueIcon.src,
+    },
+  ],
+
   transfers: {
     data: [
       {
@@ -208,6 +214,8 @@ export const profileOverviewData: IProfileOverviewData = {
     location: 'Siedlce (mazowieckie)',
     age: 30,
     name: 'Cezary',
+    clubLogo:
+      'https://s3-alpha-sig.figma.com/img/4c8d/9dd7/1e6a9afb73bec293def71d05cac94106?Expires=1678060800&Signature=LHiNBk43F404EmqPecQ8cGdwNhPxKPu0w~foQl8bw-3DMtGuRYzk38X1Ecu6s6kIXjNo5wnaD4JAUUM5bGwsfaGv4UqyhwK4ilCQN-NDuk3Q9DeXfKEcF~bI2rGKaYgruPlUMRKC-P9q7s-jNyVOw-~TqmiGzSj502rq3sALQ1kXAov~js3u-635siw43NzhyMiSj1Vn0CdyHsm~ObQCGxGQsgdCOh4H~6RzTIEaUPpywI1MOt8CQkBhLV2uQ0zRLAkPHlEd8YflXC6gqnn7V6ihZTZng4ocbYr9sFGclObmspkddklkp8H6XIxzcSm~-298RTzQoaQQYEMj8IjlEg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
   },
   carrer: [
     {
@@ -432,5 +440,13 @@ export const profileOverviewData: IProfileOverviewData = {
         },
       },
     ],
+  },
+  regularity: {
+    totalParticipationPercentage: 60,
+    ofMatches: 10,
+    firstEleven: 4,
+    fromBench: 2,
+    bench: 0,
+    outsideCadre: 4,
   },
 }
