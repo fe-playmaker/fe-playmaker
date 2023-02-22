@@ -1,8 +1,6 @@
-import { ICommonListItem } from './common'
+import { TTeamsList } from 'types/lists'
 
-export type TTeamsList = Array<ICommonListItem>
-
-export const teamsListData: TTeamsList = [
+export const teamsListData: TTeamsList[] = [
   {
     id: 'r343',
     name: 'Pogoń Siedlce',

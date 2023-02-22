@@ -1,8 +1,8 @@
 import { cx } from 'class-variance-authority'
 import clsx from 'clsx'
-import { IProfileMatchesSeason } from 'dummy-api/profile/matches'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { TProfileMatches } from 'types/profile'
 import { formatDate } from 'utils/format-date'
 
 import PlayIcon from '@/icons/TriangleRight.svg'
@@ -11,7 +11,7 @@ import { TeamRow } from './components'
 import { matchRowHeight, matchSummaryRowHeight } from './constants'
 
 interface IProps {
-  matches: IProfileMatchesSeason['matches']
+  matches: TProfileMatches['matches']
   isScrolled: boolean
 }
 

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { returnAfterTime } from 'dummy-api/helpers'
 import { profileCareerData } from 'dummy-api/profile/career'
+import { returnAfterTime } from 'utils/return-after-time'
 
 export const useProfileCareer = (id: string) =>
   useQuery({

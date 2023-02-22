@@ -1,6 +1,6 @@
 import { cx } from 'class-variance-authority'
-import { IProfileMatchesSeason } from 'dummy-api/profile/matches'
 import Image from 'next/image'
+import { TProfileMatches } from 'types/profile'
 
 import TrendDownIcon from '@/icons/TrendDown.svg'
 import TrendUpIcon from '@/icons/Trendup.svg'
@@ -29,7 +29,7 @@ export const EmptyCell = () => (
 export const ScoreIndicator = ({
   score,
 }: {
-  score: IProfileMatchesSeason['total']['score']
+  score: TProfileMatches['total']['score']
 }) => (
   <span
     className={`flex items-center gap-1 text-body-sm font-bold ${
@@ -65,8 +65,8 @@ export const TeamRow = ({
   className,
 }: {
   team:
-    | IProfileMatchesSeason['matches'][number]['awayTeam']
-    | IProfileMatchesSeason['matches'][number]['homeTeam']
+    | TProfileMatches['matches'][number]['awayTeam']
+    | TProfileMatches['matches'][number]['homeTeam']
   className?: string
 }) => (
   <div className={cx('relative flex items-center', className)}>

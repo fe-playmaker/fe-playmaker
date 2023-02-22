@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { returnAfterTime } from 'dummy-api/helpers'
 import { profileHeaderData } from 'dummy-api/profile/header'
+import { returnAfterTime } from 'utils/return-after-time'
 
 export const useProfileHeader = (id: string) =>
   useQuery({

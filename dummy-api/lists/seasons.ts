@@ -1,8 +1,6 @@
-import { ICommonListItem } from './common'
+import { TSeasonsList } from 'types/lists'
 
-export type TSeasonsList = Array<ICommonListItem>
-
-export const seasonsListData: TSeasonsList = [
+export const seasonsListData: TSeasonsList[] = [
   {
     id: 'r343',
     name: '21/22',

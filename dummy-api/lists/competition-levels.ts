@@ -1,8 +1,6 @@
-import { ICommonListItem } from './common'
+import { TCompetitionLevelsList } from 'types/lists'
 
-export type TCompetitionLevelsList = Array<ICommonListItem>
-
-export const competitionLevelsListData: TCompetitionLevelsList = [
+export const competitionLevelsListData: TCompetitionLevelsList[] = [
   {
     id: 'r343',
     name: 'eWinner 2 liga',

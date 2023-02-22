@@ -1,8 +1,8 @@
 'use client'
 
-import { IProfileHeaderData } from 'dummy-api/profile/header'
 import TimeAgo from 'javascript-time-ago'
 import pl from 'javascript-time-ago/locale/pl'
+import { TProfileHeader } from 'types/profile'
 
 import { Avatar } from '@/components/common/Avatar/Avatar'
 import SearchingForClubBanner from '@/components/common/Banner/templates/searchingForClub'
@@ -14,7 +14,7 @@ const timeAgo = new TimeAgo('pl-PL')
 const HeaderContent = ({
   age,
   avatarUrl,
-  banner,
+  status,
   competition,
   firstName,
   lastActivity,
@@ -23,7 +23,7 @@ const HeaderContent = ({
   premium,
   score,
   team,
-}: IProfileHeaderData) => (
+}: TProfileHeader) => (
   <>
     <div className="flex justify-between pb-5">
       <div className="-mt-9 flex flex-col items-start">
@@ -55,8 +55,10 @@ const HeaderContent = ({
     <span className="block border-t border-darkShade-1 py-5 font-inter text-body-xs text-darkAlpha-20">
       Ostatnia aktywność: {timeAgo.format(new Date(lastActivity))}
     </span>
-    {banner.type === 'searchingForClub' && (
-      <SearchingForClubBanner expectations={banner?.expectations || []} />
+    {status.searchingForClub && (
+      <SearchingForClubBanner
+        expectations={status.searchingForClub.expectations}
+      />
     )}
   </>
 )

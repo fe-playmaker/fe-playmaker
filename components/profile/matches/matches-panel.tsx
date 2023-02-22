@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority'
-import { IProfileMatchesSeason } from 'dummy-api/profile/matches'
+import { TProfileMatches } from 'types/profile'
 
 import MatchTableIconLegend from './icon-legend'
 import MatchesTable from './table/matches-table'
@@ -18,7 +18,7 @@ const seasonHeadingCva = cva(
   },
 )
 
-const MatchesPanel = (props: IProfileMatchesSeason) => {
+const MatchesPanel = (props: TProfileMatches) => {
   const { season, total } = props
 
   return (
