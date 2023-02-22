@@ -65,7 +65,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
           <Tab
             onClick={() => {
               if (lastTab === name) scrollHandler('left')
-              else if (firstTab === name) scrollHandler('right')
+              if (firstTab === name) scrollHandler('right')
             }}
             className={tabsCva({ size })}
             key={name}
