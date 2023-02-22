@@ -6,13 +6,13 @@ import TrendUpIcon from 'img/icons/Trendup.svg'
 const scoreCva = cva(
   [
     'flex items-center justify-center h-[5rem] px-3 py-2',
-    'font-bold text-primary bg-primaryShade-10 text-heading-lg',
+    'font-bold text-primary bg-primaryShade-10',
   ],
   {
     variants: {
       type: {
-        default: ['text-heading-sm'],
-        hidden: ['text-heading-md'],
+        default: ['text-heading-lg'],
+        hidden: [''],
       },
     },
     defaultVariants: {
