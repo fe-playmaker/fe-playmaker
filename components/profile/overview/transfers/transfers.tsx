@@ -23,18 +23,19 @@ export const Transfers = ({ data }: IProfileOverviewData['transfers']) => (
             </p>
           </div>
 
-          <GreenArrow className="icon-24" />
-
-          <div className="flex items-center gap-3">
-            <Image
-              src={transfer.to.logo}
-              alt={transfer.to.name}
-              width={19}
-              height={24}
-            />
-            <p className="w-11 text-body-sm text-darkAlpha-40">
-              {transfer.to.name}
-            </p>
+          <div className="flex items-center gap-6">
+            <GreenArrow className="icon-24" />
+            <div className="flex items-center gap-3">
+              <Image
+                src={transfer.to.logo}
+                alt={transfer.to.name}
+                width={19}
+                height={24}
+              />
+              <p className="w-11 text-body-sm text-darkAlpha-40">
+                {transfer.to.name}
+              </p>
+            </div>
           </div>
         </div>
         <p className="pl-[27px] text-body-xs text-darkAlpha-40">

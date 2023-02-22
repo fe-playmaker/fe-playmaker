@@ -17,6 +17,7 @@ import { useProfileOverview } from './hooks'
 import { LastMatchesPanel } from './lastMatches/last-matches-panel'
 import { PlayerBaseData } from './playerBaseData/playerBaseData'
 import { PlayerScore } from './playMakerScore/playMakerScore'
+import { Regularity } from './regularity/regularity'
 import { SimilarPlayers } from './similarPlayers/similarPlayers'
 import { PlayerSlider } from './slider/slider'
 import { Transfers } from './transfers/transfers'
@@ -34,7 +35,7 @@ export const ProfileOverview = () => {
             <SectionContainer className="mt-4">
               <Heading>W skrócie</Heading>
 
-              <PlayerSlider {...data?.inShort} />
+              <PlayerSlider {...data} />
             </SectionContainer>
             <SectionContainer className="pb-0">
               <Heading>Dane podstawowe</Heading>
@@ -55,6 +56,25 @@ export const ProfileOverview = () => {
             </SectionContainer>
             <SectionContainer className="px-0">
               <ExperiencePanel {...data?.experience} />
+            </SectionContainer>
+            <SectionContainer>
+              <div className="flex items-center justify-between">
+                <Heading className="flex items-center gap-2 pb-0">
+                  Regularność gry
+                </Heading>
+                <div className="flex items-center gap-2">
+                  <p className="text-label-sm text-darkAlpha-40">
+                    Pogoń Siedlce (3 liga)
+                  </p>
+                  <ArrowRightIcon className="rotate-90 icon-16" />
+                </div>
+              </div>
+
+              <Regularity
+                {...data.regularity}
+                clubLogo={data.playerData.clubLogo}
+                name={data.playerData.name}
+              />
             </SectionContainer>
             <SectionContainer className="px-0">
               <div className="flex items-center justify-between px-6">
@@ -116,6 +136,11 @@ export const ProfileOverview = () => {
             <SectionContainer>
               <Heading>Podobni zawodnicy</Heading>
               <SimilarPlayers {...data?.similarPlayers} />
+              <div className="flex justify-center">
+                <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
+                  Pokaż kolejnych <ArrowDownIcon className="icon-16" />
+                </p>
+              </div>
             </SectionContainer>
           </div>
         </TabContentWrapper>

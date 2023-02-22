@@ -13,7 +13,7 @@ import { sliderSettings } from '../helpers'
 const SliderItem = ({
   title,
   icon,
-}: IProfileOverviewData['inShort']['data'][number]) => (
+}: IProfileOverviewData['inShort'][number]) => (
   <div className="flex w-[7rem] flex-col items-center gap-3 p-3 pb-5">
     <Image src={icon} alt="icon" width={32} height={32} />
 
@@ -23,10 +23,12 @@ const SliderItem = ({
   </div>
 )
 
-export const PlayerSlider = ({ data }: IProfileOverviewData['inShort']) => (
+export const PlayerSlider = ({
+  inShort,
+}: Pick<IProfileOverviewData, 'inShort'>) => (
   <div className="pb-6">
     <Slider {...sliderSettings}>
-      {data?.map(item => (
+      {inShort?.map(item => (
         <SliderItem key={item.title} {...item} />
       ))}
     </Slider>
