@@ -42,7 +42,7 @@ const premiumBorderCva = cva(
       },
       size: {
         profile: 'h-[calc(100%+0.188rem*4)] w-[calc(100%+0.188rem*4)]',
-        other: 'h-[calc(100%+0.125rem*2)] w-[calc(100%+0.125rem*2)]',
+        other: 'h-[calc(100%+0.188rem*2)] w-[calc(100%+0.188rem*2)]',
       },
     },
     defaultVariants: {
