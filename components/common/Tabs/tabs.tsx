@@ -4,7 +4,6 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import type { MouseEvent } from 'react'
 
 // missing - disabled, disabled-selected
 
@@ -29,70 +28,56 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
   children: React.ReactElement[]
 }
 
-const Tabs = ({ size, tabs, children }: TabsProps) => {
-  const firstTab = tabs[0]
-  const lastTab = tabs[tabs.length - 1]
-
-  return (
-    <Tab.Group>
-      <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
-        {tabs.map(name => (
-          <Tab
-            onClick={(e: any) => {
-              setTimeout(() => {
-                if (lastTab === name) {
-                  e.target.scrollIntoView({
-                    block: 'end',
-                    inline: 'nearest',
-                    behavior: 'smooth',
-                  })
-                } else if (firstTab === name) {
-                  e.target.scrollIntoView({
-                    block: 'start',
-                    inline: 'nearest',
-                    behavior: 'smooth',
-                  })
-                }
-              }, 100)
-            }}
-            className={tabsCva({ size })}
-            key={name}
-          >
-            {({ selected }) => (
-              <div className="pointer-events-none">
-                {selected && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-[2px] w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)]"
-                    layoutId="tabs-selected-underline"
-                  />
-                )}
+const Tabs = ({ size, tabs, children }: TabsProps) => (
+  <Tab.Group>
+    <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
+      {tabs.map(name => (
+        <Tab
+          onClick={(e: any) => {
+            setTimeout(() => {
+              e.target.scrollIntoView({
+                inline: tabs[0] === name ? 'start' : 'end',
+                behavior: 'smooth',
+              })
+            }, 100)
+          }}
+          className={tabsCva({ size })}
+          key={name}
+        >
+          {({ selected }) => (
+            <div className="pointer-events-none">
+              {selected && (
+                <motion.div
+                  className="absolute bottom-0 left-0 h-[2px] w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)]"
+                  layoutId="tabs-selected-underline"
+                />
+              )}
+              <span
+                className={clsx('relative', selected && 'text-transparent')}
+              >
+                {name}
                 <span
-                  className={clsx('relative', selected && 'text-transparent')}
+                  className={clsx(
+                    'absolute left-0 font-bold text-dark',
+                    !selected && 'text-transparent',
+                  )}
                 >
                   {name}
-                  <span
-                    className={clsx(
-                      'absolute left-0 font-bold text-dark',
-                      !selected && 'text-transparent',
-                    )}
-                  >
-                    {name}
-                  </span>
                 </span>
-              </div>
-            )}
-          </Tab>
-        ))}
-      </Tab.List>
-      <Tab.Panels className="flex flex-1">
-        {children.map((panel, id) => (
-          <Tab.Panel key={tabs[id]} className="max-w-full flex-1">
-            {panel}
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
-    </Tab.Group>
-  )
-}
+              </span>
+            </div>
+          )}
+        </Tab>
+      ))}
+    </Tab.List>
+    <Tab.Panels className="flex flex-1">
+      {children.map((panel, id) => (
+        <Tab.Panel key={tabs[id]} className="max-w-full flex-1">
+          {panel}
+        </Tab.Panel>
+      ))}
+    </Tab.Panels>
+  </Tab.Group>
+)
 
 export default Tabs
