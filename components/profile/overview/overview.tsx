@@ -42,9 +42,7 @@ export const ProfileOverview = () => {
               <PlayerBaseData {...data.playerData} />
             </SectionContainer>
             <SectionContainer className="px-0 pt-0">
-              {data.carrer.map(carrer => (
-                <SeasonPanel key={carrer.season} {...carrer} />
-              ))}
+              <SeasonPanel key={data.career.season} {...data.career} />
 
               <div className="flex w-full justify-center">
                 <Button
@@ -89,7 +87,7 @@ export const ProfileOverview = () => {
                 </div>
               </div>
               <div className="mx-6 my-7 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
-                {data.lastMatches.playerStandedOut ? (
+                {data.lastMatch.playerStandedOut ? (
                   <TrendUpIcon className="icon-32" />
                 ) : (
                   <TrendDownIcon className="icon-32" />
@@ -99,16 +97,18 @@ export const ProfileOverview = () => {
                   <h4 className="font-bold">PlayMaker Score</h4>
                   <p className="font-medium text-darkAlpha-40">
                     {data.playerData.name}{' '}
-                    {data.lastMatches.playerStandedOut
+                    {data.lastMatch.playerStandedOut
                       ? 'w ostatnich 5 meczach wyróżniał się'
                       : 'w ostatnich 5 meczach miał kilka poślizgnięć.'}
                   </p>
                 </div>
               </div>
 
-              {data.lastMatches.data.map(season => (
-                <LastMatchesPanel {...season} key={season.season} />
-              ))}
+              <LastMatchesPanel
+                {...data.lastMatch.data}
+                key={data.lastMatch.data.season}
+              />
+
               <div className="flex justify-center">
                 <Button size="small" text="Zobacz więcej" intent="secondary" />
               </div>

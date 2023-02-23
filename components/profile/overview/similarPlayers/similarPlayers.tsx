@@ -22,10 +22,10 @@ export const SimilarPlayers = ({
             <p className="text-subHeading-md font-semibold text-dark">
               {d.name}
             </p>
-            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40">{`${d.carrer}, ${d.age} lat`}</p>
+            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40">{`${d.position} w ${d.team}, ${d.age} lat`}</p>
           </div>
         </div>
-        <AdditionalScore score={d.score} trend={d.trend} />
+        <AdditionalScore score={d.score} trend={d.scoreTrend} />
       </div>
     ))}
   </div>
