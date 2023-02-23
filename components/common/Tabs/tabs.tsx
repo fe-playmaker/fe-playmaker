@@ -4,6 +4,7 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import type { MouseEvent } from 'react'
 
 // missing - disabled, disabled-selected
 
