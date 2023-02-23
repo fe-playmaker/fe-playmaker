@@ -39,10 +39,10 @@ export const ProfileOverview = () => {
             </SectionContainer>
             <SectionContainer className="pb-0">
               <Heading>Dane podstawowe</Heading>
-              <PlayerBaseData {...data?.playerData} />
+              <PlayerBaseData {...data.playerData} />
             </SectionContainer>
             <SectionContainer className="px-0 pt-0">
-              {data?.carrer.map(carrer => (
+              {data.carrer.map(carrer => (
                 <SeasonPanel key={carrer.season} {...carrer} />
               ))}
 
@@ -55,7 +55,7 @@ export const ProfileOverview = () => {
               </div>
             </SectionContainer>
             <SectionContainer className="px-0">
-              <ExperiencePanel {...data?.experience} />
+              <ExperiencePanel {...data.experience} />
             </SectionContainer>
             <SectionContainer>
               <div className="flex items-center justify-between">
