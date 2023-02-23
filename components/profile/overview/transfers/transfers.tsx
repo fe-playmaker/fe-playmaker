@@ -1,5 +1,6 @@
 import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import Image from 'next/image'
+import { formatDate } from 'utils/format-date'
 
 import GreenArrow from '@/icons/GreenArrowToLeft.svg'
 
@@ -41,7 +42,7 @@ export const Transfers = ({
           </div>
         </div>
         <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40">
-          {transfer.type} ({transfer.date})
+          {transfer.type} ({formatDate(transfer.date)})
         </p>
       </div>
     ))}
