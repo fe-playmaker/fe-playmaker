@@ -12,16 +12,37 @@ import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
+import { useProfileHeader } from '@/components/profile/header/hooks'
 
 import { tabs, testMatchResultData, testSelectItems } from './data'
 
 const TestingPage = () => {
   const [currentSelectValue, setCurrentSelectValue] = useState<string>()
+  const { data } = useProfileHeader('69')
 
   return (
     <>
       <Navbar />
-      <main className="h-screen bg-light">
+      <header>
+        <div className="px-5">
+          <Banner
+            btnText="Napisz"
+            btnIcon={<SendIcon />}
+            btnSize="extraSmall"
+            btnIntent="primary"
+            accentClass="before:bg-tertiary"
+          >
+            <span className="text-body-md font-bold">Szukam klubu</span>
+            <span className="text-body-sm font-medium text-darkAlpha-40">
+              Oczekiwania: zwrot za dojazdy...
+            </span>
+            <span className="text-body-sm font-medium text-darkAlpha-40 underline">
+              Więcej
+            </span>
+          </Banner>
+        </div>
+      </header>
+      <main className="bg-light">
         <Tabs tabs={tabs} size="medium">
           {tabs.map(tab => (
             <p key={tab}>{tab}</p>
@@ -53,29 +74,17 @@ const TestingPage = () => {
           icon={<SendIcon />}
         />
         <div className="flex w-full justify-center pb-4">
-          <Avatar type="premium" size="profile" alt="Janusz Korwin" src="fd" />
+          <Avatar
+            type="premium"
+            size="profile"
+            alt="Janusz Korwin"
+            src={data?.avatarUrl ?? ''}
+          />
         </div>
         <PlayMakerScore trend="up" score={69} />
         <Chips
           chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
         />
-        <div className="px-5">
-          <Banner
-            btnText="Napisz"
-            btnIcon={<SendIcon />}
-            btnSize="extraSmall"
-            btnIntent="primary"
-            accentClass="before:bg-tertiary"
-          >
-            <span className="text-body-md font-bold">Szukam klubu</span>
-            <span className="text-body-sm font-medium text-darkAlpha-40">
-              Oczekiwania: zwrot za dojazdy...
-            </span>
-            <span className="text-body-sm font-medium text-darkAlpha-40 underline">
-              Więcej
-            </span>
-          </Banner>
-        </div>
       </main>
     </>
   )

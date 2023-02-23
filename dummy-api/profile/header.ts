@@ -17,6 +17,7 @@ export const profileHeaderData: TProfileHeader = {
   team: 'Pogoń Siedlce',
   age: 30,
   position: 'Napastnik',
+
   competition: '3 liga',
   lastActivity: date.toISOString(),
   status: {

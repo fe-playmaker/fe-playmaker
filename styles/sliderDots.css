@@ -1,0 +1,16 @@
+.slick-slider .slick-dots .slick-active {
+  background: #f2183d;
+  box-shadow: none;
+}
+
+.slick-slider .slick-dots li {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 1px rgba(20, 20, 20, 0.2);
+  padding: 0;
+}
+
+.slick-slider .slick-dots li button {
+  opacity: 0;
+}
