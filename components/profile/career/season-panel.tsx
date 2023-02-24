@@ -4,7 +4,7 @@ import HelpCircleIcon from '@/icons/HelpCircle.svg'
 import TrendDownIcon from '@/icons/TrendDown.svg'
 import TrendUpIcon from '@/icons/Trendup.svg'
 
-import SeasonTable from './season-table'
+import CareerSeasonTable from './table/table'
 
 const SeasonPanel = ({ data, score, season, total }: TProfileCareer) => (
   <div className="bg-white py-8 font-inter font-bold text-dark">
@@ -26,7 +26,7 @@ const SeasonPanel = ({ data, score, season, total }: TProfileCareer) => (
         <HelpCircleIcon className="w-[0.875rem]" />
       </div>
     </div>
-    <SeasonTable data={data} season={season} total={total} />
+    <CareerSeasonTable data={data} season={season} total={total} />
   </div>
 )
 
