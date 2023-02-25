@@ -53,9 +53,11 @@ const HeaderContent = ({
       </div>
     </div>
     <span className="block border-t border-darkShade-1 py-5 font-inter text-body-xs text-darkAlpha-20">
-      Ostatnia aktywność: {timeAgo.format(new Date(lastActivity))}
+      {lastActivity
+        ? `Ostatnia aktywność: ${timeAgo.format(new Date(lastActivity))}`
+        : 'Brak aktywności na portalu'}
     </span>
-    {status.searchingForClub && (
+    {status?.searchingForClub && (
       <SearchingForClubBanner
         expectations={status.searchingForClub.expectations}
       />

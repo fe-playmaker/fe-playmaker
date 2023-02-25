@@ -48,9 +48,9 @@ export const PlayMakerScore = ({ trend, score, type }: Props) => (
         <div className={trendCva({ trend })}>
           <p>
             {trend === 'up' ? (
-              <TrendUpIcon className="h-6 w-6" />
+              <TrendUpIcon className="icon-20" />
             ) : (
-              <TrendDownIcon className="h-6 w-6" />
+              <TrendDownIcon className="icon-20" />
             )}
           </p>
         </div>
