@@ -32,9 +32,20 @@ const Tabs = ({ size, tabs, children }: TabsProps) => (
   <Tab.Group>
     <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
       {tabs.map(name => (
-        <Tab className={tabsCva({ size })} key={name}>
+        <Tab
+          onClick={(e: any) => {
+            setTimeout(() => {
+              e.target.scrollIntoView({
+                inline: tabs[0] === name ? 'start' : 'end',
+                behavior: 'smooth',
+              })
+            }, 100)
+          }}
+          className={tabsCva({ size })}
+          key={name}
+        >
           {({ selected }) => (
-            <>
+            <div className="pointer-events-none">
               {selected && (
                 <motion.div
                   className="absolute bottom-0 left-0 h-[2px] w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)]"
@@ -54,7 +65,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => (
                   {name}
                 </span>
               </span>
-            </>
+            </div>
           )}
         </Tab>
       ))}
