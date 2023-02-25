@@ -1,5 +1,6 @@
 {
   "display": "Client",
+  "parser": "@typescript-eslint/parser",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -26,6 +27,9 @@
         "name": "next"
       }
     ]
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
   "exclude": ["node_modules"],
   "include": [

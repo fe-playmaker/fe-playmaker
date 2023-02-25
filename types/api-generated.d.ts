@@ -14,6 +14,12 @@ export interface paths {
   "/players/{id}/matches": {
     get: operations["PlayerProfileMatches"];
   };
+  "/players/{id}/pm-score": {
+    get: operations["PlayerProfilePMScore"];
+  };
+  "/players/{id}/overview": {
+    get: operations["PlayerProfileOverview"];
+  };
   "/competition-levels/list": {
     get: operations["CompetitionLevelsList"];
   };
@@ -52,7 +58,7 @@ export interface components {
       competition: string;
       ownProfile: boolean;
       /** Format: date-time */
-      lastActivity: string;
+      lastActivity?: string;
       team: string;
       status: {
         searchingForClub?: {
@@ -125,7 +131,7 @@ export interface components {
             score: number;
             mainTeam: boolean;
           };
-          wideo?: string;
+          wideoUrl?: string;
           /** Format: date */
           date: string;
           competition: string;
@@ -184,6 +190,148 @@ export interface components {
         yellowCards: number;
         /** Format: int32 */
         redCards: number;
+      };
+    };
+    ProfilePMScore: {
+      /** Format: int32 */
+      score: number;
+      lastScore: {
+        /** Format: float */
+        value: number;
+        /** @enum {string} */
+        trend: "up" | "down";
+        /** Format: int32 */
+        ofLastMatches: number;
+        info: string;
+      };
+      /** @enum {string} */
+      scoreGraph: "unknown";
+      events: ({
+          /** Format: float */
+          value: number;
+          /** @enum {string} */
+          trend: "up" | "down";
+          info: string;
+        })[];
+      /** Format: int32 */
+      comparisonPercentage: number;
+    };
+    ProfileOverview: {
+      inShort: ({
+          title: string;
+          icon: string;
+        })[];
+      transfers: ({
+          id: string;
+          from: {
+            logoUrl: string;
+            name: string;
+          };
+          to: {
+            logoUrl: string;
+            name: string;
+          };
+          type: string;
+          /** Format: date */
+          date: string;
+        })[];
+      similarPlayers: ({
+          name: string;
+          avatarUrl: string;
+          premium: boolean;
+          /** Format: int32 */
+          age: number;
+          position: string;
+          team: string;
+          competition: string;
+          score: {
+            /** Format: int32 */
+            value: number;
+            /** @enum {string} */
+            trend: "up" | "down";
+          };
+        })[];
+      experience: {
+        data: ({
+            competetion: string;
+            competitionLogoUrl: string;
+            /** Format: int32 */
+            seasons: number;
+            /** Format: int32 */
+            matches: number;
+            /** Format: int32 */
+            goals: number;
+            /** Format: int32 */
+            avgGoals: number;
+            /** Format: int32 */
+            avgMinutes: number;
+          })[];
+        total: {
+          /** Format: int32 */
+          seasons: number;
+          /** Format: int32 */
+          matches: number;
+          /** Format: int32 */
+          goals: number;
+          /** Format: int32 */
+          avgGoals: number;
+          /** Format: int32 */
+          avgMinutes: number;
+        };
+      };
+      playerData: {
+        altPosition: string;
+        position: string;
+        betterLeg: string;
+        /** Format: int32 */
+        height: number;
+        /** Format: int32 */
+        weight: number;
+        location: string;
+        /** Format: int32 */
+        age: number;
+        firstName: string;
+        lastName: string;
+        videoUrl?: string;
+      };
+      lastMatches: {
+        additional: {
+          /** @enum {string} */
+          type: "standedOut" | "playedWorse";
+        };
+        matches: components["schemas"]["ProfileMatches"];
+      };
+      career: components["schemas"]["ProfileCareer"];
+      regularity: {
+        additional: {
+          /** @enum {string} */
+          type: "key" | "regular";
+          teamLogoUrl?: string;
+        };
+        /** Format: int32 */
+        totalParticipationPercentage: number;
+        /** Format: int32 */
+        ofMatches: number;
+        /** Format: int32 */
+        firstEleven: number;
+        /** Format: int32 */
+        fromBench: number;
+        /** Format: int32 */
+        bench: number;
+        /** Format: int32 */
+        outsideCadre: number;
+      };
+      pmScore: {
+        /** Format: int32 */
+        mainScore: number;
+        score: {
+          /** Format: float */
+          value: number;
+          /** @enum {string} */
+          trend: "up" | "down";
+        };
+        /** @enum {string} */
+        graphData: "unknown";
       };
     };
     CommonListItem: {
@@ -252,6 +400,12 @@ export interface operations {
   };
   PlayerProfileMatches: {
     parameters: {
+      query: {
+        seasonIds?: (string)[];
+        teamIds?: (string)[];
+        competitionLevelIds?: (string)[];
+        playerPlayed?: boolean;
+      };
       path: {
         id: string;
       };
@@ -263,7 +417,43 @@ export interface operations {
        */
       201: {
         content: {
-          "application/json": components["schemas"]["ProfileMatches"];
+          "application/json": (components["schemas"]["ProfileMatches"])[];
+        };
+      };
+    };
+  };
+  PlayerProfilePMScore: {
+    parameters: {
+      query: {
+        show: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfilePMScore"];
+        };
+      };
+    };
+  };
+  PlayerProfileOverview: {
+    parameters: {
+      query: {
+        pmScoreGraph: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverview"];
         };
       };
     };
