@@ -3,7 +3,6 @@
 import SendIcon from 'img/icons/Send.svg'
 import React, { useState } from 'react'
 
-import { Avatar } from '@/components/common/Avatar/Avatar'
 import Banner from '@/components/common/Banner/banner'
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
@@ -11,7 +10,9 @@ import MatchResult from '@/components/common/Match-result/match-result'
 import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
+import Tooltip from '@/components/common/Tooltip/tooltip'
 import Navbar from '@/components/Navbar/navbar'
+import GraphIcon from '@/icons/Graph.svg'
 
 import { tabs, testMatchResultData, testSelectItems } from './data'
 
@@ -21,7 +22,7 @@ const TestingPage = () => {
   return (
     <>
       <Navbar />
-      <main className="h-screen bg-light">
+      <main className="h-screen  bg-light">
         <Tabs tabs={tabs} size="medium">
           {tabs.map(tab => (
             <p key={tab}>{tab}</p>
@@ -52,9 +53,6 @@ const TestingPage = () => {
           text="Label"
           icon={<SendIcon />}
         />
-        <div className="flex w-full justify-center pb-4">
-          <Avatar type="premium" size="profile" alt="Janusz Korwin" src="fd" />
-        </div>
         <PlayMakerScore trend="up" score={69} />
         <Chips
           chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
@@ -75,6 +73,11 @@ const TestingPage = () => {
               Więcej
             </span>
           </Banner>
+        </div>
+        <div className="mt-6 flex justify-center">
+          <Tooltip text="Powiadomienia" padding>
+            <GraphIcon className="icon-24" />
+          </Tooltip>
         </div>
       </main>
     </>
