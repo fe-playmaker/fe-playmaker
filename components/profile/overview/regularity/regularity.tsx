@@ -22,7 +22,6 @@ export const Regularity = ({
   additional,
 }: IProps) => {
   const getPercents = (value: number) => Math.round((value / ofMatches) * 100)
-  const regularityCondition = firstEleven > fromBench + bench
 
   return (
     <div>
