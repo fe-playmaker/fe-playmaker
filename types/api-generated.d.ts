@@ -131,7 +131,7 @@ export interface components {
             score: number;
             mainTeam: boolean;
           };
-          wideo?: string;
+          wideoUrl?: string;
           /** Format: date */
           date: string;
           competition: string;
@@ -204,10 +204,8 @@ export interface components {
         ofLastMatches: number;
         info: string;
       };
-      scoreGraph: {
-        player: (number)[];
-        avgCompetition: (number)[];
-      };
+      /** @enum {string} */
+      scoreGraph: "unknown";
       events: ({
           /** Format: float */
           value: number;
@@ -239,7 +237,7 @@ export interface components {
         })[];
       similarPlayers: ({
           name: string;
-          imageUrl: string;
+          avatarUrl: string;
           premium: boolean;
           /** Format: int32 */
           age: number;
@@ -292,23 +290,23 @@ export interface components {
         location: string;
         /** Format: int32 */
         age: number;
-        name: string;
-        clubLogoUrl?: string;
+        firstName: string;
+        lastName: string;
         videoUrl?: string;
       };
-      lastMatch: {
+      lastMatches: {
         additional: {
           /** @enum {string} */
           type: "standedOut" | "playedWorse";
         };
-        match: components["schemas"]["ProfileMatches"];
+        matches: components["schemas"]["ProfileMatches"];
       };
       career: components["schemas"]["ProfileCareer"];
       regularity: {
         additional: {
           /** @enum {string} */
           type: "key" | "regular";
-          teamLogo?: string;
+          teamLogoUrl?: string;
         };
         /** Format: int32 */
         totalParticipationPercentage: number;
@@ -322,6 +320,18 @@ export interface components {
         bench: number;
         /** Format: int32 */
         outsideCadre: number;
+      };
+      pmScore: {
+        /** Format: int32 */
+        mainScore: number;
+        score: {
+          /** Format: float */
+          value: number;
+          /** @enum {string} */
+          trend: "up" | "down";
+        };
+        /** @enum {string} */
+        graphData: "unknown";
       };
     };
     CommonListItem: {
