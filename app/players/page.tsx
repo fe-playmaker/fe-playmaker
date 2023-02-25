@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar/navbar'
 import ProfileCareer from '@/components/profile/career/career'
 import ProfileHeader from '@/components/profile/header/header'
 import ProfileMatches from '@/components/profile/matches/matches'
+import ProfilePMScore from '@/components/profile/pm-score/pm-score'
 
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
@@ -17,7 +18,7 @@ const PlayerTestPage = () => (
       <span>Przegląd</span>
       <ProfileCareer />
       <ProfileMatches />
-      <span>PlayMaker Score</span>
+      <ProfilePMScore />
     </Tabs>
   </main>
 )

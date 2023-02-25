@@ -14,6 +14,9 @@ export interface paths {
   "/players/{id}/matches": {
     get: operations["PlayerProfileMatches"];
   };
+  "/players/{id}/pm-score": {
+    get: operations["PlayerProfilePMScore"];
+  };
   "/competition-levels/list": {
     get: operations["CompetitionLevelsList"];
   };
@@ -186,6 +189,32 @@ export interface components {
         redCards: number;
       };
     };
+    ProfilePMScore: {
+      /** Format: int32 */
+      score: number;
+      lastScore: {
+        /** Format: float */
+        value: number;
+        /** @enum {string} */
+        trend: "up" | "down";
+        /** Format: int32 */
+        ofLastMatches: number;
+        info: string;
+      };
+      scoreGraph: {
+        player: (number)[];
+        avgCompetition: (number)[];
+      };
+      events: ({
+          /** Format: float */
+          value: number;
+          /** @enum {string} */
+          trend: "up" | "down";
+          info: string;
+        })[];
+      /** Format: int32 */
+      comparisonPercentage: number;
+    };
     CommonListItem: {
       id: string;
       name: string;
@@ -264,6 +293,24 @@ export interface operations {
       201: {
         content: {
           "application/json": components["schemas"]["ProfileMatches"];
+        };
+      };
+    };
+  };
+  PlayerProfilePMScore: {
+    parameters: {
+      query: {
+        show: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": (components["schemas"]["ProfilePMScore"])[];
         };
       };
     };

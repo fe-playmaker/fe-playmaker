@@ -20,7 +20,7 @@ const ProfileCareer = () => {
           key="career-content"
         >
           {data.map(season => (
-            <SeasonPanel {...season} />
+            <SeasonPanel {...season} key={season.season} />
           ))}
         </TabContentWrapper>
       )}
