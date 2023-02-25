@@ -1,5 +1,6 @@
 {
   "display": "Client",
+  "parser": "@typescript-eslint/parser",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -19,13 +20,16 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/public/*": ["public/*"],
-      "@/icons/*": ["img/icons/*"],
+      "@/icons/*": ["img/icons/*"]
     },
     "plugins": [
       {
         "name": "next"
       }
     ]
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types/**/*.d.ts","types/**/*.ts"]
