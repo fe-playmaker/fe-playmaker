@@ -18,7 +18,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const RootLayout = ({ children }: { children: React.ReactElement }) => (
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="pl">
     <head />
     <body className={`${poppins.variable} ${inter.variable} font-poppins`}>

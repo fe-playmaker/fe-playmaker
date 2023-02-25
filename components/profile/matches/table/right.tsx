@@ -1,6 +1,6 @@
 import { cx } from 'class-variance-authority'
 import clsx from 'clsx'
-import { IProfileMatchesSeason } from 'dummy-api/profile/matches'
+import { TProfileMatches } from 'types/profile'
 
 import BallIcon from '@/icons/Ball.svg'
 import ClockIcon from '@/icons/ClockVariant.svg'
@@ -18,7 +18,7 @@ import {
 import { matchRowHeight, matchSummaryRowHeight } from './constants'
 
 interface IProps {
-  data: Pick<IProfileMatchesSeason, 'avgMatch' | 'matches' | 'total'>
+  data: Pick<TProfileMatches, 'avgMatch' | 'matches' | 'total'>
   setIsScrolled: (value: boolean) => void
 }
 

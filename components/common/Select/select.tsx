@@ -6,7 +6,6 @@ import clsx from 'clsx'
 import { Fragment } from 'react'
 
 import ChevronDownIcon from '@/icons/ChevronDown.svg'
-import ChevronUpIcon from '@/icons/ChevronUp.svg'
 
 import { ISelectItem } from './types'
 
