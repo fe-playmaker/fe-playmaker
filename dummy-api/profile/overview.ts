@@ -249,7 +249,6 @@ export const profileOverviewData: TProfileOverview = {
           yellowCards: 0,
           redCards: 0,
           additional: 'Pierwszy skład',
-          clearAccounts: 3,
         },
         {
           homeTeam: {
@@ -278,7 +277,6 @@ export const profileOverviewData: TProfileOverview = {
           yellowCards: 0,
           redCards: 0,
           additional: 'Z ławki',
-          clearAccounts: 3,
         },
         {
           homeTeam: {
@@ -303,7 +301,6 @@ export const profileOverviewData: TProfileOverview = {
           yellowCards: 0,
           redCards: 0,
           additional: 'Ławka',
-          clearAccounts: 3,
         },
         {
           homeTeam: {
@@ -332,7 +329,6 @@ export const profileOverviewData: TProfileOverview = {
           yellowCards: 1,
           redCards: 0,
           additional: 'Pierwszy skład',
-          clearAccounts: 3,
         },
         {
           homeTeam: {
@@ -361,7 +357,6 @@ export const profileOverviewData: TProfileOverview = {
           yellowCards: 0,
           redCards: 1,
           additional: 'Z ławki',
-          clearAccounts: 3,
         },
       ],
       total: {
