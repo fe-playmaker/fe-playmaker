@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { returnAfterTime } from 'dummy-api/helpers'
 import { profileOverviewData } from 'dummy-api/profile/overview'
+import { returnAfterTime } from 'utils/return-after-time'
 
 export const useProfileOverview = (id: string) =>
   useQuery({
