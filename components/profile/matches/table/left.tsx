@@ -30,9 +30,9 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
         <TableHeaderText text="Mecz" className="pl-5" />
       </TableLeftHeaderCell>
 
-      {matches.map(({ awayTeam, competition, date, homeTeam, wideo }, i) => (
+      {matches.map(({ awayTeam, competition, date, homeTeam, wideoUrl }, i) => (
         <TableLeftCell
-          expanded={!!wideo}
+          expanded={!!wideoUrl}
           className={clsx(
             'flex items-center pl-4',
             i !== 0 && 'border-t border-darkShade-5',
@@ -50,9 +50,9 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
               <span>{formatDate(date)}</span>
               <span>{competition}</span>
             </div>
-            {wideo && (
+            {wideoUrl && (
               <Link
-                href={wideo}
+                href={wideoUrl}
                 target="_blank"
                 className="mr-4 mt-3 flex items-center justify-center gap-2 rounded py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20"
               >

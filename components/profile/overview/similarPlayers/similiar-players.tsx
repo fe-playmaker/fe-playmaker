@@ -4,17 +4,20 @@ import ArrowDownIcon from '@/icons/ArrowDown.svg'
 
 import { Heading } from '../../common/Heading'
 import { SectionContainer } from '../../common/SectionContainer'
-import { TransfersContent } from './content'
+import { SimilarPlayersContent } from './content'
 
-const TransfersSection = (props: Pick<TProfileOverview, 'transfers'>) => (
+const SimiliarPlayersSection = (
+  props: Pick<TProfileOverview, 'similarPlayers'>,
+) => (
   <SectionContainer>
-    <Heading>Transfery</Heading>
-    <TransfersContent {...props} />
+    <Heading>Podobni zawodnicy</Heading>
+    <SimilarPlayersContent {...props} />
     <div className="flex justify-center">
       <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
-        Pokaż kolejne <ArrowDownIcon className="icon-16" />
+        Pokaż kolejnych <ArrowDownIcon className="icon-16" />
       </p>
     </div>
   </SectionContainer>
 )
-export default TransfersSection
+
+export default SimiliarPlayersSection

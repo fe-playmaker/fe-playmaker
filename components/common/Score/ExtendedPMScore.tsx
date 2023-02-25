@@ -35,13 +35,19 @@ type ScoreProps = VariantProps<typeof scoreCva>
 type TrendScoreProps = VariantProps<typeof trendCva>
 
 interface Props extends TrendScoreProps, ScoreProps {
-  score: number
+  mainScore: number
+  trendScore: number
 }
 
-export const ExtendedScore = ({ score, type, trend }: Props) => (
+export const ExtendedScore = ({
+  mainScore,
+  trendScore,
+  type,
+  trend,
+}: Props) => (
   <div className="grid grid-cols-[1fr,_2fr] gap-2">
     <div className={scoreCva({ type })}>
-      {type !== 'hidden' ? <span>{score}</span> : <span>?</span>}
+      {type !== 'hidden' ? <span>{mainScore}</span> : <span>?</span>}
     </div>
     <div>
       <div className={trendCva({ trend })}>
@@ -53,7 +59,7 @@ export const ExtendedScore = ({ score, type, trend }: Props) => (
               <TrendDownIcon className="h-6 w-6" />
             )}
           </p>
-          <p className="text-heading-xs font-bold">0.72</p>
+          <p className="text-heading-xs font-bold">{trendScore}</p>
         </div>
         <div
           className={clsx(

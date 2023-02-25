@@ -3,7 +3,7 @@ import { TProfileOverview } from 'types/profile'
 import { Avatar } from '@/components/common/Avatar/Avatar'
 import { AdditionalScore } from '@/components/common/Score/AdditionalPMScore'
 
-export const SimilarPlayers = ({
+export const SimilarPlayersContent = ({
   similarPlayers,
 }: Pick<TProfileOverview, 'similarPlayers'>) => (
   <div>
@@ -14,7 +14,7 @@ export const SimilarPlayers = ({
             <Avatar
               type={d.premium ? 'premium' : 'default'}
               alt={d.name}
-              src={d.imageUrl}
+              src={d.avatarUrl}
               size="other"
             />
           </div>

@@ -1,4 +1,5 @@
 import Graph from 'img/illustrations/Graph.svg'
+import { TProfileOverview } from 'types/profile'
 
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
@@ -12,13 +13,19 @@ const chips = [
   'Ostatnie 3 lata',
 ]
 
-export const PlayerScore = () => (
+export const PlayMakerScoreContent = ({
+  pmScore,
+}: Pick<TProfileOverview, 'pmScore'>) => (
   <div className="flex flex-col gap-7">
     <p className="text-body-sm text-darkAlpha-20">
       PlayMaker Score pozwala obserwować potencjał zawodnika. Na wskaźnik wpływa
       ponad 20 zmiennych, m.in. gra zawodnika, czy jego wiek.
     </p>
-    <ExtendedScore score={63} trend="up" />
+    <ExtendedScore
+      mainScore={pmScore.mainScore}
+      trend="up"
+      trendScore={pmScore.score.value}
+    />
     <Chips chips={chips} />
     <div className="flex flex-col items-center">
       {/* graph section is temporary */}
