@@ -19,6 +19,7 @@ export const Regularity = ({
   outsideCadre,
   name,
   clubLogo,
+  additional,
 }: IProps) => {
   const getPercents = (value: number) => Math.round((value / ofMatches) * 100)
   const regularityCondition = firstEleven > fromBench + bench
@@ -26,9 +27,7 @@ export const Regularity = ({
   return (
     <div>
       <div className="mt-7 mb-8 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
-        {regularityCondition ? (
-          <TrendUpTshirt className="icon-40" />
-        ) : (
+        {additional.type === 'regular' && (
           <Image
             src={clubLogo}
             width={40}
@@ -37,16 +36,19 @@ export const Regularity = ({
             className="icon-24"
           />
         )}
+        {additional.type === 'key' && <TrendUpTshirt className="icon-40" />}
 
         <div className="font-inter text-body-sm">
           <h4 className="font-bold">
-            {regularityCondition ? 'Kluczowy zawodnik' : 'Regularna gra'}
+            {additional.type === 'regular' && 'Regularna gra'}
+            {additional.type === 'key' && 'Kluczowy zawodnik'}
           </h4>
           <p className="font-medium text-darkAlpha-40">
-            {regularityCondition
-              ? `W sezonie 22/23 ${name} wystawiany jest
-                      zwykle w pierwszej 11.`
-              : `W sezonie 22/23 ${name} regularnie występuje w swojej drużynie.`}
+            {additional.type === 'regular' &&
+              `W sezonie 22/23 ${name} regularnie występuje w swojej drużynie.`}
+            {additional.type === 'key' &&
+              `W sezonie 22/23 ${name} wystawiany jest
+                      zwykle w pierwszej 11.`}
           </p>
         </div>
       </div>

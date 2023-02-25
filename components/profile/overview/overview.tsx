@@ -97,9 +97,10 @@ export const ProfileOverview = () => {
                   <h4 className="font-bold">PlayMaker Score</h4>
                   <p className="font-medium text-darkAlpha-40">
                     {data.playerData.name}{' '}
-                    {data.lastMatch.additional.type === 'standedOut'
-                      ? 'w ostatnich 5 meczach wyróżniał się'
-                      : 'w ostatnich 5 meczach miał kilka poślizgnięć.'}
+                    {data.lastMatch.additional.type === 'standedOut' &&
+                      'w ostatnich 5 meczach wyróżniał się'}
+                    {data.lastMatch.additional.type === 'playedWorse' &&
+                      'w ostatnich 5 meczach miał kilka poślizgnięć.'}
                   </p>
                 </div>
               </div>
