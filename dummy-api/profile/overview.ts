@@ -74,7 +74,7 @@ export const profileOverviewData: TProfileOverview = {
   similarPlayers: [
     {
       name: 'Sebastian Bergier',
-      imageUrl:
+      avatarUrl:
         'https://s3-alpha-sig.figma.com/img/943e/ab5d/c673dd06d517cfde44396008f0a7c7bd?Expires=1678060800&Signature=nrLtrZvheuV6c~xPlBQpLudJh1mQVkDzrKTgEN-nk7jvou9NlvxJKyFb8444pCNqbqAL71u31j5EbvU~gRHs~pAI8W9nMZFcoNKjgLma19pYS9HdwXh5oGhr9QwRJ1vqvdwi1AoLbk047JUYCoKdOWgDTIcS7InJ6xxW4Ff~AH8h9s8bGiI4m7FY-dhGFoncz6F7ThvECr-B1Q5uG9RvrjMxUZniB4vxANZCGIPCW2nczuQooEzgMgj5UM6D9pSo04Gtyev7y2rCPLKf8y7cJmRQVhwEGT0jzcDx6VVFirzIcm4p44jykW8PfQS2XOMJr8kEXXhdP5ksUBAsmUfKlQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       score: {
         value: 71,
@@ -88,7 +88,7 @@ export const profileOverviewData: TProfileOverview = {
     },
     {
       name: 'Krzysztof Świątek',
-      imageUrl:
+      avatarUrl:
         'https://s3-alpha-sig.figma.com/img/91ae/637a/81fd2f798585938127220e6fe8b7043f?Expires=1678060800&Signature=qp3BR7t4OLX7bqqpBvFg3L2obb9pORHboMxXMxHSM4YK2cYR-a7FjX39zxVriV6Ldr8n3up7diF-0g16kRYXKDdfdasgKeSGHLXUDqVqUAXyinS8FZuj17Rb7jVTYtjZWw0FQEZe-oUkbSjxVeGaN6cFa-3cA2rCO2fv~HHRo9qvCI0SuuvJJHGI~t5ALY5iv3bCAjZ0ur8GH1jtwV2FhU9uLnI2-dn~JWMRh7RYp9Bhs29aW08WwhFfDMdYfwYWkw5cnuQ51ehP9ijWkTp2n7a6cSpUceB0saeHOqjBeQEUJXZUmEiVFuZl4ONKTvNVxtRYJfpKbseAtvtxVn~kwQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       score: {
         value: 63,
@@ -102,7 +102,7 @@ export const profileOverviewData: TProfileOverview = {
     },
     {
       name: 'Paweł Mróz',
-      imageUrl:
+      avatarUrl:
         'https://s3-alpha-sig.figma.com/img/a4c1/ed43/999b08b377dfe43d111f3b48046f7b20?Expires=1678060800&Signature=KAH4hCRfz0PGvAMy4Jy8-kh0QeAVdsfgSz5SuDmwZYHK7D5roG-xG~G7jRDnvzFmOlcbFnBDKlNWj0q39Bnva4BSs9Q9cqgNgBKcBO1tmrZ~P0Af03OgXzvPwfqgJeWv2Ds6z6AgcYeRwOzOUeXUxZTU8SK9grgqcB5mLa6CfGeDp3eZ05JaxViA9n9EgHN3G~9PeJCxPFPtSWshNb3GVjm6edft2mtbgfyrN5SOED-WNXTavg3-wCC9qZjWuCyle-OCooWxznMw6uiZkWw1kedxOHvmpzxYZalnTpddIxdF3ZIuFNOCuFD7SsTRfZyplzt6zYDQClwfWMpbOVTrVQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
       score: {
         value: 45,
@@ -154,9 +154,8 @@ export const profileOverviewData: TProfileOverview = {
     weight: 78,
     location: 'Siedlce (mazowieckie)',
     age: 30,
-    name: 'Cezary',
-    clubLogoUrl:
-      'https://s3-alpha-sig.figma.com/img/4c8d/9dd7/1e6a9afb73bec293def71d05cac94106?Expires=1678060800&Signature=LHiNBk43F404EmqPecQ8cGdwNhPxKPu0w~foQl8bw-3DMtGuRYzk38X1Ecu6s6kIXjNo5wnaD4JAUUM5bGwsfaGv4UqyhwK4ilCQN-NDuk3Q9DeXfKEcF~bI2rGKaYgruPlUMRKC-P9q7s-jNyVOw-~TqmiGzSj502rq3sALQ1kXAov~js3u-635siw43NzhyMiSj1Vn0CdyHsm~ObQCGxGQsgdCOh4H~6RzTIEaUPpywI1MOt8CQkBhLV2uQ0zRLAkPHlEd8YflXC6gqnn7V6ihZTZng4ocbYr9sFGclObmspkddklkp8H6XIxzcSm~-298RTzQoaQQYEMj8IjlEg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+    firstName: 'Cezary',
+    lastName: 'Obama',
     videoUrl: '',
   },
   career: {
@@ -214,11 +213,11 @@ export const profileOverviewData: TProfileOverview = {
       totalMinutes: 310,
     },
   },
-  lastMatch: {
+  lastMatches: {
     additional: {
       type: 'standedOut',
     },
-    match: {
+    matches: {
       season: 'Wiosna 21/22',
       matches: [
         {
@@ -237,7 +236,7 @@ export const profileOverviewData: TProfileOverview = {
             score: 1,
           },
           competition: '3 liga',
-          wideo: 'fdfssfds',
+          wideoUrl: 'fdfssfds',
           date: new Date('2022-02-22').toISOString(),
           status: 'win',
           minutes: 90,
@@ -384,7 +383,7 @@ export const profileOverviewData: TProfileOverview = {
   regularity: {
     additional: {
       type: 'key',
-      teamLogo:
+      teamLogoUrl:
         'https://s3-alpha-sig.figma.com/img/4c8d/9dd7/1e6a9afb73bec293def71d05cac94106?Expires=1677456000&Signature=pBVkwJKi9H6aJMxNSczG7fzNhLgfwWRy3SOgxIP6OXxE4ZfCsNZ9XbEOTIshGwWhsANOhF668SUwMcBOFkwNn7m09DHX87rpwGabEgmJLYMZYLKHw6owA4E~WUfBQTbLvKRTuZhlBt~u~AxPFP2V~s2yCrPhsQepEcLoa3Ivy-fSocDw4ODCpLDcVc6PAgm~3XYBborsVeHZ0EM7mEuOBZUxAPhfeBlD67CKSKsKyux~5pVhCOmv4S4U2jt24OHPtP4LAxXxia8rjj2axs8fau6VWAvPgHO4qbfVHF~VDrc~wFLaKg87PQcZkaEcwaVOR-O3QGhSSCd0l21iJsg7Yg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     },
     totalParticipationPercentage: 60,
@@ -393,5 +392,13 @@ export const profileOverviewData: TProfileOverview = {
     fromBench: 2,
     bench: 0,
     outsideCadre: 4,
+  },
+  pmScore: {
+    graphData: 'unknown',
+    mainScore: 63,
+    score: {
+      trend: 'up',
+      value: 0.72,
+    },
   },
 }
