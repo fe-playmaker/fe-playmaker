@@ -22,25 +22,23 @@ export const ProfileOverview = () => {
       {isLoading || !data ? (
         <TabLoadingSpinner key="overview-spinner" />
       ) : (
-        <TabContentWrapper>
-          <div className="grid grid-cols-1 gap-4">
-            <InShortSection inShort={data.inShort} />
-            <BaseDataSection playerData={data.playerData} />
-            <CareerSeasonSection career={data.career} />
-            <ExperienceSection {...data.experience} />
-            <RegularitySection
-              data={data.regularity}
-              playerName={data.playerData.firstName}
-            />
-            <LastMatchesSection
-              lastMatches={data.lastMatches}
-              playerFirstName={data.playerData.firstName}
-            />
-            <PlayMakerScoreSection pmScore={data.pmScore} />
-            <GameVideoSection videoUrl={data.playerData.videoUrl} />
-            <TransfersSection transfers={data.transfers} />
-            <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
-          </div>
+        <TabContentWrapper className="grid grid-cols-1 gap-4 pb-9">
+          <InShortSection inShort={data.inShort} />
+          <BaseDataSection playerData={data.playerData} />
+          <CareerSeasonSection career={data.career} />
+          <ExperienceSection experience={data.experience} />
+          <RegularitySection
+            data={data.regularity}
+            playerName={data.playerData.firstName}
+          />
+          <LastMatchesSection
+            lastMatches={data.lastMatches}
+            playerFirstName={data.playerData.firstName}
+          />
+          <PlayMakerScoreSection pmScore={data.pmScore} />
+          <GameVideoSection videoUrl={data.playerData.videoUrl} />
+          <TransfersSection transfers={data.transfers} />
+          <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
         </TabContentWrapper>
       )}
     </AnimatePresence>
