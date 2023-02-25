@@ -70,7 +70,7 @@ export const ProfileOverview = () => {
 
               <Regularity
                 {...data.regularity}
-                clubLogo={data.playerData.clubLogo}
+                clubLogo={data.playerData.clubLogoUrl ?? ''}
                 name={data.playerData.name}
               />
             </SectionContainer>
@@ -87,7 +87,7 @@ export const ProfileOverview = () => {
                 </div>
               </div>
               <div className="mx-6 my-7 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
-                {data.lastMatch.playerStandedOut ? (
+                {data.lastMatch.additional.type === 'standedOut' ? (
                   <TrendUpIcon className="icon-32" />
                 ) : (
                   <TrendDownIcon className="icon-32" />
@@ -97,7 +97,7 @@ export const ProfileOverview = () => {
                   <h4 className="font-bold">PlayMaker Score</h4>
                   <p className="font-medium text-darkAlpha-40">
                     {data.playerData.name}{' '}
-                    {data.lastMatch.playerStandedOut
+                    {data.lastMatch.additional.type === 'standedOut'
                       ? 'w ostatnich 5 meczach wyróżniał się'
                       : 'w ostatnich 5 meczach miał kilka poślizgnięć.'}
                   </p>
@@ -105,8 +105,8 @@ export const ProfileOverview = () => {
               </div>
 
               <LastMatchesPanel
-                {...data.lastMatch.data}
-                key={data.lastMatch.data.season}
+                {...data.lastMatch.match}
+                key={data.lastMatch.match.season}
               />
 
               <div className="flex justify-center">
