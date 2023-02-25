@@ -1,13 +1,13 @@
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import GameVideoImage from 'img/illustrations/gameVideo.png'
 import NothingVideoIcon from 'img/illustrations/NothingVideoBox.svg'
 import Image from 'next/image'
+import { TProfileOverview } from 'types/profile'
 
 export const GameVideo = ({
   playerData,
-}: Pick<IProfileOverviewData, 'playerData'>) => (
+}: Pick<TProfileOverview, 'playerData'>) => (
   <div>
-    {playerData.video ? (
+    {playerData.videoUrl ? (
       <Image
         src={GameVideoImage}
         width={335}

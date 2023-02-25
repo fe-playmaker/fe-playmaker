@@ -1,10 +1,10 @@
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import Image from 'next/image'
+import { TProfileOverview } from 'types/profile'
 
 import Chart from '@/icons/Chart.svg'
 import TrendUpTshirt from '@/icons/TrendUpTshirt.svg'
 
-type RegularityType = IProfileOverviewData['regularity']
+type RegularityType = TProfileOverview['regularity']
 
 interface IProps extends RegularityType {
   name: string

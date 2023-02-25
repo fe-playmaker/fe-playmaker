@@ -1,8 +1,8 @@
 'use client'
 
 import { cva } from 'class-variance-authority'
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import SoccerField from 'img/illustrations/SoccerField.svg'
+import { TProfileOverview } from 'types/profile'
 
 import HelperIcon from '@/icons/helperPosition.svg'
 import StrikerIcon from '@/icons/strikerPosition.svg'
@@ -24,7 +24,7 @@ export const PlayerBaseData = ({
   position,
   altPosition,
   betterLeg,
-}: IProfileOverviewData['playerData']) => {
+}: TProfileOverview['playerData']) => {
   const baseData = [
     {
       title: 'Wiek',

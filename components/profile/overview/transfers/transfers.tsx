@@ -1,12 +1,12 @@
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import Image from 'next/image'
+import { TProfileOverview } from 'types/profile'
 import { formatDate } from 'utils/format-date'
 
 import GreenArrow from '@/icons/GreenArrowToLeft.svg'
 
 export const Transfers = ({
   transfers,
-}: Pick<IProfileOverviewData, 'transfers'>) => (
+}: Pick<TProfileOverview, 'transfers'>) => (
   <div>
     {transfers.map(transfer => (
       <div
@@ -16,7 +16,7 @@ export const Transfers = ({
         <div className="flex items-center justify-between gap-7">
           <div className="flex items-center gap-3">
             <Image
-              src={transfer.from.logo}
+              src={transfer.from.logoUrl}
               alt={transfer.from.name}
               width={19}
               height={24}
@@ -30,7 +30,7 @@ export const Transfers = ({
             <GreenArrow className="icon-24" />
             <div className="flex items-center gap-3">
               <Image
-                src={transfer.to.logo}
+                src={transfer.to.logoUrl}
                 alt={transfer.to.name}
                 width={19}
                 height={24}

@@ -1,11 +1,8 @@
 import clsx from 'clsx'
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import Image from 'next/image'
+import { TProfileOverview } from 'types/profile'
 
-const ExperienceTable = ({
-  data,
-  total,
-}: IProfileOverviewData['experience']) => (
+const ExperienceTable = ({ data, total }: TProfileOverview['experience']) => (
   <div className=" flex flex-col overflow-x-auto font-medium">
     <Grid className="items-end border-b-2 border-darkAlpha-5 py-3 text-center text-body-xs text-darkAlpha-40">
       <span className="text-left">Klasa rozgrywkowa</span>
