@@ -11,7 +11,7 @@ import InShortSection from './inShort/inShort'
 import LastMatchesSection from './lastMatches/last-matches'
 import PlayMakerScoreSection from './playMakerScore/pm-score'
 import RegularitySection from './regularity/regularity'
-import { SimilarPlayersContent } from './similarPlayers/content'
+import SimiliarPlayersSection from './similarPlayers/similiar-players'
 import TransfersSection from './transfers/transfers'
 
 export const ProfileOverview = () => {
@@ -39,7 +39,7 @@ export const ProfileOverview = () => {
             <PlayMakerScoreSection pmScore={data.pmScore} />
             <GameVideoSection videoUrl={data.playerData.videoUrl} />
             <TransfersSection transfers={data.transfers} />
-            <SimilarPlayersContent similarPlayers={data.similarPlayers} />
+            <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
           </div>
         </TabContentWrapper>
       )}
