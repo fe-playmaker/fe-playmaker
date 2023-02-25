@@ -15,6 +15,7 @@ export const Table = ({
   summaryRowHeight,
   expandedRowHeight,
   columnsClass,
+  paddingRightColumnClass,
 }: IProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const scrolledValue = useMemo(
@@ -23,8 +24,20 @@ export const Table = ({
   )
 
   const settingsValue = useMemo(
-    () => ({ rowHeight, summaryRowHeight, expandedRowHeight, columnsClass }),
-    [rowHeight, summaryRowHeight, expandedRowHeight, columnsClass],
+    () => ({
+      rowHeight,
+      summaryRowHeight,
+      expandedRowHeight,
+      columnsClass,
+      paddingRightColumnClass,
+    }),
+    [
+      rowHeight,
+      summaryRowHeight,
+      expandedRowHeight,
+      columnsClass,
+      paddingRightColumnClass,
+    ],
   )
 
   return (
