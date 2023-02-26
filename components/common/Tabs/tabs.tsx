@@ -52,19 +52,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
     >
       <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
         {tabs.map(name => (
-          <Tab
-            className={tabsCva({ size })}
-            key={name}
-            onClick={(e: any) => {
-              setTimeout(() => {
-                e.target.scrollIntoView({
-                  inline: tabs[0] === name ? 'start' : 'end',
-                  block: 'nearest',
-                  behavior: 'smooth',
-                })
-              }, 100)
-            }}
-          >
+          <Tab className={tabsCva({ size })} key={name}>
             {({ selected }) => (
               <>
                 {selected && (
