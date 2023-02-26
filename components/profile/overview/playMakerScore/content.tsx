@@ -1,5 +1,5 @@
 import Graph from 'img/illustrations/Graph.svg'
-import { TProfileOverview } from 'types/profile'
+import { TProfileOverviewPMScore } from 'types/profile'
 
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
@@ -15,7 +15,9 @@ const chips = [
 
 export const PlayMakerScoreContent = ({
   pmScore,
-}: Pick<TProfileOverview, 'pmScore'>) => (
+}: {
+  pmScore: TProfileOverviewPMScore
+}) => (
   <div className="flex flex-col gap-7">
     <p className="text-body-sm text-darkAlpha-20">
       PlayMaker Score pozwala obserwować potencjał zawodnika. Na wskaźnik wpływa
@@ -27,14 +29,14 @@ export const PlayMakerScoreContent = ({
       {/* graph section is temporary */}
       <Graph />
       <div className="flex items-center gap-6 pt-6 font-inter text-body-xs">
-        <p className="flex items-center gap-3">
+        <span className="flex items-center gap-3">
           <div className="h-[3px] w-4 rounded-full bg-primary" />
           Zawodnik
-        </p>
-        <p className="flex items-center gap-3">
+        </span>
+        <span className="flex items-center gap-3">
           <div className="h-[3px] w-4 rounded-full bg-darkAlpha-20" />
           Średnia ligowa
-        </p>
+        </span>
       </div>
     </div>
     <div className="flex justify-center">

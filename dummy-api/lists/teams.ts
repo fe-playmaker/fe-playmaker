@@ -2,8 +2,9 @@ import { TTeamsList } from 'types/lists'
 
 export const teamsListData: TTeamsList[] = [
   {
-    id: 'r343',
+    id: 'pgsiedlce',
     name: 'Pogoń Siedlce',
+    competition: '3 liga',
   },
   {
     id: 'gdfd',

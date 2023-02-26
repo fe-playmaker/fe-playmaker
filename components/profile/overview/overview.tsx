@@ -1,4 +1,9 @@
-import { TProfileOverview } from 'types/profile'
+import {
+  TProfileOverview,
+  TProfileOverviewLastMatches,
+  TProfileOverviewPMScore,
+  TProfileOverviewRegularity,
+} from 'types/profile'
 
 import BaseDataSection from './baseData/baseData'
 import CareerSeasonSection from './careerSeason/careerSeason'
@@ -13,23 +18,33 @@ import TransfersSection from './transfers/transfers'
 
 interface IProps {
   data: TProfileOverview
+  regularity: TProfileOverviewRegularity
+  lastMatches: TProfileOverviewLastMatches
+  pmScore: TProfileOverviewPMScore
 }
 
-export const ProfileOverview = ({ data }: IProps) => (
-  <div className="grid grid-cols-1 gap-4 pb-9">
+export const ProfileOverview = ({
+  data,
+  lastMatches,
+  regularity,
+  pmScore,
+}: IProps) => (
+  <div className="flex flex-col gap-4 pb-9">
     <InShortSection inShort={data.inShort} />
     <BaseDataSection playerData={data.playerData} />
     <CareerSeasonSection career={data.career} />
     <ExperienceSection experience={data.experience} />
     <RegularitySection
-      data={data.regularity}
+      data={regularity}
       playerName={data.playerData.firstName}
+      defaultTeamId={data.playerData.team.id}
     />
     <LastMatchesSection
-      lastMatches={data.lastMatches}
+      lastMatches={lastMatches}
       playerFirstName={data.playerData.firstName}
+      defaultTeamId={data.playerData.team.id}
     />
-    <PlayMakerScoreSection pmScore={data.pmScore} />
+    <PlayMakerScoreSection pmScore={pmScore} />
     <GameVideoSection videoUrl={data.playerData.videoUrl} />
     <TransfersSection transfers={data.transfers} />
     <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
