@@ -1,135 +1,37 @@
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
+import { TProfileOverview } from 'types/profile'
 
-import { Button } from '@/components/common/Button/Button'
-import { Heading } from '@/components/profile/common/Heading'
-import { SectionContainer } from '@/components/profile/common/SectionContainer'
-import ArrowDownIcon from '@/icons/ArrowDown.svg'
-import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
-import TrendDownIcon from '@/icons/TrendDown.svg'
-import TrendUpIcon from '@/icons/Trendup.svg'
-
-import SeasonPanel from '../career/season-panel'
-import { ExperiencePanel } from './experience/experience-panel'
-import { GameVideo } from './gameVideo/gameVideo'
-import { LastMatchesPanel } from './lastMatches/last-matches-panel'
-import { PlayerBaseData } from './playerBaseData/playerBaseData'
-import { PlayerScore } from './playMakerScore/playMakerScore'
-import { Regularity } from './regularity/regularity'
-import { SimilarPlayers } from './similarPlayers/similarPlayers'
-import { PlayerSlider } from './slider/slider'
-import { Transfers } from './transfers/transfers'
+import BaseDataSection from './baseData/baseData'
+import CareerSeasonSection from './careerSeason/careerSeason'
+import { ExperienceSection } from './experience/experience'
+import { GameVideoSection } from './gameVideo/gameVideo'
+import InShortSection from './inShort/inShort'
+import LastMatchesSection from './lastMatches/last-matches'
+import PlayMakerScoreSection from './playMakerScore/pm-score'
+import RegularitySection from './regularity/regularity'
+import SimiliarPlayersSection from './similarPlayers/similiar-players'
+import TransfersSection from './transfers/transfers'
 
 interface IProps {
-  data: IProfileOverviewData
+  data: TProfileOverview
 }
 
 export const ProfileOverview = ({ data }: IProps) => (
-  <div className="grid grid-cols-1 gap-4">
-    <SectionContainer className="mt-4">
-      <Heading>W skrócie</Heading>
-
-      <PlayerSlider {...data} />
-    </SectionContainer>
-    <SectionContainer className="pb-0">
-      <Heading>Dane podstawowe</Heading>
-      <PlayerBaseData {...data?.playerData} />
-    </SectionContainer>
-    <SectionContainer className="px-0 pt-0">
-      {data?.carrer.map(carrer => (
-        <SeasonPanel key={carrer.season} {...carrer} />
-      ))}
-
-      <div className="flex w-full justify-center">
-        <Button intent="secondary" size="small" text="Zobacz całą karierę" />
-      </div>
-    </SectionContainer>
-    <SectionContainer className="px-0">
-      <ExperiencePanel {...data?.experience} />
-    </SectionContainer>
-    <SectionContainer>
-      <div className="flex items-center justify-between">
-        <Heading className="flex items-center gap-2 pb-0">
-          Regularność gry
-        </Heading>
-        <div className="flex items-center gap-2">
-          <p className="text-label-sm text-darkAlpha-40">
-            Pogoń Siedlce (3 liga)
-          </p>
-          <ArrowRightIcon className="rotate-90 icon-16" />
-        </div>
-      </div>
-
-      <Regularity
-        {...data.regularity}
-        clubLogo={data.playerData.clubLogo}
-        name={data.playerData.name}
-      />
-    </SectionContainer>
-    <SectionContainer className="px-0">
-      <div className="flex items-center justify-between px-6">
-        <Heading className="flex items-center gap-2 pb-0">
-          Ostatnie mecze <ArrowRightIcon className="icon-16" />
-        </Heading>
-        <div className="flex items-center gap-2">
-          <p className="text-label-sm text-darkAlpha-40">
-            Pogoń Siedlce (3 liga)
-          </p>
-          <ArrowRightIcon className="rotate-90 icon-16" />
-        </div>
-      </div>
-      <div className="mx-6 my-7 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
-        {data.lastMatches.playerStandedOut ? (
-          <TrendUpIcon className="icon-32" />
-        ) : (
-          <TrendDownIcon className="icon-32" />
-        )}
-
-        <div className="font-inter text-body-sm">
-          <h4 className="font-bold">PlayMaker Score</h4>
-          <p className="font-medium text-darkAlpha-40">
-            {data.playerData.name}{' '}
-            {data.lastMatches.playerStandedOut
-              ? 'w ostatnich 5 meczach wyróżniał się'
-              : 'w ostatnich 5 meczach miał kilka poślizgnięć.'}
-          </p>
-        </div>
-      </div>
-
-      {data.lastMatches.data.map(season => (
-        <LastMatchesPanel {...season} key={season.season} />
-      ))}
-      <div className="flex justify-center">
-        <Button size="small" text="Zobacz więcej" intent="secondary" />
-      </div>
-    </SectionContainer>
-
-    <SectionContainer>
-      <Heading className="flex items-center gap-2">
-        PlayMaker Score <ArrowRightIcon className="icon-16" />
-      </Heading>
-      <PlayerScore />
-    </SectionContainer>
-    <SectionContainer>
-      <Heading>Wideo z gry</Heading>
-      <GameVideo {...data} />
-    </SectionContainer>
-    <SectionContainer>
-      <Heading>Transfery</Heading>
-      <Transfers {...data} />
-      <div className="flex justify-center">
-        <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
-          Pokaż kolejne <ArrowDownIcon className="icon-16" />
-        </p>
-      </div>
-    </SectionContainer>
-    <SectionContainer>
-      <Heading>Podobni zawodnicy</Heading>
-      <SimilarPlayers {...data} />
-      <div className="flex justify-center">
-        <p className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40">
-          Pokaż kolejnych <ArrowDownIcon className="icon-16" />
-        </p>
-      </div>
-    </SectionContainer>
+  <div className="grid grid-cols-1 gap-4 pb-9">
+    <InShortSection inShort={data.inShort} />
+    <BaseDataSection playerData={data.playerData} />
+    <CareerSeasonSection career={data.career} />
+    <ExperienceSection experience={data.experience} />
+    <RegularitySection
+      data={data.regularity}
+      playerName={data.playerData.firstName}
+    />
+    <LastMatchesSection
+      lastMatches={data.lastMatches}
+      playerFirstName={data.playerData.firstName}
+    />
+    <PlayMakerScoreSection pmScore={data.pmScore} />
+    <GameVideoSection videoUrl={data.playerData.videoUrl} />
+    <TransfersSection transfers={data.transfers} />
+    <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
   </div>
 )

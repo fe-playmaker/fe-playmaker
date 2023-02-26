@@ -1,9 +1,9 @@
-import { IProfileMatchesSeason } from 'dummy-api/profile/matches'
+import { TProfileMatches } from 'types/profile'
 
 import MatchTableIconLegend from '../../matches/icon-legend'
 import MatchesTable from '../../matches/table/matches-table'
 
-export const LastMatchesPanel = (props: IProfileMatchesSeason) => {
+export const LastMatchesPanel = (props: TProfileMatches) => {
   const { total } = props
 
   return (

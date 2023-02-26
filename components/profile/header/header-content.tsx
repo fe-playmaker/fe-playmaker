@@ -57,7 +57,7 @@ const HeaderContent = ({
         ? `Ostatnia aktywność: ${timeAgo.format(new Date(lastActivity))}`
         : 'Brak aktywności na portalu'}
     </span>
-    {status.searchingForClub && (
+    {status?.searchingForClub && (
       <SearchingForClubBanner
         expectations={status.searchingForClub.expectations}
       />

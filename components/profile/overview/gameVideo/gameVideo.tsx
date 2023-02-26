@@ -1,16 +1,19 @@
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import GameVideoImage from 'img/illustrations/gameVideo.png'
 import NothingVideoIcon from 'img/illustrations/NothingVideoBox.svg'
 import Image from 'next/image'
+import { TProfileOverview } from 'types/profile'
 
-export const GameVideo = ({
-  playerData,
-}: Pick<IProfileOverviewData, 'playerData'>) => {
-  const hasVideo = !!playerData.video
+import { Heading } from '../../common/Heading'
+import { SectionContainer } from '../../common/SectionContainer'
 
-  return (
+interface IProps {
+  videoUrl: TProfileOverview['playerData']['videoUrl']
+}
+export const GameVideoSection = ({ videoUrl }: IProps) => (
+  <SectionContainer>
+    <Heading>Wideo z gry</Heading>
     <div>
-      {hasVideo ? (
+      {videoUrl ? (
         <Image
           src={GameVideoImage}
           width={335}
@@ -27,5 +30,5 @@ export const GameVideo = ({
         </div>
       )}
     </div>
-  )
-}
+  </SectionContainer>
+)

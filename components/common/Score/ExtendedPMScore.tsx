@@ -1,4 +1,4 @@
-import { cva, VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import clsx from 'clsx'
 import TrendDownIcon from 'img/icons/TrendDown.svg'
 import TrendUpIcon from 'img/icons/Trendup.svg'
@@ -31,38 +31,42 @@ const trendCva = cva(['py-5 pl-5 h-[5rem]', 'flex items-center gap-6'], {
   },
 })
 
-type ScoreProps = VariantProps<typeof scoreCva>
-type TrendScoreProps = VariantProps<typeof trendCva>
-
-interface Props extends TrendScoreProps, ScoreProps {
+interface Props {
   score: number
+  lastScore: {
+    value: number
+    trend: 'up' | 'down'
+  }
+  hidden?: boolean
 }
 
-export const ExtendedScore = ({ score, type, trend }: Props) => (
+export const ExtendedScore = ({ lastScore, score, hidden }: Props) => (
   <div className="grid grid-cols-[1fr,_2fr] gap-2">
-    <div className={scoreCva({ type })}>
-      {type !== 'hidden' ? <span>{score}</span> : <span>?</span>}
+    <div className={scoreCva({ type: hidden ? 'hidden' : 'default' })}>
+      {!hidden ? <span>{score}</span> : <span>?</span>}
     </div>
     <div>
-      <div className={trendCva({ trend })}>
+      <div className={trendCva({ trend: lastScore.trend })}>
         <div className="flex items-center gap-2">
           <p>
-            {trend === 'up' ? (
+            {lastScore.trend === 'up' ? (
               <TrendUpIcon className="h-6 w-6" />
             ) : (
               <TrendDownIcon className="h-6 w-6" />
             )}
           </p>
-          <p className="text-heading-xs font-bold">0.72</p>
+          <p className="text-heading-xs font-bold">{lastScore.value}</p>
         </div>
         <div
           className={clsx(
             'h-full max-h-8 border-l-2 border-dotted border-transparent py-7 opacity-50',
-            trend === 'up' ? 'border-greenShade-50' : 'border-orangeShade-50',
+            lastScore.trend === 'up'
+              ? 'border-greenShade-50'
+              : 'border-orangeShade-50',
           )}
         />
         <div className="flex flex-col font-inter text-body-xs">
-          {trend === 'up' && (
+          {lastScore.trend === 'up' && (
             <p className="font-bold text-greenShade-50">Dobra forma</p>
           )}
 

@@ -1,9 +1,7 @@
 'use client'
 
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
 import { AnimatePresence } from 'framer-motion'
-import { Fragment } from 'react'
-import { TProfileHeader } from 'types/profile'
+import { TProfileHeader, TProfileOverview } from 'types/profile'
 
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
@@ -15,6 +13,7 @@ import { useProfileHeader } from '@/components/profile/header/hooks'
 import ProfileMatches from '@/components/profile/matches/matches'
 import { useProfileOverview } from '@/components/profile/overview/hooks'
 import { ProfileOverview } from '@/components/profile/overview/overview'
+import ProfilePMScore from '@/components/profile/pm-score/pm-score'
 
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
@@ -43,10 +42,10 @@ const PlayerTestPage = () => {
           >
             <ProfileHeader data={headerData as TProfileHeader} />
             <Tabs tabs={tabs} size="medium">
-              <ProfileOverview data={overviewData as IProfileOverviewData} />
+              <ProfileOverview data={overviewData as TProfileOverview} />
               <ProfileCareer />
               <ProfileMatches />
-              <span>PlayMaker Score</span>
+              <ProfilePMScore />
             </Tabs>
           </TabContentWrapper>
         )}

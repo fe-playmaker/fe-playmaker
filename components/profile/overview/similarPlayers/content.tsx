@@ -1,11 +1,11 @@
-import { IProfileOverviewData } from 'dummy-api/profile/overview'
+import { TProfileOverview } from 'types/profile'
 
 import { Avatar } from '@/components/common/Avatar/Avatar'
 import { AdditionalScore } from '@/components/common/Score/AdditionalPMScore'
 
-export const SimilarPlayers = ({
+export const SimilarPlayersContent = ({
   similarPlayers,
-}: Pick<IProfileOverviewData, 'similarPlayers'>) => (
+}: Pick<TProfileOverview, 'similarPlayers'>) => (
   <div>
     {similarPlayers.map(d => (
       <div className="flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent">
@@ -14,7 +14,7 @@ export const SimilarPlayers = ({
             <Avatar
               type={d.premium ? 'premium' : 'default'}
               alt={d.name}
-              src={d.image}
+              src={d.avatarUrl}
               size="other"
             />
           </div>
@@ -22,10 +22,10 @@ export const SimilarPlayers = ({
             <p className="text-subHeading-md font-semibold text-dark">
               {d.name}
             </p>
-            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40">{`${d.carrer}, ${d.age} lat`}</p>
+            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40">{`${d.position} w ${d.team} (${d.competition}), ${d.age} lat`}</p>
           </div>
         </div>
-        <AdditionalScore score={d.score} trend={d.trend} />
+        <AdditionalScore score={d.score.value} trend={d.score.trend} />
       </div>
     ))}
   </div>

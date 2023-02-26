@@ -1,9 +1,9 @@
 'use client'
 
-import { Tab, Transition } from '@headlessui/react'
+import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
-import { AnimatePresence, Variants, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Fragment, useEffect, useState } from 'react'
 
 // missing - disabled, disabled-selected
@@ -39,6 +39,12 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
     setTabIndex(helperTabIndex)
   }, [helperTabIndex])
 
+  const getInitialPanelX = () => {
+    if (prevHelperTabIndex === -1) return 0
+
+    return helperTabIndex > prevHelperTabIndex ? '100%' : '-100%'
+  }
+
   return (
     <Tab.Group
       selectedIndex={tabIndex}
@@ -46,7 +52,19 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
     >
       <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
         {tabs.map(name => (
-          <Tab className={tabsCva({ size })} key={name}>
+          <Tab
+            className={tabsCva({ size })}
+            key={name}
+            onClick={(e: any) => {
+              setTimeout(() => {
+                e.target.scrollIntoView({
+                  inline: tabs[0] === name ? 'start' : 'end',
+                  block: 'nearest',
+                  behavior: 'smooth',
+                })
+              }, 100)
+            }}
+          >
             {({ selected }) => (
               <>
                 {selected && (
@@ -80,12 +98,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
             key={`tab-panel-${tabIndex}`}
             as={motion.div}
             initial={{
-              x:
-                prevHelperTabIndex === -1
-                  ? 0
-                  : helperTabIndex > prevHelperTabIndex
-                  ? '100%'
-                  : '-100%',
+              x: getInitialPanelX(),
               opacity: 0.4,
             }}
             animate={{
