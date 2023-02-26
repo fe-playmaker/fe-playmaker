@@ -8,7 +8,10 @@ export const SimilarPlayersContent = ({
 }: Pick<TProfileOverview, 'similarPlayers'>) => (
   <div>
     {similarPlayers.map(d => (
-      <div className="flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent">
+      <div
+        className="flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent"
+        key={`similiar-player-${d.id}`}
+      >
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center">
             <Avatar

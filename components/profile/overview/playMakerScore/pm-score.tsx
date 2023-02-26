@@ -1,4 +1,4 @@
-import { TProfileOverview } from 'types/profile'
+import { TProfileOverviewPMScore } from 'types/profile'
 
 import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
 
@@ -8,7 +8,9 @@ import { PlayMakerScoreContent } from './content'
 
 const PlayMakerScoreSection = ({
   pmScore,
-}: Pick<TProfileOverview, 'pmScore'>) => (
+}: {
+  pmScore: TProfileOverviewPMScore
+}) => (
   <SectionContainer>
     <Heading className="flex items-center gap-2">
       PlayMaker Score <ArrowRightIcon className="icon-16" />

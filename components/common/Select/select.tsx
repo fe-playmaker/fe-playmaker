@@ -47,6 +47,7 @@ interface IProps extends VariantProps<typeof menuButtonCva> {
   inputName?: string
   currentValue?: string
   setCurrentValue?: (item: string) => void
+  menuRightSide?: boolean
 }
 
 function Select({
@@ -58,6 +59,7 @@ function Select({
   defaultValue,
   currentValue,
   setCurrentValue,
+  menuRightSide,
 }: IProps) {
   return (
     <Listbox
@@ -98,7 +100,12 @@ function Select({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Listbox.Options className="absolute z-50 mt-4 min-w-[12.5rem] bg-white py-4 shadow-default">
+        <Listbox.Options
+          className={clsx(
+            'absolute z-50 mt-4 min-w-[12.5rem] bg-white py-4 shadow-default',
+            menuRightSide && 'right-0',
+          )}
+        >
           {items.map(item => (
             <Listbox.Option
               key={item.name}
@@ -118,7 +125,7 @@ function Select({
 
 interface InputSelectProps
   extends VariantProps<typeof menuButtonCva>,
-    Pick<IProps, 'name' | 'items' | 'defaultValue'> {
+    Pick<IProps, 'name' | 'items' | 'defaultValue' | 'menuRightSide'> {
   inputName: string
 }
 
@@ -128,7 +135,7 @@ export const InputSelect = (props: InputSelectProps) => <Select {...props} />
 
 interface ControlledSelectProps
   extends VariantProps<typeof menuButtonCva>,
-    Pick<IProps, 'name' | 'items'> {
+    Pick<IProps, 'name' | 'items' | 'menuRightSide'> {
   currentValue: string | undefined
   setCurrentValue: (item: string) => void
 }

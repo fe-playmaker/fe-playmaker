@@ -1,10 +1,12 @@
 import { TProfileMatches } from 'types/profile'
+import { v4 as uuid } from 'uuid'
 
 export const profileMatchesData: TProfileMatches[] = [
   {
     season: 'Wiosna 21/22',
     matches: [
       {
+        id: uuid(),
         homeTeam: {
           name: 'Pogoń Siedlce',
           logoUrl:
@@ -34,6 +36,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Pierwszy skład',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Znicz Pruszków',
           logoUrl:
@@ -62,6 +65,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Z ławki',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Wisła Puławy',
           logoUrl:
@@ -86,6 +90,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Ławka',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Pogoń Siedlce',
           logoUrl:
@@ -114,6 +119,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Pierwszy skład',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Górnik Polkowice',
           logoUrl:
@@ -167,6 +173,7 @@ export const profileMatchesData: TProfileMatches[] = [
     season: 'Jesień 21/22',
     matches: [
       {
+        id: uuid(),
         homeTeam: {
           name: 'Pogoń Siedlce',
           logoUrl:
@@ -196,6 +203,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Pierwszy skład',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Znicz Pruszków',
           logoUrl:
@@ -224,6 +232,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Z ławki',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Wisła Puławy',
           logoUrl:
@@ -248,6 +257,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Ławka',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Pogoń Siedlce',
           logoUrl:
@@ -276,6 +286,7 @@ export const profileMatchesData: TProfileMatches[] = [
         additional: 'Pierwszy skład',
       },
       {
+        id: uuid(),
         homeTeam: {
           name: 'Górnik Polkowice',
           logoUrl:
