@@ -33,16 +33,17 @@ export const profilePMScoreData: TProfilePMScore = {
       value: 2.21,
       info: 'Lorem ipsum dolor sit amet consectetur.',
     },
+    {
+      trend: 'up',
+      value: 1.05,
+      info: 'Lorem ipsum dolor sit amet consectetur.',
+    },
   ],
   lastScore: {
     value: 0.72,
     trend: 'up',
-    info: 'Dobra forma',
     ofLastMatches: 5,
   },
   score: 63,
-  scoreGraph: {
-    avgCompetition: [],
-    player: [],
-  },
+  scoreGraph: 'unknown',
 }

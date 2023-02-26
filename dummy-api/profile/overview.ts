@@ -395,10 +395,11 @@ export const profileOverviewData: TProfileOverview = {
   },
   pmScore: {
     graphData: 'unknown',
-    mainScore: 63,
-    score: {
+    score: 63,
+    lastScore: {
       trend: 'up',
       value: 0.72,
+      ofLastMatches: 5,
     },
   },
 }
