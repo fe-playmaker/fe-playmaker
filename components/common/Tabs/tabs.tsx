@@ -37,6 +37,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => (
             setTimeout(() => {
               e.target.scrollIntoView({
                 inline: tabs[0] === name ? 'start' : 'end',
+                block: 'nearest',
                 behavior: 'smooth',
               })
             }, 100)
