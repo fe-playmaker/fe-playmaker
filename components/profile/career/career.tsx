@@ -16,7 +16,7 @@ const ProfileCareer = () => {
         <TabLoadingSpinner key="career-spinner" />
       ) : (
         <TabContentWrapper
-          className="mt-4 flex flex-col gap-4 pb-11"
+          className="mt-4 flex flex-col gap-4 pb-9"
           key="career-content"
         >
           {data.map(season => (
