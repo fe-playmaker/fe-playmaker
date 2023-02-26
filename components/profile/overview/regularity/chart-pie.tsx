@@ -49,6 +49,8 @@ export const ChartPie = ({
         display: false,
       },
       tooltip: {
+        borderWidth: 0,
+        displayColors: false,
         callbacks: {
           label(context: any) {
             let label = context.label || ''
