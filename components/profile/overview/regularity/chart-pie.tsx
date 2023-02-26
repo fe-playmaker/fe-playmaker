@@ -49,16 +49,14 @@ export const ChartPie = ({
         display: false,
       },
       tooltip: {
-        borderWidth: 0,
-        displayColors: false,
         callbacks: {
           label(context: any) {
             const value = context.parsed || 0
             const total = context.dataset.data.reduce(
               (a: number, b: number) => a + b,
             )
-            const percentage = ((value / total) * 100).toFixed(2)
-            const label = `${value} (${percentage}%)`
+            const percentage = Math.round((value / total) * 100)
+            const label = ` ${value} (${percentage}%)`
 
             return label
           },
