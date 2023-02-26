@@ -23,7 +23,7 @@ export const ChartPie = ({
           'rgba(30, 120, 255, 1)',
         ],
         borderWidth: 2,
-        innerRadius: '50%',
+        cutout: '60%',
       },
     ],
   }
@@ -31,7 +31,13 @@ export const ChartPie = ({
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    cutoutPercentage: 90,
+    legend: {
+      display: false,
+      animation: {
+        animateRotate: false,
+        animateScale: false,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -75,7 +81,7 @@ export const ChartPie = ({
       </div>
 
       <Doughnut
-        className="z-10 max-h-[10.5rem] max-w-[10.5rem]"
+        className="z-10 max-h-[10rem] max-w-[10rem]"
         data={data}
         options={options}
         width={155}
