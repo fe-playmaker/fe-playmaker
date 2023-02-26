@@ -202,7 +202,6 @@ export interface components {
         trend: "up" | "down";
         /** Format: int32 */
         ofLastMatches: number;
-        info: string;
       };
       /** @enum {string} */
       scoreGraph: "unknown";
@@ -323,12 +322,14 @@ export interface components {
       };
       pmScore: {
         /** Format: int32 */
-        mainScore: number;
-        score: {
+        score: number;
+        lastScore: {
           /** Format: float */
           value: number;
           /** @enum {string} */
           trend: "up" | "down";
+          /** Format: int32 */
+          ofLastMatches: number;
         };
         /** @enum {string} */
         graphData: "unknown";
