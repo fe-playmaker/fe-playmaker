@@ -19,7 +19,6 @@ export const RegularityContent = ({
   outsideCadre,
   playerName,
   additional,
-  totalParticipationPercentage,
 }: IProps) => {
   const getPercents = (value: number) => Math.round((value / ofMatches) * 100)
 
@@ -57,7 +56,7 @@ export const RegularityContent = ({
           fromBench={fromBench}
           outsideCadre={outsideCadre}
           firstEleven={firstEleven}
-          totalParticipationPercentage={totalParticipationPercentage}
+          ofMatches={ofMatches}
         />
         <div className="flex flex-col gap-3">
           <div className="relative flex items-center gap-[0.625rem] font-inter text-body-sm">

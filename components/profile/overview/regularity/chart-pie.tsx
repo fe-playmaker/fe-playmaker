@@ -8,8 +8,15 @@ export const ChartPie = ({
   firstEleven,
   bench,
   outsideCadre,
-  totalParticipationPercentage,
-}: Omit<TProfileOverview['regularity'], 'additional' | 'ofMatches'>) => {
+  ofMatches,
+}: Omit<
+  TProfileOverview['regularity'],
+  'additional' | 'totalParticipationPercentage'
+>) => {
+  const totalParticipationPercentage = Math.round(
+    ((fromBench + firstEleven) / ofMatches) * 100,
+  )
+
   const data = {
     labels: ['Pierwsza "11"', 'Wejście z ławki', 'Ławka', 'Poza kadrą'],
     datasets: [
