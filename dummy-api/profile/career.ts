@@ -85,7 +85,7 @@ export const profileCareerData: TProfileCareer[] = [
     },
   },
   {
-    season: '20/21',
+    season: '19/20',
     score: {
       value: 0.92,
       trend: 'down',
