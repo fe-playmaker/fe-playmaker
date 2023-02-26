@@ -72,7 +72,7 @@ export const ChartPie = ({
   return (
     <div className="flex items-center justify-center">
       <div className="absolute flex flex-col items-center justify-center text-center">
-        <p className="text-heading-sm font-bold">
+        <p className="text-heading-md font-bold">
           {totalParticipationPercentage}%
         </p>
         <p className="font-inter text-body-xs font-medium text-darkAlpha-20">
