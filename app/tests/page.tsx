@@ -11,8 +11,10 @@ import MatchResult from '@/components/common/Match-result/match-result'
 import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
+import Tooltip from '@/components/common/Tooltip/tooltip'
 import Navbar from '@/components/Navbar/navbar'
 import { useProfileHeader } from '@/components/profile/header/hooks'
+import GraphIcon from '@/icons/Graph.svg'
 
 import { tabs, testMatchResultData, testSelectItems } from './data'
 
@@ -85,6 +87,11 @@ const TestingPage = () => {
         <Chips
           chips={['Tylko z udziałem zawodnika', 'Wszystkie', 'Tylko wideo']}
         />
+        <div className="mt-6 flex justify-center">
+          <Tooltip text="Powiadomienia" padding>
+            <GraphIcon className="icon-24" />
+          </Tooltip>
+        </div>
       </main>
     </>
   )
