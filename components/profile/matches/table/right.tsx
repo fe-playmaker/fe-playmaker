@@ -54,10 +54,12 @@ const MatchesTableRightPart = ({
           score,
           wideoUrl,
           clearAccounts,
+          id,
         },
         i,
       ) => (
         <TableRow
+          key={`right-matches-table-row-${id}`}
           expanded={!!wideoUrl}
           className={clsx(
             'text-body-sm',
