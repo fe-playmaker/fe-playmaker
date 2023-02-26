@@ -5,6 +5,7 @@ export interface ITableSettings {
   expandedRowHeight?: string
   summaryRowHeight: string
   columnsClass: string
+  paddingRightColumnClass?: string
 }
 
 export const TableSettingsContext = createContext<ITableSettings>({
@@ -12,4 +13,5 @@ export const TableSettingsContext = createContext<ITableSettings>({
   summaryRowHeight: '',
   expandedRowHeight: undefined,
   columnsClass: '',
+  paddingRightColumnClass: 'pl-4',
 })

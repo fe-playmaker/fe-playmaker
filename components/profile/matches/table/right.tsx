@@ -52,13 +52,13 @@ const MatchesTableRightPart = ({
           status,
           yellowCards,
           score,
-          wideo,
+          wideoUrl,
           clearAccounts,
         },
         i,
       ) => (
         <TableRow
-          expanded={!!wideo}
+          expanded={!!wideoUrl}
           className={clsx(
             'text-body-sm',
             i !== 0 && 'border-t border-darkAlpha-5',

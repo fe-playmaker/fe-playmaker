@@ -15,14 +15,19 @@ export const TableRow = ({
   className,
   customHeight,
 }: IProps) => {
-  const { rowHeight, expandedRowHeight, columnsClass } =
-    useContext(TableSettingsContext)
+  const {
+    rowHeight,
+    expandedRowHeight,
+    columnsClass,
+    paddingRightColumnClass,
+  } = useContext(TableSettingsContext)
   return (
     <div
       className={clsx(
-        'grid min-w-max items-center justify-items-center gap-x-4 pl-4 pr-5 text-body-md',
+        'grid min-w-max items-center justify-items-center gap-x-4 pr-5 text-body-md',
         className,
         columnsClass,
+        paddingRightColumnClass || 'pl-4',
       )}
       style={{
         height: customHeight || (expanded ? expandedRowHeight : rowHeight),

@@ -105,91 +105,157 @@ module.exports = {
       poppins: ['var(--font-poppins)', ...fontFamily.sans],
     },
     fontSize: {
-      'heading-xl': ['2.5rem', {
-        lineHeight: '120%',
-        letterSpacing: '-0.015em',
-      }],
-      'heading-lg': ['2rem', {
-        lineHeight: '120%',
-        letterSpacing: '-0.01em',
-      }],
-      'heading-md': ['1.5rem', {
-        lineHeight: '130%',
-        letterSpacing: '-0.01em',
-      }],
-      'heading-sm': ['1.25rem',{
-        lineHeight: '130%',
-        letterSpacing: '-0.005em',
-      }],
-      'heading-smaller': ['1.125rem', {
-        lineHeight: '130%',
-        letterSpacing: '-0.002em'
-      }],
-      'heading-xs': ['1rem', {
-        lineHeight: '140%',
-      }],
-      'heading-micro': ['0.875rem', {
-        lineHeight: '140%',
-        letterSpacing: '0.0063rem'
-      }],
-      'subHeading-xl': ['1.125rem', {
-        lineHeight: '140%',
-        letterSpacing: '-0.005em'
-      }],
-      'subHeading-lg': ['1rem', {
-        lineHeight: '140%',
-        letterSpacing: '-0.002em'
-      }],
-      'subHeading-md': ['0.875rem', {
-        lineHeight: '140%'
-      }],
-      'subHeading-sm': ['0.75rem', {
-        lineHeight: '140%'
-      }],
-      'body-lg': ['1rem', {
-        lineHeight: '150%',
-        letterSpacing: '0.0063rem'
-      }],
-      'body-md': ['0.875rem', {
-        lineHeight: '150%',
-        letterSpacing: '0.0063rem'
-      }],
-      'body-sm': ['0.75rem', {
-        lineHeight: '150%',
-        letterSpacing: '0.0063rem'
-      }],
-      'body-xs': ['0.625rem', {
-        lineHeight: '150%',
-        letterSpacing: '0.0063rem'
-      }],
-      'label-xl': ['1.125rem', {
-        lineHeight: '140%',
-        letterSpacing: '0.025rem'
-      }],
-      'label-lg': ['1rem', {
-        lineHeight: '140%',
-        letterSpacing: '0.013rem'
-      }],
-      'label-md': ['0.875rem', {
-        lineHeight: '140%',
-        letterSpacing: '0.013rem'
-      }],
-      'label-sm': ['0.75rem', {
-        lineHeight: '140%',
-        letterSpacing: '0.0063rem'
-      }],
-      'caption-lg': ['0.875rem', {
-        lineHeight: '120%',
-        letterSpacing: '0.013rem'
-      }],
-      'caption-md': ['0.75rem', {
-        lineHeight: '120%',
-        letterSpacing: '0.013rem'
-      }],
-      'caption-sm': ['0.625rem', {
-        lineHeight: '120%',
-        letterSpacing: '0.0063rem'
-      }],
+      'heading-xl': [
+        '2.5rem',
+        {
+          lineHeight: '120%',
+          letterSpacing: '-0.015em',
+        },
+      ],
+      'heading-lg': [
+        '2rem',
+        {
+          lineHeight: '120%',
+          letterSpacing: '-0.01em',
+        },
+      ],
+      'heading-md': [
+        '1.5rem',
+        {
+          lineHeight: '130%',
+          letterSpacing: '-0.01em',
+        },
+      ],
+      'heading-sm': [
+        '1.25rem',
+        {
+          lineHeight: '130%',
+          letterSpacing: '-0.005em',
+        },
+      ],
+      'heading-smaller': [
+        '1.125rem',
+        {
+          lineHeight: '130%',
+          letterSpacing: '-0.002em',
+        },
+      ],
+      'heading-xs': [
+        '1rem',
+        {
+          lineHeight: '140%',
+        },
+      ],
+      'heading-micro': [
+        '0.875rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
+      'subHeading-xl': [
+        '1.125rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '-0.005em',
+        },
+      ],
+      'subHeading-lg': [
+        '1rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '-0.002em',
+        },
+      ],
+      'subHeading-md': [
+        '0.875rem',
+        {
+          lineHeight: '140%',
+        },
+      ],
+      'subHeading-sm': [
+        '0.75rem',
+        {
+          lineHeight: '140%',
+        },
+      ],
+      'body-lg': [
+        '1rem',
+        {
+          lineHeight: '150%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
+      'body-md': [
+        '0.875rem',
+        {
+          lineHeight: '150%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
+      'body-sm': [
+        '0.75rem',
+        {
+          lineHeight: '150%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
+      'body-xs': [
+        '0.625rem',
+        {
+          lineHeight: '150%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
+      'label-xl': [
+        '1.125rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '0.025rem',
+        },
+      ],
+      'label-lg': [
+        '1rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '0.013rem',
+        },
+      ],
+      'label-md': [
+        '0.875rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '0.013rem',
+        },
+      ],
+      'label-sm': [
+        '0.75rem',
+        {
+          lineHeight: '140%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
+      'caption-lg': [
+        '0.875rem',
+        {
+          lineHeight: '120%',
+          letterSpacing: '0.013rem',
+        },
+      ],
+      'caption-md': [
+        '0.75rem',
+        {
+          lineHeight: '120%',
+          letterSpacing: '0.013rem',
+        },
+      ],
+      'caption-sm': [
+        '0.625rem',
+        {
+          lineHeight: '120%',
+          letterSpacing: '0.0063rem',
+        },
+      ],
     },
     spacing: {
       0: '0',
@@ -211,24 +277,28 @@ module.exports = {
     plugin(({ addUtilities }) => {
       addUtilities({
         '.icon-12': {
-          '@apply w-4 h-4':{}
+          '@apply w-4 h-4': {},
         },
         '.icon-16': {
-          '@apply w-5 h-5':{}
+          '@apply w-5 h-5': {},
         },
-        '.icon-20':{
-          "@apply w-6 h-6":{}
+        '.icon-20': {
+          '@apply w-6 h-6': {},
         },
-        '.icon-24':{
-          '@apply w-7 h-7':{}
+        '.icon-24': {
+          '@apply w-7 h-7': {},
         },
-        '.icon-32':{
-          '@apply w-8 h-8':{}
+        '.icon-32': {
+          '@apply w-8 h-8': {},
+        },
+        '.icon-40': {
+          '@apply w-[2.5rem] h-[2.5rem]': {},
         },
         '.premium-badge-bg': {
-          background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 16.37%, rgba(255, 255, 255, 0.48) 34.7%, rgba(255, 255, 255, 0) 51.62%, rgba(255, 255, 255, 0.24) 64.31%, rgba(255, 255, 255, 0) 70.42%), #FFD66D'
-        }
-      });
-   })
+          background:
+            'linear-gradient(120deg, rgba(255, 255, 255, 0) 16.37%, rgba(255, 255, 255, 0.48) 34.7%, rgba(255, 255, 255, 0) 51.62%, rgba(255, 255, 255, 0.24) 64.31%, rgba(255, 255, 255, 0) 70.42%), #FFD66D',
+        },
+      })
+    }),
   ],
 }

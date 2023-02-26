@@ -18,7 +18,7 @@ export const Chips = ({ chips }: ChipsProps) => {
   }
 
   return (
-    <div className="flex w-full items-center gap-4 overflow-x-auto p-4">
+    <div className="flex w-full items-center gap-4 overflow-x-auto py-4">
       {chips.map(c => (
         <Chip
           key={c}
