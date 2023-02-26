@@ -20,6 +20,15 @@ export interface paths {
   "/players/{id}/overview": {
     get: operations["PlayerProfileOverview"];
   };
+  "/players/{id}/overview/regularity": {
+    get: operations["PlayerProfileOverviewRegularity"];
+  };
+  "/players/{id}/overview/last-matches": {
+    get: operations["PlayerProfileOverviewLastMatches"];
+  };
+  "/players/{id}/overview/pm-score": {
+    get: operations["PlayerProfileOverviewPMScore"];
+  };
   "/competition-levels/list": {
     get: operations["CompetitionLevelsList"];
   };
@@ -117,6 +126,7 @@ export interface components {
     ProfileMatches: {
       season: string;
       matches: ({
+          id: string;
           homeTeam: {
             logoUrl: string;
             name: string;
@@ -235,6 +245,7 @@ export interface components {
           date: string;
         })[];
       similarPlayers: ({
+          id: string;
           name: string;
           avatarUrl: string;
           premium: boolean;
@@ -279,6 +290,11 @@ export interface components {
         };
       };
       playerData: {
+        team: {
+          id: string;
+          name: string;
+          competition: string;
+        };
         altPosition: string;
         position: string;
         betterLeg: string;
@@ -293,49 +309,55 @@ export interface components {
         lastName: string;
         videoUrl?: string;
       };
-      lastMatches: {
-        additional: {
-          /** @enum {string} */
-          type: "standedOut" | "playedWorse";
-        };
-        matches: components["schemas"]["ProfileMatches"];
-      };
       career: components["schemas"]["ProfileCareer"];
-      regularity: {
-        additional: {
-          /** @enum {string} */
-          type: "key" | "regular";
-          teamLogoUrl?: string;
-        };
-        /** Format: int32 */
-        totalParticipationPercentage: number;
-        /** Format: int32 */
-        ofMatches: number;
-        /** Format: int32 */
-        firstEleven: number;
-        /** Format: int32 */
-        fromBench: number;
-        /** Format: int32 */
-        bench: number;
-        /** Format: int32 */
-        outsideCadre: number;
-      };
-      pmScore: {
-        /** Format: int32 */
-        score: number;
-        lastScore: {
-          /** Format: float */
-          value: number;
-          /** @enum {string} */
-          trend: "up" | "down";
-          /** Format: int32 */
-          ofLastMatches: number;
-        };
+    };
+    ProfileOverviewRegularity: {
+      additional: {
         /** @enum {string} */
-        graphData: "unknown";
+        type: "key" | "regular";
+        teamLogoUrl?: string;
       };
+      /** Format: int32 */
+      totalParticipationPercentage: number;
+      /** Format: int32 */
+      ofMatches: number;
+      /** Format: int32 */
+      firstEleven: number;
+      /** Format: int32 */
+      fromBench: number;
+      /** Format: int32 */
+      bench: number;
+      /** Format: int32 */
+      outsideCadre: number;
+    };
+    ProfileOverviewLastMatches: {
+      additional: {
+        /** @enum {string} */
+        type: "standedOut" | "playedWorse";
+      };
+      data: components["schemas"]["ProfileMatches"];
+    };
+    ProfileOverviewPMScore: {
+      /** Format: int32 */
+      score: number;
+      lastScore: {
+        /** Format: float */
+        value: number;
+        /** @enum {string} */
+        trend: "up" | "down";
+        /** Format: int32 */
+        ofLastMatches: number;
+      };
+      /** @enum {string} */
+      scoreGraph: "unknown";
     };
     CommonListItem: {
+      id: string;
+      name: string;
+      disabled?: boolean;
+    };
+    TeamsListItem: {
+      competition?: string;
       id: string;
       name: string;
       disabled?: boolean;
@@ -443,9 +465,6 @@ export interface operations {
   };
   PlayerProfileOverview: {
     parameters: {
-      query: {
-        pmScoreGraph: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
-      };
       path: {
         id: string;
       };
@@ -459,7 +478,66 @@ export interface operations {
       };
     };
   };
+  PlayerProfileOverviewRegularity: {
+    parameters: {
+      query: {
+        teamId?: string;
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverviewRegularity"];
+        };
+      };
+    };
+  };
+  PlayerProfileOverviewLastMatches: {
+    parameters: {
+      query: {
+        teamId?: string;
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverviewLastMatches"];
+        };
+      };
+    };
+  };
+  PlayerProfileOverviewPMScore: {
+    parameters: {
+      query: {
+        show: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverviewPMScore"];
+        };
+      };
+    };
+  };
   CompetitionLevelsList: {
+    parameters: {
+      query: {
+        playerId?: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
@@ -470,6 +548,11 @@ export interface operations {
     };
   };
   SeasonsList: {
+    parameters: {
+      query: {
+        playerId?: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
@@ -480,11 +563,16 @@ export interface operations {
     };
   };
   TeamsList: {
+    parameters: {
+      query: {
+        playerId?: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          "application/json": (components["schemas"]["CommonListItem"])[];
+          "application/json": (components["schemas"]["TeamsListItem"])[];
         };
       };
     };
