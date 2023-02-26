@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { TProfileOverview } from 'types/profile'
 
-import Chart from '@/icons/Chart.svg'
 import TrendUpTshirt from '@/icons/TrendUpTshirt.svg'
+
+import { ChartPie } from './chart-pie'
 
 type RegularityType = TProfileOverview['regularity']
 
@@ -18,6 +19,7 @@ export const RegularityContent = ({
   outsideCadre,
   playerName,
   additional,
+  totalParticipationPercentage,
 }: IProps) => {
   const getPercents = (value: number) => Math.round((value / ofMatches) * 100)
 
@@ -50,7 +52,13 @@ export const RegularityContent = ({
         </div>
       </div>
       <div className="flex items-center gap-7">
-        <Chart className="h-[9.688rem] w-[9.688rem]" />
+        <ChartPie
+          bench={bench}
+          fromBench={fromBench}
+          outsideCadre={outsideCadre}
+          firstEleven={firstEleven}
+          totalParticipationPercentage={totalParticipationPercentage}
+        />
         <div className="flex flex-col gap-3">
           <div className="relative flex items-center gap-[0.625rem] font-inter text-body-sm">
             <div className="h-[1.75rem] w-[0.375rem] bg-greenShade-50" />
