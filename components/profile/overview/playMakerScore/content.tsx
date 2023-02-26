@@ -21,11 +21,7 @@ export const PlayMakerScoreContent = ({
       PlayMaker Score pozwala obserwować potencjał zawodnika. Na wskaźnik wpływa
       ponad 20 zmiennych, m.in. gra zawodnika, czy jego wiek.
     </p>
-    <ExtendedScore
-      mainScore={pmScore.mainScore}
-      trend="up"
-      trendScore={pmScore.score.value}
-    />
+    <ExtendedScore lastScore={pmScore.lastScore} score={pmScore.score} />
     <Chips chips={chips} />
     <div className="flex flex-col items-center">
       {/* graph section is temporary */}

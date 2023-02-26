@@ -24,7 +24,7 @@ const PMScoreEvents = ({ events }: Pick<TProfilePMScore, 'events'>) => {
             key={info + value}
             layout
           >
-            <div className="flex">
+            <div className="flex gap-2">
               <span
                 className={cx(
                   'font-poppins text-heading-micro font-bold',
@@ -52,7 +52,7 @@ const PMScoreEvents = ({ events }: Pick<TProfilePMScore, 'events'>) => {
           <button
             type="button"
             className="flex items-center gap-2 text-label-sm font-medium text-darkAlpha-40"
-            onClick={() => setShowCount(value => value + 2)}
+            onClick={() => setShowCount(value => value + 3)}
           >
             Pokaż kolejne <ChevronDownIcon className="w-5 fill-darkAlpha-40" />
           </button>

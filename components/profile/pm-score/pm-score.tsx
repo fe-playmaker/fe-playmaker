@@ -4,6 +4,7 @@ import TabLoadingSpinner from '../common/tab-loader/spinner'
 import { TabContentWrapper } from '../common/tab-loader/tab-wrapper'
 import PMScoreComparison from './comparison/comparison'
 import PMScoreEvents from './events/events'
+import PMScoreGraphSection from './graph/graph'
 import { useProfilePMScore } from './hooks'
 
 const ProfilePMScore = () => {
@@ -17,6 +18,7 @@ const ProfilePMScore = () => {
         <TabContentWrapper className="mt-4 pb-9" key="pmscore-content">
           <LayoutGroup>
             <motion.div layout className="flex flex-col gap-4">
+              <PMScoreGraphSection {...data} />
               <PMScoreEvents events={data.events} />
               <PMScoreComparison
                 comparisonPercentage={data.comparisonPercentage}
