@@ -53,17 +53,13 @@ export const ChartPie = ({
         displayColors: false,
         callbacks: {
           label(context: any) {
-            let label = context.label || ''
-
-            if (label) {
-              label += ': '
-            }
             const value = context.parsed || 0
             const total = context.dataset.data.reduce(
               (a: number, b: number) => a + b,
             )
             const percentage = ((value / total) * 100).toFixed(2)
-            label += `${value} (${percentage}%)`
+            const label = `${value} (${percentage}%)`
+
             return label
           },
         },
