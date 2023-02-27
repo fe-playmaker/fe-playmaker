@@ -87,10 +87,10 @@ const GradientedBg = () => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1, transition: { delay: 0.1 } }}
-    className="absolute top-0 right-0 z-10 h-[30vh] w-screen"
+    className="absolute top-0 right-0 z-10 h-[30vh] w-[100vw] mediumDesktop:-z-10 mediumDesktop:h-[70vh]"
     style={{
       background:
-        'linear-gradient(200.96deg, rgba(208, 170, 70, 0.2) 0.66%, rgba(252, 214, 115, 0) 86.72%)',
+        'linear-gradient(180deg, rgba(208, 170, 70, 0.2) 0.66%, rgba(252, 214, 115, 0) 86.72%)',
     }}
   />
 )

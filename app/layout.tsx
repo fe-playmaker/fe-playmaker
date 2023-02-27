@@ -2,6 +2,8 @@ import '../styles/globals.css'
 
 import { Inter, Poppins } from '@next/font/google'
 
+import NavbarDesktop from '@/components/Navbar/navbar-desktop'
+
 import { ReactQueryWrapper } from './ReactQueryWrapper'
 
 const poppins = Poppins({
@@ -23,6 +25,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <head />
     <body className={`${poppins.variable} ${inter.variable} font-poppins`}>
       <ReactQueryWrapper>
+        <NavbarDesktop />
         <div className=" mx-auto w-full max-w-screen-mediumDesktop">
           {children}
         </div>
