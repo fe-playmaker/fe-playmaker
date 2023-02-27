@@ -1,3 +1,4 @@
+import { LayoutGroup, motion } from 'framer-motion'
 import {
   TProfileOverview,
   TProfileOverviewLastMatches,
@@ -29,24 +30,26 @@ export const ProfileOverview = ({
   regularity,
   pmScore,
 }: IProps) => (
-  <div className="flex flex-col gap-4 pb-9">
-    <InShortSection inShort={data.inShort} />
-    <BaseDataSection playerData={data.playerData} />
-    <CareerSeasonSection career={data.career} />
-    <ExperienceSection experience={data.experience} />
-    <RegularitySection
-      data={regularity}
-      playerName={data.playerData.firstName}
-      defaultTeamId={data.playerData.team.id}
-    />
-    <LastMatchesSection
-      lastMatches={lastMatches}
-      playerFirstName={data.playerData.firstName}
-      defaultTeamId={data.playerData.team.id}
-    />
-    <PlayMakerScoreSection pmScore={pmScore} />
-    <GameVideoSection videoUrl={data.playerData.videoUrl} />
-    <TransfersSection transfers={data.transfers} />
-    <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
-  </div>
+  <LayoutGroup>
+    <motion.div className="flex flex-col gap-4 pb-9" layout>
+      <InShortSection inShort={data.inShort} />
+      <BaseDataSection playerData={data.playerData} />
+      <CareerSeasonSection career={data.career} />
+      <ExperienceSection experience={data.experience} />
+      <RegularitySection
+        data={regularity}
+        playerName={data.playerData.firstName}
+        defaultTeamId={data.playerData.team.id}
+      />
+      <LastMatchesSection
+        lastMatches={lastMatches}
+        playerFirstName={data.playerData.firstName}
+        defaultTeamId={data.playerData.team.id}
+      />
+      <PlayMakerScoreSection pmScore={pmScore} />
+      <GameVideoSection videoUrl={data.playerData.videoUrl} />
+      <TransfersSection transfers={data.transfers} />
+      <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
+    </motion.div>
+  </LayoutGroup>
 )

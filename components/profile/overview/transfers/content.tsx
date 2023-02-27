@@ -1,17 +1,21 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { TProfileOverview } from 'types/profile'
 import { formatDate } from 'utils/format-date'
 
 import GreenArrow from '@/icons/GreenArrowToLeft.svg'
 
-export const TransfersContent = ({
-  transfers,
-}: Pick<TProfileOverview, 'transfers'>) => (
-  <div>
-    {transfers.map(transfer => (
-      <div
+interface IProps extends Pick<TProfileOverview, 'transfers'> {
+  showCount: number
+}
+
+export const TransfersContent = ({ transfers, showCount }: IProps) => (
+  <div className="overflow-hidden">
+    {transfers.slice(0, showCount).map(transfer => (
+      <motion.div
         key={transfer.id}
         className="flex flex-col gap-2 border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent"
+        layout
       >
         <div className="flex items-center justify-between gap-7">
           <div className="flex items-center gap-3">
@@ -44,7 +48,7 @@ export const TransfersContent = ({
         <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40">
           {transfer.type} ({formatDate(transfer.date)})
         </p>
-      </div>
+      </motion.div>
     ))}
   </div>
 )

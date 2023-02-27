@@ -24,7 +24,7 @@ const LastMatchesSection = ({
   const { data: teamsList } = useTeamsList({ playerId: '96' })
 
   return (
-    <SectionContainer className="px-0">
+    <SectionContainer className="px-0" layout>
       <div className="flex items-center justify-between px-6">
         <Heading className="flex items-center gap-2 pb-0">
           Ostatnie mecze <ArrowRightIcon className="icon-16" />

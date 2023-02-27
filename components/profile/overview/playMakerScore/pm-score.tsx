@@ -11,7 +11,7 @@ const PlayMakerScoreSection = ({
 }: {
   pmScore: TProfileOverviewPMScore
 }) => (
-  <SectionContainer>
+  <SectionContainer layout>
     <Heading className="flex items-center gap-2">
       PlayMaker Score <ArrowRightIcon className="icon-16" />
     </Heading>
