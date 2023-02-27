@@ -1,6 +1,7 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import { useMemo, useState } from 'react'
 import {
   TProfileHeader,
   TProfileOverview,
@@ -9,6 +10,7 @@ import {
   TProfileOverviewRegularity,
 } from 'types/profile'
 
+import { TabsIndexContext } from '@/components/common/Tabs/index-context'
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
 import ProfileCareer from '@/components/profile/career/career'
@@ -29,6 +31,17 @@ import ProfilePMScore from '@/components/profile/pm-score/pm-score'
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
 const PlayerTestPage = () => {
+  const [tabData, setHelperTabIndex] = useState([0, -1])
+
+  const tabContextValue = useMemo(
+    () => ({
+      data: tabData as [number, number],
+      setHelperTabIndex: (idx: number) =>
+        setHelperTabIndex(value => [idx, value[0]]),
+    }),
+    [tabData, setHelperTabIndex],
+  )
+
   const { data: headerData, isLoading: headerLoading } = useProfileHeader('96')
   const { data: overviewData, isLoading: overviewLoading } =
     useProfileOverview('96')
@@ -63,17 +76,21 @@ const PlayerTestPage = () => {
             className="flex flex-1 flex-col"
           >
             <ProfileHeader data={headerData as TProfileHeader} />
-            <Tabs tabs={tabs} size="medium">
-              <ProfileOverview
-                data={overviewData as TProfileOverview}
-                lastMatches={overviewLastMatches as TProfileOverviewLastMatches}
-                pmScore={overviewPMScore as TProfileOverviewPMScore}
-                regularity={overviewRegularity as TProfileOverviewRegularity}
-              />
-              <ProfileCareer />
-              <ProfileMatches />
-              <ProfilePMScore />
-            </Tabs>
+            <TabsIndexContext.Provider value={tabContextValue}>
+              <Tabs tabs={tabs} size="medium">
+                <ProfileOverview
+                  data={overviewData as TProfileOverview}
+                  lastMatches={
+                    overviewLastMatches as TProfileOverviewLastMatches
+                  }
+                  pmScore={overviewPMScore as TProfileOverviewPMScore}
+                  regularity={overviewRegularity as TProfileOverviewRegularity}
+                />
+                <ProfileCareer />
+                <ProfileMatches />
+                <ProfilePMScore />
+              </Tabs>
+            </TabsIndexContext.Provider>
           </TabContentWrapper>
         )}
       </AnimatePresence>
