@@ -7,7 +7,7 @@ import { PlayerBaseData } from './playerBaseData'
 const BaseDataSection = ({
   playerData,
 }: Pick<TProfileOverview, 'playerData'>) => (
-  <SectionContainer className="pb-0">
+  <SectionContainer className="pb-0" layout>
     <Heading>Dane podstawowe</Heading>
     <PlayerBaseData {...playerData} />
   </SectionContainer>

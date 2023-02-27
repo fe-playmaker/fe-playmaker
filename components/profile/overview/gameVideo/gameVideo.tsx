@@ -10,7 +10,7 @@ interface IProps {
   videoUrl: TProfileOverview['playerData']['videoUrl']
 }
 export const GameVideoSection = ({ videoUrl }: IProps) => (
-  <SectionContainer>
+  <SectionContainer layout>
     <Heading>Wideo z gry</Heading>
     <div>
       {videoUrl ? (
