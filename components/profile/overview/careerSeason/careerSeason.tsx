@@ -6,7 +6,7 @@ import SeasonPanel from '../../career/season-panel'
 import { SectionContainer } from '../../common/SectionContainer'
 
 const CareerSeasonSection = ({ career }: Pick<TProfileOverview, 'career'>) => (
-  <SectionContainer className="px-0 pt-0">
+  <SectionContainer className="px-0 pt-0" layout>
     <SeasonPanel {...career} />
 
     <div className="flex w-full justify-center">

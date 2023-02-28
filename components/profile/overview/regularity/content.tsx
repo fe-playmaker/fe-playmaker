@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { TProfileOverview } from 'types/profile'
+import { TProfileOverviewRegularity } from 'types/profile'
 
 import TrendUpTshirt from '@/icons/TrendUpTshirt.svg'
 
 import { ChartPie } from './chart-pie'
 
-type RegularityType = TProfileOverview['regularity']
+type RegularityType = TProfileOverviewRegularity
 
 interface IProps extends RegularityType {
   playerName: string

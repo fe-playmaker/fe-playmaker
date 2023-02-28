@@ -30,38 +30,41 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
         <TableHeaderText text="Mecz" className="pl-5" />
       </TableLeftHeaderCell>
 
-      {matches.map(({ awayTeam, competition, date, homeTeam, wideoUrl }, i) => (
-        <TableLeftCell
-          expanded={!!wideoUrl}
-          className={clsx(
-            'flex items-center pl-4',
-            i !== 0 && 'border-t border-darkShade-5',
-          )}
-        >
-          <div
+      {matches.map(
+        ({ awayTeam, competition, date, homeTeam, wideoUrl, id }, i) => (
+          <TableLeftCell
+            key={`left-matches-table-cell-${id}`}
+            expanded={!!wideoUrl}
             className={clsx(
-              'flex w-full flex-col justify-center',
-              !isScrolled && 'shadow-[1px_0_0_0_#EDEDED]',
+              'flex items-center pl-4',
+              i !== 0 && 'border-t border-darkShade-5',
             )}
           >
-            <TeamRow team={homeTeam} />
-            <TeamRow team={awayTeam} className="mt-2" />
-            <div className="mt-3 flex justify-between pr-4 text-[0.563rem] text-darkAlpha-20">
-              <span>{formatDate(date)}</span>
-              <span>{competition}</span>
+            <div
+              className={clsx(
+                'flex w-full flex-col justify-center',
+                !isScrolled && 'shadow-[1px_0_0_0_#EDEDED]',
+              )}
+            >
+              <TeamRow team={homeTeam} />
+              <TeamRow team={awayTeam} className="mt-2" />
+              <div className="mt-3 flex justify-between pr-4 text-[0.563rem] text-darkAlpha-20">
+                <span>{formatDate(date)}</span>
+                <span>{competition}</span>
+              </div>
+              {wideoUrl && (
+                <Link
+                  href={wideoUrl}
+                  target="_blank"
+                  className="mr-4 mt-3 flex items-center justify-center gap-2 rounded py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20"
+                >
+                  <PlayIcon className="h-3 fill-darkAlpha-40" /> Wideo
+                </Link>
+              )}
             </div>
-            {wideoUrl && (
-              <Link
-                href={wideoUrl}
-                target="_blank"
-                className="mr-4 mt-3 flex items-center justify-center gap-2 rounded py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20"
-              >
-                <PlayIcon className="h-3 fill-darkAlpha-40" /> Wideo
-              </Link>
-            )}
-          </div>
-        </TableLeftCell>
-      ))}
+          </TableLeftCell>
+        ),
+      )}
 
       <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6">
         <TableSummaryText text="Łącznie" />

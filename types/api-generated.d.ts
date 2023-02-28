@@ -3,530 +3,609 @@
  * Do not make direct changes to the file.
  */
 
+
 export interface paths {
-  '/players/{id}/header': {
-    get: operations['PlayerProfileHeader']
-  }
-  '/players/{id}/career': {
-    get: operations['PlayerProfileCareer']
-  }
-  '/players/{id}/matches': {
-    get: operations['PlayerProfileMatches']
-  }
-  '/players/{id}/pm-score': {
-    get: operations['PlayerProfilePMScore']
-  }
-  '/players/{id}/overview': {
-    get: operations['PlayerProfileOverview']
-  }
-  '/competition-levels/list': {
-    get: operations['CompetitionLevelsList']
-  }
-  '/seasons/list': {
-    get: operations['SeasonsList']
-  }
-  '/teams/list': {
-    get: operations['TeamsList']
-  }
-  '/auth/login': {
-    post: operations['Login']
-  }
-  '/account': {
-    get: operations['GetAccount']
-  }
+  "/players/{id}/header": {
+    get: operations["PlayerProfileHeader"];
+  };
+  "/players/{id}/career": {
+    get: operations["PlayerProfileCareer"];
+  };
+  "/players/{id}/matches": {
+    get: operations["PlayerProfileMatches"];
+  };
+  "/players/{id}/pm-score": {
+    get: operations["PlayerProfilePMScore"];
+  };
+  "/players/{id}/overview": {
+    get: operations["PlayerProfileOverview"];
+  };
+  "/players/{id}/overview/regularity": {
+    get: operations["PlayerProfileOverviewRegularity"];
+  };
+  "/players/{id}/overview/last-matches": {
+    get: operations["PlayerProfileOverviewLastMatches"];
+  };
+  "/players/{id}/overview/pm-score": {
+    get: operations["PlayerProfileOverviewPMScore"];
+  };
+  "/competition-levels/list": {
+    get: operations["CompetitionLevelsList"];
+  };
+  "/seasons/list": {
+    get: operations["SeasonsList"];
+  };
+  "/teams/list": {
+    get: operations["TeamsList"];
+  };
+  "/auth/login": {
+    post: operations["Login"];
+  };
+  "/account": {
+    get: operations["GetAccount"];
+  };
 }
 
-export type webhooks = Record<string, never>
+export type webhooks = Record<string, never>;
 
 export interface components {
   schemas: {
     ProfileHeader: {
-      premium: boolean
+      premium: boolean;
       score: {
         /** Format: float */
-        value: number
+        value: number;
         /** @enum {string} */
-        trend: 'up' | 'down'
-      }
-      avatarUrl: string
-      firstName: string
-      lastName: string
+        trend: "up" | "down";
+      };
+      avatarUrl: string;
+      firstName: string;
+      lastName: string;
       /** Format: int32 */
-      age: number
-      position: string
-      competition: string
-      ownProfile: boolean
+      age: number;
+      position: string;
+      competition: string;
+      ownProfile: boolean;
       /** Format: date-time */
-      lastActivity?: string
-      team: string
+      lastActivity?: string;
+      team: string;
       status: {
         searchingForClub?: {
-          description: string
+          description: string;
           localization: {
-            name: string
+            name: string;
             /** Format: int32 */
-            range: number
-          }
-          expectations: string[]
-          additional?: string
-        }
+            range: number;
+          };
+          expectations: (string)[];
+          additional?: string;
+        };
         /** Format: int32 */
-        answerPercentage: number
-      }
-    }
+        answerPercentage: number;
+      };
+    };
     ProfileCareer: {
-      season: string
+      season: string;
       score: {
         /** Format: float */
-        value: number
+        value: number;
         /** @enum {string} */
-        trend: 'up' | 'down'
-      }
-      data: {
-        team: string
-        teamLogoUrl: string
-        competition: string
-        /** @enum {string} */
-        season?: 'Wiosna' | 'Lato' | 'Jesień' | 'Zima'
-        mainTeam: boolean
-        /** Format: int32 */
-        matches: number
-        /** Format: int32 */
-        goals: number
-        /** Format: float */
-        avgGoals: number
-        /** Format: float */
-        avgMinutes: number
-        /** Format: int32 */
-        totalMinutes: number
-      }[]
-      total: {
-        /** Format: int32 */
-        matches: number
-        /** Format: int32 */
-        goals: number
-        /** Format: float */
-        avgGoals: number
-        /** Format: float */
-        avgMinutes: number
-        /** Format: int32 */
-        totalMinutes: number
-      }
-    }
-    ProfileMatches: {
-      season: string
-      matches: {
-        homeTeam: {
-          logoUrl: string
-          name: string
-          /** Format: int32 */
-          score: number
-          mainTeam: boolean
-        }
-        awayTeam: {
-          logoUrl: string
-          name: string
-          /** Format: int32 */
-          score: number
-          mainTeam: boolean
-        }
-        wideoUrl?: string
-        /** Format: date */
-        date: string
-        competition: string
-        /** @enum {string} */
-        status: 'win' | 'loss' | 'draw'
-        /** Format: int32 */
-        minutes: number
-        /** Format: int32 */
-        goals?: number
-        /** Format: int32 */
-        clearAccounts?: number
-        score?: {
-          /** Format: float */
-          value: number
+        trend: "up" | "down";
+      };
+      data: ({
+          team: string;
+          teamLogoUrl: string;
+          competition: string;
           /** @enum {string} */
-          trend: 'up' | 'down'
-        }
-        /** Format: int32 */
-        yellowCards: number
-        /** Format: int32 */
-        redCards: number
-        additional?: string
-      }[]
+          season?: "Wiosna" | "Lato" | "Jesień" | "Zima";
+          mainTeam: boolean;
+          /** Format: int32 */
+          matches: number;
+          /** Format: int32 */
+          goals: number;
+          /** Format: float */
+          avgGoals: number;
+          /** Format: float */
+          avgMinutes: number;
+          /** Format: int32 */
+          totalMinutes: number;
+        })[];
       total: {
         /** Format: int32 */
-        minutes: number
+        matches: number;
         /** Format: int32 */
-        goals?: number
+        goals: number;
+        /** Format: float */
+        avgGoals: number;
+        /** Format: float */
+        avgMinutes: number;
         /** Format: int32 */
-        clearAccounts?: number
+        totalMinutes: number;
+      };
+    };
+    ProfileMatches: {
+      season: string;
+      matches: ({
+          id: string;
+          homeTeam: {
+            logoUrl: string;
+            name: string;
+            /** Format: int32 */
+            score: number;
+            mainTeam: boolean;
+          };
+          awayTeam: {
+            logoUrl: string;
+            name: string;
+            /** Format: int32 */
+            score: number;
+            mainTeam: boolean;
+          };
+          wideoUrl?: string;
+          /** Format: date */
+          date: string;
+          competition: string;
+          /** @enum {string} */
+          status: "win" | "loss" | "draw";
+          /** Format: int32 */
+          minutes: number;
+          /** Format: int32 */
+          goals?: number;
+          /** Format: int32 */
+          clearAccounts?: number;
+          score?: {
+            /** Format: float */
+            value: number;
+            /** @enum {string} */
+            trend: "up" | "down";
+          };
+          /** Format: int32 */
+          yellowCards: number;
+          /** Format: int32 */
+          redCards: number;
+          additional?: string;
+        })[];
+      total: {
+        /** Format: int32 */
+        minutes: number;
+        /** Format: int32 */
+        goals?: number;
+        /** Format: int32 */
+        clearAccounts?: number;
         score: {
           /** Format: float */
-          value: number
+          value: number;
           /** @enum {string} */
-          trend: 'up' | 'down'
-        }
+          trend: "up" | "down";
+        };
         /** Format: int32 */
-        yellowCards: number
+        yellowCards: number;
         /** Format: int32 */
-        redCards: number
-      }
+        redCards: number;
+      };
       avgMatch: {
         /** Format: int32 */
-        minutes: number
+        minutes: number;
         /** Format: int32 */
-        goals?: number
+        goals?: number;
         /** Format: int32 */
-        clearAccounts?: number
+        clearAccounts?: number;
         score: {
           /** Format: float */
-          value: number
+          value: number;
           /** @enum {string} */
-          trend: 'up' | 'down'
-        }
+          trend: "up" | "down";
+        };
         /** Format: int32 */
-        yellowCards: number
+        yellowCards: number;
         /** Format: int32 */
-        redCards: number
-      }
-    }
+        redCards: number;
+      };
+    };
     ProfilePMScore: {
       /** Format: int32 */
-      score: number
+      score: number;
       lastScore: {
         /** Format: float */
-        value: number
+        value: number;
         /** @enum {string} */
-        trend: 'up' | 'down'
+        trend: "up" | "down";
         /** Format: int32 */
-        ofLastMatches: number
-      }
+        ofLastMatches: number;
+      };
       /** @enum {string} */
-      scoreGraph: 'unknown'
-      events: {
-        /** Format: float */
-        value: number
-        /** @enum {string} */
-        trend: 'up' | 'down'
-        info: string
-      }[]
-      /** Format: int32 */
-      comparisonPercentage: number
-    }
-    ProfileOverview: {
-      inShort: {
-        title: string
-        icon: string
-      }[]
-      transfers: {
-        id: string
-        from: {
-          logoUrl: string
-          name: string
-        }
-        to: {
-          logoUrl: string
-          name: string
-        }
-        type: string
-        /** Format: date */
-        date: string
-      }[]
-      similarPlayers: {
-        name: string
-        avatarUrl: string
-        premium: boolean
-        /** Format: int32 */
-        age: number
-        position: string
-        team: string
-        competition: string
-        score: {
-          /** Format: int32 */
-          value: number
+      scoreGraph: "unknown";
+      events: ({
+          /** Format: float */
+          value: number;
           /** @enum {string} */
-          trend: 'up' | 'down'
-        }
-      }[]
+          trend: "up" | "down";
+          info: string;
+        })[];
+      /** Format: int32 */
+      comparisonPercentage: number;
+    };
+    ProfileOverview: {
+      inShort: ({
+          title: string;
+          icon: string;
+        })[];
+      transfers: ({
+          id: string;
+          from: {
+            logoUrl: string;
+            name: string;
+          };
+          to: {
+            logoUrl: string;
+            name: string;
+          };
+          type: string;
+          /** Format: date */
+          date: string;
+        })[];
+      similarPlayers: ({
+          id: string;
+          name: string;
+          avatarUrl: string;
+          premium: boolean;
+          /** Format: int32 */
+          age: number;
+          position: string;
+          team: string;
+          competition: string;
+          score: {
+            /** Format: int32 */
+            value: number;
+            /** @enum {string} */
+            trend: "up" | "down";
+          };
+        })[];
       experience: {
-        data: {
-          competetion: string
-          competitionLogoUrl: string
-          /** Format: int32 */
-          seasons: number
-          /** Format: int32 */
-          matches: number
-          /** Format: int32 */
-          goals: number
-          /** Format: int32 */
-          avgGoals: number
-          /** Format: int32 */
-          avgMinutes: number
-        }[]
+        data: ({
+            competetion: string;
+            competitionLogoUrl: string;
+            /** Format: int32 */
+            seasons: number;
+            /** Format: int32 */
+            matches: number;
+            /** Format: int32 */
+            goals: number;
+            /** Format: int32 */
+            avgGoals: number;
+            /** Format: int32 */
+            avgMinutes: number;
+          })[];
         total: {
           /** Format: int32 */
-          seasons: number
+          seasons: number;
           /** Format: int32 */
-          matches: number
+          matches: number;
           /** Format: int32 */
-          goals: number
+          goals: number;
           /** Format: int32 */
-          avgGoals: number
+          avgGoals: number;
           /** Format: int32 */
-          avgMinutes: number
-        }
-      }
+          avgMinutes: number;
+        };
+      };
       playerData: {
-        altPosition: string
-        position: string
-        betterLeg: string
+        team: {
+          id: string;
+          name: string;
+          competition: string;
+        };
+        altPosition: string;
+        position: string;
+        betterLeg: string;
         /** Format: int32 */
-        height: number
+        height: number;
         /** Format: int32 */
-        weight: number
-        location: string
+        weight: number;
+        location: string;
         /** Format: int32 */
-        age: number
-        firstName: string
-        lastName: string
-        videoUrl?: string
-      }
-      lastMatches: {
-        additional: {
-          /** @enum {string} */
-          type: 'standedOut' | 'playedWorse'
-        }
-        matches: components['schemas']['ProfileMatches']
-      }
-      career: components['schemas']['ProfileCareer']
-      regularity: {
-        additional: {
-          teamLogo: string
-          /** @enum {string} */
-          type: 'key' | 'regular'
-          teamLogoUrl?: string
-        }
-        /** Format: int32 */
-        totalParticipationPercentage: number
-        /** Format: int32 */
-        ofMatches: number
-        /** Format: int32 */
-        firstEleven: number
-        /** Format: int32 */
-        fromBench: number
-        /** Format: int32 */
-        bench: number
-        /** Format: int32 */
-        outsideCadre: number
-      }
-      pmScore: {
-        /** Format: int32 */
-        score: number
-        lastScore: {
-          /** Format: float */
-          value: number
-          /** @enum {string} */
-          trend: 'up' | 'down'
-          /** Format: int32 */
-          ofLastMatches: number
-        }
+        age: number;
+        firstName: string;
+        lastName: string;
+        videoUrl?: string;
+      };
+      career: components["schemas"]["ProfileCareer"];
+    };
+    ProfileOverviewRegularity: {
+      additional: {
         /** @enum {string} */
-        graphData: 'unknown'
-      }
-    }
+        type: "key" | "regular";
+        teamLogoUrl?: string;
+      };
+      /** Format: int32 */
+      totalParticipationPercentage: number;
+      /** Format: int32 */
+      ofMatches: number;
+      /** Format: int32 */
+      firstEleven: number;
+      /** Format: int32 */
+      fromBench: number;
+      /** Format: int32 */
+      bench: number;
+      /** Format: int32 */
+      outsideCadre: number;
+    };
+    ProfileOverviewLastMatches: {
+      additional: {
+        /** @enum {string} */
+        type: "standedOut" | "playedWorse";
+      };
+      data: components["schemas"]["ProfileMatches"];
+    };
+    ProfileOverviewPMScore: {
+      /** Format: int32 */
+      score: number;
+      lastScore: {
+        /** Format: float */
+        value: number;
+        /** @enum {string} */
+        trend: "up" | "down";
+        /** Format: int32 */
+        ofLastMatches: number;
+      };
+      /** @enum {string} */
+      scoreGraph: "unknown";
+    };
     CommonListItem: {
-      id: string
-      name: string
-      disabled?: boolean
-    }
+      id: string;
+      name: string;
+      disabled?: boolean;
+    };
+    TeamsListItem: {
+      competition?: string;
+      id: string;
+      name: string;
+      disabled?: boolean;
+    };
     LoginParams: {
-      email: string
-      password: string
-    }
+      email: string;
+      password: string;
+    };
     LoginResponse: {
-      accessToken: string
-      refreshToken: string
-    }
+      accessToken: string;
+      refreshToken: string;
+    };
     AccountData: {
-      avatarUrl: string
-      firstName: string
-      lastName: string
-      email: string
-    }
-  }
-  responses: never
-  parameters: never
-  requestBodies: never
-  headers: never
-  pathItems: never
+      avatarUrl: string;
+      firstName: string;
+      lastName: string;
+      email: string;
+    };
+  };
+  responses: never;
+  parameters: never;
+  requestBodies: never;
+  headers: never;
+  pathItems: never;
 }
 
-export type external = Record<string, never>
+export type external = Record<string, never>;
 
 export interface operations {
+
   PlayerProfileHeader: {
     parameters: {
       path: {
-        id: string
-      }
-    }
+        id: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['ProfileHeader']
-        }
-      }
-    }
-  }
+          "application/json": components["schemas"]["ProfileHeader"];
+        };
+      };
+    };
+  };
   PlayerProfileCareer: {
     parameters: {
       path: {
-        id: string
-      }
-    }
+        id: string;
+      };
+    };
     responses: {
       /**
-       * @description examples:
+       * @description examples: 
        *       - season: "21/22"
        */
       201: {
         content: {
-          'application/json': components['schemas']['ProfileCareer'][]
-        }
-      }
-    }
-  }
+          "application/json": (components["schemas"]["ProfileCareer"])[];
+        };
+      };
+    };
+  };
   PlayerProfileMatches: {
     parameters: {
       query: {
-        seasonIds?: string[]
-        teamIds?: string[]
-        competitionLevelIds?: string[]
-        playerPlayed?: boolean
-      }
+        seasonIds?: (string)[];
+        teamIds?: (string)[];
+        competitionLevelIds?: (string)[];
+        playerPlayed?: boolean;
+      };
       path: {
-        id: string
-      }
-    }
+        id: string;
+      };
+    };
     responses: {
       /**
-       * @description examples:
+       * @description examples: 
        *       - season: "Wiosna 21/22"
        */
       201: {
         content: {
-          'application/json': components['schemas']['ProfileMatches'][]
-        }
-      }
-    }
-  }
+          "application/json": (components["schemas"]["ProfileMatches"])[];
+        };
+      };
+    };
+  };
   PlayerProfilePMScore: {
     parameters: {
       query: {
-        show:
-          | 'last5Matches'
-          | 'lastRound'
-          | 'lastSeason'
-          | 'last2Years'
-          | 'last3Years'
-      }
+        show: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
+      };
       path: {
-        id: string
-      }
-    }
+        id: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['ProfilePMScore']
-        }
-      }
-    }
-  }
+          "application/json": components["schemas"]["ProfilePMScore"];
+        };
+      };
+    };
+  };
   PlayerProfileOverview: {
     parameters: {
-      query: {
-        pmScoreGraph:
-          | 'last5Matches'
-          | 'lastRound'
-          | 'lastSeason'
-          | 'last2Years'
-          | 'last3Years'
-      }
       path: {
-        id: string
-      }
-    }
+        id: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['ProfileOverview']
-        }
-      }
-    }
-  }
+          "application/json": components["schemas"]["ProfileOverview"];
+        };
+      };
+    };
+  };
+  PlayerProfileOverviewRegularity: {
+    parameters: {
+      query: {
+        teamId?: string;
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverviewRegularity"];
+        };
+      };
+    };
+  };
+  PlayerProfileOverviewLastMatches: {
+    parameters: {
+      query: {
+        teamId?: string;
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverviewLastMatches"];
+        };
+      };
+    };
+  };
+  PlayerProfileOverviewPMScore: {
+    parameters: {
+      query: {
+        show: "last5Matches" | "lastRound" | "lastSeason" | "last2Years" | "last3Years";
+      };
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description 201 response */
+      201: {
+        content: {
+          "application/json": components["schemas"]["ProfileOverviewPMScore"];
+        };
+      };
+    };
+  };
   CompetitionLevelsList: {
+    parameters: {
+      query: {
+        playerId?: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['CommonListItem'][]
-        }
-      }
-    }
-  }
+          "application/json": (components["schemas"]["CommonListItem"])[];
+        };
+      };
+    };
+  };
   SeasonsList: {
+    parameters: {
+      query: {
+        playerId?: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['CommonListItem'][]
-        }
-      }
-    }
-  }
+          "application/json": (components["schemas"]["CommonListItem"])[];
+        };
+      };
+    };
+  };
   TeamsList: {
+    parameters: {
+      query: {
+        playerId?: string;
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['CommonListItem'][]
-        }
-      }
-    }
-  }
+          "application/json": (components["schemas"]["TeamsListItem"])[];
+        };
+      };
+    };
+  };
   Login: {
     requestBody: {
       content: {
-        'application/json': components['schemas']['LoginParams']
-      }
-    }
+        "application/json": components["schemas"]["LoginParams"];
+      };
+    };
     responses: {
       /** @description 201 response */
       201: {
         content: {
-          'application/json': components['schemas']['LoginResponse']
-        }
-      }
-    }
-  }
+          "application/json": components["schemas"]["LoginResponse"];
+        };
+      };
+    };
+  };
   GetAccount: {
     parameters: {
-      /** @description Bearer Token */
+        /** @description Bearer Token */
       header: {
-        Authorization: string
-      }
-    }
+        Authorization: string;
+      };
+    };
     responses: {
       /** @description data not complete */
       201: {
         content: {
-          'application/json': components['schemas']['AccountData']
-        }
-      }
-    }
-  }
+          "application/json": components["schemas"]["AccountData"];
+        };
+      };
+    };
+  };
 }

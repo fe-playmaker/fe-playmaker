@@ -1,4 +1,10 @@
-import { TProfileOverview } from 'types/profile'
+import { LayoutGroup, motion } from 'framer-motion'
+import {
+  TProfileOverview,
+  TProfileOverviewLastMatches,
+  TProfileOverviewPMScore,
+  TProfileOverviewRegularity,
+} from 'types/profile'
 
 import BaseDataSection from './baseData/baseData'
 import CareerSeasonSection from './careerSeason/careerSeason'
@@ -13,25 +19,37 @@ import TransfersSection from './transfers/transfers'
 
 interface IProps {
   data: TProfileOverview
+  regularity: TProfileOverviewRegularity
+  lastMatches: TProfileOverviewLastMatches
+  pmScore: TProfileOverviewPMScore
 }
 
-export const ProfileOverview = ({ data }: IProps) => (
-  <div className="grid grid-cols-1 gap-4 pb-9">
-    <InShortSection inShort={data.inShort} />
-    <BaseDataSection playerData={data.playerData} />
-    <CareerSeasonSection career={data.career} />
-    <ExperienceSection experience={data.experience} />
-    <RegularitySection
-      data={data.regularity}
-      playerName={data.playerData.firstName}
-    />
-    <LastMatchesSection
-      lastMatches={data.lastMatches}
-      playerFirstName={data.playerData.firstName}
-    />
-    <PlayMakerScoreSection pmScore={data.pmScore} />
-    <GameVideoSection videoUrl={data.playerData.videoUrl} />
-    <TransfersSection transfers={data.transfers} />
-    <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
-  </div>
+export const ProfileOverview = ({
+  data,
+  lastMatches,
+  regularity,
+  pmScore,
+}: IProps) => (
+  <LayoutGroup>
+    <motion.div className="flex flex-col gap-4 pb-9" layout>
+      <InShortSection inShort={data.inShort} />
+      <BaseDataSection playerData={data.playerData} />
+      <CareerSeasonSection career={data.career} />
+      <ExperienceSection experience={data.experience} />
+      <RegularitySection
+        data={regularity}
+        playerName={data.playerData.firstName}
+        defaultTeamId={data.playerData.team.id}
+      />
+      <LastMatchesSection
+        lastMatches={lastMatches}
+        playerFirstName={data.playerData.firstName}
+        defaultTeamId={data.playerData.team.id}
+      />
+      <PlayMakerScoreSection pmScore={pmScore} />
+      <GameVideoSection videoUrl={data.playerData.videoUrl} />
+      <TransfersSection transfers={data.transfers} />
+      <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
+    </motion.div>
+  </LayoutGroup>
 )

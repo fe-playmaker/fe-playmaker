@@ -1,7 +1,13 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { TProfileHeader, TProfileOverview } from 'types/profile'
+import {
+  TProfileHeader,
+  TProfileOverview,
+  TProfileOverviewLastMatches,
+  TProfileOverviewPMScore,
+  TProfileOverviewRegularity,
+} from 'types/profile'
 
 import Tabs from '@/components/common/Tabs/tabs'
 import Navbar from '@/components/Navbar/navbar'
@@ -11,18 +17,34 @@ import { TabContentWrapper } from '@/components/profile/common/tab-loader/tab-wr
 import ProfileHeader from '@/components/profile/header/header'
 import { useProfileHeader } from '@/components/profile/header/hooks'
 import ProfileMatches from '@/components/profile/matches/matches'
-import { useProfileOverview } from '@/components/profile/overview/hooks'
+import {
+  useProfileOverview,
+  useProfileOverviewLastMatches,
+  useProfileOverviewPMScore,
+  useProfileOverviewRegularity,
+} from '@/components/profile/overview/hooks'
 import { ProfileOverview } from '@/components/profile/overview/overview'
 import ProfilePMScore from '@/components/profile/pm-score/pm-score'
 
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
 const PlayerTestPage = () => {
-  const { data: headerData, isLoading: headerLoading } = useProfileHeader('69')
+  const { data: headerData, isLoading: headerLoading } = useProfileHeader('96')
   const { data: overviewData, isLoading: overviewLoading } =
-    useProfileOverview('overview')
+    useProfileOverview('96')
+  const { data: overviewLastMatches, isLoading: overviewLastMatchesLoading } =
+    useProfileOverviewLastMatches('96')
+  const { data: overviewRegularity, isLoading: overviewRegularityLoading } =
+    useProfileOverviewRegularity('96')
+  const { data: overviewPMScore, isLoading: overviewPMScoreLoading } =
+    useProfileOverviewPMScore('96')
 
-  const isLoading = headerLoading || overviewLoading
+  const isLoading =
+    headerLoading ||
+    overviewLoading ||
+    overviewRegularityLoading ||
+    overviewLastMatchesLoading ||
+    overviewPMScoreLoading
 
   return (
     <main className="z-0 flex min-h-screen flex-col bg-light">
@@ -42,7 +64,12 @@ const PlayerTestPage = () => {
           >
             <ProfileHeader data={headerData as TProfileHeader} />
             <Tabs tabs={tabs} size="medium">
-              <ProfileOverview data={overviewData as TProfileOverview} />
+              <ProfileOverview
+                data={overviewData as TProfileOverview}
+                lastMatches={overviewLastMatches as TProfileOverviewLastMatches}
+                pmScore={overviewPMScore as TProfileOverviewPMScore}
+                regularity={overviewRegularity as TProfileOverviewRegularity}
+              />
               <ProfileCareer />
               <ProfileMatches />
               <ProfilePMScore />
