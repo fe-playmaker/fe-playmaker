@@ -1,7 +1,7 @@
 import 'chart.js/auto'
 
 import { Doughnut } from 'react-chartjs-2'
-import { TProfileOverview } from 'types/profile'
+import { TProfileOverviewRegularity } from 'types/profile'
 
 export const ChartPie = ({
   fromBench,
@@ -10,7 +10,7 @@ export const ChartPie = ({
   outsideCadre,
   ofMatches,
 }: Omit<
-  TProfileOverview['regularity'],
+  TProfileOverviewRegularity,
   'additional' | 'totalParticipationPercentage'
 >) => {
   const totalParticipationPercentage = Math.round(
