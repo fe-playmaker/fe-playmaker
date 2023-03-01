@@ -24,7 +24,10 @@ export const NavLink = ({ icon, text, href }: IProps) => {
       )}
     >
       {cloneElement(icon, {
-        className: 'icon-16',
+        className: clsx(
+          'icon-16',
+          pathname === href ? 'fill-darkAlpha-40' : 'fill-darkAlpha-30',
+        ),
       })}
 
       <span>{text}</span>

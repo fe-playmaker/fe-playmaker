@@ -25,7 +25,7 @@ const NavbarDesktop = () => (
       <SearchInput />
 
       <div className="flex items-center gap-8">
-        <div className="flex items-center gap-7">
+        <div className="flex items-center gap-7 fill-darkAlpha-40">
           <StarIcon className="icon-20" />
           <ChatIcon className="icon-20" />
           <BellIcon className="icon-20" />
@@ -36,7 +36,7 @@ const NavbarDesktop = () => (
 
     <div className="flex items-center gap-[12rem] ld:gap-[16.9rem]">
       <button type="button" className="flex items-center gap-3">
-        <HamburgerMenuIcon className="icon-16" />
+        <HamburgerMenuIcon className="fill-darkAlpha-30 icon-16" />
         <span className="text-label-md text-darkAlpha-40">Menu</span>
       </button>
 
