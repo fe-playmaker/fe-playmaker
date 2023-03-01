@@ -1,15 +1,25 @@
 'use client'
 
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 import SeachIcon from '@/icons/Search.svg'
 
-export const SearchInput = () => {
+interface IProps {
+  className?: string
+}
+
+export const SearchInput = ({ className }: IProps) => {
   const [searchValue, setSearchValue] = useState('')
 
   return (
-    <div className="ml-[2.4rem] flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4 ld:ml-[7.2rem]">
+    <div
+      className={clsx(
+        'ml-[2.4rem] flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4 ld:ml-[7.2rem]',
+        className,
+      )}
+    >
       <div
         className={`transition-opacity ${
           searchValue ? 'absolute opacity-0' : 'opacity-100'
