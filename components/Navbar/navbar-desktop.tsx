@@ -21,13 +21,13 @@ const NavbarDesktop = () => {
   const [searchValue, setSearchValue] = useState('')
 
   return (
-    <nav className="relative z-50 mb-7 hidden flex-col gap-6 bg-white py-6 px-8 mediumDesktop:flex">
+    <nav className="relative z-50 mb-7 hidden flex-col gap-6 bg-white py-6 px-8 md:flex">
       <div className="flex w-full items-center justify-between gap-[3.3rem]">
         <Link href="/">
           <LargeLogo className="h-[1.375rem] w-[9.375rem]" />
         </Link>
 
-        <div className="ml-[2.4rem] flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4 largeDesktop:ml-[7.2rem]">
+        <div className="ml-[2.4rem] flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4 ld:ml-[7.2rem]">
           <div
             className={`transition-opacity ${
               searchValue ? 'absolute opacity-0' : 'opacity-100'
@@ -55,7 +55,7 @@ const NavbarDesktop = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-[12rem] largeDesktop:gap-[16.9rem]">
+      <div className="flex items-center gap-[12rem] ld:gap-[16.9rem]">
         <button type="button" className="flex items-center gap-3">
           <HamburgerMenuIcon className="icon-16" />
           <span className="text-label-md text-darkAlpha-40">Menu</span>
