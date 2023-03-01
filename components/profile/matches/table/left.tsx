@@ -36,7 +36,7 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
             key={`left-matches-table-cell-${id}`}
             expanded={!!wideoUrl}
             className={clsx(
-              'flex items-center pl-4',
+              'flex items-center pl-4 md:w-[15.75rem]',
               i !== 0 && 'border-t border-darkShade-5',
             )}
           >
@@ -48,7 +48,7 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
             >
               <TeamRow team={homeTeam} />
               <TeamRow team={awayTeam} className="mt-2" />
-              <div className="mt-3 flex justify-between pr-4 text-[0.563rem] text-darkAlpha-20">
+              <div className="mt-3 flex justify-between pr-4 text-[0.563rem] text-darkAlpha-20 md:text-body-xs">
                 <span>{formatDate(date)}</span>
                 <span>{competition}</span>
               </div>
