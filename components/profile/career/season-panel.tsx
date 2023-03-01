@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { TProfileCareer } from 'types/profile'
 
 import HelpCircleIcon from '@/icons/HelpCircle.svg'
@@ -17,9 +18,10 @@ const SeasonPanel = ({ data, score, season, total }: TProfileCareer) => (
           <TrendDownIcon className="icon-16" />
         )}
         <span
-          className={`text-body-sm font-bold ${
-            score.trend === 'up' ? 'text-greenShade-50' : 'text-orangeShade-50'
-          }`}
+          className={clsx(
+            `text-body-sm font-bold`,
+            score.trend === 'up' ? 'text-greenShade-50' : 'text-orangeShade-50',
+          )}
         >
           {score.value}
         </span>
