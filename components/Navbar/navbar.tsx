@@ -7,9 +7,9 @@ import { SearchInput } from './common/search-input'
 
 const Navbar = () => (
   <nav className="relative z-50 flex items-center justify-center gap-6 py-5 px-7 md:hidden">
-    <ArrowLeftIcon width="20" height="20" />
+    <ArrowLeftIcon className="icon-20" />
     <SearchInput />
-    <StarIcon width="20" height="20" />
+    <StarIcon className="icon-20" />
   </nav>
 )
 

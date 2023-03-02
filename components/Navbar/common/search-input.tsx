@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-import SeachIcon from '@/icons/Search.svg'
+import SearchIcon from '@/icons/Search.svg'
 
 export const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('')
@@ -15,7 +15,7 @@ export const SearchInput = () => {
           searchValue ? 'absolute opacity-0' : 'opacity-100'
         }`}
       >
-        <SeachIcon width="16" height="16" />
+        <SearchIcon width="16" height="16" />
       </div>
       <motion.input
         type="text"
