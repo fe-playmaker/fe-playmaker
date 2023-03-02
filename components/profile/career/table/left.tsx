@@ -24,7 +24,7 @@ const CareerTableLeftPart = ({
 
   <TableLeftColumn>
     <TableLeftHeaderCell>
-      <TableHeaderText text="Drużyna" className="pl-6" />
+      <TableHeaderText text="Drużyna" className="pl-6 md:pl-8" />
     </TableLeftHeaderCell>
     {data.map((row, i) => (
       <TableLeftCell
@@ -33,10 +33,10 @@ const CareerTableLeftPart = ({
         // )})`}
         key={`left-${row.team}-${season}`}
         className={clsx(
-          'relative flex h-[6.313rem] items-center justify-center pr-4 pl-6 text-center font-medium',
+          'relative flex h-[6.313rem] items-center justify-center pr-4 pl-6 text-center font-medium md:pl-8',
           i !== 0 && 'border-t border-darkAlpha-5',
           row.mainTeam &&
-            'before:absolute before:top-0 before:left-0 before:h-[calc(100%+1px)] before:w-[0.188rem] before:bg-primary',
+            'before:absolute before:top-0 before:left-0 before:h-[calc(100%+1px)] before:w-[0.188rem] before:bg-primary md:before:w-2',
         )}
       >
         <div className="flex gap-3 text-left md:gap-5">
@@ -72,7 +72,7 @@ const CareerTableLeftPart = ({
         </div>
       </TableLeftCell>
     ))}
-    <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6">
+    <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6 md:pl-8">
       <TableSummaryText text="Łącznie" />
     </TableLeftSummaryCell>
   </TableLeftColumn>

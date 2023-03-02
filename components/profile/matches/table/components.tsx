@@ -13,7 +13,7 @@ export const TeamRow = ({
 }) => (
   <div className={cx('relative flex items-center justify-between', className)}>
     {team.mainTeam && (
-      <div className="absolute -left-4 h-full w-1 bg-primary md:w-[0.188rem]" />
+      <div className="absolute -left-4 h-full w-1 bg-primary md:-left-7 md:w-[0.188rem]" />
     )}
     <div className="flex items-center">
       <Image

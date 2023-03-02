@@ -16,13 +16,13 @@ const ExperienceTableLeftPart = ({
 }: Pick<TProfileOverview, 'experience'>) => (
   <TableLeftColumn>
     <TableLeftHeaderCell>
-      <TableHeaderText text="Klasa rozgrywkowa" className="pl-6" />
+      <TableHeaderText text="Klasa rozgrywkowa" className="pl-6 md:pl-8" />
     </TableLeftHeaderCell>
     {experience.data.map((row, i) => (
       <TableLeftCell
         key={`experience-left-${row.competetion}`}
         className={clsx(
-          'relative flex h-[4.25rem] w-[9rem] items-center pl-6 text-center font-medium',
+          'relative flex h-[4.25rem] w-[9rem] items-center pl-6 text-center font-medium md:pl-8',
           i !== 0 && 'border-t border-darkAlpha-5',
         )}
       >
@@ -41,7 +41,7 @@ const ExperienceTableLeftPart = ({
         </div>
       </TableLeftCell>
     ))}
-    <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6">
+    <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6 md:pl-8">
       <TableSummaryText text="Łącznie" />
     </TableLeftSummaryCell>
   </TableLeftColumn>

@@ -27,7 +27,7 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
   return (
     <TableLeftColumn>
       <TableLeftHeaderCell>
-        <TableHeaderText text="Mecz" className="pl-5" />
+        <TableHeaderText text="Mecz" className="pl-5 md:pl-8" />
       </TableLeftHeaderCell>
 
       {matches.map(
@@ -36,7 +36,7 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
             key={`left-matches-table-cell-${id}`}
             // expanded={!!wideoUrl}
             className={clsx(
-              'flex items-center pl-4 md:w-[15.75rem]',
+              'flex items-center pl-4 md:w-[15.75rem] md:pl-0',
               i !== 0 && 'border-t border-darkShade-5',
               wideoUrl
                 ? 'h-[7.188rem] md:h-[8.438rem]'
@@ -45,7 +45,7 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
           >
             <div
               className={clsx(
-                'flex w-full flex-col justify-center py-4 md:py-5',
+                'flex w-full flex-col justify-center py-4 md:py-5 md:pl-7 md:pr-4',
                 !isScrolled && 'shadow-[1px_0_0_0_#EDEDED]',
               )}
             >
@@ -69,11 +69,11 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
         ),
       )}
 
-      <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6">
+      <TableLeftSummaryCell className="border-t-2 border-darkShade-5 pl-6 md:pl-8">
         <TableSummaryText text="Łącznie" />
       </TableLeftSummaryCell>
 
-      <TableLeftSummaryCell className="border-t border-darkShade-5 pl-6">
+      <TableLeftSummaryCell className="border-t border-darkShade-5 pl-6 md:pl-8">
         <TableSummaryText text="Śr. / mecz" />
       </TableLeftSummaryCell>
     </TableLeftColumn>

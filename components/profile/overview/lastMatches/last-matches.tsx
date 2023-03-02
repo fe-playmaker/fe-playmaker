@@ -24,9 +24,9 @@ const LastMatchesSection = ({
   const { data: teamsList } = useTeamsList({ playerId: '96' })
 
   return (
-    <SectionContainer className="px-0" layout>
-      <div className="flex items-center justify-between px-6">
-        <Heading className="flex items-center gap-2 pb-0">
+    <SectionContainer className="px-0 md:px-0" layout>
+      <div className="flex items-center justify-between px-6 md:px-8">
+        <Heading className="flex items-center gap-2 pb-0 md:pb-0">
           Ostatnie mecze <ArrowRightIcon className="icon-16" />
         </Heading>
         <InputSelect
@@ -38,7 +38,7 @@ const LastMatchesSection = ({
           menuRightSide
         />
       </div>
-      <div className="mx-6 my-7 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
+      <div className="mx-6 my-8 mb-5 flex items-center gap-7 bg-white p-5 pl-7 shadow-default md:mx-8">
         {lastMatches.additional.type === 'standedOut' ? (
           <TrendUpIcon className="icon-32" />
         ) : (
@@ -59,7 +59,7 @@ const LastMatchesSection = ({
 
       <LastMatchesPanel {...lastMatches.data} />
 
-      <div className="flex justify-center">
+      <div className="my-4 flex justify-center">
         <Button size="small" text="Zobacz więcej" intent="secondary" />
       </div>
     </SectionContainer>
