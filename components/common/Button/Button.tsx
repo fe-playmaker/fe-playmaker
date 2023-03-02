@@ -26,7 +26,7 @@ const buttonCva = cva(
         large: 'text-label-xl px-9 py-5 gap-3',
         medium: 'text-label-lg px-8 py-4 gap-3',
         small: 'text-label-md px-6 py-[0.625rem] gap-2',
-        extraSmall: 'text-label-md px-4 py-3 md:px-6 md:py-[0.625rem] gap-2',
+        extraSmall: 'text-label-md px-4 py-3 gap-2',
       },
     },
   },

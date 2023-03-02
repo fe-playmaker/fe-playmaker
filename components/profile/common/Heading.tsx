@@ -10,7 +10,7 @@ interface Props extends React.ComponentProps<typeof motion.h4> {
 export const Heading = ({ children, className, ...props }: Props) => (
   <motion.h4
     className={clsx(
-      'pb-5 font-poppins text-heading-xs font-bold text-dark mediumDesktop:text-heading-smaller',
+      'pb-5 font-poppins text-heading-xs font-bold text-dark md:pb-7 md:text-heading-smaller',
       className,
     )}
     {...props}
