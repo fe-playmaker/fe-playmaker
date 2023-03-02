@@ -49,13 +49,13 @@ const CareerTableLeftPart = ({
           />
           <div className="flex flex-col ">
             <span
-              className={`w-[6.625rem] text-body-sm ${
+              className={`w-[6.625rem] text-body-sm md:w-[16rem] md:text-body-md ${
                 row.mainTeam ? 'text-dark' : 'text-darkAlpha-40'
               }`}
             >
               {row.team}
             </span>
-            <span className="text-body-xs text-darkAlpha-20">
+            <span className="text-body-xs text-darkAlpha-20 md:text-body-sm">
               {row.competition}
             </span>
             {row.season && (
