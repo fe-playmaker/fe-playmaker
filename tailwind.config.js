@@ -9,9 +9,9 @@ module.exports = {
     screens: {
       mobile: '0px',
       tablet: '600px',
-      smallDesktop: '960px',
-      mediumDesktop: '1200px',
-      largeDesktop: '1600px',
+      sd: '960px',
+      md: '1200px',
+      ld: '1600px',
     },
     colors: {
       transparent: 'transparent',
