@@ -13,7 +13,7 @@ export const TableSummaryRow = ({ children, className }: IProps) => {
   return (
     <div
       className={clsx(
-        'grid min-w-max items-center justify-end justify-items-center gap-x-4 pr-5 text-body-md',
+        'grid min-w-max items-center justify-end justify-items-center gap-x-4 pr-5 text-body-md md:gap-x-7',
         className,
         columnsClass,
         paddingRightColumnClass || 'pl-4',

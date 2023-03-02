@@ -15,7 +15,7 @@ interface IProps {
 export const TableDataScore = ({ score }: IProps) =>
   score ? (
     <span
-      className={`flex items-center gap-1 font-inter text-body-sm font-bold ${
+      className={`flex items-center gap-1 font-inter text-body-sm font-bold md:text-body-md ${
         score.trend === 'up' ? 'text-greenShade-50' : 'text-orangeShade-50'
       }`}
     >

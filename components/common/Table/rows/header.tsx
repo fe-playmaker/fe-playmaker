@@ -14,7 +14,7 @@ export const TableHeaderRow = ({ className, children }: IProps) => {
   return (
     <div
       className={cx(
-        'grid min-w-max grid-rows-[2rem] items-end justify-end justify-items-center gap-x-4 border-b-2 border-darkAlpha-5 pb-3 pr-5',
+        'grid min-w-max grid-rows-[2rem] items-end justify-end justify-items-center gap-x-4 border-b-2 border-darkAlpha-5 pb-3 pr-5 md:gap-x-7',
         className,
         columnsClass,
         paddingRightColumnClass || 'pl-4',

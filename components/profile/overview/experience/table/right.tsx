@@ -25,7 +25,10 @@ const ExperienceTableRightPart = ({
 
     {data.map((row, i) => (
       <TableRow
-        className={clsx(i !== 0 && 'border-t border-darkAlpha-5')}
+        className={clsx(
+          'h-[4.25rem]',
+          i !== 0 && 'border-t border-darkAlpha-5',
+        )}
         key={`experience-right-${row.competetion}`}
       >
         <TableDataValue value={row.seasons} />

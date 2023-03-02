@@ -34,20 +34,23 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
         ({ awayTeam, competition, date, homeTeam, wideoUrl, id }, i) => (
           <TableLeftCell
             key={`left-matches-table-cell-${id}`}
-            expanded={!!wideoUrl}
+            // expanded={!!wideoUrl}
             className={clsx(
               'flex items-center pl-4 md:w-[15.75rem]',
               i !== 0 && 'border-t border-darkShade-5',
+              wideoUrl
+                ? 'h-[7.188rem] md:h-[8.438rem]'
+                : 'h-[5.313rem] md:h-[6.563rem]',
             )}
           >
             <div
               className={clsx(
-                'flex w-full flex-col justify-center',
+                'flex w-full flex-col justify-center py-4 md:py-5',
                 !isScrolled && 'shadow-[1px_0_0_0_#EDEDED]',
               )}
             >
               <TeamRow team={homeTeam} />
-              <TeamRow team={awayTeam} className="mt-2" />
+              <TeamRow team={awayTeam} className="mt-2 md:mt-3" />
               <div className="mt-3 flex justify-between pr-4 text-[0.563rem] text-darkAlpha-20 md:text-body-xs">
                 <span>{formatDate(date)}</span>
                 <span>{competition}</span>

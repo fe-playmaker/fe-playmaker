@@ -7,7 +7,7 @@ interface IProps {
 export const TableHeaderText = ({ text, className }: IProps) => (
   <span
     className={cx(
-      'font-inter text-body-xs font-medium text-darkAlpha-40',
+      'font-inter text-body-xs font-medium text-darkAlpha-40 md:text-body-sm',
       className,
     )}
   >
