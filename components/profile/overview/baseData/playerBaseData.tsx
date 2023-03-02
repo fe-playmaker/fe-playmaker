@@ -98,7 +98,7 @@ export const PlayerBaseData = ({
             </div>
           ))}
         </div>
-        <div className="absolute -right-6 top-0 flex h-full w-[11.719rem] items-center justify-center bg-blueShade-10 pt-8 pb-7 md:h-[13.75rem] md:w-[23.625rem]">
+        <div className="absolute -right-6 top-0 flex h-full w-[11.719rem] items-center justify-center bg-blueShade-10 pt-8 pb-7 md:-right-8 md:h-[13.75rem] md:w-[23.625rem]">
           <div className="relative">
             <SoccerField className="h-[8.125rem] w-[10rem] md:h-[11.25rem] md:w-[13.875rem]" />
             {/* this is temporary solution */}
