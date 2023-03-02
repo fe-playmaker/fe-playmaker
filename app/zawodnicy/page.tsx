@@ -57,7 +57,7 @@ const PlayerTestPage = () => {
             size="large"
           />
         ) : (
-          <div className="gap-7 md:grid md:grid-cols-[756px_,1fr]">
+          <div className="gap-7 md:grid md:grid-cols-[47.25rem_,1fr]">
             <TabContentWrapper
               key="profile-content"
               className="flex flex-1 flex-col"
