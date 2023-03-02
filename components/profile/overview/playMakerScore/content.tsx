@@ -19,24 +19,24 @@ export const PlayMakerScoreContent = ({
 }: {
   pmScore: TProfileOverviewPMScore
 }) => (
-  <div className="flex flex-col gap-7">
-    <p className="text-body-sm text-darkAlpha-20">
+  <div className="flex flex-col gap-7 md:gap-8">
+    <p className="text-body-sm text-darkAlpha-20 md:text-body-md">
       PlayMaker Score pozwala obserwować potencjał zawodnika. Na wskaźnik wpływa
       ponad 20 zmiennych, m.in. gra zawodnika, czy jego wiek.
     </p>
     <ExtendedScore lastScore={pmScore.lastScore} score={pmScore.score} />
-    <Chips chips={chips} />
+    <Chips chips={chips} className="md:flex-wrap" />
     <div className="flex flex-col items-center">
       {/* graph section is temporary */}
       <Graph className="md:hidden" />
       <LargeGraph className="md:block" />
-      <div className="flex items-center gap-6 pt-6 font-inter text-body-xs">
+      <div className="flex items-center gap-6 pt-6 font-inter text-body-xs md:text-body-md">
         <span className="flex items-center gap-3">
-          <div className="h-[3px] w-4 rounded-full bg-primary" />
+          <div className="h-[3px] w-4 rounded-full bg-primary md:h-[4px]" />
           Zawodnik
         </span>
         <span className="flex items-center gap-3">
-          <div className="h-[3px] w-4 rounded-full bg-darkAlpha-20" />
+          <div className="h-[3px] w-4 rounded-full bg-darkAlpha-20 md:h-[4px]" />
           Średnia ligowa
         </span>
       </div>
