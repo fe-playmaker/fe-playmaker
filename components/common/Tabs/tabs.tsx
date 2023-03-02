@@ -4,7 +4,9 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useContext, useEffect, useState } from 'react'
+
+import { TabsIndexContext } from './index-context'
 
 // missing - disabled, disabled-selected
 
@@ -30,14 +32,15 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 }
 
 const Tabs = ({ size, tabs, children }: TabsProps) => {
-  const [[helperTabIndex, prevHelperTabIndex], setHelperTabIndex] = useState([
-    0, -1,
-  ])
+  const {
+    data: [helperTabIndex, prevHelperTabIndex],
+    setHelperTabIndex,
+  } = useContext(TabsIndexContext)
   const [tabIndex, setTabIndex] = useState(0)
 
   useEffect(() => {
     setTabIndex(helperTabIndex)
-  }, [helperTabIndex])
+  }, [helperTabIndex, setTabIndex])
 
   const getInitialPanelX = () => {
     if (prevHelperTabIndex === -1) return 0
@@ -46,10 +49,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
   }
 
   return (
-    <Tab.Group
-      selectedIndex={tabIndex}
-      onChange={index => setHelperTabIndex(value => [index, value[0]])}
-    >
+    <Tab.Group selectedIndex={tabIndex} onChange={setHelperTabIndex}>
       <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
         {tabs.map(name => (
           <Tab className={tabsCva({ size })} key={name}>
