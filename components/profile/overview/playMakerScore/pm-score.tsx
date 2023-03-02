@@ -15,7 +15,7 @@ const PlayMakerScoreSection = ({
   const { goToTab } = useGoToTab()
 
   return (
-    <SectionContainer>
+    <SectionContainer layout>
       <Heading
         className="flex cursor-pointer items-center gap-2"
         onClick={() => goToTab(3)}

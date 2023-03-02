@@ -12,7 +12,7 @@ const CareerSeasonSection = ({ career }: Pick<TProfileOverview, 'career'>) => {
   const { goToTab } = useGoToTab()
 
   return (
-    <SectionContainer className="px-0 pt-8">
+    <SectionContainer className="px-0 pt-8" layout>
       <Heading
         className="ml-6 flex cursor-pointer items-center gap-2 "
         onClick={() => goToTab(1)}
