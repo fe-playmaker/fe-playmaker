@@ -18,34 +18,36 @@ export const TransfersContent = ({ transfers, showCount }: IProps) => (
         layout
       >
         <div className="flex items-center justify-between gap-7">
-          <div className="flex items-center gap-3">
+          <div className="flex w-[8.688rem] items-center gap-3 md:w-[19.375rem] md:gap-4">
             <Image
               src={transfer.from.logoUrl}
               alt={transfer.from.name}
               width={19}
               height={24}
+              className="h-7 w-auto md:h-[1.875rem]"
             />
-            <p className="w-11 text-body-sm  text-darkAlpha-40 md:w-[16.125rem] md:text-body-md">
+            <p className="text-body-sm  text-darkAlpha-40 md:text-body-md">
               {transfer.from.name}
             </p>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 md:gap-7">
             <GreenArrow className="icon-24" />
-            <div className="flex items-center gap-3">
+            <div className="flex w-[8.688rem] items-center gap-3 md:w-[19.375rem] md:gap-4">
               <Image
                 src={transfer.to.logoUrl}
                 alt={transfer.to.name}
                 width={19}
                 height={24}
+                className="h-7 w-auto md:h-[1.875rem]"
               />
-              <p className="w-11 text-body-sm text-darkAlpha-40 md:w-[16.125rem] md:text-body-md">
+              <p className="text-body-sm text-darkAlpha-40 md:text-body-md">
                 {transfer.to.name}
               </p>
             </div>
           </div>
         </div>
-        <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40">
+        <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40 md:pl-[36px]">
           {transfer.type} ({formatDate(transfer.date)})
         </p>
       </motion.div>
