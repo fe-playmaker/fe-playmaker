@@ -1,4 +1,5 @@
 import Graph from 'img/illustrations/Graph.svg'
+import LargeGraph from 'img/illustrations/LargeGraph.svg'
 import { TProfileOverviewPMScore } from 'types/profile'
 
 import { Button } from '@/components/common/Button/Button'
@@ -27,7 +28,8 @@ export const PlayMakerScoreContent = ({
     <Chips chips={chips} />
     <div className="flex flex-col items-center">
       {/* graph section is temporary */}
-      <Graph />
+      <Graph className="md:hidden" />
+      <LargeGraph className="md:block" />
       <div className="flex items-center gap-6 pt-6 font-inter text-body-xs">
         <span className="flex items-center gap-3">
           <div className="h-[3px] w-4 rounded-full bg-primary" />
