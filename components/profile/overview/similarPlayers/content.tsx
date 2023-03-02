@@ -32,7 +32,7 @@ export const SimilarPlayersContent = ({
             <p className="text-subHeading-md font-semibold text-dark">
               {d.name}
             </p>
-            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40">{`${d.position} w ${d.team} (${d.competition}), ${d.age} lat`}</p>
+            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40 md:text-body-sm">{`${d.position} w ${d.team} (${d.competition}), ${d.age} lat`}</p>
           </div>
         </div>
         <AdditionalScore score={d.score.value} trend={d.score.trend} />

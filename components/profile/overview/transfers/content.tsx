@@ -25,7 +25,7 @@ export const TransfersContent = ({ transfers, showCount }: IProps) => (
               width={19}
               height={24}
             />
-            <p className="w-11 text-body-sm text-darkAlpha-40">
+            <p className="w-11 text-body-sm  text-darkAlpha-40 md:w-[16.125rem] md:text-body-md">
               {transfer.from.name}
             </p>
           </div>
@@ -39,7 +39,7 @@ export const TransfersContent = ({ transfers, showCount }: IProps) => (
                 width={19}
                 height={24}
               />
-              <p className="w-11 text-body-sm text-darkAlpha-40">
+              <p className="w-11 text-body-sm text-darkAlpha-40 md:w-[16.125rem] md:text-body-md">
                 {transfer.to.name}
               </p>
             </div>

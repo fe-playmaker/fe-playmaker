@@ -35,7 +35,7 @@ export const RegularityContent = ({
         )}
         {additional.type === 'key' && <TrendUpTshirt className="icon-40" />}
 
-        <div className="font-inter text-body-sm">
+        <div className="font-inter text-body-sm md:text-body-md">
           <h4 className="font-bold">
             {additional.type === 'regular' && 'Regularna gra'}
             {additional.type === 'key' && 'Kluczowy zawodnik'}

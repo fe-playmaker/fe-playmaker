@@ -45,7 +45,7 @@ const LastMatchesSection = ({
           <TrendDownIcon className="icon-32" />
         )}
 
-        <div className="font-inter text-body-sm">
+        <div className="font-inter text-body-sm md:text-body-md">
           <h4 className="font-bold">PlayMaker Score</h4>
           <p className="font-medium text-darkAlpha-40">
             {playerFirstName}{' '}
