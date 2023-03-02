@@ -10,7 +10,6 @@ import {
 } from 'types/profile'
 
 import Tabs from '@/components/common/Tabs/tabs'
-import Navbar from '@/components/Navbar/navbar'
 import ProfileCareer from '@/components/profile/career/career'
 import TabLoadingSpinner from '@/components/profile/common/tab-loader/spinner'
 import { TabContentWrapper } from '@/components/profile/common/tab-loader/tab-wrapper'
@@ -48,7 +47,6 @@ const PlayerTestPage = () => {
 
   return (
     <main className="z-0 flex min-h-screen flex-col bg-light">
-      <Navbar />
       {headerData?.premium && <GradientedBg />}
       <AnimatePresence mode="wait">
         {isLoading ? (
@@ -87,10 +85,10 @@ const GradientedBg = () => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1, transition: { delay: 0.1 } }}
-    className="absolute top-0 right-0 z-10 h-[30vh] w-screen"
+    className="mediumDesktop:-z-10 mediumDesktop:h-[70vh] absolute top-0 right-0 z-10 h-[30vh] w-[100vw]"
     style={{
       background:
-        'linear-gradient(200.96deg, rgba(208, 170, 70, 0.2) 0.66%, rgba(252, 214, 115, 0) 86.72%)',
+        'linear-gradient(180deg, rgba(208, 170, 70, 0.2) 0.66%, rgba(252, 214, 115, 0) 86.72%)',
     }}
   />
 )
