@@ -79,7 +79,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
           </Tab>
         ))}
       </Tab.List>
-      <Tab.Panels className="flex flex-1">
+      <Tab.Panels className="flex flex-1 overflow-hidden">
         <AnimatePresence mode="popLayout">
           <Tab.Panel
             className="max-w-full flex-1"
