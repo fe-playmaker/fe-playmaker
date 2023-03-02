@@ -39,7 +39,7 @@ const CareerTableLeftPart = ({
             'before:absolute before:top-0 before:left-0 before:h-[calc(100%+1px)] before:w-[0.188rem] before:bg-primary',
         )}
       >
-        <div className="flex gap-3 text-left">
+        <div className="flex gap-3 text-left md:gap-5">
           <Image
             src={row.teamLogoUrl}
             alt={row.team}

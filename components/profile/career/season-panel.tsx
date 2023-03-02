@@ -19,7 +19,7 @@ const SeasonPanel = ({ data, score, season, total }: TProfileCareer) => (
         )}
         <span
           className={clsx(
-            `text-body-sm font-bold`,
+            `text-body-sm font-bold md:text-body-md`,
             score.trend === 'up' ? 'text-greenShade-50' : 'text-orangeShade-50',
           )}
         >

@@ -26,13 +26,13 @@ const ExperienceTableLeftPart = ({
           i !== 0 && 'border-t border-darkAlpha-5',
         )}
       >
-        <div className="flex items-center gap-3 justify-self-start text-left">
+        <div className="flex items-center gap-3 justify-self-start text-left md:gap-5">
           <Image
             src={row.competitionLogoUrl}
             alt={row.competetion}
             width={48}
             height={48}
-            className="h-7 w-auto max-w-[1.188rem] object-cover"
+            className="h-7 w-auto max-w-[1.188rem] object-cover md:h-8"
           />
 
           <span className="text-body-sm text-darkAlpha-40">
