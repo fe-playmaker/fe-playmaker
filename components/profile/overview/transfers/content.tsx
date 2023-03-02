@@ -47,7 +47,7 @@ export const TransfersContent = ({ transfers, showCount }: IProps) => (
             </div>
           </div>
         </div>
-        <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40 md:pl-[36px]">
+        <p className="pl-[27px] font-inter text-body-xs font-medium text-darkAlpha-40 md:pl-[36px] md:text-body-sm">
           {transfer.type} ({formatDate(transfer.date)})
         </p>
       </motion.div>
