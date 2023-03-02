@@ -49,7 +49,10 @@ export const ProfileOverview = ({
       <PlayMakerScoreSection pmScore={pmScore} />
       <GameVideoSection videoUrl={data.playerData.videoUrl} />
       <TransfersSection transfers={data.transfers} />
-      <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
+      <SimiliarPlayersSection
+        className="md:hidden"
+        similarPlayers={data.similarPlayers}
+      />
     </motion.div>
   </LayoutGroup>
 )

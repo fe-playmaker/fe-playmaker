@@ -23,6 +23,7 @@ import {
   useProfileOverviewRegularity,
 } from '@/components/profile/overview/hooks'
 import { ProfileOverview } from '@/components/profile/overview/overview'
+import SimiliarPlayersSection from '@/components/profile/overview/similarPlayers/similiar-players'
 import ProfilePMScore from '@/components/profile/pm-score/pm-score'
 
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
@@ -46,7 +47,7 @@ const PlayerTestPage = () => {
     overviewPMScoreLoading
 
   return (
-    <main className="z-0 flex min-h-screen flex-col bg-light">
+    <main className="z-0 flex min-h-screen flex-col">
       {headerData?.premium && <GradientedBg />}
       <AnimatePresence mode="wait">
         {isLoading ? (
@@ -56,23 +57,33 @@ const PlayerTestPage = () => {
             size="large"
           />
         ) : (
-          <TabContentWrapper
-            key="profile-content"
-            className="flex flex-1 flex-col"
-          >
-            <ProfileHeader data={headerData as TProfileHeader} />
-            <Tabs tabs={tabs} size="medium">
-              <ProfileOverview
-                data={overviewData as TProfileOverview}
-                lastMatches={overviewLastMatches as TProfileOverviewLastMatches}
-                pmScore={overviewPMScore as TProfileOverviewPMScore}
-                regularity={overviewRegularity as TProfileOverviewRegularity}
+          <div className="gap-7 md:grid md:grid-cols-[756px_,1fr]">
+            <TabContentWrapper
+              key="profile-content"
+              className="flex flex-1 flex-col"
+            >
+              <ProfileHeader data={headerData as TProfileHeader} />
+              <Tabs tabs={tabs} size="medium">
+                <ProfileOverview
+                  data={overviewData as TProfileOverview}
+                  lastMatches={
+                    overviewLastMatches as TProfileOverviewLastMatches
+                  }
+                  pmScore={overviewPMScore as TProfileOverviewPMScore}
+                  regularity={overviewRegularity as TProfileOverviewRegularity}
+                />
+                <ProfileCareer />
+                <ProfileMatches />
+                <ProfilePMScore />
+              </Tabs>
+            </TabContentWrapper>
+            <div className="overflow-y-auto">
+              <SimiliarPlayersSection
+                className="h-auto md:block"
+                similarPlayers={overviewData?.similarPlayers ?? []}
               />
-              <ProfileCareer />
-              <ProfileMatches />
-              <ProfilePMScore />
-            </Tabs>
-          </TabContentWrapper>
+            </div>
+          </div>
         )}
       </AnimatePresence>
     </main>
@@ -85,7 +96,7 @@ const GradientedBg = () => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1, transition: { delay: 0.1 } }}
-    className="mediumDesktop:-z-10 mediumDesktop:h-[70vh] absolute top-0 right-0 z-10 h-[30vh] w-[100vw]"
+    className="absolute top-0 right-0 z-10 h-[30vh] w-[100vw] md:-z-10 md:h-[70vh]"
     style={{
       background:
         'linear-gradient(180deg, rgba(208, 170, 70, 0.2) 0.66%, rgba(252, 214, 115, 0) 86.72%)',

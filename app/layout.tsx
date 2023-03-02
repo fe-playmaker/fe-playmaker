@@ -24,7 +24,9 @@ const inter = Inter({
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="pl">
     <head />
-    <body className={`${poppins.variable} ${inter.variable} font-poppins`}>
+    <body
+      className={`${poppins.variable} ${inter.variable} bg-light font-poppins`}
+    >
       <ReactQueryWrapper>
         <NavbarDesktop />
         <Navbar />

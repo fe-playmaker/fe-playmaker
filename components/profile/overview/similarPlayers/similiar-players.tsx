@@ -7,13 +7,17 @@ import { Heading } from '../../common/Heading'
 import { SectionContainer } from '../../common/SectionContainer'
 import { SimilarPlayersContent } from './content'
 
-const SimiliarPlayersSection = ({
-  similarPlayers,
-}: Pick<TProfileOverview, 'similarPlayers'>) => {
+type SimilarPlayers = Pick<TProfileOverview, 'similarPlayers'>
+
+interface IProps extends SimilarPlayers {
+  className?: string
+}
+
+const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
   const [showCount, setShowCount] = useState(3)
 
   return (
-    <SectionContainer layout>
+    <SectionContainer layout className={className}>
       <Heading layout>Podobni zawodnicy</Heading>
       <SimilarPlayersContent
         showCount={showCount}
