@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useState } from 'react'
 import { TProfileOverview } from 'types/profile'
 
@@ -17,8 +18,10 @@ const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
   const [showCount, setShowCount] = useState(3)
 
   return (
-    <SectionContainer layout className={className}>
-      <Heading layout>Podobni zawodnicy</Heading>
+    <SectionContainer layout className={clsx('px-0 md:px-0', className)}>
+      <Heading layout className="pl-6 md:pl-8">
+        Podobni zawodnicy
+      </Heading>
       <SimilarPlayersContent
         showCount={showCount}
         similarPlayers={similarPlayers}

@@ -15,7 +15,7 @@ export const SimilarPlayersContent = ({
   <div className="overflow-hidden">
     {similarPlayers.slice(0, showCount).map(d => (
       <motion.div
-        className="flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent"
+        className="mx-6 flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent md:mx-8"
         key={`similiar-player-${d.id}`}
         layout
       >
