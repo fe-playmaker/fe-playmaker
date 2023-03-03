@@ -42,7 +42,7 @@ const iconCva = cva('group-disabled:fill-darkAlpha-20', {
       large: 'w-7 h-7',
       medium: 'w-5 h-5',
       small: 'w-5 h-5',
-      extraSmall: 'w-4 h-4 md:w-5 md:h-5',
+      extraSmall: 'w-4 h-4',
     },
   },
 })
