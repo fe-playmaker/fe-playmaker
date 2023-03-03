@@ -42,8 +42,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
   useEffect(() => {
     setTabIndex(helperTabIndex)
     if (typeof window !== 'undefined') {
-      // @ts-ignore
-      if (window?.innerWidth > 720) setDevice('desktop')
+      if (window.innerWidth > 720) setDevice('desktop')
       else setDevice('mobile')
     }
   }, [helperTabIndex, setTabIndex])
