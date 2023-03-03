@@ -96,7 +96,7 @@ const PlayerTestPage = () => {
             </TabContentWrapper>
             <div className="overflow-y-auto">
               <SimiliarPlayersSection
-                className="h-auto md:block"
+                className="hidden h-auto md:block"
                 similarPlayers={overviewData?.similarPlayers ?? []}
               />
             </div>

@@ -32,8 +32,8 @@ export const PlayMakerScoreContent = ({
       <Chips chips={chips} className="md:flex-wrap" />
       <div className="flex flex-col items-center">
         {/* graph section is temporary */}
-        <Graph className="md:hidden" />
-        <LargeGraph className="md:block" />
+        <Graph className="block md:hidden" />
+        <LargeGraph className="hidden md:block" />
         <div className="flex items-center gap-6 pt-6 font-inter text-body-xs md:text-body-md">
           <span className="flex items-center gap-3">
             <div className="h-[3px] w-4 rounded-full bg-primary md:h-[4px]" />
