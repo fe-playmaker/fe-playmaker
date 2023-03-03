@@ -26,7 +26,7 @@ const LastMatchesSection = ({
   const { data: teamsList } = useTeamsList({ playerId: '96' })
 
   return (
-    <SectionContainer className="px-0" layout>
+    <SectionContainer className="px-0 md:px-0" layout>
       <div className="flex items-center justify-between px-6 md:px-8">
         <Heading
           className="flex items-center gap-2 pb-0 md:pb-0"
