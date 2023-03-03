@@ -1,3 +1,4 @@
+import { useGoToTab } from 'hooks/go-to-tab'
 import { mapTeamsWithCompetition, useTeamsList } from 'hooks/lists/teams'
 import { TProfileOverviewLastMatches } from 'types/profile'
 
@@ -21,12 +22,16 @@ const LastMatchesSection = ({
   playerFirstName,
   defaultTeamId,
 }: IProps) => {
+  const { goToTab } = useGoToTab()
   const { data: teamsList } = useTeamsList({ playerId: '96' })
 
   return (
-    <SectionContainer className="px-0 md:px-0" layout>
+    <SectionContainer className="px-0" layout>
       <div className="flex items-center justify-between px-6 md:px-8">
-        <Heading className="flex items-center gap-2 pb-0 md:pb-0">
+        <Heading
+          className="flex items-center gap-2 pb-0 md:pb-0"
+          onClick={() => goToTab(2)}
+        >
           Ostatnie mecze <ArrowRightIcon className="icon-16" />
         </Heading>
         <InputSelect
@@ -60,7 +65,12 @@ const LastMatchesSection = ({
       <LastMatchesPanel {...lastMatches.data} />
 
       <div className="my-4 flex justify-center">
-        <Button size="small" text="Zobacz więcej" intent="secondary" />
+        <Button
+          size="small"
+          text="Zobacz więcej"
+          intent="secondary"
+          onClick={() => goToTab(2)}
+        />
       </div>
     </SectionContainer>
   )
