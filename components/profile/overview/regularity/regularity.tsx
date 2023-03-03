@@ -19,7 +19,7 @@ const RegularitySection = ({ data, playerName, defaultTeamId }: IProps) => {
   return (
     <SectionContainer layout>
       <div className="flex items-center justify-between">
-        <Heading className="flex items-center gap-2 pb-0">
+        <Heading className="flex items-center gap-2 pb-0 md:pb-0">
           Regularność gry
         </Heading>
         <InputSelect
