@@ -32,7 +32,7 @@ const Banner = ({
       'flex items-center justify-between px-6 py-5 shadow-default',
       bgColor || 'bg-white',
       accentClass &&
-        `relative before:absolute before:left-0 before:h-full before:w-[0.188rem] ${accentClass}`,
+        `relative before:absolute before:left-0 before:h-full before:w-[0.188rem] md:before:w-2 ${accentClass}`,
     )}
   >
     <div className="flex flex-1 flex-col overflow-hidden pr-4 font-inter">

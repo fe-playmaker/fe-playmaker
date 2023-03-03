@@ -9,8 +9,9 @@ const avatarCva = cva('relative z-10 rounded-[50%] object-cover', {
       premium: '',
     },
     size: {
-      profile: 'w-11 h-11',
-      other: 'w-10 h-10',
+      // its a temporary solution for good view of header
+      profile: 'w-11 h-11 md:w-[7.5rem] md:h-[7.5rem]',
+      other: 'w-9 h-9',
     },
   },
   compoundVariants: [

@@ -15,11 +15,11 @@ const SearchingForClubBanner = ({ expectations }: IProps) => (
     btnIntent="primary"
     accentClass="before:bg-tertiary"
   >
-    <span className="text-body-md font-bold">Szukam klubu</span>
-    <span className="truncate text-body-sm font-medium text-darkAlpha-40">
+    <span className="text-body-md font-bold md:text-body-lg">Szukam klubu</span>
+    <span className="truncate text-body-sm font-medium text-darkAlpha-40 md:text-body-md">
       Oczekiwania: {expectations.join(', ')}
     </span>
-    <span className="text-body-sm font-medium text-darkAlpha-40 underline">
+    <span className="text-body-sm font-medium text-darkAlpha-40 underline md:text-body-md">
       Więcej
     </span>
   </Banner>
