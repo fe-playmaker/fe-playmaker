@@ -2,6 +2,7 @@ import { cva } from 'class-variance-authority'
 import clsx from 'clsx'
 import TrendDownIcon from 'img/icons/TrendDown.svg'
 import TrendUpIcon from 'img/icons/Trendup.svg'
+import { TProfilePMScore } from 'types/profile'
 
 const scoreCva = cva(
   [
@@ -34,16 +35,13 @@ const trendCva = cva(
   },
 )
 
-interface Props {
-  score: number
-  lastScore: {
-    value: number
-    trend: 'up' | 'down'
-  }
+type PmScore = Pick<TProfilePMScore, 'score' | 'lastScore'>
+
+interface IProps extends PmScore {
   hidden?: boolean
 }
 
-export const ExtendedScore = ({ lastScore, score, hidden }: Props) => (
+export const ExtendedScore = ({ lastScore, score, hidden }: IProps) => (
   <div className="grid grid-cols-[1fr,_2fr] gap-2 md:gap-3">
     <div className={scoreCva({ type: hidden ? 'hidden' : 'default' })}>
       {!hidden ? <span>{score}</span> : <span>?</span>}

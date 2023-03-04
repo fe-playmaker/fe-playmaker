@@ -1,7 +1,7 @@
 import { useGoToTab } from 'hooks/go-to-tab'
 import Graph from 'img/illustrations/Graph.svg'
 import LargeGraph from 'img/illustrations/LargeGraph.svg'
-import { TProfileOverviewPMScore } from 'types/profile'
+import { TProfilePMScore } from 'types/profile'
 
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
@@ -15,11 +15,17 @@ const chips = [
   'Ostatnie 3 lata',
 ]
 
+type PmScore = Pick<TProfilePMScore, 'score' | 'lastScore'>
+
+interface IProps extends PmScore {
+  showedButton?: boolean
+}
+
 export const PlayMakerScoreContent = ({
-  pmScore,
-}: {
-  pmScore: TProfileOverviewPMScore
-}) => {
+  score,
+  lastScore,
+  showedButton,
+}: IProps) => {
   const { goToTab } = useGoToTab()
 
   return (
@@ -28,7 +34,7 @@ export const PlayMakerScoreContent = ({
         PlayMaker Score pozwala obserwować potencjał zawodnika. Na wskaźnik
         wpływa ponad 20 zmiennych, m.in. gra zawodnika, czy jego wiek.
       </p>
-      <ExtendedScore lastScore={pmScore.lastScore} score={pmScore.score} />
+      <ExtendedScore lastScore={lastScore} score={score} />
       <Chips chips={chips} className="md:flex-wrap" />
       <div className="flex flex-col items-center">
         {/* graph section is temporary */}
@@ -45,14 +51,16 @@ export const PlayMakerScoreContent = ({
           </span>
         </div>
       </div>
-      <div className="flex justify-center">
-        <Button
-          text="Zobacz więcej"
-          intent="secondary"
-          size="small"
-          onClick={() => goToTab(3)}
-        />
-      </div>
+      {showedButton && (
+        <div className="flex justify-center">
+          <Button
+            text="Zobacz więcej"
+            intent="secondary"
+            size="small"
+            onClick={() => goToTab(3)}
+          />
+        </div>
+      )}
     </div>
   )
 }
