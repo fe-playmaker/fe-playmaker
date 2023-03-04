@@ -31,15 +31,14 @@ import ProfilePMScore from '@/components/profile/pm-score/pm-score'
 const tabs = ['Przegląd', 'Kariera', 'Mecze', 'PlayMaker Score']
 
 const PlayerTestPage = () => {
-  const [tabData, setHelperTabIndex] = useState([0, -1])
+  const [tabIndex, setTabIndex] = useState(0)
 
   const tabContextValue = useMemo(
     () => ({
-      data: tabData as [number, number],
-      setHelperTabIndex: (idx: number) =>
-        setHelperTabIndex(value => [idx, value[0]]),
+      tabIndex,
+      setTabIndex,
     }),
-    [tabData, setHelperTabIndex],
+    [tabIndex, setTabIndex],
   )
 
   const { data: headerData, isLoading: headerLoading } = useProfileHeader('96')
