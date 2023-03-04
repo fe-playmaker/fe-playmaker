@@ -56,7 +56,7 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
                 <Link
                   href={wideoUrl}
                   target="_blank"
-                  className="mr-4 mt-3 flex items-center justify-center gap-2 rounded py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20"
+                  className="mr-4 mt-3 flex items-center justify-center gap-2 py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20"
                 >
                   <PlayIcon className="h-3 fill-darkAlpha-40" /> Wideo
                 </Link>
