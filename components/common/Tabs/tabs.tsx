@@ -3,7 +3,7 @@
 import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { Fragment, useContext, useEffect, useState } from 'react'
 
 import { TabsIndexContext } from './index-context'
@@ -37,20 +37,56 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
     setHelperTabIndex,
   } = useContext(TabsIndexContext)
   const [tabIndex, setTabIndex] = useState(0)
+  const [device, setDevice] = useState<'mobile' | 'desktop'>('mobile')
 
   useEffect(() => {
     setTabIndex(helperTabIndex)
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth > 720) setDevice('desktop')
+      else setDevice('mobile')
+    }
   }, [helperTabIndex, setTabIndex])
 
-  const getInitialPanelX = () => {
-    if (prevHelperTabIndex === -1) return 0
+  const getVariants = (): Variants => {
+    const variants = {
+      init: {
+        x: 0,
+        y: 0,
+        opacity: 0.4,
+      },
+      animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+      },
+      exit: {
+        x: 0,
+        y: 0,
+        opacity: 0.4,
+      },
+    }
 
-    return helperTabIndex > prevHelperTabIndex ? '100%' : '-100%'
+    if (device === 'mobile') {
+      if (prevHelperTabIndex === -1) variants.init.x = 0
+      else {
+        // @ts-ignore
+        variants.init.x = helperTabIndex > prevHelperTabIndex ? '100%' : '-100%'
+      }
+      // @ts-ignore
+      variants.exit.x = helperTabIndex > prevHelperTabIndex ? '-100%' : '100%'
+    } else {
+      // desktop
+
+      variants.init.y = -20
+      variants.exit.y = -20
+    }
+
+    return variants
   }
 
   return (
     <Tab.Group selectedIndex={tabIndex} onChange={setHelperTabIndex}>
-      <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
+      <Tab.List className="no-scrollbar z-50 flex overflow-x-auto bg-white">
         {tabs.map(name => (
           <Tab className={tabsCva({ size })} key={name}>
             {({ selected }) => (
@@ -79,26 +115,20 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
           </Tab>
         ))}
       </Tab.List>
-      <Tab.Panels className="flex flex-1 overflow-hidden">
-        <AnimatePresence mode="popLayout">
+      <Tab.Panels className="z-10 flex flex-1">
+        <AnimatePresence mode={device === 'mobile' ? 'popLayout' : 'wait'}>
           <Tab.Panel
             className="max-w-full flex-1"
             key={`tab-panel-${tabIndex}`}
             as={motion.div}
-            initial={{
-              x: getInitialPanelX(),
-              opacity: 0.4,
+            transition={{
+              duration: device === 'mobile' ? 0.7 : 0.25,
             }}
-            animate={{
-              x: 0,
-              opacity: 1,
-            }}
-            exit={{
-              x: helperTabIndex > prevHelperTabIndex ? '-100%' : '100%',
-              opacity: 0.4,
-            }}
-            transition={{ duration: 0.7 }}
             static
+            variants={getVariants()}
+            initial="init"
+            animate="animate"
+            exit="exit"
           >
             {children[tabIndex]}
           </Tab.Panel>
