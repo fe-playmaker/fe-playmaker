@@ -6,8 +6,8 @@ import {
   TProfileHeader,
   TProfileOverview,
   TProfileOverviewLastMatches,
-  TProfileOverviewPMScore,
   TProfileOverviewRegularity,
+  TProfilePMScore,
 } from 'types/profile'
 
 import { TabsIndexContext } from '@/components/common/Tabs/index-context'
@@ -83,7 +83,7 @@ const PlayerTestPage = () => {
                     lastMatches={
                       overviewLastMatches as TProfileOverviewLastMatches
                     }
-                    pmScore={overviewPMScore as TProfileOverviewPMScore}
+                    pmScore={overviewPMScore as TProfilePMScore}
                     regularity={
                       overviewRegularity as TProfileOverviewRegularity
                     }

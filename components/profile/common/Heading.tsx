@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import type { ReactNode } from 'react'
+import type { ComponentProps, ReactNode } from 'react'
 
-interface Props extends React.ComponentProps<typeof motion.h4> {
+interface Props extends ComponentProps<typeof motion.h4> {
   children: ReactNode
   className?: string
 }

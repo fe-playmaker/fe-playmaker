@@ -30,7 +30,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <ReactQueryWrapper>
         <NavbarDesktop />
         <Navbar />
-        <div className=" mx-auto w-full max-w-screen-md">{children}</div>
+        <div className="mx-auto w-full max-w-screen-md">{children}</div>
       </ReactQueryWrapper>
     </body>
   </html>
