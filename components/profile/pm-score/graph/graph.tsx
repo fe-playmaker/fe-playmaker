@@ -1,4 +1,5 @@
-import Graph from 'img/illustrations/Graph.svg'
+import Graph from 'img/illustrations/Graph.png'
+import Image from 'next/image'
 import { TProfilePMScore } from 'types/profile'
 
 import { Chips } from '@/components/common/Chips/Chips'
@@ -30,7 +31,7 @@ const PMScoreGraphSection = ({ score, lastScore }: TProfilePMScore) => (
       <Chips chips={chips} />
       <div className="flex flex-col items-center">
         {/* graph section is temporary */}
-        <Graph />
+        <Image src={Graph} alt="mock graph" />
         <div className="flex items-center gap-6 pt-6 font-inter text-body-xs">
           <span className="flex items-center gap-3">
             <div className="h-[3px] w-4 rounded-full bg-primary" />

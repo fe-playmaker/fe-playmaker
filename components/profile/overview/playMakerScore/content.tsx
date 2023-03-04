@@ -1,5 +1,6 @@
 import { useGoToTab } from 'hooks/go-to-tab'
-import Graph from 'img/illustrations/Graph.svg'
+import Graph from 'img/illustrations/Graph.png'
+import Image from 'next/image'
 import { TProfileOverviewPMScore } from 'types/profile'
 
 import { Button } from '@/components/common/Button/Button'
@@ -31,7 +32,7 @@ export const PlayMakerScoreContent = ({
       <Chips chips={chips} />
       <div className="flex flex-col items-center">
         {/* graph section is temporary */}
-        <Graph />
+        <Image src={Graph} alt="mock graph" />
         <div className="flex items-center gap-6 pt-6 font-inter text-body-xs">
           <span className="flex items-center gap-3">
             <div className="h-[3px] w-4 rounded-full bg-primary" />
