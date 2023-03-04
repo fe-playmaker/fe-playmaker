@@ -27,7 +27,7 @@ const PMScoreEvents = ({ events }: Pick<TProfilePMScore, 'events'>) => {
             <div className="flex gap-2">
               <span
                 className={cx(
-                  'font-poppins text-heading-micro font-bold',
+                  'font-poppins text-heading-micro font-bold md:text-heading-xs',
                   trend === 'up' ? 'text-greenShade-50' : 'text-orangeShade-50',
                 )}
               >
@@ -40,7 +40,7 @@ const PMScoreEvents = ({ events }: Pick<TProfilePMScore, 'events'>) => {
                 <TrendDownIcon className="icon-20" />
               )}
             </div>
-            <span className="font-inter text-body-sm font-medium text-darkAlpha-40">
+            <span className="font-inter text-body-sm font-medium text-darkAlpha-40 md:text-body-md">
               {info}
             </span>
           </motion.div>
