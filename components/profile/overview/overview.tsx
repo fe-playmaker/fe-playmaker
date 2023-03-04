@@ -46,7 +46,10 @@ export const ProfileOverview = ({
         playerFirstName={data.playerData.firstName}
         defaultTeamId={data.playerData.team.id}
       />
-      <PlayMakerScoreSection pmScore={pmScore} />
+      <PlayMakerScoreSection
+        score={pmScore.score}
+        lastScore={pmScore.lastScore}
+      />
       <GameVideoSection videoUrl={data.playerData.videoUrl} />
       <TransfersSection transfers={data.transfers} />
       <SimiliarPlayersSection
