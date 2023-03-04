@@ -10,7 +10,7 @@ const ComparisonIlustration = ({
 }: {
   comparisonPercentage: number
 }) => (
-  <div className="relative mt-7 flex justify-center">
+  <div className="relative mt-7 flex justify-center md:rotate-90">
     <Ilustration className="w-[21.875rem]" value={comparisonPercentage} />
     <div
       className="absolute -bottom-[2.4rem] flex h-[5rem] w-[5rem] items-center justify-center"
