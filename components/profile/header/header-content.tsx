@@ -45,7 +45,7 @@ const HeaderContent = ({
       </div>
       <div className="flex flex-col items-end gap-6 pt-4">
         {premium && (
-          <div className="rounded px-3 py-2 font-inter text-body-sm font-bold text-[#553E02] premium-badge-bg">
+          <div className="px-3 py-2 font-inter text-body-sm font-bold text-[#553E02] premium-badge-bg">
             Premium
           </div>
         )}
