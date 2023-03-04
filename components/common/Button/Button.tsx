@@ -5,7 +5,7 @@ import { cloneElement } from 'react'
 const buttonCva = cva(
   [
     'rounded-full group',
-    'transition-all',
+    'transition',
     'flex items-center',
     'tracking-wider font-bold',
   ],
@@ -17,9 +17,9 @@ const buttonCva = cva(
           'disabled:bg-light disabled:text-darkAlpha-20 disabled:hover:bg-light disabled:cursor-default',
         ],
         secondary: [
-          'bg-none outline outline-1 outline-darkAlpha-30',
-          'hover:outline-2 hover:outline-darkShade-50',
-          'disabled:text-darkAlpha-20 disabled:hover:outline-1 disabled:outline-darkAlpha-5 disabled:cursor-default',
+          'bg-none ring-1 ring-darkAlpha-30',
+          'hover:ring-2 hover:ring-darkShade-50',
+          'disabled:text-darkAlpha-20 disabled:hover:ring-1 disabled:ring-darkAlpha-5 disabled:cursor-default',
         ],
       },
       size: {
