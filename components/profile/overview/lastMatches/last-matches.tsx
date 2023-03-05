@@ -29,7 +29,7 @@ const LastMatchesSection = ({
     <SectionContainer className="px-0 md:px-0" layout>
       <div className="flex items-center justify-between px-6 md:px-8">
         <Heading
-          className="flex items-center gap-2 pb-0 md:pb-0"
+          className="flex cursor-pointer items-center gap-2 pb-0 md:pb-0"
           onClick={() => goToTab(2)}
         >
           Ostatnie mecze <ArrowRightIcon className="icon-16" />
