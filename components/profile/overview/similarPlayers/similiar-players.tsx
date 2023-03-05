@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useState } from 'react'
 import { TProfileOverview } from 'types/profile'
 
@@ -7,14 +8,20 @@ import { Heading } from '../../common/Heading'
 import { SectionContainer } from '../../common/SectionContainer'
 import { SimilarPlayersContent } from './content'
 
-const SimiliarPlayersSection = ({
-  similarPlayers,
-}: Pick<TProfileOverview, 'similarPlayers'>) => {
+type SimilarPlayers = Pick<TProfileOverview, 'similarPlayers'>
+
+interface IProps extends SimilarPlayers {
+  className?: string
+}
+
+const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
   const [showCount, setShowCount] = useState(3)
 
   return (
-    <SectionContainer layout>
-      <Heading layout>Podobni zawodnicy</Heading>
+    <SectionContainer layout className={clsx('md:px-0 px-0', className)}>
+      <Heading layout className="md:pl-8 pl-6">
+        Podobni zawodnicy
+      </Heading>
       <SimilarPlayersContent
         showCount={showCount}
         similarPlayers={similarPlayers}
@@ -22,7 +29,7 @@ const SimiliarPlayersSection = ({
       {similarPlayers.length > showCount && (
         <div className="flex justify-center">
           <button
-            className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40"
+            className="md:text-label-md flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40"
             type="button"
             onClick={() => setShowCount(val => val + 3)}
           >
