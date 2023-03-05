@@ -56,7 +56,7 @@ const HeaderContent = ({
       <div className="flex flex-col items-end gap-6 pt-4 md:flex-col-reverse md:pt-0">
         {premium && (
           <div className="rounded px-3 py-2 font-inter text-body-sm font-bold text-[#553E02] premium-badge-bg md:hidden">
-            <span>Premium</span>
+            Premium
           </div>
         )}
         <PlayMakerScore score={score.value} trend={score.trend} />

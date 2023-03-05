@@ -12,7 +12,13 @@ import { sliderSettings } from '../helpers'
 
 const SliderItem = ({ title, icon }: TProfileOverview['inShort'][number]) => (
   <div className="mx-auto flex w-[7rem] flex-col items-center gap-3 p-3 pb-5 ">
-    <Image src={icon} alt="icon" width={32} height={32} />
+    <Image
+      src={icon}
+      alt="icon"
+      width={64}
+      height={64}
+      className="h-8 w-auto"
+    />
 
     <p className="text-center font-inter text-body-sm font-medium text-darkAlpha-40">
       {title}
