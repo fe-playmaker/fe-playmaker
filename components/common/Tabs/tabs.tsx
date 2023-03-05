@@ -34,6 +34,12 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 const Tabs = ({ size, tabs, children }: TabsProps) => {
   const { tabIndex, setTabIndex } = useContext(TabsIndexContext)
 
+  const getScrollInline = (name: string) => {
+    if (tabs[0] === name) return 'end'
+    if (tabs[tabs.length - 1] === name) return 'start'
+    return 'nearest'
+  }
+
   return (
     <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
       <Tab.List className="no-scrollbar z-50 flex overflow-x-auto bg-white">
@@ -46,7 +52,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
                 () =>
                   e.target.scrollIntoView({
                     behavior: 'smooth',
-                    inline: tabs[0] === name ? 'end' : 'start',
+                    inline: getScrollInline(name),
                     block: 'nearest',
                   }),
                 100,
