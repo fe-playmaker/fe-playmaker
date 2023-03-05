@@ -1,7 +1,5 @@
 import { TProfilePMScore } from 'types/profile'
 
-import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
-
 import { Heading } from '../../common/Heading'
 import { SectionContainer } from '../../common/SectionContainer'
 import { PlayMakerScoreContent } from '../../overview/playMakerScore/content'
