@@ -22,6 +22,11 @@ const tabsCva = cva(
         medium: ['text-label-md', 'px-5', 'py-[0.875rem]'],
         small: ['text-label-md', 'px-4', 'py-[0.625rem]'],
       },
+      desktopSize: {
+        large: [''],
+        medium: ['md:text-label-lg', 'md:px-7', 'md:py-5'],
+        small: [''],
+      },
     },
   },
 )
@@ -29,9 +34,10 @@ const tabsCva = cva(
 interface TabsProps extends VariantProps<typeof tabsCva> {
   tabs: string[]
   children: React.ReactElement[]
+  className?: string
 }
 
-const Tabs = ({ size, tabs, children }: TabsProps) => {
+const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
   const { tabIndex, setTabIndex } = useContext(TabsIndexContext)
 
   const getScrollInline = (name: string) => {
@@ -42,10 +48,15 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
 
   return (
     <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
-      <Tab.List className="no-scrollbar z-50 flex overflow-x-auto bg-white">
+      <Tab.List
+        className={clsx(
+          'no-scrollbar z-50 flex overflow-x-auto bg-white',
+          className,
+        )}
+      >
         {tabs.map(name => (
           <Tab
-            className={tabsCva({ size })}
+            className={tabsCva({ size, desktopSize })}
             key={name}
             onClick={(e: any) => {
               setTimeout(
@@ -63,7 +74,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
               <>
                 {selected && (
                   <motion.div
-                    className="absolute bottom-0 left-0 h-[2px] w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)]"
+                    className="absolute bottom-0 left-0 h-1 w-full bg-primaryShade-50 shadow-[0_-1px_6px_rgba(242,24,61,0.24)] md:h-[3px]"
                     layoutId="tabs-selected-underline"
                   />
                 )}

@@ -76,7 +76,12 @@ const PlayerTestPage = () => {
             >
               <ProfileHeader data={headerData as TProfileHeader} />
               <TabsIndexContext.Provider value={tabContextValue}>
-                <Tabs tabs={tabs} size="medium">
+                <Tabs
+                  tabs={tabs}
+                  size="medium"
+                  desktopSize="medium"
+                  className="md:px-8"
+                >
                   <ProfileOverview
                     data={overviewData as TProfileOverview}
                     lastMatches={
