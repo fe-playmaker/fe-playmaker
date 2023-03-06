@@ -16,7 +16,7 @@ const PMScoreComparison = ({
           <span className="font-bold">{comparisonPercentage}%</span> innych
           zawodników w jego wieku
         </div>
-        <div className="absolute -bottom-[0.4rem] rotate-45 bg-light icon-24 md:bottom-[5.74rem] md:-left-[0.4rem] md:icon-32" />
+        <div className="absolute -bottom-[0.4rem] rotate-45 bg-light icon-24 md:bottom-[6.2rem] md:-left-[0.4rem] md:icon-32" />
       </div>
       <div className="flex max-w-[19rem] flex-col items-center md:rotate-90">
         <ComparisonIlustration comparisonPercentage={comparisonPercentage} />
