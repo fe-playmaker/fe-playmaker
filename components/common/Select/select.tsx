@@ -21,6 +21,10 @@ const menuButtonCva = cva(
         medium: 'text-label-md',
         small: 'text-label-sm',
       },
+      desktopSize: {
+        medium: '',
+        small: 'md:text-label-md',
+      },
     },
     compoundVariants: [
       {
@@ -60,6 +64,7 @@ function Select({
   currentValue,
   setCurrentValue,
   menuRightSide,
+  desktopSize,
 }: IProps) {
   return (
     <Listbox
@@ -70,7 +75,7 @@ function Select({
       value={currentValue}
       onChange={setCurrentValue}
     >
-      <Listbox.Button className={menuButtonCva({ size, type })}>
+      <Listbox.Button className={menuButtonCva({ size, type, desktopSize })}>
         {currentValue ? (
           <>
             <span>

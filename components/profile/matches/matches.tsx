@@ -33,6 +33,7 @@ const ProfileMatches = () => {
             <div className="mt-5 flex gap-3 overflow-x-clip">
               <InputSelect
                 size="small"
+                desktopSize="small"
                 type="filter"
                 name="Sezon"
                 inputName="season"
@@ -40,6 +41,7 @@ const ProfileMatches = () => {
               />
               <InputSelect
                 size="small"
+                desktopSize="small"
                 type="filter"
                 name="Drużyna"
                 inputName="team"
@@ -47,6 +49,7 @@ const ProfileMatches = () => {
               />
               <InputSelect
                 size="small"
+                desktopSize="small"
                 type="filter"
                 name="Poziom rozgrywkowy"
                 inputName="competitionLevel"

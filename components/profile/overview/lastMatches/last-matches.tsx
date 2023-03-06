@@ -40,6 +40,7 @@ const LastMatchesSection = ({
           inputName="teamId"
           defaultValue={defaultTeamId}
           size="small"
+          desktopSize="small"
           menuRightSide
         />
       </div>
