@@ -58,6 +58,7 @@ export const PlayMakerScoreContent = ({
             text="Zobacz więcej"
             intent="secondary"
             size="small"
+            desktopSize="small"
             onClick={() => goToTab(3)}
           />
         </div>

@@ -4,10 +4,8 @@ import { cloneElement } from 'react'
 
 const buttonCva = cva(
   [
-    'rounded-full group',
-    'transition',
-    'flex items-center',
-    'tracking-wider font-bold',
+    'rounded-full group transition',
+    'flex items-center tracking-wider font-bold',
   ],
   {
     variants: {
@@ -28,6 +26,12 @@ const buttonCva = cva(
         small: 'text-label-md px-6 py-[0.625rem] gap-2',
         extraSmall: 'text-label-md px-4 py-3 gap-2',
       },
+      desktopSize: {
+        large: '',
+        medium: '',
+        small: 'md:text-label-lg md:px-8 md:py-4 md:gap-3',
+        extraSmall: 'md:text-label-md md:px-6 md:py-[0.625rem] md:gap-2',
+      },
     },
   },
 )
@@ -44,6 +48,12 @@ const iconCva = cva('group-disabled:fill-darkAlpha-20', {
       small: 'w-5 h-5',
       extraSmall: 'w-4 h-4',
     },
+    desktopSize: {
+      large: '',
+      medium: '',
+      small: '',
+      extraSmall: 'md:w-5 md:h-5',
+    },
   },
 })
 
@@ -54,11 +64,22 @@ interface Props
   icon?: ReactElement
 }
 
-export const Button = ({ text, icon, intent, size, ...props }: Props) => (
-  <button className={buttonCva({ size, intent })} type="button" {...props}>
+export const Button = ({
+  text,
+  icon,
+  intent,
+  size,
+  desktopSize,
+  ...props
+}: Props) => (
+  <button
+    className={buttonCva({ size, intent, desktopSize })}
+    type="button"
+    {...props}
+  >
     {!!icon &&
       cloneElement(icon, {
-        className: iconCva({ size, intent }),
+        className: iconCva({ size, intent, desktopSize }),
       })}
     {text}
   </button>

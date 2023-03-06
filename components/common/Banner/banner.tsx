@@ -43,6 +43,7 @@ const Banner = ({
         <Button
           intent={btnIntent}
           size={btnSize}
+          desktopSize={btnSize}
           icon={btnIcon}
           text={btnText}
           onClick={onBtnClick}
