@@ -10,8 +10,11 @@ const ComparisonIlustration = ({
 }: {
   comparisonPercentage: number
 }) => (
-  <div className="relative mt-7 flex justify-center md:rotate-90">
-    <Ilustration className="w-[21.875rem]" value={comparisonPercentage} />
+  <div className="relative mt-7 flex justify-center">
+    <Ilustration
+      className="w-[21.875rem] md:w-[24rem]"
+      value={comparisonPercentage}
+    />
     <div
       className="absolute -bottom-[2.4rem] flex h-[5rem] w-[5rem] items-center justify-center"
       style={{
@@ -20,8 +23,8 @@ const ComparisonIlustration = ({
     >
       {/* helper center box */}
       {/* <div className="absolute z-20 h-[20%] w-[20%] bg-primary" /> */}
-      <div className="absolute mt-[24%] mr-[14.8%] h-full w-full">
-        <PointerIcon />
+      <div className="absolute mt-[24%] mr-[14.8%] h-full w-full md:mt-[15%] md:mr-[30%]">
+        <PointerIcon className="md:w-[5.5rem]" />
       </div>
     </div>
   </div>
@@ -40,9 +43,9 @@ const Ilustration = ({
   // 30 - 49
   // 50 - 100
 
-  if (value > 49) return <IlustrationRight className={className} />
+  if (value > 49) return <IlustrationLeft className={className} />
 
   if (value > 29) return <IlustrationMiddle className={className} />
 
-  return <IlustrationLeft className={className} />
+  return <IlustrationRight className={className} />
 }
