@@ -38,10 +38,6 @@ const ModalContent = ({
           ref.current.scrollTop + ref.current.clientHeight !==
             ref.current.scrollHeight,
         )
-        console.log(
-          ref.current.scrollTop + ref.current.clientHeight !==
-            ref.current.scrollHeight,
-        )
       }}
     >
       {children}
