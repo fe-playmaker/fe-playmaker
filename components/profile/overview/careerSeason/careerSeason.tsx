@@ -15,7 +15,7 @@ const CareerSeasonSection = ({ career }: Pick<TProfileOverview, 'career'>) => {
     <SectionContainer className="px-0 md:px-0 md:pt-8 md:pb-9" layout>
       <Heading
         className="ml-8 flex cursor-pointer items-center gap-2 "
-        onClick={() => goToTab(1)}
+        onClick={() => goToTab(1, 'kariera')}
       >
         Sezon {career.season} <ArrowRightIcon className="icon-16" />
       </Heading>
@@ -26,7 +26,7 @@ const CareerSeasonSection = ({ career }: Pick<TProfileOverview, 'career'>) => {
           size="small"
           desktopSize="small"
           text="Zobacz całą karierę"
-          onClick={() => goToTab(1)}
+          onClick={() => goToTab(1, 'kariera')}
         />
       </div>
     </SectionContainer>

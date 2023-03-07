@@ -59,7 +59,7 @@ export const PlayMakerScoreContent = ({
             intent="secondary"
             size="small"
             desktopSize="small"
-            onClick={() => goToTab(3)}
+            onClick={() => goToTab(3, 'playmaker score')}
           />
         </div>
       )}
