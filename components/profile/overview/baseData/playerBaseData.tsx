@@ -100,8 +100,12 @@ export const PlayerBaseData = ({
       },
     ]
 
-    const mainPosition = positions.find(pos => pos.title === position)
-    const alternatePosition = positions.find(pos => pos.title === altPosition)
+    const mainPosition = positions.find(
+      pos => pos.title.toLowerCase() === position.toLowerCase(),
+    )
+    const alternatePosition = positions.find(
+      pos => pos.title.toLowerCase() === altPosition.toLowerCase(),
+    )
 
     return { mainPosition, alternatePosition }
   }
