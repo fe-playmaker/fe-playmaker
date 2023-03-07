@@ -4,11 +4,10 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Fragment, useContext } from 'react'
+import { useQueryParams } from 'hooks/useQueryParams'
+import { useContext, useEffect } from 'react'
 
 import { TabsIndexContext } from './index-context'
-
-// missing - disabled, disabled-selected
 
 const tabsCva = cva(
   [
@@ -39,6 +38,26 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 
 const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
   const { tabIndex, setTabIndex } = useContext(TabsIndexContext)
+  const { pathname, router, params, key } = useQueryParams('tab')
+
+  useEffect(() => {
+    const getTabIndex = () => {
+      switch (params) {
+        case 'przegląd':
+          return 0
+        case 'kariera':
+          return 1
+        case 'mecze':
+          return 2
+        case 'playmaker score':
+          return 3
+        default:
+          return 0
+      }
+    }
+
+    setTabIndex(getTabIndex())
+  }, [params, setTabIndex])
 
   const getScrollInline = (name: string) => {
     if (tabs[0] === name) return 'end'
@@ -59,15 +78,14 @@ const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
             className={tabsCva({ size, desktopSize })}
             key={name}
             onClick={(e: any) => {
-              setTimeout(
-                () =>
-                  e.target.scrollIntoView({
-                    behavior: 'smooth',
-                    inline: getScrollInline(name),
-                    block: 'nearest',
-                  }),
-                100,
-              )
+              router.push(`${pathname}?${key}=${name.toLowerCase()}`)
+              setTimeout(() => {
+                e.target.scrollIntoView({
+                  behavior: 'smooth',
+                  inline: getScrollInline(name),
+                  block: 'nearest',
+                })
+              }, 100)
             }}
           >
             {({ selected }) => (

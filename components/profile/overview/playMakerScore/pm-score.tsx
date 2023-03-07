@@ -17,7 +17,7 @@ const PlayMakerScoreSection = ({
     <SectionContainer layout>
       <Heading
         className="flex cursor-pointer items-center gap-2"
-        onClick={() => goToTab(3)}
+        onClick={() => goToTab(3, 'playmaker score')}
       >
         PlayMaker Score <ArrowRightIcon className="icon-16" />
       </Heading>
