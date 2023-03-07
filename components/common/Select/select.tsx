@@ -22,8 +22,8 @@ const menuButtonCva = cva(
         small: 'text-label-sm',
       },
       desktopSize: {
-        medium: '',
-        small: 'md:text-label-md',
+        medium: 'md:text-label-md',
+        small: 'md:text-label-sm',
       },
     },
     compoundVariants: [
