@@ -15,7 +15,7 @@ export const SimilarPlayersContent = ({
   <div className="overflow-hidden">
     {similarPlayers.slice(0, showCount).map(d => (
       <motion.div
-        className="md:mx-8 mx-6 flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent"
+        className="mx-6 flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent md:mx-8"
         key={`similiar-player-${d.id}`}
         layout
       >
@@ -32,7 +32,7 @@ export const SimilarPlayersContent = ({
             <p className="text-subHeading-md font-semibold text-dark">
               {d.name}
             </p>
-            <p className="md:text-body-sm w-[12.5rem] text-body-xs text-darkAlpha-40">{`${d.position} w ${d.team} (${d.competition}), ${d.age} lat`}</p>
+            <p className="w-[12.5rem] text-body-xs text-darkAlpha-40 md:text-body-sm">{`${d.position} w ${d.team} (${d.competition}), ${d.age} lat`}</p>
           </div>
         </div>
         <AdditionalScore score={d.score.value} trend={d.score.trend} />
