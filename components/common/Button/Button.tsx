@@ -28,6 +28,12 @@ const buttonCva = cva(
         small: 'text-label-md px-6 py-3 gap-2',
         extraSmall: 'text-label-md px-4 py-3 gap-2',
       },
+      desktopSize: {
+        large: 'md:text-label-xl md:px-9 md:py-5 md:gap-3',
+        medium: 'md:text-label-lg md:px-8 md:py-4 md:gap-3',
+        small: 'md:text-label-md md:px-6 md:py-3 md:gap-2',
+        extraSmall: 'md:text-label-md md:px-4 md:py-3 gmd:ap-2',
+      },
     },
   },
 )
@@ -54,8 +60,20 @@ interface Props
   icon?: ReactElement
 }
 
-export const Button = ({ text, icon, intent, size, ...props }: Props) => (
-  <button className={buttonCva({ size, intent })} type="button" {...props}>
+export const Button = ({
+  text,
+  icon,
+  intent,
+  size,
+  className,
+  desktopSize,
+  ...props
+}: Props) => (
+  <button
+    className={buttonCva({ size, intent, className, desktopSize })}
+    type="button"
+    {...props}
+  >
     {!!icon &&
       cloneElement(icon, {
         className: iconCva({ size, intent }),
