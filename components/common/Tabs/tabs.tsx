@@ -23,9 +23,9 @@ const tabsCva = cva(
         small: ['text-label-md', 'px-4', 'py-[0.625rem]'],
       },
       desktopSize: {
-        large: [''],
-        medium: ['md:text-label-lg', 'md:px-7', 'md:py-5'],
-        small: [''],
+        large: ['md:text-label-lg', 'md:px-7', 'md:py-5'],
+        medium: ['md:text-label-md', 'md:px-5', 'md:py-[0.875rem]'],
+        small: ['md:text-label-md', 'md:px-4', 'md:py-[0.625rem]'],
       },
     },
   },

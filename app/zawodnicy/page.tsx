@@ -79,7 +79,7 @@ const PlayerTestPage = () => {
                 <Tabs
                   tabs={tabs}
                   size="medium"
-                  desktopSize="medium"
+                  desktopSize="large"
                   className="md:px-8"
                 >
                   <ProfileOverview
