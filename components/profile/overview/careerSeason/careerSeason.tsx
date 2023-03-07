@@ -24,7 +24,7 @@ const CareerSeasonSection = ({ career }: Pick<TProfileOverview, 'career'>) => {
         <Button
           intent="secondary"
           size="small"
-          desktopSize="small"
+          desktopSize="medium"
           text="Zobacz całą karierę"
           onClick={() => goToTab(1)}
         />

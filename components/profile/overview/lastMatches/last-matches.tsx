@@ -68,7 +68,7 @@ const LastMatchesSection = ({
       <div className="my-4 flex justify-center">
         <Button
           size="small"
-          desktopSize="small"
+          desktopSize="medium"
           text="Zobacz więcej"
           intent="secondary"
           onClick={() => goToTab(2)}
