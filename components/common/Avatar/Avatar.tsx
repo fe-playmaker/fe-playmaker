@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority'
 import Image from 'next/image'
 
-const avatarCva = cva('relative z-10 rounded-[50%] object-cover', {
+const borderCva = cva('z-10 after:rounded-[50%] relative ', {
   variants: {
     type: {
       default: '',
@@ -17,12 +17,14 @@ const avatarCva = cva('relative z-10 rounded-[50%] object-cover', {
     {
       type: ['premium', 'border'],
       size: 'profile',
-      className: 'outline-white outline-[0.188rem] outline',
+      className:
+        'after:absolute after:inset-0 after:ring-[0.188rem] after:ring-white',
     },
     {
       type: 'border',
       size: 'other',
-      className: 'outline-white outline outline-[0.125rem]',
+      className:
+        'after:absolute after:inset-0 after:ring-[0.125rem] after:ring-white',
     },
   ],
   defaultVariants: {
@@ -52,20 +54,22 @@ const premiumBorderCva = cva(
   },
 )
 
-interface AvatarProps extends VariantProps<typeof avatarCva> {
+interface AvatarProps extends VariantProps<typeof borderCva> {
   alt: string
   src: string
 }
 
 export const Avatar = ({ alt, type, size, src }: AvatarProps) => (
   <div className="relative flex items-center justify-center rounded-[50%]">
-    <Image
-      src={src}
-      alt={alt}
-      width={400}
-      height={400}
-      className={avatarCva({ type, size })}
-    />
+    <div className={borderCva({ type, size })}>
+      <Image
+        src={src}
+        alt={alt}
+        width={400}
+        height={400}
+        className="h-full w-full rounded-[50%] object-cover"
+      />
+    </div>
     <div className={premiumBorderCva({ type, size })} aria-hidden />
   </div>
 )

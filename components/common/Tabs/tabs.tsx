@@ -4,7 +4,9 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useContext } from 'react'
+
+import { TabsIndexContext } from './index-context'
 
 // missing - disabled, disabled-selected
 
@@ -30,29 +32,33 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 }
 
 const Tabs = ({ size, tabs, children }: TabsProps) => {
-  const [[helperTabIndex, prevHelperTabIndex], setHelperTabIndex] = useState([
-    0, -1,
-  ])
-  const [tabIndex, setTabIndex] = useState(0)
+  const { tabIndex, setTabIndex } = useContext(TabsIndexContext)
 
-  useEffect(() => {
-    setTabIndex(helperTabIndex)
-  }, [helperTabIndex])
-
-  const getInitialPanelX = () => {
-    if (prevHelperTabIndex === -1) return 0
-
-    return helperTabIndex > prevHelperTabIndex ? '100%' : '-100%'
+  const getScrollInline = (name: string) => {
+    if (tabs[0] === name) return 'end'
+    if (tabs[tabs.length - 1] === name) return 'start'
+    return 'nearest'
   }
 
   return (
-    <Tab.Group
-      selectedIndex={tabIndex}
-      onChange={index => setHelperTabIndex(value => [index, value[0]])}
-    >
-      <Tab.List className="no-scrollbar flex overflow-x-auto bg-white">
+    <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
+      <Tab.List className="no-scrollbar z-50 flex overflow-x-auto bg-white">
         {tabs.map(name => (
-          <Tab className={tabsCva({ size })} key={name}>
+          <Tab
+            className={tabsCva({ size })}
+            key={name}
+            onClick={(e: any) => {
+              setTimeout(
+                () =>
+                  e.target.scrollIntoView({
+                    behavior: 'smooth',
+                    inline: getScrollInline(name),
+                    block: 'nearest',
+                  }),
+                100,
+              )
+            }}
+          >
             {({ selected }) => (
               <>
                 {selected && (
@@ -79,25 +85,20 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
           </Tab>
         ))}
       </Tab.List>
-      <Tab.Panels className="flex flex-1">
-        <AnimatePresence mode="popLayout">
+      <Tab.Panels className="z-10 flex flex-1">
+        <AnimatePresence mode="wait">
           <Tab.Panel
             className="max-w-full flex-1"
             key={`tab-panel-${tabIndex}`}
             as={motion.div}
-            initial={{
-              x: getInitialPanelX(),
-              opacity: 0.4,
+            initial={{ opacity: 0.4, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              duration: 0.25,
+              y: { type: 'tween' },
+              delay: 0,
             }}
-            animate={{
-              x: 0,
-              opacity: 1,
-            }}
-            exit={{
-              x: helperTabIndex > prevHelperTabIndex ? '-100%' : '100%',
-              opacity: 0.4,
-            }}
-            transition={{ duration: 0.7 }}
             static
           >
             {children[tabIndex]}
