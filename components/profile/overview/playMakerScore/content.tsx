@@ -1,12 +1,11 @@
 import { useGoToTab } from 'hooks/go-to-tab'
-import Graph from 'img/illustrations/Graph.png'
-import LargeGraph from 'img/illustrations/LargeGraph.png'
-import Image from 'next/image'
 import { TProfilePMScore } from 'types/profile'
 
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
 import { ExtendedScore } from '@/components/common/Score/ExtendedPMScore'
+
+import { LineChart } from './LineChart'
 
 const chips = [
   'Ostatnie 5 meczów',
@@ -38,9 +37,10 @@ export const PlayMakerScoreContent = ({
       <ExtendedScore lastScore={lastScore} score={score} />
       <Chips chips={chips} className="md:flex-wrap" />
       <div className="flex flex-col items-center">
-        {/* graph section is temporary */}
-        <Image src={Graph} alt="mock graph" className="block md:hidden" />
-        <Image src={LargeGraph} alt="mock graph" className="hidden md:block" />
+        <LineChart
+          playerData={[62, 62.5, 62, 63.5, 63]}
+          playersData={[61.5, 61, 61.5, 61.5, 62]}
+        />
         <div className="flex items-center gap-6 pt-6 font-inter text-body-xs md:text-body-md">
           <span className="flex items-center gap-3">
             <div className="h-[3px] w-4 rounded-full bg-primary md:h-[4px]" />
