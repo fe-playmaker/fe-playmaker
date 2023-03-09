@@ -42,7 +42,7 @@ const Tabs = ({ size, tabs, children }: TabsProps) => {
 
   return (
     <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
-      <Tab.List className="no-scrollbar z-50 flex overflow-x-auto bg-white">
+      <Tab.List className="no-scrollbar z-20 flex overflow-x-auto bg-white">
         {tabs.map(name => (
           <Tab
             className={tabsCva({ size })}
