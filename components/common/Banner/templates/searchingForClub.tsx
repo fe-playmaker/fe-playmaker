@@ -5,9 +5,10 @@ import Banner from '../banner'
 
 interface IProps {
   expectations: string[]
+  onMoreClick: () => void
 }
 
-const SearchingForClubBanner = ({ expectations }: IProps) => (
+const SearchingForClubBanner = ({ expectations, onMoreClick }: IProps) => (
   <Banner
     btnText="Napisz"
     btnIcon={<SendIcon />}
@@ -17,11 +18,15 @@ const SearchingForClubBanner = ({ expectations }: IProps) => (
   >
     <span className="text-body-md font-bold">Szukam klubu</span>
     <span className="truncate text-body-sm font-medium text-darkAlpha-40">
-      Oczekiwania: {expectations.join(', ')}
+      Oczekiwania: {expectations.map(exp => exp.toLocaleLowerCase()).join(', ')}
     </span>
-    <span className="text-body-sm font-medium text-darkAlpha-40 underline">
+    <button
+      type="button"
+      className="text-left text-body-sm font-medium text-darkAlpha-40 underline"
+      onClick={onMoreClick}
+    >
       Więcej
-    </span>
+    </button>
   </Banner>
 )
 

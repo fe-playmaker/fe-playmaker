@@ -11,8 +11,10 @@ interface IProps extends Pick<IModalProps, 'title' | 'closeModal' | 'caption'> {
 const ModalHeader = ({ title, caption, showBar, closeModal }: IProps) => (
   <div
     className={clsx(
-      'relative box-content flex flex-col py-7 pl-6 md:py-[1.75rem] md:pl-8',
+      'relative box-content flex flex-col py-7 pl-6  md:pl-8',
       showBar && 'shadow-[0_1px_0_0_#E6E8EB]',
+      caption && 'md:py-[1.75rem]',
+      !caption && 'md:py-[2.188rem]',
     )}
   >
     {caption && (

@@ -30,7 +30,12 @@ export const profileHeaderData: TProfileHeader = {
         range: 50,
       },
       additional: 'Wracam po kontuzji',
-      expectations: ['zwrot za dojazdy', 'porsche'],
+      expectations: [
+        'Zwrot za dojazdy',
+        'Porsche',
+        '4-5 treningów / tyg.',
+        'Wynagrodzenie',
+      ],
     },
   },
 }
