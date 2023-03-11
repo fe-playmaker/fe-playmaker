@@ -13,7 +13,7 @@ interface IProps {
 const TabLoadingSpinner = ({ className, size = 'medium' }: IProps) => (
   <motion.div
     className={cx(
-      'mt-4 flex h-full items-center justify-center bg-white',
+      'mt-4 flex h-full items-start justify-center bg-white pt-10 md:pt-11',
       className,
     )}
     exit={{ opacity: 0.3 }}

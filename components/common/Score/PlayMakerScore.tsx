@@ -9,7 +9,9 @@ const scoreCva = cva(
   {
     variants: {
       type: {
-        default: ['w-[3rem] h-[2.5rem] text-heading-sm'],
+        default: [
+          'w-[3rem] md:w-[3.5rem] md:h-[3rem] h-[2.5rem]  text-heading-smaller md:text-heading-sm',
+        ],
         hidden: ['w-[5rem] h-[2.5rem] text-heading-md'],
       },
     },
@@ -20,7 +22,12 @@ const scoreCva = cva(
 )
 
 const trendCva = cva(
-  ['text-white', 'py-0 px-3', 'w-8 h-8', 'flex items-center justify-center'],
+  [
+    'text-white',
+    'py-0 px-3',
+    'w-8 h-8 md:w-[2.5rem] md:h-[2.5rem]',
+    'flex items-center justify-center',
+  ],
   {
     variants: {
       trend: {
@@ -39,7 +46,7 @@ interface Props extends TrendScoreProps, ScoreProps {
 }
 
 export const PlayMakerScore = ({ trend, score, type }: Props) => (
-  <div className="flex flex-col items-center gap-2">
+  <div className="flex flex-col items-center gap-2 md:gap-[0.375rem]">
     <div className={`flex ${trend === 'up' ? 'items-start' : 'items-end'}`}>
       <div className={scoreCva({ type })}>
         {type !== 'hidden' ? <span>{score}</span> : <span>?</span>}
@@ -56,7 +63,7 @@ export const PlayMakerScore = ({ trend, score, type }: Props) => (
         </div>
       )}
     </div>
-    <p className="text-center font-inter text-caption-sm leading-3 tracking-wide text-darkAlpha-40">
+    <p className="text-center font-inter text-caption-sm leading-3 tracking-wide text-darkAlpha-40 md:text-caption-md">
       PlayMaker <br /> Score
     </p>
   </div>

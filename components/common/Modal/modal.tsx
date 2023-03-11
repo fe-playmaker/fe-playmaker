@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useIsDesktop } from 'hooks/use-is-desktop'
+import { useState } from 'react'
 
 import ModalContent from './content'
 import ModalFooter from './footer'
@@ -11,12 +12,7 @@ const Modal = ({ children, show, ...props }: IModalProps) => {
   const [showFog, setShowFog] = useState(false)
   const [showHeaderBar, setShowHeaderBar] = useState(false)
   const [showFooterBar, setShowFooterBar] = useState(false)
-  const [device, setDevice] = useState<'mobile' | 'desktop'>('mobile')
-
-  useEffect(() => {
-    if (window.innerWidth >= 1200) setDevice('desktop')
-    else setDevice('mobile')
-  }, [])
+  const isDesktop = useIsDesktop()
 
   return (
     <AnimatePresence>
@@ -31,7 +27,7 @@ const Modal = ({ children, show, ...props }: IModalProps) => {
         >
           <motion.div
             className="flex max-h-full w-full flex-col bg-white md:h-full md:w-[30rem]"
-            variants={device === 'mobile' ? mobileVariants : desktopVariants}
+            variants={isDesktop ? desktopVariants : mobileVariants}
             initial="initial"
             exit="exit"
             animate="animate"

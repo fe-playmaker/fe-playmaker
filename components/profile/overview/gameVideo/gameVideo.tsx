@@ -23,8 +23,8 @@ export const GameVideoSection = ({ videoUrl }: IProps) => (
         />
       ) : (
         <div className="flex flex-col items-center gap-5">
-          <NothingVideoIcon className="mt-4 h-[3.5rem] w-[4.5rem]" />
-          <p className="text-center font-inter text-body-sm text-darkAlpha-20">
+          <NothingVideoIcon className="mt-4 h-[3.5rem] w-[4.5rem] md:h-[4rem] md:w-[5rem]" />
+          <p className="text-center font-inter text-body-sm text-darkAlpha-20 md:text-body-md">
             Zawodnik nie dodał jeszcze żadnego <br /> wideo ze swojej gry
           </p>
         </div>

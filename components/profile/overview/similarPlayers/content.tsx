@@ -18,6 +18,9 @@ export const SimilarPlayersContent = ({
         className="mx-6 flex items-center justify-between border-b border-darkAlpha-5 py-5 last-of-type:border-b-transparent md:mx-8"
         key={`similiar-player-${d.id}`}
         layout
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center">

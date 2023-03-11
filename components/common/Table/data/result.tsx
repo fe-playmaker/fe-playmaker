@@ -13,7 +13,7 @@ export const TableDataResult = ({ status }: IProps) => (
 export default TableDataResult
 
 const baseResult =
-  'w-[1.5rem] h-[1.25rem] flex items-center justify-center font-inter text-body-xs text-white font-bold'
+  'w-[1.5rem] md:w-[2rem] md:h-[1.5rem] rounded-[0.188rem] h-[1.25rem] flex items-center justify-center font-inter text-body-xs md:text-body-sm text-white font-bold'
 
 const resultBadgeMap = {
   win: <div className={cx('bg-greenShade-50', baseResult)}>W</div>,

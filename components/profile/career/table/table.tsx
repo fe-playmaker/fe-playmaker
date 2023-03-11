@@ -10,6 +10,7 @@ const CareerSeasonTable = (
 ) => (
   <Table
     columnsClass="grid-cols-[repeat(5,3rem)]"
+    desktopColumnsClass="grid-cols-[repeat(5,4rem)_1fr]"
     rowHeight="4.8rem"
     summaryRowHeight="3.375rem"
   >

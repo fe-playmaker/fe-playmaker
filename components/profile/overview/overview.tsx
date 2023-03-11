@@ -39,17 +39,23 @@ export const ProfileOverview = ({
       <RegularitySection
         data={regularity}
         playerName={data.playerData.firstName}
-        defaultTeamId={data.playerData.team.id}
+        team={data.playerData.team}
       />
       <LastMatchesSection
         lastMatches={lastMatches}
         playerFirstName={data.playerData.firstName}
         defaultTeamId={data.playerData.team.id}
       />
-      <PlayMakerScoreSection pmScore={pmScore} />
+      <PlayMakerScoreSection
+        score={pmScore.score}
+        lastScore={pmScore.lastScore}
+      />
       <GameVideoSection videoUrl={data.playerData.videoUrl} />
       <TransfersSection transfers={data.transfers} />
-      <SimiliarPlayersSection similarPlayers={data.similarPlayers} />
+      <SimiliarPlayersSection
+        className="md:hidden"
+        similarPlayers={data.similarPlayers}
+      />
     </motion.div>
   </LayoutGroup>
 )

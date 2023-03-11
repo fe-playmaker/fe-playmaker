@@ -11,21 +11,24 @@ export const TeamRow = ({
     | TProfileMatches['matches'][number]['homeTeam']
   className?: string
 }) => (
-  <div className={cx('relative flex items-center', className)}>
+  <div className={cx('relative flex items-center justify-between', className)}>
     {team.mainTeam && (
-      <div className="absolute -left-4 h-full w-1 bg-primary" />
+      <div className="absolute -left-4 h-full w-1 bg-primary md:-left-7 md:w-[0.188rem]" />
     )}
-    <Image
-      src={team.logoUrl}
-      alt={team.name}
-      width={32}
-      height={32}
-      className="icon-16"
-    />
-    <span className="max-w-[6.2rem] flex-1 truncate pl-[0.375rem] pr-3 text-body-xs text-darkAlpha-40">
-      {team.name}
-    </span>
-    <span className="w-8 text-center text-body-sm font-bold text-darkAlpha-40">
+    <div className="flex items-center">
+      <Image
+        src={team.logoUrl}
+        alt={team.name}
+        width={32}
+        height={32}
+        className="icon-16"
+      />
+      <span className="w-[6.2rem] flex-1 truncate pl-[0.375rem] pr-3 text-body-xs text-darkAlpha-40 md:w-[9.75rem] md:text-body-sm">
+        {team.name}
+      </span>
+    </div>
+
+    <span className="w-8 text-center text-body-sm font-bold text-darkAlpha-40 md:w-[2.5rem] md:text-body-md">
       {team.score}
     </span>
   </div>

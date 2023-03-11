@@ -15,14 +15,15 @@ const SearchingForClubBanner = ({ expectations, onMoreClick }: IProps) => (
     btnSize="extraSmall"
     btnIntent="primary"
     accentClass="before:bg-tertiary"
+    btnDesktopSize="small"
   >
-    <span className="text-body-md font-bold">Szukam klubu</span>
-    <span className="truncate text-body-sm font-medium text-darkAlpha-40">
+    <span className="text-body-md font-bold md:text-body-lg">Szukam klubu</span>
+    <span className="truncate text-body-sm font-medium text-darkAlpha-40 md:text-body-md">
       Oczekiwania: {expectations.map(exp => exp.toLocaleLowerCase()).join(', ')}
     </span>
     <button
       type="button"
-      className="text-left text-body-sm font-medium text-darkAlpha-40 underline"
+      className="text-left text-body-sm font-medium text-darkAlpha-40 underline md:text-body-md"
       onClick={onMoreClick}
     >
       Więcej

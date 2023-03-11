@@ -1,5 +1,6 @@
 'use client'
 
+import clsx from 'clsx'
 import SelectedIcon from 'img/icons/Check.svg'
 import { useState } from 'react'
 
@@ -7,9 +8,10 @@ import { Chip } from './Chip'
 
 interface ChipsProps {
   chips: string[]
+  className?: string
 }
 
-export const Chips = ({ chips }: ChipsProps) => {
+export const Chips = ({ chips, className }: ChipsProps) => {
   const [selectedChips, setSelectedChips] = useState<string[]>([])
 
   const selectChipHandler = (chip: string, isSelected: boolean) => {
@@ -18,7 +20,12 @@ export const Chips = ({ chips }: ChipsProps) => {
   }
 
   return (
-    <div className="flex w-full items-center gap-4 overflow-x-auto py-4">
+    <div
+      className={clsx(
+        'flex w-full items-center gap-4 overflow-x-auto py-4',
+        className,
+      )}
+    >
       {chips.map(c => (
         <Chip
           key={c}

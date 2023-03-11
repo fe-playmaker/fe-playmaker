@@ -5,7 +5,7 @@ import MatchTableIconLegend from './icon-legend'
 import MatchesTable from './table/matches-table'
 
 const seasonHeadingCva = cva(
-  'text-heading-micro font-poppins font-bold ml-6 pb-3',
+  'text-heading-micro font-poppins font-bold ml-6 md:ml-8 pb-3',
   {
     variants: {
       season: {
@@ -23,7 +23,7 @@ const MatchesPanel = (props: TProfileMatches) => {
 
   return (
     <div className="flex flex-col border-t border-darkShade-5 bg-white pb-4">
-      <div className="pt-7">
+      <div className="pt-7 md:pt-9">
         <h4
           className={seasonHeadingCva({
             season: season.split(' ')[0] as any,

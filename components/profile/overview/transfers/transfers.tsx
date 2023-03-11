@@ -19,7 +19,7 @@ const TransfersSection = ({
       {transfers.length > showCount && (
         <div className="flex justify-center">
           <button
-            className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40"
+            className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40 md:text-label-md"
             type="button"
             onClick={() => setShowCount(val => val + 3)}
           >

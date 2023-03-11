@@ -62,12 +62,16 @@ const MatchesTableRightPart = ({
           key={`right-matches-table-row-${id}`}
           expanded={!!wideoUrl}
           className={clsx(
-            'text-body-sm',
+            'text-body-sm md:text-body-md',
             i !== 0 && 'border-t border-darkAlpha-5',
           )}
         >
           <TableDataResult status={status} />
-          <TableDataBadge value={minutes} minuteColon />
+          <TableDataBadge
+            className="md:text-body-sm"
+            value={minutes}
+            minuteColon
+          />
           {goals !== undefined && <TableDataValue value={goals} />}
           {clearAccounts !== undefined && (
             <TableDataValue value={clearAccounts} />
@@ -76,15 +80,22 @@ const MatchesTableRightPart = ({
           <TableDataValue value={yellowCards} />
           <TableDataValue value={redCards} />
           {additional && (
-            <TableDataBadge value={additional} className="justify-self-end" />
+            <TableDataBadge
+              value={additional}
+              className="justify-self-end text-right"
+            />
           )}
         </TableRow>
       ),
     )}
 
-    <TableSummaryRow className="border-t-2 border-darkShade-5 text-body-sm">
+    <TableSummaryRow className="border-t-2 border-darkShade-5 text-body-sm md:text-body-md">
       <span />
-      <TableDataBadge value={total.minutes} minuteColon />
+      <TableDataBadge
+        className="md:text-body-sm"
+        value={total.minutes}
+        minuteColon
+      />
       {total.goals !== undefined && <TableSummaryValue value={total.goals} />}
       {total.clearAccounts !== undefined && (
         <TableSummaryValue value={total.clearAccounts} />
@@ -94,9 +105,13 @@ const MatchesTableRightPart = ({
       <TableSummaryValue value={total.redCards} />
     </TableSummaryRow>
 
-    <TableSummaryRow className="border-t border-darkShade-5 text-body-sm">
+    <TableSummaryRow className="border-t border-darkShade-5 text-body-sm md:text-body-md">
       <span />
-      <TableDataBadge value={avgMatch.minutes} minuteColon />
+      <TableDataBadge
+        className="md:text-body-sm"
+        value={avgMatch.minutes}
+        minuteColon
+      />
       {avgMatch.goals !== undefined && (
         <TableSummaryValue value={avgMatch.goals} />
       )}

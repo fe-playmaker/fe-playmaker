@@ -7,13 +7,13 @@ interface IProps {
   expanded?: boolean
   children: React.ReactNode
   className?: string
-  customHeight?: string
+  addHeight?: string
 }
 export const TableRow = ({
   children,
   expanded,
   className,
-  customHeight,
+  addHeight,
 }: IProps) => {
   const {
     rowHeight,
@@ -21,16 +21,19 @@ export const TableRow = ({
     columnsClass,
     paddingRightColumnClass,
   } = useContext(TableSettingsContext)
+
   return (
     <div
       className={clsx(
-        'grid min-w-max items-center justify-items-center gap-x-4 pr-5 text-body-md',
+        'grid min-w-full items-center justify-end justify-items-center gap-x-4 pr-5 text-body-md',
         className,
         columnsClass,
         paddingRightColumnClass || 'pl-4',
       )}
       style={{
-        height: customHeight || (expanded ? expandedRowHeight : rowHeight),
+        height: `calc(${expanded ? expandedRowHeight : rowHeight} + ${
+          addHeight || '0px'
+        })`,
         paddingBottom: expanded
           ? `calc(${expandedRowHeight} - ${rowHeight})`
           : 0,

@@ -1,21 +1,29 @@
 import { cx } from 'class-variance-authority'
+import { useIsDesktop } from 'hooks/use-is-desktop'
 import { useMemo, useState } from 'react'
 
 import { TableScrolledContext } from './scrolled-context'
 import { ITableSettings, TableSettingsContext } from './settings-context'
 
-interface IProps extends ITableSettings {
+interface ITableDektop {
+  desktopRowHeight?: string
+  desktopExpandedRowHeight?: string
+  desktopSummaryRowHeight?: string
+  desktopColumnsClass?: string
+}
+
+interface IProps extends ITableSettings, ITableDektop {
   className?: string
   children: React.ReactNode
 }
 export const Table = ({
   className,
   children,
-  rowHeight,
-  summaryRowHeight,
-  expandedRowHeight,
-  columnsClass,
-  paddingRightColumnClass,
+  desktopColumnsClass,
+  desktopExpandedRowHeight,
+  desktopRowHeight,
+  desktopSummaryRowHeight,
+  ...baseTableSettings
 }: IProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const scrolledValue = useMemo(
@@ -23,22 +31,31 @@ export const Table = ({
     [isScrolled],
   )
 
-  const settingsValue = useMemo(
-    () => ({
-      rowHeight,
-      summaryRowHeight,
-      expandedRowHeight,
-      columnsClass,
-      paddingRightColumnClass,
-    }),
-    [
-      rowHeight,
-      summaryRowHeight,
-      expandedRowHeight,
-      columnsClass,
-      paddingRightColumnClass,
-    ],
-  )
+  const isDesktop = useIsDesktop()
+
+  const settingsValue = useMemo<ITableSettings>(() => {
+    const baseSettings = { ...baseTableSettings }
+
+    if (!isDesktop) return baseSettings
+
+    if (desktopColumnsClass) baseSettings.columnsClass = desktopColumnsClass
+    if (desktopExpandedRowHeight)
+      baseSettings.expandedRowHeight = desktopExpandedRowHeight
+    if (desktopRowHeight) baseSettings.rowHeight = desktopRowHeight
+    if (desktopSummaryRowHeight)
+      baseSettings.summaryRowHeight = desktopSummaryRowHeight
+
+    baseSettings.paddingRightColumnClass = ''
+
+    return baseSettings
+  }, [
+    desktopColumnsClass,
+    desktopExpandedRowHeight,
+    desktopRowHeight,
+    desktopSummaryRowHeight,
+    isDesktop,
+    baseTableSettings,
+  ])
 
   return (
     <div

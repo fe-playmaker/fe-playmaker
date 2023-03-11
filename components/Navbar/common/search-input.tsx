@@ -1,31 +1,21 @@
 'use client'
 
-import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-import SeachIcon from '@/icons/Search.svg'
+import SearchIcon from '@/icons/Search.svg'
 
-interface IProps {
-  className?: string
-}
-
-export const SearchInput = ({ className }: IProps) => {
+export const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('')
 
   return (
-    <div
-      className={clsx(
-        'ml-[2.4rem] flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4 ld:ml-[7.2rem]',
-        className,
-      )}
-    >
+    <div className="ml-0 flex flex-1 items-center gap-3 rounded bg-darkAlpha-5 px-5 py-4 md:ml-[2.4rem] ld:ml-[7.2rem]">
       <div
         className={`transition-opacity ${
           searchValue ? 'absolute opacity-0' : 'opacity-100'
         }`}
       >
-        <SeachIcon width="16" height="16" />
+        <SearchIcon width="16" height="16" />
       </div>
       <motion.input
         type="text"

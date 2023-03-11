@@ -11,7 +11,7 @@ import { TProfileOverview } from 'types/profile'
 import { sliderSettings } from '../helpers'
 
 const SliderItem = ({ title, icon }: TProfileOverview['inShort'][number]) => (
-  <div className="flex w-[7rem] flex-col items-center gap-3 p-3 pb-5">
+  <div className="mx-auto flex w-[7rem] flex-col items-center gap-3 p-3 pb-5 ">
     <Image
       src={icon}
       alt="icon"
@@ -29,8 +29,8 @@ const SliderItem = ({ title, icon }: TProfileOverview['inShort'][number]) => (
 export const PlayerSlider = ({
   inShort,
 }: Pick<TProfileOverview, 'inShort'>) => (
-  <div className="pb-6">
-    <Slider {...sliderSettings}>
+  <div className="pb-6 md:pb-0">
+    <Slider {...sliderSettings} className="slider">
       {inShort?.map(item => (
         <SliderItem key={item.title} {...item} />
       ))}

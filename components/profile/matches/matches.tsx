@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { Chip } from '@/components/common/Chips/Chip'
 import { InputSelect } from '@/components/common/Select/select'
 
+import { Heading } from '../common/Heading'
 import TabLoadingSpinner from '../common/tab-loader/spinner'
 import { TabContentWrapper } from '../common/tab-loader/tab-wrapper'
 import { useProfileMatches } from './hooks'
@@ -28,11 +29,12 @@ const ProfileMatches = () => {
         <TabLoadingSpinner key="matches-spinner" />
       ) : (
         <TabContentWrapper className="mt-4 pb-9" key="matches-content">
-          <div className="bg-white pl-6 pt-8 pb-7">
-            <h3 className="text-heading-xs font-bold text-dark">Mecze</h3>
-            <div className="mt-5 flex gap-3 overflow-x-clip">
+          <div className="bg-white pl-6 pt-8 pb-7 md:pl-8">
+            <Heading className="pb-0 md:pb-0">Mecze</Heading>
+            <div className="mt-5 flex gap-3 overflow-x-clip md:mt-7">
               <InputSelect
                 size="small"
+                desktopSize="medium"
                 type="filter"
                 name="Sezon"
                 inputName="season"
@@ -40,6 +42,7 @@ const ProfileMatches = () => {
               />
               <InputSelect
                 size="small"
+                desktopSize="medium"
                 type="filter"
                 name="Drużyna"
                 inputName="team"
@@ -47,6 +50,7 @@ const ProfileMatches = () => {
               />
               <InputSelect
                 size="small"
+                desktopSize="medium"
                 type="filter"
                 name="Poziom rozgrywkowy"
                 inputName="competitionLevel"

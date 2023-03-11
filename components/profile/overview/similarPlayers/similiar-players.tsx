@@ -19,7 +19,7 @@ const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
 
   return (
     <SectionContainer layout className={clsx('px-0 md:px-0', className)}>
-      <Heading layout className="pl-6 md:pl-8">
+      <Heading layout className="pl-6 pb-4 md:pl-8 md:pb-5">
         Podobni zawodnicy
       </Heading>
       <SimilarPlayersContent

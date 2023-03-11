@@ -1,5 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority'
 import Image from 'next/image'
+import { ComponentProps } from 'react'
 
 const borderCva = cva('z-10 after:rounded-[50%] relative ', {
   variants: {
@@ -9,8 +10,9 @@ const borderCva = cva('z-10 after:rounded-[50%] relative ', {
       premium: '',
     },
     size: {
-      profile: 'w-11 h-11',
-      other: 'w-10 h-10',
+      // its a temporary solution for good view of header
+      profile: 'w-11 h-11 md:w-[7.5rem] md:h-[7.5rem]',
+      other: 'w-9 h-9',
     },
   },
   compoundVariants: [
@@ -57,9 +59,10 @@ const premiumBorderCva = cva(
 interface AvatarProps extends VariantProps<typeof borderCva> {
   alt: string
   src: string
+  props?: ComponentProps<typeof Image>
 }
 
-export const Avatar = ({ alt, type, size, src }: AvatarProps) => (
+export const Avatar = ({ alt, type, size, src, props }: AvatarProps) => (
   <div className="relative flex items-center justify-center rounded-[50%]">
     <div className={borderCva({ type, size })}>
       <Image
@@ -68,6 +71,7 @@ export const Avatar = ({ alt, type, size, src }: AvatarProps) => (
         width={400}
         height={400}
         className="h-full w-full rounded-[50%] object-cover"
+        {...props}
       />
     </div>
     <div className={premiumBorderCva({ type, size })} aria-hidden />

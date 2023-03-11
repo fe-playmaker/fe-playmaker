@@ -10,7 +10,7 @@ const MatchTableIconLegend = ({
   goals: boolean
   clearAccounts: boolean
 }) => (
-  <div className="flex items-center justify-center gap-7 py-5">
+  <div className="flex items-center justify-center gap-7 py-5 md:hidden">
     <Container>
       <ClockIcon className="icon-16" /> Minuty
     </Container>

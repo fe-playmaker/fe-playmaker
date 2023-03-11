@@ -75,20 +75,20 @@ export const ChartPie = ({
   return (
     <div className="flex items-center justify-center">
       <div className="absolute flex flex-col items-center justify-center text-center">
-        <p className="text-heading-md font-bold">
+        <p className="text-heading-md font-bold md:text-heading-lg">
           {totalParticipationPercentage}%
         </p>
-        <p className="font-inter text-body-xs font-medium text-darkAlpha-20">
-          Udział <br /> w meczach
+        <p className="font-inter text-body-xs font-medium text-darkAlpha-20 md:text-body-sm">
+          Udział <br className="md:hidden" /> w meczach
         </p>
       </div>
 
       <Doughnut
-        className="z-10 max-h-[10rem] max-w-[10rem]"
+        className="z-10 max-h-[10rem] max-w-[10rem] md:max-h-[15rem] md:max-w-[15rem]"
         data={data}
         options={options}
-        width={155}
-        height={155}
+        width={355}
+        height={355}
       />
     </div>
   )

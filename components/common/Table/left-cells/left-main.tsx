@@ -7,13 +7,13 @@ interface IProps {
   className?: string
   expanded?: boolean
   children: React.ReactNode
-  customHeight?: string
+  addHeight?: string
 }
 export const TableLeftCell = ({
   children,
   className,
   expanded,
-  customHeight,
+  addHeight,
 }: IProps) => {
   const { rowHeight, expandedRowHeight } = useContext(TableSettingsContext)
 
@@ -21,7 +21,9 @@ export const TableLeftCell = ({
     <div
       className={cx('z-10 bg-white', className)}
       style={{
-        height: customHeight || (expanded ? expandedRowHeight : rowHeight),
+        height: `calc(${expanded ? expandedRowHeight : rowHeight} + ${
+          addHeight || '0px'
+        })`,
       }}
     >
       {children}
