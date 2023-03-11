@@ -65,7 +65,7 @@ const LastMatchesSection = ({
 
       <LastMatchesPanel {...lastMatches.data} />
 
-      <div className="my-4 flex justify-center">
+      <div className="mt-4 flex justify-center">
         <Button
           size="small"
           desktopSize="medium"
