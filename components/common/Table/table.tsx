@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import useMediaQuery from 'hooks/useMediaQuery'
+import { useIsDesktop } from 'hooks/use-is-desktop'
 import { useMemo, useState } from 'react'
 
 import { TableScrolledContext } from './scrolled-context'
@@ -31,7 +31,7 @@ export const Table = ({
     [isScrolled],
   )
 
-  const isDesktop = useMediaQuery('(min-width: 1200px)')
+  const isDesktop = useIsDesktop()
 
   const settingsValue = useMemo<ITableSettings>(() => {
     const baseSettings = { ...baseTableSettings }
