@@ -15,6 +15,7 @@ const SearchingForClubBanner = ({ expectations, onMoreClick }: IProps) => (
     btnSize="extraSmall"
     btnIntent="primary"
     accentClass="before:bg-tertiary"
+    btnDesktopSize="small"
   >
     <span className="text-body-md font-bold md:text-body-lg">Szukam klubu</span>
     <span className="truncate text-body-sm font-medium text-darkAlpha-40 md:text-body-md">
