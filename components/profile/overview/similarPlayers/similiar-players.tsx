@@ -18,7 +18,10 @@ const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
   const [showCount, setShowCount] = useState(3)
 
   return (
-    <SectionContainer layout className={clsx('px-0 md:px-0', className)}>
+    <SectionContainer
+      layout
+      className={clsx('px-0 md:px-0 md:pb-6', className)}
+    >
       <Heading layout className="pl-6 pb-4 md:pl-8 md:pb-5">
         Podobni zawodnicy
       </Heading>
@@ -29,7 +32,7 @@ const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
       {similarPlayers.length > showCount && (
         <div className="flex justify-center">
           <button
-            className="flex items-center gap-2 pt-6 text-label-sm text-darkAlpha-40 md:text-label-md"
+            className="flex items-center gap-2 pt-7 text-label-sm text-darkAlpha-40 md:pt-8 md:pb-4 md:text-label-md"
             type="button"
             onClick={() => setShowCount(val => val + 3)}
           >
