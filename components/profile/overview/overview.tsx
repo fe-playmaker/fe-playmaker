@@ -39,7 +39,7 @@ export const ProfileOverview = ({
       <RegularitySection
         data={regularity}
         playerName={data.playerData.firstName}
-        defaultTeamId={data.playerData.team.id}
+        team={data.playerData.team}
       />
       <LastMatchesSection
         lastMatches={lastMatches}

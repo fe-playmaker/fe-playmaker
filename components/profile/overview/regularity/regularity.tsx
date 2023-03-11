@@ -1,6 +1,6 @@
 import { useGoToTab } from 'hooks/go-to-tab'
 import { mapTeamsWithCompetition, useTeamsList } from 'hooks/lists/teams'
-import { TProfileOverviewRegularity } from 'types/profile'
+import { TProfileOverview, TProfileOverviewRegularity } from 'types/profile'
 
 import { InputSelect } from '@/components/common/Select/select'
 import ArrowRightIcon from '@/icons/ArrowRightIcon.svg'
@@ -12,10 +12,10 @@ import { RegularityContent } from './content'
 interface IProps {
   data: TProfileOverviewRegularity
   playerName: string
-  defaultTeamId: string
+  team: TProfileOverview['playerData']['team']
 }
 
-const RegularitySection = ({ data, playerName, defaultTeamId }: IProps) => {
+const RegularitySection = ({ data, playerName, team }: IProps) => {
   const { data: teamsList } = useTeamsList({ playerId: '96' })
   const { goToTab } = useGoToTab()
 
@@ -30,12 +30,7 @@ const RegularitySection = ({ data, playerName, defaultTeamId }: IProps) => {
           className="hidden cursor-pointer items-center gap-2 md:flex md:pb-0"
         >
           <>
-            Aktualna forma w{' '}
-            {
-              mapTeamsWithCompetition(teamsList ?? []).find(
-                x => x.value === defaultTeamId,
-              )?.name
-            }
+            Aktualna forma w {team.name}
             <ArrowRightIcon className="icon-16" />
           </>
         </Heading>
@@ -43,7 +38,7 @@ const RegularitySection = ({ data, playerName, defaultTeamId }: IProps) => {
           name="Zespół"
           items={mapTeamsWithCompetition(teamsList || [])}
           inputName="teamId"
-          defaultValue={defaultTeamId}
+          defaultValue={team.id}
           size="small"
           desktopSize="medium"
           menuRightSide
