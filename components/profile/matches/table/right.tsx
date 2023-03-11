@@ -64,9 +64,6 @@ const MatchesTableRightPart = ({
           className={clsx(
             'text-body-sm md:text-body-md',
             i !== 0 && 'border-t border-darkAlpha-5',
-            wideoUrl
-              ? 'h-[7.188rem] md:h-[8.438rem]'
-              : 'h-[5.313rem] md:h-[6.563rem]',
           )}
         >
           <TableDataResult status={status} />
@@ -83,7 +80,10 @@ const MatchesTableRightPart = ({
           <TableDataValue value={yellowCards} />
           <TableDataValue value={redCards} />
           {additional && (
-            <TableDataBadge value={additional} className="justify-self-end" />
+            <TableDataBadge
+              value={additional}
+              className="justify-self-end text-right"
+            />
           )}
         </TableRow>
       ),

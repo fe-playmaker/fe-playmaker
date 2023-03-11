@@ -23,12 +23,12 @@ export const TeamRow = ({
         height={32}
         className="icon-16"
       />
-      <span className="max-w-[6.2rem] flex-1 truncate pl-[0.375rem] pr-3 text-body-xs text-darkAlpha-40 md:max-w-[9.75rem] md:text-body-sm">
+      <span className="w-[6.2rem] flex-1 truncate pl-[0.375rem] pr-3 text-body-xs text-darkAlpha-40 md:w-[9.75rem] md:text-body-sm">
         {team.name}
       </span>
     </div>
 
-    <span className="w-8 text-center text-body-sm font-bold text-darkAlpha-40 md:text-body-md">
+    <span className="w-8 text-center text-body-sm font-bold text-darkAlpha-40 md:w-[2.5rem] md:text-body-md">
       {team.score}
     </span>
   </div>

@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-// import { useContext } from 'react'
 import { TProfileCareer } from 'types/profile'
 
 import {
@@ -11,18 +10,15 @@ import {
   TableSummaryRow,
   TableSummaryValue,
 } from '@/components/common/Table'
-// import { TableSettingsContext } from '@/components/common/Table/settings-context'
 import HelpCircleIcon from '@/icons/HelpCircle.svg'
 
-// import { addRem } from '../helpers'
+import { addHeight } from '../helpers'
 
 const CareerTableRightPart = ({
   data,
   total,
   season,
 }: Pick<TProfileCareer, 'data' | 'total' | 'season'>) => (
-  // const { rowHeight } = useContext(TableSettingsContext)
-
   <TableRightColumn>
     <TableHeaderRow className="text-center">
       <TableHeaderText text="Mecze" />
@@ -34,14 +30,9 @@ const CareerTableRightPart = ({
 
     {data.map((row, i) => (
       <TableRow
-        className={clsx(
-          'h-[6.313rem]',
-          i !== 0 && 'border-t border-darkAlpha-5',
-        )}
+        className={clsx(i !== 0 && 'border-t border-darkAlpha-5')}
         key={`right-${row.team}-${season}`}
-        // customHeight={`calc(${rowHeight} ${addRem(row.mainTeam)} ${addRem(
-        //   !!row.season,
-        // )})`}
+        addHeight={addHeight(row.mainTeam, !!row.season)}
       >
         <TableDataValue
           value={row.matches}

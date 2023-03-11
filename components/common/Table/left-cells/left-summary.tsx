@@ -13,7 +13,9 @@ export const TableLeftSummaryCell = ({ children, className }: IProps) => {
   return (
     <div
       className={cx('z-10 flex items-center bg-white', className)}
-      style={{ height: summaryRowHeight }}
+      style={{
+        height: summaryRowHeight,
+      }}
     >
       {children}
     </div>

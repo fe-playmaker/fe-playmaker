@@ -1,32 +1,34 @@
 import { cx } from 'class-variance-authority'
-// import { useContext } from 'react'
+import { useContext } from 'react'
 
-// import { TableSettingsContext } from '../settings-context'
+import { TableSettingsContext } from '../settings-context'
 
 interface IProps {
   className?: string
-  // expanded?: boolean
+  expanded?: boolean
   children: React.ReactNode
-  // customHeight?: string
+  addHeight?: string
 }
 export const TableLeftCell = ({
   children,
   className,
-}: // expanded,
-// customHeight,
-IProps) => (
-  // const { rowHeight, expandedRowHeight } = useContext(TableSettingsContext)
+  expanded,
+  addHeight,
+}: IProps) => {
+  const { rowHeight, expandedRowHeight } = useContext(TableSettingsContext)
 
-  <div
-    className={cx('z-10 bg-white', className)}
-    style={
-      {
-        // height: customHeight || (expanded ? expandedRowHeight : rowHeight),
-      }
-    }
-  >
-    {children}
-  </div>
-)
+  return (
+    <div
+      className={cx('z-10 bg-white', className)}
+      style={{
+        height: `calc(${expanded ? expandedRowHeight : rowHeight} + ${
+          addHeight || '0px'
+        })`,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
 
 export default TableLeftCell

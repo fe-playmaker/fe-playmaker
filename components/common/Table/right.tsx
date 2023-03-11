@@ -13,7 +13,7 @@ export const TableRightColumn = ({ children, className }: IProps) => {
 
   return (
     <div
-      className={cx('flex flex-col overflow-x-auto', className)}
+      className={cx('flex flex-col items-start overflow-x-auto', className)}
       onScroll={e => setIsScrolled((e.target as any).scrollLeft > 8)}
     >
       {children}

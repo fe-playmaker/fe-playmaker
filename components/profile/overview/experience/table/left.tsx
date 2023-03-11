@@ -22,7 +22,7 @@ const ExperienceTableLeftPart = ({
       <TableLeftCell
         key={`experience-left-${row.competetion}`}
         className={clsx(
-          'relative flex h-[4.25rem] w-[9rem] items-center pl-6 text-center font-medium md:pl-8',
+          'relative flex w-[9rem] items-center pl-6 text-center font-medium md:w-[21.75rem] md:pl-8',
           i !== 0 && 'border-t border-darkAlpha-5',
         )}
       >
@@ -31,8 +31,8 @@ const ExperienceTableLeftPart = ({
             src={row.competitionLogoUrl}
             alt={row.competetion}
             width={48}
-            height={48}
-            className="h-7 w-auto max-w-[1.188rem] object-cover md:h-8"
+            height={48} // 19x24 24x32
+            className="h-7 w-6 object-cover md:h-8 md:w-7"
           />
 
           <span className="text-body-sm text-darkAlpha-40">

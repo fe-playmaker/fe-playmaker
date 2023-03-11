@@ -34,18 +34,15 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
         ({ awayTeam, competition, date, homeTeam, wideoUrl, id }, i) => (
           <TableLeftCell
             key={`left-matches-table-cell-${id}`}
-            // expanded={!!wideoUrl}
+            expanded={!!wideoUrl}
             className={clsx(
-              'flex items-center pl-4 md:w-[15.75rem] md:pl-0',
+              'flex items-center pl-4 md:pl-7',
               i !== 0 && 'border-t border-darkShade-5',
-              wideoUrl
-                ? 'h-[7.188rem] md:h-[8.438rem]'
-                : 'h-[5.313rem] md:h-[6.563rem]',
             )}
           >
             <div
               className={clsx(
-                'flex w-full flex-col justify-center py-4 md:py-5 md:pl-7 md:pr-4',
+                'flex w-full flex-col justify-center',
                 !isScrolled && 'shadow-[1px_0_0_0_#EDEDED]',
               )}
             >
@@ -59,9 +56,9 @@ const MatchesTableLeftPart = ({ matches }: IProps) => {
                 <Link
                   href={wideoUrl}
                   target="_blank"
-                  className="mr-4 mt-3 flex items-center justify-center gap-2 py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20"
+                  className="mr-4 mt-3 flex items-center justify-center gap-2 py-1 text-body-sm font-bold text-darkAlpha-40 outline outline-1 outline-darkAlpha-20 md:mt-4 md:py-[0.375rem] md:text-body-md"
                 >
-                  <PlayIcon className="h-3 fill-darkAlpha-40" /> Wideo
+                  <PlayIcon className="h-3 fill-darkAlpha-40 md:h-4" /> Wideo
                 </Link>
               )}
             </div>
