@@ -69,7 +69,7 @@ const PlayerTestPage = () => {
             size="large"
           />
         ) : (
-          <div className="gap-7 md:grid md:grid-cols-[47.25rem_,1fr]">
+          <div className="grid min-h-screen grid-cols-1 gap-7 md:grid-cols-[47.25rem_,1fr]">
             <TabContentWrapper
               key="profile-content"
               className="flex flex-1 flex-col"
@@ -98,9 +98,8 @@ const PlayerTestPage = () => {
                 </Tabs>
               </TabsIndexContext.Provider>
             </TabContentWrapper>
-            <div className="overflow-y-auto">
+            <div className="hidden h-auto overflow-y-auto md:block">
               <SimiliarPlayersSection
-                className="hidden h-auto md:block"
                 similarPlayers={overviewData?.similarPlayers ?? []}
               />
             </div>
