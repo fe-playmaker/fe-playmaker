@@ -50,7 +50,7 @@ const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
     <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
       <Tab.List
         className={clsx(
-          'no-scrollbar z-50 flex overflow-x-auto bg-white',
+          'no-scrollbar z-20 flex overflow-x-auto bg-white',
           className,
         )}
       >

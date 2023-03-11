@@ -5,24 +5,28 @@ import Banner from '../banner'
 
 interface IProps {
   expectations: string[]
+  onMoreClick: () => void
 }
 
-const SearchingForClubBanner = ({ expectations }: IProps) => (
+const SearchingForClubBanner = ({ expectations, onMoreClick }: IProps) => (
   <Banner
     btnText="Napisz"
     btnIcon={<SendIcon />}
     btnSize="extraSmall"
-    btnDesktopSize="small"
     btnIntent="primary"
     accentClass="before:bg-tertiary"
   >
     <span className="text-body-md font-bold md:text-body-lg">Szukam klubu</span>
     <span className="truncate text-body-sm font-medium text-darkAlpha-40 md:text-body-md">
-      Oczekiwania: {expectations.join(', ')}
+      Oczekiwania: {expectations.map(exp => exp.toLocaleLowerCase()).join(', ')}
     </span>
-    <span className="text-body-sm font-medium text-darkAlpha-40 underline md:text-body-md">
+    <button
+      type="button"
+      className="text-left text-body-sm font-medium text-darkAlpha-40 underline md:text-body-md"
+      onClick={onMoreClick}
+    >
       Więcej
-    </span>
+    </button>
   </Banner>
 )
 
