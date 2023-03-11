@@ -24,7 +24,7 @@ export const RegularityContent = ({
 
   return (
     <div>
-      <div className="mt-7 mb-8 flex items-center gap-7 bg-white p-5 pl-7 shadow-default md:mt-8">
+      <div className="mt-7 mb-8 flex items-center gap-4 bg-white p-5 pl-7 shadow-default md:mt-8 md:gap-5">
         {additional.type === 'regular' && (
           <Image
             src={additional.teamLogoUrl || ''}
@@ -34,7 +34,11 @@ export const RegularityContent = ({
             className="icon-24"
           />
         )}
-        {additional.type === 'key' && <TrendUpTshirt className="icon-40" />}
+        {additional.type === 'key' && (
+          <div>
+            <TrendUpTshirt className="icon-40" />
+          </div>
+        )}
 
         <div className="font-inter text-body-sm md:text-body-md">
           <h4 className="font-bold">
