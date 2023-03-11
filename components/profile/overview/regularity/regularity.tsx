@@ -34,15 +34,17 @@ const RegularitySection = ({ data, playerName, team }: IProps) => {
             <ArrowRightIcon className="icon-16" />
           </>
         </Heading>
-        <InputSelect
-          name="Zespół"
-          items={mapTeamsWithCompetition(teamsList || [])}
-          inputName="teamId"
-          defaultValue={team.id}
-          size="small"
-          desktopSize="medium"
-          menuRightSide
-        />
+        <span className="md:hidden">
+          <InputSelect
+            name="Zespół"
+            items={mapTeamsWithCompetition(teamsList || [])}
+            inputName="teamId"
+            defaultValue={team.id}
+            size="small"
+            desktopSize="medium"
+            menuRightSide
+          />
+        </span>
       </div>
 
       <RegularityContent {...data} playerName={playerName} />
