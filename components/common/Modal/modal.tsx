@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useIsDesktop } from 'hooks/use-is-desktop'
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 
 import ModalContent from './content'
 import ModalFooter from './footer'
@@ -24,6 +24,7 @@ const Modal = ({ children, show, ...props }: IModalProps) => {
           animate={{ opacity: 1 }}
           transition={{ type: 'tween' }}
           key="modalxx"
+          onClick={props.closeModal}
         >
           <motion.div
             className="flex max-h-full w-full flex-col bg-white md:h-full md:w-[30rem]"
@@ -32,6 +33,7 @@ const Modal = ({ children, show, ...props }: IModalProps) => {
             exit="exit"
             animate="animate"
             transition={{ type: 'tween', duration: 0.3 }}
+            onClick={(e: MouseEvent) => e.stopPropagation()}
           >
             <ModalHeader {...props} showBar={showHeaderBar} />
             <ModalContent
