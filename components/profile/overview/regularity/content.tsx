@@ -24,7 +24,7 @@ export const RegularityContent = ({
 
   return (
     <div>
-      <div className="mt-7 mb-8 flex items-center gap-7 bg-white p-5 pl-7 shadow-default">
+      <div className="mt-7 mb-8 flex items-center gap-7 bg-white p-5 pl-7 shadow-default md:mt-8">
         {additional.type === 'regular' && (
           <Image
             src={additional.teamLogoUrl || ''}
@@ -50,6 +50,9 @@ export const RegularityContent = ({
           </p>
         </div>
       </div>
+      <h4 className="hidden pb-8 font-poppins text-heading-micro font-bold text-dark md:block">
+        Regularność gry
+      </h4>
       <div className="flex items-center gap-7 md:gap-10">
         <ChartPie
           bench={bench}
