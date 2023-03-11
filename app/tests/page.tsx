@@ -8,6 +8,7 @@ import Banner from '@/components/common/Banner/banner'
 import { Button } from '@/components/common/Button/Button'
 import { Chips } from '@/components/common/Chips/Chips'
 import MatchResult from '@/components/common/Match-result/match-result'
+import Modal from '@/components/common/Modal/modal'
 import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 import { InputSelect, StateSelect } from '@/components/common/Select/select'
 import Tabs from '@/components/common/Tabs/tabs'
@@ -21,6 +22,8 @@ import { tabs, testMatchResultData, testSelectItems } from './data'
 const TestingPage = () => {
   const [currentSelectValue, setCurrentSelectValue] = useState<string>()
   const { data } = useProfileHeader('69')
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modal2Open, setModal2Open] = useState(false)
 
   return (
     <>
@@ -91,6 +94,93 @@ const TestingPage = () => {
           <Tooltip text="Powiadomienia" padding>
             <GraphIcon className="icon-24" />
           </Tooltip>
+        </div>
+
+        <div>
+          <Button
+            text="Open modal"
+            intent="primary"
+            size="medium"
+            onClick={() => setModalOpen(true)}
+          />
+          <Modal
+            title="Szukam klubu"
+            caption="Aktualny status"
+            show={modalOpen}
+            closeModal={() => setModalOpen(false)}
+            btnPrimaryText="Ok"
+            btnSecondaryText="Close"
+            btnPrimaryClick={() => setModalOpen(false)}
+            btnSecondaryClick={() => setModalOpen(false)}
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+          </Modal>
+        </div>
+        <div>
+          <Button
+            text="Open modal2"
+            intent="primary"
+            size="medium"
+            onClick={() => setModal2Open(true)}
+          />
+          <Modal
+            title="Szukam klubu"
+            caption="Aktualny status"
+            show={modal2Open}
+            closeModal={() => setModal2Open(false)}
+            btnPrimaryText="Ok"
+            btnSecondaryText="Close"
+            btnPrimaryClick={() => setModal2Open(false)}
+            btnSecondaryClick={() => setModal2Open(false)}
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Iaculis nulla nunc nibh
+              risus velit massa phasellus praesent amet. Porttitor tellus
+              imperdiet nec dapibus. Ullamcorper vitae elit id lacus tortor. In
+              est leo eu purus commodo duis tortor velit scelerisque.
+            </p>
+          </Modal>
         </div>
       </main>
     </>

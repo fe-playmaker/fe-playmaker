@@ -5,7 +5,7 @@ import MatchTableIconLegend from './icon-legend'
 import MatchesTable from './table/matches-table'
 
 const seasonHeadingCva = cva(
-  'text-heading-micro font-poppins font-bold ml-6 pb-3',
+  'text-heading-micro font-poppins font-bold ml-6 md:ml-8 pb-3',
   {
     variants: {
       season: {
