@@ -9,6 +9,7 @@ import { Avatar } from '@/components/common/Avatar/Avatar'
 import SearchingForClubBanner from '@/components/common/Banner/templates/searchingForClub'
 import { PlayMakerScore } from '@/components/common/Score/PlayMakerScore'
 
+import PremiumBadge from './premium-badge'
 import SearchingForClubModal from './searching-for-club-modal'
 
 TimeAgo.addDefaultLocale(pl)
@@ -40,11 +41,7 @@ const HeaderContent = ({
             type={premium ? 'premium' : 'border'}
           />
           <div className="md:flex md:flex-col md:gap-2">
-            {premium && (
-              <div className="hidden w-[4.313rem] rounded px-3 py-2 font-inter text-body-sm font-bold text-[#553E02] premium-badge-bg md:block">
-                <span>Premium</span>
-              </div>
-            )}
+            {premium && <PremiumBadge className="hidden self-start md:block" />}
             <h1 className="mt-5 text-heading-smaller font-bold text-dark md:mt-0 md:text-heading-md">
               {firstName} {lastName}
             </h1>
@@ -60,11 +57,7 @@ const HeaderContent = ({
           </div>
         </div>
         <div className="flex flex-col items-end gap-6 pt-4 md:flex-col-reverse md:pt-0">
-          {premium && (
-            <div className="rounded px-3 py-2 font-inter text-body-sm font-bold text-[#553E02] premium-badge-bg md:hidden">
-              Premium
-            </div>
-          )}
+          {premium && <PremiumBadge className="md:hidden" />}
           <PlayMakerScore score={score.value} trend={score.trend} />
         </div>
       </div>
