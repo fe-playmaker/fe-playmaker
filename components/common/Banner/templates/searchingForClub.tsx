@@ -12,6 +12,7 @@ const SearchingForClubBanner = ({ expectations }: IProps) => (
     btnText="Napisz"
     btnIcon={<SendIcon />}
     btnSize="extraSmall"
+    btnDesktopSize="small"
     btnIntent="primary"
     accentClass="before:bg-tertiary"
   >

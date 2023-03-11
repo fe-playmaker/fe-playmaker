@@ -11,6 +11,7 @@ interface IProps {
   btnIcon?: ButtonProps['icon']
   btnIntent?: ButtonProps['intent']
   btnSize?: ButtonProps['size']
+  btnDesktopSize?: ButtonProps['desktopSize']
   children: React.ReactElement | React.ReactElement[]
   accentClass?: string
   bgColor?: string
@@ -25,6 +26,7 @@ const Banner = ({
   btnSize,
   btnText,
   btnIntent,
+  btnDesktopSize,
   onBtnClick,
 }: IProps) => (
   <div
@@ -43,7 +45,7 @@ const Banner = ({
         <Button
           intent={btnIntent}
           size={btnSize}
-          desktopSize={btnSize}
+          desktopSize={btnDesktopSize}
           icon={btnIcon}
           text={btnText}
           onClick={onBtnClick}

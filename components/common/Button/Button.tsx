@@ -29,7 +29,7 @@ const buttonCva = cva(
       desktopSize: {
         large: 'md:text-label-xl md:px-9 md:py-5 md:gap-3',
         medium: 'md:text-label-lg md:px-8 md:py-4 md:gap-3',
-        small: 'md:text-label-md md:px-6md: md:py-[0.625rem] md:gap-2',
+        small: 'md:text-label-md md:px-6 md:py-[0.625rem] md:gap-2',
         extraSmall: 'md:text-label-md md:px-4 md:py-3 md:gap-2',
       },
     },
@@ -49,10 +49,10 @@ const iconCva = cva('group-disabled:fill-darkAlpha-20', {
       extraSmall: 'w-4 h-4',
     },
     desktopSize: {
-      large: '',
-      medium: '',
-      small: '',
-      extraSmall: 'md:w-5 md:h-5',
+      large: 'md:w-7 md:h-7',
+      medium: 'md:w-5 md:h-5',
+      small: 'md:w-5 md:h-5',
+      extraSmall: 'md:w-4 h-4',
     },
   },
 })
