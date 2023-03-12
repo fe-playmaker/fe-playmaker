@@ -9,6 +9,11 @@ const spinnerCva = cva('animate-spin', {
       medium: 'w-[2.5rem] stroke-[3px]',
       small: 'w-6 stroke-[2px]',
     },
+    desktopSize: {
+      large: 'md:w-[3.5rem] md:stroke-[4px]',
+      medium: 'md:w-[2.5rem] md:stroke-[3px]',
+      small: 'md:w-6 md:stroke-[2px]',
+    },
     theme: {
       brand: 'stroke-primary',
       default: 'stroke-dark dark:stroke-white',
