@@ -59,7 +59,7 @@ const PlayerTestPage = () => {
     overviewPMScoreLoading
 
   return (
-    <main className="z-0 flex min-h-screen flex-col">
+    <main className="z-0 flex flex-1">
       {headerData?.premium && <GradientedBg />}
       <AnimatePresence mode="wait">
         {isLoading ? (
@@ -69,7 +69,7 @@ const PlayerTestPage = () => {
             size="large"
           />
         ) : (
-          <div className="grid min-h-screen grid-cols-1 gap-7 md:grid-cols-[47.25rem_,1fr]">
+          <div className="grid flex-1 grid-cols-1 gap-7 md:grid-cols-[47.25rem_,1fr]">
             <TabContentWrapper
               key="profile-content"
               className="flex flex-1 flex-col"
