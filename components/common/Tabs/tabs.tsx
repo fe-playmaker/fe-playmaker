@@ -4,7 +4,8 @@ import { Tab } from '@headlessui/react'
 import { cva, VariantProps } from 'class-variance-authority'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useQueryParams } from 'hooks/useQueryParams'
+import { usePushQueryParams } from 'hooks/usePushQueryParams'
+import { useSearchParams } from 'next/navigation'
 import { useContext, useEffect } from 'react'
 
 import { TabsIndexContext } from './index-context'
@@ -38,26 +39,16 @@ interface TabsProps extends VariantProps<typeof tabsCva> {
 
 const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
   const { tabIndex, setTabIndex } = useContext(TabsIndexContext)
-  const { pathname, router, params, key } = useQueryParams('tab')
+  const pushQueryParams = usePushQueryParams()
+  const searchParams = useSearchParams()
+  const tabParams = searchParams.get('tab')
 
   useEffect(() => {
-    const getTabIndex = () => {
-      switch (params) {
-        case 'przegląd':
-          return 0
-        case 'kariera':
-          return 1
-        case 'mecze':
-          return 2
-        case 'playmaker score':
-          return 3
-        default:
-          return 0
-      }
-    }
+    const currentTab = tabs.findIndex(tab => tab.toLowerCase() === tabParams)
 
-    setTabIndex(getTabIndex())
-  }, [params, setTabIndex])
+    setTabIndex(currentTab)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const getScrollInline = (name: string) => {
     if (tabs[0] === name) return 'end'
@@ -78,7 +69,8 @@ const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
             className={tabsCva({ size, desktopSize })}
             key={name}
             onClick={(e: any) => {
-              router.push(`${pathname}?${key}=${name.toLowerCase()}`)
+              pushQueryParams(name.toLowerCase())
+
               setTimeout(() => {
                 e.target.scrollIntoView({
                   behavior: 'smooth',

@@ -2,16 +2,16 @@ import { useContext } from 'react'
 
 import { TabsIndexContext } from '@/components/common/Tabs/index-context'
 
-import { useQueryParams } from './useQueryParams'
+import { usePushQueryParams } from './usePushQueryParams'
 
 export const useGoToTab = () => {
   const { setTabIndex } = useContext(TabsIndexContext)
-  const { router, pathname, key } = useQueryParams('tab')
+  const pushQueryParams = usePushQueryParams()
 
   const goToTab = (idx: number, tabName: string) => {
     let lastScroll = 999999999
 
-    router.push(`${pathname}?${key}=${tabName}`)
+    pushQueryParams(tabName)
 
     window.scroll({
       top: 0,
