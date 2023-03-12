@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useIsDesktop } from 'hooks/use-is-desktop'
-import { MouseEvent, useState } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 
 import ModalContent from './content'
 import ModalFooter from './footer'
@@ -13,6 +13,16 @@ const Modal = ({ children, show, ...props }: IModalProps) => {
   const [showHeaderBar, setShowHeaderBar] = useState(false)
   const [showFooterBar, setShowFooterBar] = useState(false)
   const isDesktop = useIsDesktop()
+
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+    } else {
+      document.body.style.overflow = 'unset'
+      document.body.style.touchAction = 'auto'
+    }
+  }, [show])
 
   return (
     <AnimatePresence>
