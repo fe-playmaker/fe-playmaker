@@ -29,7 +29,7 @@ const Tooltip = ({ children, text, padding, bottom }: IProps) => {
         )}
         onTouchStart={() => setIsShown(false)}
       >
-        <div className="max-w-[20rem] bg-darkShade-40 px-4 py-[0.38rem] font-inter text-body-xs font-medium text-white">
+        <div className="max-w-[20rem] bg-darkShade-40 px-4 py-[0.38rem] text-center font-inter text-body-xs font-medium text-white">
           {text}
         </div>
       </div>
