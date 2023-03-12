@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { TProfilePMScore } from 'types/profile'
 
-import ChevronDownIcon from '@/icons/ChevronDown.svg'
+import { ShowMoreButton } from '@/components/common/ShowMoreButton/show-more-button'
 import TrendDownIcon from '@/icons/TrendDown.svg'
 import TrendUpIcon from '@/icons/Trendup.svg'
 
@@ -14,7 +14,7 @@ const PMScoreEvents = ({ events }: Pick<TProfilePMScore, 'events'>) => {
   const [show, setShowCount] = useState(3)
 
   return (
-    <SectionContainer layout>
+    <SectionContainer className="md:pb-6" layout>
       <Heading layout>Zdarzenia</Heading>
 
       <div className="overflow-hidden">
@@ -54,17 +54,7 @@ const PMScoreEvents = ({ events }: Pick<TProfilePMScore, 'events'>) => {
         ))}
       </div>
 
-      {show < events.length && (
-        <div className="flex justify-center bg-white pt-6">
-          <button
-            type="button"
-            className="flex items-center gap-2 text-label-sm font-medium text-darkAlpha-40"
-            onClick={() => setShowCount(value => value + 3)}
-          >
-            Pokaż kolejne <ChevronDownIcon className="w-5 fill-darkAlpha-40" />
-          </button>
-        </div>
-      )}
+      {show < events.length && <ShowMoreButton setShowCount={setShowCount} />}
     </SectionContainer>
   )
 }
