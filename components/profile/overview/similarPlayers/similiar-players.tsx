@@ -32,7 +32,7 @@ const SimiliarPlayersSection = ({ similarPlayers, className }: IProps) => {
       {similarPlayers.length > showCount && (
         <div className="flex justify-center">
           <button
-            className="flex items-center gap-2 pt-7 text-label-sm text-darkAlpha-40 md:pt-8 md:pb-4 md:text-label-md"
+            className="flex items-center gap-2 pt-5 text-label-sm text-darkAlpha-40 md:pb-4 md:text-label-md"
             type="button"
             onClick={() => setShowCount(val => val + 3)}
           >
