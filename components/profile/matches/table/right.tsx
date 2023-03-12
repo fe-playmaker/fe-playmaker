@@ -15,6 +15,7 @@ import {
   TableSummaryRow,
   TableSummaryValue,
 } from '@/components/common/Table'
+import Tooltip from '@/components/common/Tooltip/tooltip'
 import BallIcon from '@/icons/Ball.svg'
 import ClockIcon from '@/icons/ClockVariant.svg'
 import GraphIcon from '@/icons/Graph.svg'
@@ -29,14 +30,24 @@ const MatchesTableRightPart = ({
   data: { avgMatch, matches, total },
 }: IProps) => (
   <TableRightColumn>
-    <TableHeaderRow>
+    <TableHeaderRow className="overflow-y-visible">
       <WhistleIcon className="fill-darkAlpha-40 icon-16" />
-      <ClockIcon className="fill-darkAlpha-40 icon-16 " />
+      <Tooltip text="Minuty" padding bottom>
+        <ClockIcon className="fill-darkAlpha-40 icon-16" />{' '}
+      </Tooltip>
       {total.goals !== undefined && (
-        <BallIcon className="fill-darkAlpha-40 icon-16 " />
+        <Tooltip text="Bramki" padding bottom>
+          <BallIcon className="fill-darkAlpha-40 icon-16" />
+        </Tooltip>
       )}
-      {total.clearAccounts !== undefined && <ShieldIcon className="icon-16 " />}
-      <GraphIcon className="fill-darkAlpha-40 icon-16 " />
+      {total.clearAccounts !== undefined && (
+        <Tooltip text="Czyste konta" padding bottom>
+          <ShieldIcon className="icon-16" />
+        </Tooltip>
+      )}
+      <Tooltip text="PlayMaker Score" padding bottom>
+        <GraphIcon className="fill-darkAlpha-40 icon-16 " />
+      </Tooltip>
       <TableHeaderYellowCard />
       <TableHeaderRedCard />
       <TableHeaderText text="Dodatkowe" className="justify-self-end" />
