@@ -11,7 +11,7 @@ import { TProfileOverview } from 'types/profile'
 import { sliderSettings } from '../helpers'
 
 const SliderItem = ({ title, icon }: TProfileOverview['inShort'][number]) => (
-  <div className="mx-auto flex w-[7rem] flex-col items-center gap-3 p-3 pb-5 ">
+  <div className="mx-auto flex w-[7rem] flex-col items-center gap-3 p-3 pb-5 md:pb-0">
     <Image
       src={icon}
       alt="icon"
