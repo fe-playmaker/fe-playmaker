@@ -44,14 +44,15 @@ const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
   const tabParams = searchParams.get('tab')
 
   useEffect(() => {
-    const currentTab = tabs.findIndex(tab => tab.toLowerCase() === tabParams)
-
     if (!tabParams) {
       setTabIndex(0)
-      return
-    }
+    } else {
+      const currentTab = tabs.findIndex(
+        tab => tab.toLowerCase() === tabParams.toLowerCase(),
+      )
 
-    setTabIndex(currentTab)
+      setTabIndex(currentTab)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
