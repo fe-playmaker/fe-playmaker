@@ -69,7 +69,7 @@ const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
             className={tabsCva({ size, desktopSize })}
             key={name}
             onClick={(e: any) => {
-              pushQueryParams(name.toLowerCase())
+              pushQueryParams({ tab: name.toLowerCase() })
 
               setTimeout(() => {
                 e.target.scrollIntoView({

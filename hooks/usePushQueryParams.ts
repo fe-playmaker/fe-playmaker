@@ -1,15 +1,16 @@
 'use client'
 
-import { useRouter } from 'next/dist/client/router'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import qs from 'qs'
 
 export const usePushQueryParams = () => {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
-  const pushQueryParams = (key: string) => {
-    router.push(`${pathname}`, { query: { param: 'value' } })
+  const pushQueryParams = (newParams: { [key: string]: string }) => {
+    const queryString = qs.stringify({ ...newParams }, { encode: false })
+
+    router.push(`${pathname}?${queryString}`)
   }
 
   return pushQueryParams
