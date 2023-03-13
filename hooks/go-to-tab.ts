@@ -11,7 +11,7 @@ export const useGoToTab = () => {
   const goToTab = (idx: number, tabName: string) => {
     let lastScroll = 999999999
 
-    pushQueryParams(tabName)
+    pushQueryParams({ tab: tabName })
 
     window.scroll({
       top: 0,
