@@ -53,8 +53,7 @@ const Tabs = ({ size, tabs, children, desktopSize, className }: TabsProps) => {
 
       setTabIndex(currentTab)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [setTabIndex, tabParams, tabs])
 
   const getScrollInline = (name: string) => {
     if (tabs[0] === name) return 'end'
