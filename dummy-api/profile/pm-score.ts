@@ -1,7 +1,7 @@
 import { TProfilePMScore } from 'types/profile'
 
 export const profilePMScoreData: TProfilePMScore = {
-  comparisonPercentage: 55,
+  comparisonPercentage: 32,
   events: [
     {
       trend: 'up',
