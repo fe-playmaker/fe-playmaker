@@ -1,7 +1,9 @@
+import clsx from 'clsx'
+
 import IlustrationLeft from '@/icons/pm-score-comparison/Ilustration-left.svg'
 import IlustrationMiddle from '@/icons/pm-score-comparison/Ilustration-middle.svg'
 import IlustrationRight from '@/icons/pm-score-comparison/Ilustration-right.svg'
-import PointerIcon from '@/icons/pm-score-comparison/Pointer.svg'
+import PointerIcon from '@/icons/pm-score-comparison/Union.svg'
 
 import { getPointerRotate } from './utils'
 
@@ -12,20 +14,24 @@ const ComparisonIlustration = ({
 }) => (
   <div className="relative mt-7 flex justify-center">
     <Ilustration
-      className="w-[21.875rem] md:w-[24rem]"
+      className="w-[21.875rem] md:w-[23rem]"
       value={comparisonPercentage}
     />
     <div
-      className="absolute -bottom-[2.4rem] flex h-[5rem] w-[5rem] items-center justify-center"
-      style={{
-        transform: `rotate(${getPointerRotate(comparisonPercentage)}deg)`,
-      }}
+      className={clsx(
+        'absolute -bottom-8 flex max-h-[4.5rem] max-w-[4.5rem] items-center justify-center',
+
+        comparisonPercentage > 49 && comparisonPercentage < 100
+          ? 'mr-[8%] md:mr-[12%]'
+          : 'mr-[4%] md:mr-[4%]',
+      )}
     >
-      {/* helper center box */}
-      {/* <div className="absolute z-20 h-[20%] w-[20%] bg-primary" /> */}
-      <div className="absolute mt-[24%] mr-[14.8%] h-full w-full md:mt-[15%] md:mr-[30%]">
-        <PointerIcon className="md:w-[5.5rem]" />
-      </div>
+      <PointerIcon
+        className="origin-[59.3%_50%] pt-2"
+        style={{
+          transform: `rotate(${getPointerRotate(comparisonPercentage)}deg)`,
+        }}
+      />
     </div>
   </div>
 )
