@@ -21,7 +21,7 @@ const ComparisonIlustration = ({
       className={clsx(
         'absolute -bottom-8 flex max-h-[4.5rem] max-w-[4.5rem] items-center justify-center',
 
-        comparisonPercentage >= 50 && comparisonPercentage <= 100
+        comparisonPercentage > 49 && comparisonPercentage < 100
           ? 'mr-[8%] md:mr-[12%]'
           : 'mr-[4%] md:mr-[4%]',
       )}
@@ -49,10 +49,9 @@ const Ilustration = ({
   // 30 - 49
   // 50 - 100
 
-  if (value >= 50) return <IlustrationLeft className={className} />
+  if (value > 49) return <IlustrationLeft className={className} />
 
-  if (value >= 30 && value <= 49)
-    return <IlustrationMiddle className={className} />
+  if (value > 29) return <IlustrationMiddle className={className} />
 
   return <IlustrationRight className={className} />
 }
